@@ -1,9 +1,15 @@
-# Flask React Project
-
-This is the starter for the Flask React project.
-
 ## Getting started
 1. Clone this repository (only this branch)
+
+Type the command:
+```
+$ node --version
+```
+You should be on node version 16, if you are not type:
+```
+$ nvm install 16
+$ nvm use 16
+```
 
 2. Install dependencies
 
@@ -11,7 +17,7 @@ This is the starter for the Flask React project.
       pipenv install -r requirements.txt
       ```
 
-3. Create a **.env** file based on the example with proper settings for your
+3. Rename the **.env.example** file to **.env** based on the example with proper settings for your
    development environment
 
 4. Make sure the SQLite3 database connection URL is in the **.env** file
