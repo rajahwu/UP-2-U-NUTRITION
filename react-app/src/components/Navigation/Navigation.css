@@ -5,3 +5,56 @@
 .hidden {
   display: none;
 }
+
+.orange-line {
+  border: 3px solid #d98c00;
+}
+
+.red-line {
+  border: 3px solid #d52540;
+}
+
+.green-line {
+  border: 3px solid #5eac00;
+}
+
+.blue-line {
+  border: 3px solid #0093d3;
+}
+
+.logo {
+  /* border: 1px solid pink; */
+  display: flex;
+  justify-content: center;
+}
+
+.logo2 {
+  /* border: 1px solid blue; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.nutrition-logo {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-logo {
+  /* border: 1px solid black; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sub-icon {
+  width: 100px;
+}
+
+#cart-icon {
+  width: 80%;
+}
