@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import './LandingPage.css'
 
 
 const LandingPage = () => {
@@ -8,7 +8,7 @@ const LandingPage = () => {
 
 
     return (
-        <div> Hello World</div>
+        <div>Hello World</div>
     )
 }
 
