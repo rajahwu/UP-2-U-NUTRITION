@@ -11,8 +11,8 @@ const LandingPage = () => {
                     <div className="red-line-order">
                         <div className="green-line-order">
                             <div className="start-order">
-                                <h4>Don't forget to try our delicious Strawberry Cheesecake Supah Shake</h4>
-                                <button className="landing-page-button">Start your order</button>
+                                <h2>Don't forget to try our delicious Strawberry Cheesecake Supah Shake</h2>
+                                <button className="landing-page-button">START YOUR ORDER</button>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,6 @@ const LandingPage = () => {
             </div>
 
         </div>
-
     )
 }
 

@@ -21,6 +21,18 @@
 
 .landing-page-button {
     background-color: #5eac00;
+    border: none;
+    padding: 2% 11%;
+    border-radius: 5px;
+    color: white;
+    font-size: 23.5px;
+    cursor: pointer;
+}
+
+.landing-page-button:hover {
+    color: #5eac00;
+    background-color: white;
+    transition: all 0.2s ease-in;
 }
 
 
@@ -58,5 +70,10 @@
     justify-content: center;
     align-items: center;
     border: 5px solid #d98c00;
-    height: 50%;
+    height: 40%;
+}
+
+.start-order>h2 {
+    width: 60%;
+    text-align: center;
 }
