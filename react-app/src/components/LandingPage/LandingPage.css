@@ -1,4 +1,6 @@
-.landing-page-photo {}
+body {
+    font-family: 'League Spartan', sans-serif;
+}
 
 .landing-page {
     background-size: cover;
