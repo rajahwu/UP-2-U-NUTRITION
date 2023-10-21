@@ -5,3 +5,31 @@
 .hidden {
   display: none;
 }
+
+.logo {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo2 {
+  /* border: 1px solid purple; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.cart {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#main-logo {
+  width: 80%;
+}
+
+#sub-icon {
+  width: 100px;
+}
