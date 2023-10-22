@@ -14,7 +14,9 @@ function Navigation({ isLoaded }) {
 					<NavLink exact to="/"><img id="main-logo" src="https://i.imgur.com/CMlgCNO.png"></img></NavLink>
 				</div>
 				<div className='logo2'>
-					<NavLink exact to="/our-story"><img id="sub-icon" src="https://i.imgur.com/Jq9BowW.png"></img></NavLink>
+					<NavLink exact to="/our-story"><img id="sub-icon"
+						src="https://i.imgur.com/Jq9BowW.png" className='ourstory-1'></img></NavLink>
+					{/* <NavLink exact to="/our-story"><img id="sub-icon" src="https://i.imgur.com/bmwn5DQ.png" className='ourstory-2'></img></NavLink> */}
 					<NavLink exact to="/menu"><img id="sub-icon" src="https://i.imgur.com/6HBCQjQ.png"></img></NavLink>
 					<NavLink exact to="/events"><img id="sub-icon" src="https://i.imgur.com/cPARxw9.png"></img></NavLink>
 					<NavLink exact to="/your-story"><img id="sub-icon" src="https://i.imgur.com/5hyTKlI.png"></img></NavLink>
