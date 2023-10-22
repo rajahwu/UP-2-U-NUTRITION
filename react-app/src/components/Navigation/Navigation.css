@@ -59,7 +59,7 @@
   width: 80%;
 }
 
-.ourstory-1 {
+/* .ourstory-1 {
   transition: opacity 0.3s;
 
 }
@@ -67,7 +67,7 @@
 .ourstory-1:hover {
   opacity: 0;
   background-image: url('https://i.imgur.com/bmwn5DQ.png');
-}
+} */
 
 /* .ourstory-1:before {
   content: "";
