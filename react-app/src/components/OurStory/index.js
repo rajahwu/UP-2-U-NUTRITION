@@ -20,6 +20,17 @@ const OurStory = () => {
                     Occaecat veniam quis aute mollit. Sit nisi sint in exercitation anim. Exercitation sit anim velit amet dolore duis in labore deserunt quis dolore sunt. Eiusmod irure consequat laborum cupidatat cupidatat. Dolor consequat minim qui ex nostrud incididunt ea. Pariatur occaecat ut occaecat ut labore voluptate aliqua mollit do duis.
 
                     Do in ad mollit deserunt ad laboris consequat sit ut esse irure deserunt quis duis. Quis minim culpa tempor excepteur consectetur cupidatat. Fugiat id occaecat nisi et. Qui enim dolore in dolore proident qui ipsum mollit esse quis sint culpa cupidatat incididunt. Ex est enim nostrud id nulla tempor laborum labore voluptate quis exercitation magna ad. Incididunt occaecat anim deserunt ipsum qui exercitation eiusmod enim id adipisicing ullamco.</div>
+                <div className="sponsored-athletes-section">
+                    <div id="sponsor-title">SPONSORING</div>
+                    <div className="sponsored-photo">
+                        <img id="athlete-photo" src="https://i.imgur.com/1cOjm5m.jpg"></img>
+                        <img id="athlete-photo" src="https://i.imgur.com/2myB6YT.jpg"></img>
+                        <img id="athlete-photo" src="https://i.imgur.com/kPFgWne.jpg"></img>
+                        <img id="athlete-photo" src="https://i.imgur.com/jQ4PuZd.jpg"></img>
+                        <img id="athlete-photo" src="https://i.imgur.com/ZYnFvyS.jpg"></img>
+                        <img id="athlete-photo" src="https://i.imgur.com/mQhdOaT.jpg"></img>
+                    </div>
+                </div>
             </div>
         </div>
     )

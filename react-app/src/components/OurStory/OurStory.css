@@ -39,10 +39,48 @@
 
 .ourstory-body {
     margin-top: 4%;
+    text-align: center;
+    /* border: 1px solid red; */
+    width: 90%;
 }
 
 .ourstory-page-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#sponsor-title {
+    font-size: 30px;
+    font-weight: 400;
+    color: white;
+    background-color: rgb(14, 137, 251);
+    padding: 8px 20px 2px 20px;
+    margin-top: 10%;
+    margin-bottom: 7%;
+}
+
+.sponsored-athletes-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sponsored-photo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 92%;
+}
+
+#athlete-photo {
+    width: 30%;
+    transition: transform 0.3s, filter 0.3s;
+    filter: brightness(1);
+}
+
+#athlete-photo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
