@@ -31,6 +31,33 @@ const OurStory = () => {
                         <img id="athlete-photo" src="https://i.imgur.com/mQhdOaT.jpg"></img>
                     </div>
                 </div>
+                <div className="ourstory-contact-section">
+                    <div className='address-content'>
+                        <span id="address-title">Address:</span>
+                        <br />
+                        <span id="address"> 1517 NW 23rd Ave, Gainesville, FL 32605 </span>
+                        <div className='hours-day-time'>
+                            <span> Hours:</span>
+                            <br />
+                            <span>Monday 7:30AM-8PM</span>
+                            <br />
+                            <span>Tuesday 7:30AM-8PM</span>
+                            <br />
+                            <span>Wednesday 7:30AM-8PM</span>
+                            <br />
+                            <span>Thursday 7:30AM-8PM</span>
+                            <br />
+                            <span>Friday 7:30AM-8PM</span>
+                            <br />
+                            <span>Saturday 9AM-3PM</span>
+                            <br />
+                            <span>Sunday 9AM-3PM</span>
+                            <br />
+                        </div>
+                        <span id="phone-number">Phone: (786) 651-1153 </span>
+                        <br />
+                    </div>
+                </div>
             </div>
         </div>
     )
