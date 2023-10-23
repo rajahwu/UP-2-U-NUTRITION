@@ -1,0 +1,19 @@
+.menu {
+    margin: 50px auto;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-nav-categories {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.menu-nav-categories div {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
+}
