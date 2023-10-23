@@ -18,6 +18,12 @@
     color: #000000;
 }
 
+.category {
+    width: 100px;
+    margin: auto;
+    line-height: 28px;
+}
+
 .menu-item-container {
     display: flex;
     width: 80%;

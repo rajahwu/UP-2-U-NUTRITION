@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { MenuNav } from "./menuNav";
+import { MenuNav } from "./MenuNav";
 import { menuItemArray } from "./fauxMenu-TEMP";
 import './MenuPage.css'
 
@@ -9,7 +9,6 @@ const MenuPage = () => {
     // const test = () => {
     //     console.log(menuObject[0].image)
     // }
-
 //add an onload feature
     return (
         <div className="menu">
