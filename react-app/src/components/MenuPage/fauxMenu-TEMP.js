@@ -3,7 +3,7 @@ export const menuObject = [
         'id': 1,
         'name': 'Strawberry Cheesecake',
         'category': 'supah shakes',
-        'image': '/image/strawberry_milkshake.webp',
+        'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -38,7 +38,7 @@ export const menuObject = [
         'id': 2,
         'name': 'BLUE Cheesecake',
         'category': 'supah shakes',
-        'image': '/image/strawberry_milkshake.webp',
+        'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -73,7 +73,7 @@ export const menuObject = [
         'id': 3,
         'name': 'RED Cheesecake',
         'category': 'supah shakes',
-        'image': '/image/strawberry_milkshake.webp',
+        'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -108,7 +108,7 @@ export const menuObject = [
         'id': 4,
         'name': 'ORANGE Cheesecake',
         'category': 'supah shakes',
-        'image': '/image/strawberry_milkshake.webp',
+        'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -143,7 +143,7 @@ export const menuObject = [
         'id': 5,
         'name': 'BLACK Cheesecake',
         'category': 'supah shakes',
-        'image': '/image/strawberry_milkshake.webp',
+        'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
