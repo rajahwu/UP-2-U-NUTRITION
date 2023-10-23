@@ -1,58 +1,28 @@
 import { useEffect, useState } from "react";
 
-import {MenuNav} from "./MenuNav";
+import { MenuNav } from "./MenuNav";
 import { menuItemArray } from "./fauxMenu-TEMP";
+import { BackCardItem, FrontCardItem} from "./utility/card-shape";
 import "./MenuPage.css";
 
 const MenuPage = () => {
-  // const [isFlip, setIsFlip] = useState(false);
+  //Variable to hold which card should be flipped.
+  //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
-
-  useEffect(() => {
-    console.log(flippedCardId)
-  }, [flippedCardId])
-
-  // const test = () => {
-  //     console.log(menuItemArray[0].image)
-  // }
 
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
 
-    setFlippCardId(e.target.id)
-    // console.log(e.target.id)
+    //logic to flip over a new card or flip back a card already clicked
+    //used double equality to match string numbers against int
+    if (flippedCardId == e.target.id) {
+      setFlippCardId(Infinity);
+    } else {
+      setFlippCardId(e.target.id);
+    }
   };
 
-  const frontCardItem = (item, i) => {
-    return (
-      <div id={i} className="card">
-        <div
-          className="menu-item front-card"
-          id={i}
-        >
-          <div id={i}>{item.name}</div>
-          <img id={i} src={item.image} alt='' />
-        </div>
-      </div>
-    )
-  }
-
-  const backCardItem = (item, i) => {
-    return (
-      <div id={i} className="card">
-        <div
-          className="menu-item back-card"
-          id={i}
-        >
-          <div id={i}>{item.name}</div>
-          <div id={i}>{item.ingredients}</div>
-          {/* <div>{item.nutrition_table}</div> */}
-        </div>
-      </div>
-    )
-  }
-  //add an onload feature
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
@@ -60,10 +30,11 @@ const MenuPage = () => {
       <div className="menu-item-container">
         {menuItemArray.map((item, i) => {
           return (
-            <div id={i}
-              key={i}>
+            <div id={i} key={i}>
               <div id={i} onClick={flipCard}>
-                {flippedCardId == i ? backCardItem(item, i) : frontCardItem(item, i)}
+                {flippedCardId == i
+                  ? BackCardItem(item, i)
+                  : FrontCardItem(item, i)}
               </div>
               <button>Add to cart</button>
             </div>
