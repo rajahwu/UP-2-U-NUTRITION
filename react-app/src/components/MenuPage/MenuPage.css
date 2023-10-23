@@ -17,3 +17,9 @@
     font-size: 24px;
     color: #000000;
 }
+
+.category {
+    width: 100px;
+    margin: auto;
+    line-height: 28px;
+}
