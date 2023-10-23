@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-import { MenuNav } from "./MenuNav";
+import {MenuNav} from "./MenuNav";
 import { menuItemArray } from "./fauxMenu-TEMP";
 import "./MenuPage.css";
 
 const MenuPage = () => {
   // const [isFlip, setIsFlip] = useState(false);
-  const [flippedCardId, setFlippCardId] = useState(0);
+  const [flippedCardId, setFlippCardId] = useState(Infinity);
 
   useEffect(() => {
     console.log(flippedCardId)
@@ -21,7 +21,7 @@ const MenuPage = () => {
     e.preventDefault();
 
     setFlippCardId(e.target.id)
-    console.log(e.target.id)
+    // console.log(e.target.id)
   };
 
   const frontCardItem = (item, i) => {
@@ -63,7 +63,7 @@ const MenuPage = () => {
             <div id={i}
               key={i}>
               <div id={i} onClick={flipCard}>
-                {flippedCardId === i ? backCardItem(item, i) : frontCardItem(item, i)}
+                {flippedCardId == i ? backCardItem(item, i) : frontCardItem(item, i)}
               </div>
               <button>Add to cart</button>
             </div>
