@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+
+import { MenuNav } from "./menuNav";
+
 import './MenuPage.css'
 
 
@@ -6,9 +9,11 @@ import './MenuPage.css'
 const MenuPage = () => {
 
 
-
     return (
-        <div>Menu</div>
+        <div className="menu">
+            <div className="headers">OUR MENU</div>
+            <MenuNav />
+        </div>
     )
 }
 
