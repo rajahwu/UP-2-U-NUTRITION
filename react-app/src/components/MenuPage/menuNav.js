@@ -1,5 +1,6 @@
 export const MenuNav = () => {
 
+    //move to util file later
     const menuCat = [
         'combos',
         'supah shakes',
@@ -8,17 +9,12 @@ export const MenuNav = () => {
         'stays active',
         'goodies'
     ]
-    /* hard code categories for now
-
-    if we have time come back to make them variables
-    and add edit so Nico can change the name if he wants.
-    */
 
     return (
         <div className="menu-nav-categories">
             {menuCat.map((cat, i) =>
                 <div
-                    key={i}
+                    key={`category-${i}`}
                     className="category"
                 >
                     {cat}
