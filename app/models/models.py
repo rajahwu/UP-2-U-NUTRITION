@@ -11,17 +11,18 @@ class Menu(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('users.id')),nullable= False)
-    name = db.Column(db.String(), nullable=False)
     ingredients = db.Column(db.String(), nullable=False)
     nutrition = db.Column(db.String())
+    price = db.Column(db.Float(), nullable=False)
     created_at = db.Column(db.Date(), nullable=False)
 
     user = db.relationship('User', back_populates = 'menus')
 
     def __repr__(self):
-        return f'<User {self.id}, {self.user.username}, created Menu item #{self.id}'
+        return f'<Menu {self.id}, {self.user.username}, created Menu item #{self.id}'
 
     def to_dict(self):
         return{
