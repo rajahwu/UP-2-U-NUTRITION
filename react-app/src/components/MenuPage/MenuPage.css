@@ -18,7 +18,7 @@
     color: #000000;
 }
 
-.container {
+.menu-item-container {
     display: flex;
     width: 80%;
     margin: auto;

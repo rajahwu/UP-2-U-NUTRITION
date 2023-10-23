@@ -5,7 +5,6 @@ import { menuItemArray } from "./fauxMenu-TEMP";
 import './MenuPage.css'
 
 
-
 const MenuPage = () => {
     // const test = () => {
     //     console.log(menuObject[0].image)
@@ -16,7 +15,10 @@ const MenuPage = () => {
         <div className="menu">
             <div className="headers">OUR MENU</div>
             <MenuNav />
-            <div className="container">
+            <div className="menu-item-container">
+
+
+
             {menuItemArray.map((item) => {
                     return(
                         <div className="menu-item" key={`item-${item.id}`}>
