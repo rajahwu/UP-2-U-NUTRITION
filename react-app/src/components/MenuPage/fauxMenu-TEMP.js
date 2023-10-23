@@ -1,11 +1,9 @@
-
-
-
 export const menuItemArray = [
     {
         'id': 1,
         'name': 'Strawberry Cheesecake',
         'category': 'supah shakes',
+        'category_flip': false,
         'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -41,6 +39,7 @@ export const menuItemArray = [
         'id': 2,
         'name': 'BLUE Cheesecake',
         'category': 'supah shakes',
+        'category_flip': false,
         'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -76,6 +75,7 @@ export const menuItemArray = [
         'id': 3,
         'name': 'RED Cheesecake',
         'category': 'supah shakes',
+        'category_flip': false,
         'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -111,6 +111,7 @@ export const menuItemArray = [
         'id': 4,
         'name': 'ORANGE Cheesecake',
         'category': 'supah shakes',
+        'category_flip': false,
         'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -146,6 +147,7 @@ export const menuItemArray = [
         'id': 5,
         'name': 'BLACK Cheesecake',
         'category': 'supah shakes',
+        'category_flip': false,
         'image': '/images/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',

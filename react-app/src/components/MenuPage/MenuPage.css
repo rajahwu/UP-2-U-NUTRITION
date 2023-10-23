@@ -27,11 +27,21 @@
 .menu-item-container {
     display: flex;
     width: 80%;
+    gap: 10px;
     margin: auto;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    width: 250px;
+    border: 1px solid rgba(196, 196, 196, 1);
+    border-radius: 10px;
+}
+
 .menu-item {
-    width: 30%;
+    /* width: 30%; */
     margin: auto;
 }
 
