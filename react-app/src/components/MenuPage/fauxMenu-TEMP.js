@@ -1,4 +1,4 @@
-export const menuObject = [
+export const menuItemArray = [
     {
         'id': 1,
         'name': 'Strawberry Cheesecake',
