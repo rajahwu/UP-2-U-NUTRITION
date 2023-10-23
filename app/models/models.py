@@ -15,6 +15,7 @@ class Menu(db.Model):
         add_prefix_for_prod('users.id')),nullable= False)
     name = db.Column(db.String(), nullable=False)
     ingredients = db.Column(db.String(), nullable=False)
+    nutrition = db.Column(db.String())
     created_at = db.Column(db.Date(), nullable=False)
 
     user = db.relationship('User', back_populates = 'menus')
