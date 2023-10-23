@@ -16,5 +16,3 @@ const MenuPage = () => {
 }
 
 export default MenuPage
-
-//write a react component that renders only 4 elements of an array per page
