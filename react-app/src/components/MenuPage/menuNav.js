@@ -14,8 +14,8 @@ export const MenuNav = ({ changeCat }) => {
 
   const clickHandler = (e) => {
     console.log(e.target.id)
-    if(e.target.id === "supah shakes") changeCat(supahShakes)
-    else if(e.target.id === "special teas") changeCat(specialTeas)
+    if (e.target.id === "supah shakes") changeCat(supahShakes)
+    else if (e.target.id === "special teas") changeCat(specialTeas)
   };
 
   return (

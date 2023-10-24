@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { MenuNav } from "./MenuNav";
+import { MenuNav } from "./MenuNav.js";
 
 import { supahShakes } from "./utility/menu/supah-shakes";
 import { specialTeas } from "./utility/menu/special-teas";
-import { BackCardItem, FrontCardItem} from "./utility/card-shape";
+import { BackCardItem, FrontCardItem } from "./utility/card-shape";
 import "./MenuPage.css";
 
 const MenuPage = () => {
@@ -13,10 +13,10 @@ const MenuPage = () => {
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes)
 
-    const setCatagory = (cat) => {
-        setCurrentMenuCatagory(cat)
-        console.log(cat)
-    }
+  const setCatagory = (cat) => {
+    setCurrentMenuCatagory(cat)
+    console.log(cat)
+  }
 
   //function to flip the card when clicked
   const flipCard = async (e) => {
@@ -34,7 +34,7 @@ const MenuPage = () => {
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
-      <MenuNav changeCat = {setCatagory}/>
+      <MenuNav changeCat={setCatagory} />
       <div className="menu-item-container">
         {currentMenuCatagory.map((item, i) => {
           return (
