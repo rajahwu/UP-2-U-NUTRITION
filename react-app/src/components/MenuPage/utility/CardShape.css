@@ -8,6 +8,7 @@
 
 .card-body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -21,32 +22,35 @@
     cursor: pointer;
 }
 
+.card-content-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 420px;
+    width: 250px;
+    align-items: center;
+    position: relative;
+}
+
 .product-name-front {
-    text-align: center;
     font-weight: bold;
     width: 200px;
     position: absolute;
-    transform: translate(30%, 200px);
+    margin: auto;
     font-size: 35px;
     letter-spacing: 0.88px;
-    position: absolute;
-    z-index: 2;
 }
 
 .product-image {
     width: 320px;
     position: relative;
-    /* margin: auto; */
     z-index: -1;
-    transform: translate(0, -30px);
 }
 
 .product-price {
-    text-align: center;
     font-size: 20px;
     position: absolute;
-    transform: translate(135px, -35px);
-    z-index: 1;
+    margin-bottom: -350px;
 }
 
 .card-content-back {

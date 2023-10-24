@@ -4,20 +4,21 @@ import "./CardShape.css";
 export const BackCardItem = (item, i) => {
   return (
     <div id={i} className="card-body back-card">
-      <div className="card-content-back" id={i}>
-        <div className="product-name-back" id={i}>{item.name}</div>
-        <div className="product-ingredients" id={i}>
+      <div id={i} className="card-content-back">
+        <div id={i} className="product-name-back">{item.name}</div>
+        <div id={i} className="product-ingredients">
           {item.ingredients.map((ingredient, j) => {
             return (
-              <div key={`ingredient-${j}`}>
+              <div key={j}>
                 <div>{ingredient}</div>
               </div>
             )
-          })}</div>
+          })}
+        </div>
         <div className="product-nutrition">
           {item.nutrition_table.map((nutrition, k) => {
             return (
-              <div key={`nutrition-${k}`}>
+              <div key={k}>
                 <div>
                   {nutrition.nutrient}
                   {nutrition?.weight}
@@ -36,14 +37,15 @@ export const BackCardItem = (item, i) => {
 export const FrontCardItem = (item, i) => {
   return (
     <div id={i} className="card-body front-card">
-      <div className="card-content-front" id={i}>
-        <div className="product-name-front" id={i}>{item.name}</div>
-        <img className="product-image" id={i} src={item.image} alt="" />
-        <div className="product-price" id={i}>{item.price}</div>
+      <div id={i} className="card-content-front">
+        <div id={i} className="product-name-front">{item.name}</div>
+        <img id={i} className="product-image" src={item.image} alt="" />
       </div>
+      <div id={i} className="product-price">{item.price}</div>
     </div>
   );
 };
+
 //variable to store the shape of the front of the card
 export const EmptyCardItem = (item, i) => {
   return (

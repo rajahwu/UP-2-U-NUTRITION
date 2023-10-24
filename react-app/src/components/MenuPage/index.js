@@ -47,6 +47,7 @@ const MenuPage = () => {
     } else {
       setFlippCardId(e.target.id);
     }
+
   };
 
   return (
@@ -63,13 +64,14 @@ const MenuPage = () => {
           .slice(scrollPosition, scrollPosition + itemsPerPage)
           .map((item, i) => {
             return (
-              <div id={i} key={`${item.name}-${i}`}>
+              <div id={i} key={i}>
                 <div id={i} onClick={flipCard}>
                   {/* Condally render the front or the back */}
                   {flippedCardId == i
                     ? BackCardItem(item, i)
                     : FrontCardItem(item, i)
-                  }              </div>
+                  }
+                </div>
                 <button className="add-to-cart-btn">ADD TO CART</button>
               </div>
             );
