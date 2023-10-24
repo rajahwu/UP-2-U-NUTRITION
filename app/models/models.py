@@ -19,7 +19,7 @@ class Menu(db.Model):
     price = db.Column(db.Float(), nullable=False)
     created_at = db.Column(db.Date(), nullable=False)
 
-    user = db.relationship('User', back_populates = 'menus')
+    # user = db.relationship('User', back_populates = 'menus')
 
     def __repr__(self):
         return f'<Menu {self.id}, {self.user.username}, created Menu item #{self.id}'
