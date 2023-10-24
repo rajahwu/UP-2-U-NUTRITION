@@ -4,19 +4,32 @@ import { MenuNav } from "./menuNav";
 
 import { supahShakes } from "./utility/menu/supah-shakes";
 
-import { BackCardItem, FrontCardItem} from "./utility/card-shape";
+import { BackCardItem, FrontCardItem } from "./utility/card-shape";
 import "./MenuPage.css";
 
 const MenuPage = () => {
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
-  const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes)
+  const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes);
 
-    const setCatagory = (cat) => {
-        setCurrentMenuCatagory(cat)
-        console.log(cat)
-    }
+  const [scrollPos, setScrollPos] = useState(0);
+
+  const itemsPerPage = 4;
+  const maxScrollPos = Math.max(0, supahShakes.length - itemsPerPage);
+
+  const handleScrollLeft = () => {
+    if (scrollPos > 0) setScrollPos(scrollPos - 4);
+  };
+
+  const handleScrollRight = () => {
+    if (scrollPos < maxScrollPos) setScrollPos(scrollPos + 4);
+  };
+
+  const setCatagory = (cat) => {
+    setCurrentMenuCatagory(cat)
+    console.log(cat)
+  }
 
   //function to flip the card when clicked
   const flipCard = async (e) => {
@@ -34,21 +47,25 @@ const MenuPage = () => {
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
-      <MenuNav changeCat = {setCatagory}/>
+      <MenuNav changeCat={setCatagory} />
       <div className="menu-item-container">
-        {currentMenuCatagory.map((item, i) => {
+        <button onClick={handleScrollLeft}>{'<'}</button>
+        {currentMenuCatagory.slice(scrollPos, scrollPos + itemsPerPage).map((item, i) => {
           return (
             <div id={i} key={i}>
               <div id={i} onClick={flipCard}>
-                {/* Conditionally render the front or the back */}
+                {/* Condally render the front or the back */}
                 {flippedCardId == i
                   ? BackCardItem(item, i)
-                  : FrontCardItem(item, i)}
+                  : FrontCardItem(item, i)
+                }
               </div>
               <button>Add to cart</button>
             </div>
           );
         })}
+
+        < button onClick={handleScrollRight}>{'>'}</button>
       </div>
     </div>
   );
