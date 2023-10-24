@@ -12,8 +12,8 @@ class Menu(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(5000), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey(
-        add_prefix_for_prod('users.id')),nullable= False)
+    # user_id = db.Column(db.Integer, db.ForeignKey(
+    #     add_prefix_for_prod('users.id')),nullable= False)
     ingredients = db.Column(db.String(5000), nullable=False)
     nutrition = db.Column(db.String(5000))
     price = db.Column(db.Float(), nullable=False)
@@ -29,7 +29,7 @@ class Menu(db.Model):
             'id':self.id,
             'name':self.name,
             'ingredients':self.ingredients,
-            'user_id':self.user_id,
+            # 'user_id':self.user_id,
             'user':{
                 'id':self.user.id,
                 'username':self.user.username
