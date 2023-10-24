@@ -3,6 +3,7 @@ export const specialTeas = [
         'id': 1,
         'name': 'Mint Tea',
         'category': 'supah shakes',
+        'price': 4,
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -38,6 +39,7 @@ export const specialTeas = [
         'id': 2,
         'name': 'Green Tea',
         'category': 'supah shakes',
+        'price': 4,
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -73,6 +75,7 @@ export const specialTeas = [
         'id': 3,
         'name': 'Energy Tea',
         'category': 'supah shakes',
+        'price': 4,
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -108,6 +111,7 @@ export const specialTeas = [
         'id': 4,
         'name': 'Black Tea',
         'category': 'supah shakes',
+        'price': 4,
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -143,6 +147,7 @@ export const specialTeas = [
         'id': 5,
         'name': 'Teas Me',
         'category': 'supah shakes',
+        'price': 4,
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',

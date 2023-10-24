@@ -11,7 +11,7 @@ export function AddItem() {
 
     return(
         <div className="add-modal">
-            Test
+
 
         </div>
     )
