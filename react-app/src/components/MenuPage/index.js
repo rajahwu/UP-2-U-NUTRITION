@@ -3,6 +3,7 @@ import {useSelector} from "react-redux"
 
 import { MenuNav } from "./menuNav";
 import OpenModalButton from "../OpenModalButton/index"
+import { AddItem } from "./utility/modals/AddItem";
 import { EditItem } from "./utility/modals/EditItem";
 
 import { supahShakes } from "./utility/menu/supah-shakes";
@@ -43,6 +44,7 @@ const MenuPage = () => {
     <div className="menu">
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat = {setCatagory}/>
+      {user === null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
       <div className="menu-item-container">
         {currentMenuCatagory.map((item, i) => {
           return (

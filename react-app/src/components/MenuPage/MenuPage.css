@@ -52,3 +52,7 @@
     height: 100%;
     margin: auto;
 }
+.edit-modal{
+    height: 50vh;
+    width: 50vw;
+}
