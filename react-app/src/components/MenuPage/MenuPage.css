@@ -1,4 +1,6 @@
 .menu {
+    display: flex;
+    flex-direction: column;
     margin: 50px auto;
     width: 100%;
     text-align: center;
@@ -8,8 +10,9 @@
     display: flex;
     justify-content: space-between;
     width: 60%;
-    margin: auto;
-    margin-top: 25px;
+    height: 100px;
+    margin: 20px auto 30px;
+    border: green solid 1px
 }
 
 .menu-nav-categories div {
@@ -22,6 +25,13 @@
     width: 100px;
     margin: auto;
     line-height: 28px;
+    cursor: pointer;
+    border: 1px red solid
+}
+
+.category:hover {
+    background-image: "/images/selected_cat/circle_1.png";
+    background-size: cover;
 }
 
 .menu-item-container {
@@ -32,25 +42,26 @@
     margin: auto;
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    height: 420px;
-    width: 250px;
-    border: 1px solid rgba(196, 196, 196, 1);
-    border-radius: 10px;
-    box-shadow: 7.78px 7.78px 6.48px rgba(0, 0, 0, 0.25);
+.add-to-cart-btn {
+    margin-top: 20px;
+    background-color: #5EAA00;
+    border: solid 1px #5EAA00;
+    width: 87px;
+    height: 28px;
+    border-radius: 2px;
+    font-size: 10px;
+    color: #FFFFFF;
 }
 
-.menu-item {
-    /* width: 30%; */
-    margin: auto;
+.add-to-cart-btn:hover {
+    color: #5EAA00;
+    background-color: #FFFFFF;
 }
 
-.menu-item img {
-    object-fit: contain;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+.menu-prev-next-btn {
+    background-color: white;
+    /* border: none; */
+    font-size: 100px;
+    height: 100px;
     margin: auto;
 }

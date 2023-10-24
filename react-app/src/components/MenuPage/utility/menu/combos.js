@@ -1,4 +1,4 @@
-export const specialTeas = [
+export const combos = [
     {
         'id': 1,
         'name': 'Mint Tea',

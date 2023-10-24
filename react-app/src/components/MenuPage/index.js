@@ -2,9 +2,10 @@ import { useState } from "react";
 
 import { MenuNav } from "./menuNav";
 
-import { supahShakes } from "./utility/menu/supah-shakes";
 
-import { BackCardItem, FrontCardItem } from "./utility/card-shape";
+import { supahShakes } from "./utility/menu/supah-shakes";
+import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
+
 import "./MenuPage.css";
 
 const MenuPage = () => {
@@ -13,22 +14,26 @@ const MenuPage = () => {
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes);
 
-  const [scrollPos, setScrollPos] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const itemsPerPage = 4;
-  const maxScrollPos = Math.max(0, supahShakes.length - itemsPerPage);
+  let difference = supahShakes.length - itemsPerPage;
+  const maxScrollPosition = Math.max(0, difference);
 
   const handleScrollLeft = () => {
-    if (scrollPos > 0) setScrollPos(scrollPos - 4);
+    if (scrollPosition > 0) setScrollPosition(scrollPosition - itemsPerPage);
+    setFlippCardId(Infinity);
   };
 
   const handleScrollRight = () => {
-    if (scrollPos < maxScrollPos) setScrollPos(scrollPos + 4);
+    if (scrollPosition < maxScrollPosition) setScrollPosition(scrollPosition + itemsPerPage);
+    setFlippCardId(Infinity);
   };
 
   const setCatagory = (cat) => {
     setCurrentMenuCatagory(cat)
     console.log(cat)
+    setFlippCardId(Infinity);
   }
 
   //function to flip the card when clicked
@@ -49,23 +54,31 @@ const MenuPage = () => {
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat={setCatagory} />
       <div className="menu-item-container">
-        <button onClick={handleScrollLeft}>{'<'}</button>
-        {currentMenuCatagory.slice(scrollPos, scrollPos + itemsPerPage).map((item, i) => {
-          return (
-            <div id={i} key={i}>
-              <div id={i} onClick={flipCard}>
-                {/* Condally render the front or the back */}
-                {flippedCardId == i
-                  ? BackCardItem(item, i)
-                  : FrontCardItem(item, i)
-                }
+        <button
+          className="menu-prev-next-btn"
+          onClick={handleScrollLeft}>
+          {'<'}
+        </button>
+        {currentMenuCatagory
+          .slice(scrollPosition, scrollPosition + itemsPerPage)
+          .map((item, i) => {
+            return (
+              <div id={i} key={`${item.name}-${i}`}>
+                <div id={i} onClick={flipCard}>
+                  {/* Condally render the front or the back */}
+                  {flippedCardId == i
+                    ? BackCardItem(item, i)
+                    : FrontCardItem(item, i)
+                  }              </div>
+                <button className="add-to-cart-btn">ADD TO CART</button>
               </div>
-              <button>Add to cart</button>
-            </div>
-          );
-        })}
-
-        < button onClick={handleScrollRight}>{'>'}</button>
+            );
+          })}
+        <button
+          className="menu-prev-next-btn"
+          onClick={handleScrollRight}>
+          {'>'}
+        </button>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
-export const specialTeas = [
+export const staysActive = [
     {
         'id': 1,
-        'name': 'Mint Tea',
-        'category': 'special teas',
-        'price': '$13.99',
-        'image': '/images/teas/tea-temp.jpeg',
+        'name': 'Strawberry Cheesecake',
+        'category': 'stays active',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -37,10 +37,10 @@ export const specialTeas = [
     },
     {
         'id': 2,
-        'name': 'Green Tea',
-        'category': 'special teas',
-        'price': '$12.99',
-        'image': '/images/teas/tea-temp.jpeg',
+        'name': 'BLUE Cheesecake',
+        'category': 'stays active',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -73,10 +73,10 @@ export const specialTeas = [
     },
     {
         'id': 3,
-        'name': 'Energy Tea',
-        'category': 'special teas',
+        'name': 'RED Cheesecake',
+        'category': 'stays active',
         'price': '$15.99',
-        'image': '/images/teas/tea-temp.jpeg',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -109,10 +109,10 @@ export const specialTeas = [
     },
     {
         'id': 4,
-        'name': 'Black Tea',
-        'category': 'special teas',
-        'price': '$9.99',
-        'image': '/images/teas/tea-temp.jpeg',
+        'name': 'ORANGE Cheesecake',
+        'category': 'stays active',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -145,10 +145,10 @@ export const specialTeas = [
     },
     {
         'id': 5,
-        'name': 'Teas Me',
-        'category': 'special teas',
-        'price': '$5.99',
-        'image': '/images/teas/tea-temp.jpeg',
+        'name': 'BLACK Cheesecake',
+        'category': 'stays active',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
