@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { MenuNav } from "./MenuNav";
-import { menuItemArray } from "./fauxMenu-TEMP";
+import { supahShakes } from "./utility/menu/supah-shakes";
 import { BackCardItem, FrontCardItem} from "./utility/card-shape";
 import "./MenuPage.css";
 
@@ -28,7 +28,7 @@ const MenuPage = () => {
       <div className="headers">OUR MENU</div>
       <MenuNav />
       <div className="menu-item-container">
-        {menuItemArray.map((item, i) => {
+        {supahShakes.map((item, i) => {
           return (
             <div id={i} key={i}>
               <div id={i} onClick={flipCard}>
