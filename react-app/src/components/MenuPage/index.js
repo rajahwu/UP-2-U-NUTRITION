@@ -2,9 +2,11 @@ import { useState } from "react";
 
 import { MenuNav } from "./menuNav";
 
-import { supahShakes } from "./utility/menu/supah-shakes";
 
-import { BackCardItem, FrontCardItem} from "./utility/card-shape";
+
+import { supahShakes } from "./utility/menu/supah-shakes";
+import { BackCardItem, FrontCardItem } from "./utility/card-shape";
+
 import "./MenuPage.css";
 
 const MenuPage = () => {
