@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { MenuNav } from "./MenuNav";
 import { menuItemArray } from "./fauxMenu-TEMP";
@@ -10,11 +10,11 @@ const MenuPage = () => {
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
 
+  //function to flip the card when clicked
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
 
-    //logic to flip over a new card or flip back a card already clicked
     //used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
       setFlippCardId(Infinity);
@@ -32,6 +32,7 @@ const MenuPage = () => {
           return (
             <div id={i} key={i}>
               <div id={i} onClick={flipCard}>
+                {/* Conditionally render the front or the back */}
                 {flippedCardId == i
                   ? BackCardItem(item, i)
                   : FrontCardItem(item, i)}
