@@ -1,6 +1,9 @@
 import { useState } from "react";
+import {useSelector} from "react-redux"
 
 import { MenuNav } from "./menuNav";
+import OpenModalButton from "../OpenModalButton/index"
+import { EditItem } from "./utility/modals/EditItem";
 
 import { supahShakes } from "./utility/menu/supah-shakes";
 
@@ -12,7 +15,10 @@ const MenuPage = () => {
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes)
+  const user = useSelector(state => state.session.user)
+  console.log(user)
 
+  //function to pass to setState
     const setCatagory = (cat) => {
         setCurrentMenuCatagory(cat)
         console.log(cat)
@@ -22,6 +28,8 @@ const MenuPage = () => {
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
+
+
 
     //used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
@@ -46,6 +54,7 @@ const MenuPage = () => {
                   : FrontCardItem(item, i)}
               </div>
               <button>Add to cart</button>
+              {user === null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
             </div>
           );
         })}
