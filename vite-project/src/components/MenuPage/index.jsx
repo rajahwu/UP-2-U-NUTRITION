@@ -1,17 +1,10 @@
 import { useState } from "react";
-<<<<<<< HEAD
 import { MenuNav } from "./menuNav";
 import { supahShakes } from "./utility/menu/supah-shakes";
-import OpenModalButton from "../OpenModalButton/index"
-import {AddItem} from "./utility/modals/AddItem"
+import OpenModalButton from "../OpenModalButton/index";
+import {AddItem} from "./utility/modals/AddItem";
 import { EditItem } from "./utility/modals/EditItem";
-=======
-
-import { MenuNav } from "./MenuNav";
-
-import { supahShakes } from "./utility/menu/supah-shakes";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
->>>>>>> dan-dev
 
 import "./MenuPage.css";
 
@@ -22,15 +15,9 @@ const MenuPage = () => {
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCategory, setCurrentMenuCategory] = useState(supahShakes);
 
-<<<<<<< HEAD
   //place holder for check on user
-  const user = null
+  const user = "admin"
 
-  //function to pass to setState
-  const setCatagory = (cat) => {
-        setCurrentMenuCatagory(cat)
-    }
-=======
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const itemsPerPage = 4;
@@ -51,7 +38,6 @@ const MenuPage = () => {
     setCurrentMenuCategory(cat)
     setFlippCardId(Infinity);
   }
->>>>>>> dan-dev
 
   //function to flip the card when clicked
   const flipCard = async (e) => {
@@ -69,12 +55,8 @@ const MenuPage = () => {
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
-<<<<<<< HEAD
-      <MenuNav changeCat = {setCatagory}/>
-      {user !== null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
-=======
       <MenuNav changeCat={setCategory} />
->>>>>>> dan-dev
+      {user !== null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
       <div className="menu-item-container">
         <button
           className="menu-prev-next-btn"
@@ -85,6 +67,7 @@ const MenuPage = () => {
           .slice(scrollPosition, scrollPosition + itemsPerPage)
           .map((item, i) => {
             return (
+
               <div id={i} key={i}>
                 <div id={i} onClick={flipCard}>
                   {/* Condally render the front or the back */}
@@ -94,22 +77,15 @@ const MenuPage = () => {
                   }
                 </div>
                 <button className="add-to-cart-btn">ADD TO CART</button>
+                {user !== null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
               </div>
-<<<<<<< HEAD
-              <button>Add to cart</button>
-              {user !== null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
-            </div>
           );
         })}
-=======
-            );
-          })}
         <button
           className="menu-prev-next-btn"
           onClick={handleScrollRight}>
           {'>'}
         </button>
->>>>>>> dan-dev
       </div>
     </div>
   );
