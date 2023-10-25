@@ -16,7 +16,7 @@ const MenuPage = () => {
   const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes)
 
   //place holder for check on user
-  const user = "admin"
+  const user = null
 
   //function to pass to setState
   const setCatagory = (cat) => {
