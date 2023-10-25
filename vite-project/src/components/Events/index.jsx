@@ -5,24 +5,26 @@ import { getAllEventsThunk } from '../../store/events';
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const dispatch = useDispatch()
-  const event = useSelector(state => state.eventReducer)
-  console.log(event)
+  const events = useSelector(state => state.eventReducer)
+
+  console.log("this is event", events)
+
   useEffect(() => {
     dispatch(getAllEventsThunk())
   }, [dispatch])
 
-  const events = [
-    {
-      date: new Date(currentMonth.getFullYear(), 10, 5),
-      title: 'Latinos in the US - Networking',
-      details: 'Lorem Ipsum'
-    },
-    {
-      date: new Date(currentMonth.getFullYear(), 10, 15),
-      title: 'Event 2',
-      details: 'Lorem Ipsom lskdjfalsdkjf '
-    },
-  ];
+  // const events = [
+  //   {
+  //     date: new Date(currentMonth.getFullYear(), 10, 5),
+  //     title: 'Latinos in the US - Networking',
+  //     details: 'Lorem Ipsum'
+  //   },
+  //   {
+  //     date: new Date(currentMonth.getFullYear(), 10, 15),
+  //     title: 'Event 2',
+  //     details: 'Lorem Ipsom lskdjfalsdkjf '
+  //   },
+  // ];
 
 
 
@@ -74,6 +76,7 @@ const Events = () => {
 
     const dayElements = [];
 
+    // console.log("this is event slice", event1)
     const eventsForCurrentMonth = events.filter((event) => {
       const eventDate = new Date(event.date);
       return (

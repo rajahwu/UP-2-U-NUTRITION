@@ -1,6 +1,6 @@
 from app.models import Event, db, SCHEMA,environment
 from sqlalchemy.sql import text
-from datetime import datetime
+from datetime import datetime,date
 
 
 
@@ -11,6 +11,7 @@ def seed_events():
 
         start_time = datetime(2023, 10, 26, hour = 9, minute = 30),
         end_time = datetime(2023, 10, 26, hour = 10, minute = 30),
+        date = date.today(),
         created_at = datetime.now(),
         updated_at = datetime.now()
     )
@@ -21,6 +22,7 @@ def seed_events():
         start_time = datetime(2023, 10, 27, hour = 9, minute = 30),
         end_time = datetime(2023, 10, 27, hour = 10, minute = 30),
         created_at = datetime.now(),
+        date = date.today(),
         updated_at = datetime.now()
     )
 

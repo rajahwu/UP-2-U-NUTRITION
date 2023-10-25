@@ -1,4 +1,4 @@
-from flask import Blueprint, flash,request
+from flask import Blueprint, flash,request,jsonify
 from flask_login import login_required, current_user
 from datetime import date
 from ..models.db import db
@@ -11,6 +11,7 @@ event_routes = Blueprint('events', __name__)
 def all_events():
     events = Event.query.all()
     event_list = [one_event.to_dict() for one_event in events]
+    # print(event_list)
     # res = {}
     # for one_event in event_list:
     #     one_event_id = one_event['id']

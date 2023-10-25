@@ -6,6 +6,8 @@ import './index.css'
 import { Provider } from 'react-redux'
 import * as sessionActions from "./store/session";
 import configureStore from './store/index.js'
+import { Modal, ModalProvider } from './context/Modal.jsx'
+
 
 const store = configureStore();
 
@@ -17,10 +19,13 @@ if (process.env.NODE_ENV !== "production") {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+    <ModalProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+          <Modal />
+        </BrowserRouter>
+      </Provider>
+    </ModalProvider>
   </React.StrictMode>,
 )

@@ -14,6 +14,7 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(), nullable=False)
     details = db.Column(db.String(1000), nullable=False)
+    date = db.Column(db.Date())
     start_time = db.Column(db.DateTime())
     end_time = db.Column(db.DateTime())
     created_at = db.Column(db.Date())
@@ -27,6 +28,9 @@ class Event(db.Model):
         'id': self.id,
         'title':self.title,
         'details':self.details,
+        'date':self.date,
+        'start_time':self.start_time,
+        'end_time':self.end_time,
         'created_at':self.created_at,
         'updated_at':self.updated_at
         }

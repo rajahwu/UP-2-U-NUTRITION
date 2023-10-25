@@ -12,13 +12,18 @@ export const actionGetAllEvents = (events) => ({
 
 //thunk
 export const getAllEventsThunk = () => async (dispatch) => {
-    const res = await fetch('/api/events/')
+    // try {
+    const res = await fetch("http://127.0.0.1:5000/api/events/");
     if (res.ok) {
-        console.log("hererererererererere", res)
-        const data = await res.json()
-        dispatch(actionGetAllEvents(data))
-        return data
+        const data = await res.json();
+        dispatch(actionGetAllEvents(data));
+        return data;
+
     }
+    // } catch (error) {
+    //     console.error('Error fetching data:', error);
+    //     // You can dispatch an action or handle the error in another way here.
+    // }
 }
 
 
