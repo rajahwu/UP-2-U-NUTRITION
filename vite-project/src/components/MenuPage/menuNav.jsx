@@ -6,17 +6,10 @@ import { supahShakes } from "./utility/menu/supah-shakes";
 import { staysActive } from "./utility/menu/stays-active";
 import { forYou } from "./utility/menu/forYou";
 import { goodies } from "./utility/menu/goodies";
+import { menuCategories } from "./utility/menu/menu-categories"
 
 export const MenuNav = ({ changeCat }) => {
-  //move to util file later
-  const menuCat = [
-    "combos",
-    "supah shakes",
-    "special teas",
-    "for you",
-    "stays active",
-    "goodies",
-  ];
+
   const menuSelectionLines = [
     "/images/selected_cat/circle_1.png",
     "/images/selected_cat/circle_2.png",
@@ -39,7 +32,7 @@ export const MenuNav = ({ changeCat }) => {
 
   return (
     <div className="menu-nav-categories" >
-      {menuCat.map((cat, i) => (
+      {menuCategories.map((cat, i) => (
         <div
           key={`category-${i}`}
           id={cat}

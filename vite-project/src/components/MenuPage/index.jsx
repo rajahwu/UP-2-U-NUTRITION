@@ -1,17 +1,22 @@
 import { useState } from "react";
-
-import { MenuNav } from "./MenuNav";
-
+import { MenuNav } from "./menuNav";
 import { supahShakes } from "./utility/menu/supah-shakes";
+import OpenModalButton from "../OpenModalButton/index";
+import {AddItem} from "./utility/modals/AddItem";
+import { EditItem } from "./utility/modals/EditItem";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
 
 import "./MenuPage.css";
 
 const MenuPage = () => {
+
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCategory, setCurrentMenuCategory] = useState(supahShakes);
+
+  //place holder for check on user
+  const user = "admin"
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -51,6 +56,7 @@ const MenuPage = () => {
     <div className="menu">
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat={setCategory} />
+      {user !== null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
       <div className="menu-item-container">
         <button
           className="menu-prev-next-btn"
@@ -61,6 +67,7 @@ const MenuPage = () => {
           .slice(scrollPosition, scrollPosition + itemsPerPage)
           .map((item, i) => {
             return (
+
               <div id={i} key={i}>
                 <div id={i} onClick={flipCard}>
                   {/* Condally render the front or the back */}
@@ -70,9 +77,10 @@ const MenuPage = () => {
                   }
                 </div>
                 <button className="add-to-cart-btn">ADD TO CART</button>
+                {user !== null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
               </div>
-            );
-          })}
+          );
+        })}
         <button
           className="menu-prev-next-btn"
           onClick={handleScrollRight}>
