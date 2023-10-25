@@ -1,4 +1,13 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.headers {
+    font-weight: bold;
+    font-size: 56px;
+    color: #000000;
+}
+
+button {
+    cursor: pointer;
+}

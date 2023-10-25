@@ -11,7 +11,7 @@ const MenuPage = () => {
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
-  const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes);
+  const [currentMenuCategory, setCurrentMenuCategory] = useState(supahShakes);
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -29,9 +29,8 @@ const MenuPage = () => {
     setFlippCardId(Infinity);
   };
 
-  const setCatagory = (cat) => {
-    setCurrentMenuCatagory(cat)
-    console.log(cat)
+  const setCategory = (cat) => {
+    setCurrentMenuCategory(cat)
     setFlippCardId(Infinity);
   }
 
@@ -39,27 +38,26 @@ const MenuPage = () => {
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
-
     //used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
       setFlippCardId(Infinity);
     } else {
       setFlippCardId(e.target.id);
     }
-
+    console.log(flippedCardId, e.target.id)
   };
 
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
-      <MenuNav changeCat={setCatagory} />
+      <MenuNav changeCat={setCategory} />
       <div className="menu-item-container">
         <button
           className="menu-prev-next-btn"
           onClick={handleScrollLeft}>
           {'<'}
         </button>
-        {currentMenuCatagory
+        {currentMenuCategory
           .slice(scrollPosition, scrollPosition + itemsPerPage)
           .map((item, i) => {
             return (
