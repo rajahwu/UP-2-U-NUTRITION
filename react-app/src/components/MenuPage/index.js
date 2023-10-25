@@ -3,8 +3,8 @@ import {useSelector} from "react-redux"
 
 import { MenuNav } from "./menuNav";
 import OpenModalButton from "../OpenModalButton/index"
-import { AddItem } from "./utility/modals/AddItem";
-import { EditItem } from "./utility/modals/EditItem";
+import { AddItem } from "../../../../vite-project/src/components/MenuPage/utility/modals/AddItem";
+import { EditItem } from "../../../../vite-project/src/components/MenuPage/utility/modals/EditItem";
 
 import { supahShakes } from "./utility/menu/supah-shakes";
 

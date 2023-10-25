@@ -1,8 +1,9 @@
 import { useState } from "react";
-
 import { MenuNav } from "./menuNav";
-
 import { supahShakes } from "./utility/menu/supah-shakes";
+import OpenModalButton from "../OpenModalButton/index"
+import {AddItem} from "./utility/modals/AddItem"
+import { EditItem } from "./utility/modals/EditItem";
 
 import { BackCardItem, FrontCardItem} from "./utility/card-shape";
 import "./MenuPage.css";
@@ -13,9 +14,12 @@ const MenuPage = () => {
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes)
 
-    const setCatagory = (cat) => {
+  //place holder for check on user
+  const user = null
+
+  //function to pass to setState
+  const setCatagory = (cat) => {
         setCurrentMenuCatagory(cat)
-        console.log(cat)
     }
 
   //function to flip the card when clicked
@@ -35,6 +39,7 @@ const MenuPage = () => {
     <div className="menu">
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat = {setCatagory}/>
+      {user !== null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
       <div className="menu-item-container">
         {currentMenuCatagory.map((item, i) => {
           return (
@@ -46,6 +51,7 @@ const MenuPage = () => {
                   : FrontCardItem(item, i)}
               </div>
               <button>Add to cart</button>
+              {user === null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
             </div>
           );
         })}
