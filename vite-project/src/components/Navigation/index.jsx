@@ -2,11 +2,8 @@ import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 import { useState, useEffect } from 'react';
 
-export const randomElement = (arr) => {
-	// passing an array of elements to return a random one
-	const itemNumber = Math.floor(Math.random() * (arr.length));
-	return arr[itemNumber];
-};
+import { randomElement } from '../util';
+
 
 function Navigation({ isLoaded }) {
 	// const sessionUser = useSelector((state) => state.session.user);

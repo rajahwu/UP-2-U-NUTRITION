@@ -10,6 +10,7 @@
     display: flex;
     /* justify-content: space-between; */
     width: 80%;
+    max-width: 1000px;
     height: 120px;
     margin: 20px auto 30px;
     border: green solid 1px
@@ -81,6 +82,14 @@
 .menu-prev-next-btn {
     background-color: white;
     /* border: none; */
+    font-size: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.menu-prev-next-btn-deactivated {
+    background-color: white;
+    color: rgb(200, 200, 200);
     font-size: 100px;
     height: 100px;
     margin: auto;
