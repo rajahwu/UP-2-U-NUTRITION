@@ -15,15 +15,34 @@ const MenuPage = () => {
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
-  const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes)
-  const user = useSelector(state => state.session.user)
-  console.log(user)
+  const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const itemsPerPage = 4;
+  let difference = supahShakes.length - itemsPerPage;
+  const maxScrollPosition = Math.max(0, difference);
+
+  const handleScrollLeft = () => {
+    if (scrollPosition > 0) setScrollPosition(scrollPosition - itemsPerPage);
+    setFlippCardId(Infinity);
+  };
+
+  const handleScrollRight = () => {
+    if (scrollPosition < maxScrollPosition) setScrollPosition(scrollPosition + itemsPerPage);
+    setFlippCardId(Infinity);
+  };
+
+
+  //temp variable to mimic whether a user is logged in or not
+  const user = null
 
   //function to pass to setState
-    const setCatagory = (cat) => {
-        setCurrentMenuCatagory(cat)
-        console.log(cat)
-    }
+  const setCatagory = (cat) => {
+    setCurrentMenuCatagory(cat)
+    console.log(cat)
+    setFlippCardId(Infinity);
+  }
 
   //function to flip the card when clicked
   const flipCard = async (e) => {
@@ -38,28 +57,42 @@ const MenuPage = () => {
     } else {
       setFlippCardId(e.target.id);
     }
+
   };
 
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
-      <MenuNav changeCat = {setCatagory}/>
-      {user === null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
+      <MenuNav changeCat={setCatagory} />
+      {user !== null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
       <div className="menu-item-container">
-        {currentMenuCatagory.map((item, i) => {
-          return (
-            <div id={i} key={i}>
-              <div id={i} onClick={flipCard}>
-                {/* Conditionally render the front or the back */}
-                {flippedCardId == i
-                  ? BackCardItem(item, i)
-                  : FrontCardItem(item, i)}
-              </div>
-              <button>Add to cart</button>
-              {user === null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
+        <button
+          className="menu-prev-next-btn"
+          onClick={handleScrollLeft}>
+          {'<'}
+        </button>
+        {currentMenuCatagory
+          .slice(scrollPosition, scrollPosition + itemsPerPage)
+          .map((item, i) => {
+            return (
+              <div id={i} key={i}>
+                <div id={i} onClick={flipCard}>
+                  {/* Condally render the front or the back */}
+                  {flippedCardId == i
+                    ? BackCardItem(item, i)
+                    : FrontCardItem(item, i)
+                  }
+                </div>
+                <button className="add-to-cart-btn">ADD TO CART</button>
+                {user !== null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
             </div>
-          );
-        })}
+            );
+          })}
+        <button
+          className="menu-prev-next-btn"
+          onClick={handleScrollRight}>
+          {'>'}
+        </button>
       </div>
     </div>
   );

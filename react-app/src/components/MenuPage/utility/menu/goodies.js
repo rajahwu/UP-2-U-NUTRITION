@@ -1,10 +1,10 @@
-export const staysActive = [
+export const goodies = [
     {
         'id': 1,
-        'name': 'Strawberry Cheesecake',
-        'category': 'stays active',
-        'price': '$15.99',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Mint Tea',
+        'category': 'special teas',
+        'price': '$13.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -37,10 +37,10 @@ export const staysActive = [
     },
     {
         'id': 2,
-        'name': 'BLUE Cheesecake',
-        'category': 'stays active',
-        'price': '$15.99',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Green Tea',
+        'category': 'special teas',
+        'price': '$12.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -73,10 +73,10 @@ export const staysActive = [
     },
     {
         'id': 3,
-        'name': 'RED Cheesecake',
-        'category': 'stays active',
+        'name': 'Energy Tea',
+        'category': 'special teas',
         'price': '$15.99',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -109,10 +109,10 @@ export const staysActive = [
     },
     {
         'id': 4,
-        'name': 'ORANGE Cheesecake',
-        'category': 'stays active',
-        'price': '$15.99',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Black Tea',
+        'category': 'special teas',
+        'price': '$9.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -145,10 +145,10 @@ export const staysActive = [
     },
     {
         'id': 5,
-        'name': 'BLACK Cheesecake',
-        'category': 'stays active',
-        'price': '$15.99',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Teas Me',
+        'category': 'special teas',
+        'price': '$5.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
