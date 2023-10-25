@@ -28,14 +28,14 @@ export const getAllEventsThunk = () => async (dispatch) => {
 
 
 //Reducer
-const initialState = { events: {} }
+const initialState = {}
 
 const eventReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_ALL_EVENTS:
-            newState = { ...state }
-            newState.events = action.events
+            newState = { ...action.events }
+            // console.log("this is aciton", newState)
             return newState
         default:
             return state

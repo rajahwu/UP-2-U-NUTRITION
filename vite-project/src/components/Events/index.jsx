@@ -5,28 +5,47 @@ import { getAllEventsThunk } from '../../store/events';
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const dispatch = useDispatch()
-  const events = useSelector(state => state.eventReducer)
+  const eventArr = useSelector(state => state.eventReducer)
 
-  console.log("this is event", events)
+  // console.log("this is event arr", eventArr)
+  const event1 = Object.values(eventArr)
+  console.log("this is event1", event1)
+
+
+  // let new_event = event1
+  // const eventsForCurrentMonth = new_event.filter((event) => {
+  //   const eventDate = new Date(event.date);
+  //   return (
+  //     eventDate.getMonth() === currentMonth.getMonth() &&
+  //     eventDate.getFullYear() === currentMonth.getFullYear()
+  //   );
+  // });
+
+
 
   useEffect(() => {
     dispatch(getAllEventsThunk())
   }, [dispatch])
 
-  // const events = [
-  //   {
-  //     date: new Date(currentMonth.getFullYear(), 10, 5),
-  //     title: 'Latinos in the US - Networking',
-  //     details: 'Lorem Ipsum'
-  //   },
-  //   {
-  //     date: new Date(currentMonth.getFullYear(), 10, 15),
-  //     title: 'Event 2',
-  //     details: 'Lorem Ipsom lskdjfalsdkjf '
-  //   },
-  // ];
 
 
+  if (!eventArr) return
+
+  const events = [
+    {
+      date: new Date(currentMonth.getFullYear(), 10, 5),
+      title: 'Latinos in the US - Networking',
+      details: 'Lorem Ipsum'
+    },
+    {
+      date: new Date(currentMonth.getFullYear(), 10, 15),
+      title: 'Event 2',
+      details: 'Lorem Ipsom lskdjfalsdkjf '
+    },
+  ];
+
+
+  console.log("this is date", events[0].date)
 
   const daysInMonth = new Date(
     currentMonth.getFullYear(),
@@ -76,7 +95,10 @@ const Events = () => {
 
     const dayElements = [];
 
+
+
     // console.log("this is event slice", event1)
+    // if (!Array.isArray(eventArr)) throw new Error('eventArr is not an array')
     const eventsForCurrentMonth = events.filter((event) => {
       const eventDate = new Date(event.date);
       return (
@@ -89,9 +111,13 @@ const Events = () => {
       dayElements.push(<td key={`empty-${i}`} className='border'></td>)
     }
 
+    console.log("this is events for current month", eventsForCurrentMonth)
+
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-      const eventsForDay = eventsForCurrentMonth.filter((event) => event.date.toDateString() === currentDate.toDateString())
+      const eventsForDay = eventsForCurrentMonth.filter((event) =>
+        // console.log("thisis event", event)
+        event.date.toDateString() === currentDate.toDateString())
 
       dayElements.push(
         <td
@@ -128,6 +154,11 @@ const Events = () => {
 
     return weeks;
   };
+
+
+  // useEffect(() => {
+  //   dispatch(getAllEventsThunk())
+  // }, [dispatch])
 
   return (
     <>
