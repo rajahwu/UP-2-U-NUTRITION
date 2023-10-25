@@ -3,6 +3,7 @@ export const supahShakes = [
         'id': 1,
         'name': 'Strawberry Cheesecake',
         'category': 'supah shakes',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -38,6 +39,7 @@ export const supahShakes = [
         'id': 2,
         'name': 'BLUE Cheesecake',
         'category': 'supah shakes',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -73,6 +75,7 @@ export const supahShakes = [
         'id': 3,
         'name': 'RED Cheesecake',
         'category': 'supah shakes',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -108,6 +111,7 @@ export const supahShakes = [
         'id': 4,
         'name': 'ORANGE Cheesecake',
         'category': 'supah shakes',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -143,6 +147,7 @@ export const supahShakes = [
         'id': 5,
         'name': 'BLACK Cheesecake',
         'category': 'supah shakes',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',

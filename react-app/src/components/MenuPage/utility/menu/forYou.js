@@ -1,4 +1,4 @@
-export const specialTeas = [
+export const forYou = [
     {
         'id': 1,
         'name': 'Mint Tea',
