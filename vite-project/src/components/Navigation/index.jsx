@@ -8,7 +8,7 @@ function Navigation({ isLoaded }) {
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("https://i.imgur.com/w0H7skQ.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("https://i.imgur.com/KFme3AW.png")
 	const [yourstoryImgSrc, setYourstoryImgSrc] = useState("https://i.imgur.com/2nqxwhP.png")
-	const [cartImgSrc, setCartImgSrc] = useState('https://i.imgur.com/Aar6YWm.png')
+	const [cartImgSrc, setCartImgSrc] = useState('https://i.imgur.com/YcGCXxA.png')
 
 
 	return (
