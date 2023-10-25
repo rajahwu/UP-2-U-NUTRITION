@@ -1,6 +1,6 @@
 import { specialTeas } from "./utility/menu/special-teas";
 import { supahShakes } from "./utility/menu/supah-shakes";
-import { staysActive } from "./utility/menu/stays-active";
+import { staysActive } from "../../../../vite-project/src/components/MenuPage/utility/menu/stays-active";
 export const MenuNav = ({ changeCat }) => {
     //move to util file later
     const menuCat = [

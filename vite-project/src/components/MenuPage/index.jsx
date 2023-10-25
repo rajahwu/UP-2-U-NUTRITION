@@ -9,13 +9,14 @@ import { BackCardItem, FrontCardItem} from "./utility/card-shape";
 import "./MenuPage.css";
 
 const MenuPage = () => {
+
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCatagory, setCurrentMenuCatagory] = useState(supahShakes)
 
   //place holder for check on user
-  const user = null
+  const user = "admin"
 
   //function to pass to setState
   const setCatagory = (cat) => {
@@ -51,7 +52,7 @@ const MenuPage = () => {
                   : FrontCardItem(item, i)}
               </div>
               <button>Add to cart</button>
-              {user === null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
+              {user !== null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
             </div>
           );
         })}
