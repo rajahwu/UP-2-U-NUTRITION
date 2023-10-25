@@ -3,6 +3,7 @@ export const staysActive = [
         'id': 1,
         'name': 'Strawberry Cheesecake',
         'category': 'stays active',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -37,7 +38,8 @@ export const staysActive = [
     {
         'id': 2,
         'name': 'BLUE Cheesecake',
-        'category': 'supah shakes',
+        'category': 'stays active',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -72,7 +74,8 @@ export const staysActive = [
     {
         'id': 3,
         'name': 'RED Cheesecake',
-        'category': 'supah shakes',
+        'category': 'stays active',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -107,7 +110,8 @@ export const staysActive = [
     {
         'id': 4,
         'name': 'ORANGE Cheesecake',
-        'category': 'supah shakes',
+        'category': 'stays active',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
@@ -142,7 +146,8 @@ export const staysActive = [
     {
         'id': 5,
         'name': 'BLACK Cheesecake',
-        'category': 'supah shakes',
+        'category': 'stays active',
+        'price': '$15.99',
         'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
