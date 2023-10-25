@@ -1,9 +1,10 @@
-export const supahShakes = [
+export const forYou = [
     {
         'id': 1,
-        'name': 'Strawberry Cheesecake',
-        'category': 'supah shakes',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Mint Tea',
+        'category': 'special teas',
+        'price': '$13.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -36,9 +37,10 @@ export const supahShakes = [
     },
     {
         'id': 2,
-        'name': 'BLUE Cheesecake',
-        'category': 'supah shakes',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Green Tea',
+        'category': 'special teas',
+        'price': '$12.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -71,9 +73,10 @@ export const supahShakes = [
     },
     {
         'id': 3,
-        'name': 'RED Cheesecake',
-        'category': 'supah shakes',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Energy Tea',
+        'category': 'special teas',
+        'price': '$15.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -106,9 +109,10 @@ export const supahShakes = [
     },
     {
         'id': 4,
-        'name': 'ORANGE Cheesecake',
-        'category': 'supah shakes',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Black Tea',
+        'category': 'special teas',
+        'price': '$9.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -141,9 +145,10 @@ export const supahShakes = [
     },
     {
         'id': 5,
-        'name': 'BLACK Cheesecake',
-        'category': 'supah shakes',
-        'image': '/images/shakes/strawberry_milkshake.webp',
+        'name': 'Teas Me',
+        'category': 'special teas',
+        'price': '$5.99',
+        'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',

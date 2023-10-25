@@ -3,14 +3,11 @@ import { useState } from "react";
 import { combos } from "./utility/menu/combos";
 import { specialTeas } from "./utility/menu/special-teas";
 import { supahShakes } from "./utility/menu/supah-shakes";
-<<<<<<< HEAD
-import { staysActive } from "../../../../vite-project/src/components/MenuPage/utility/menu/stays-active";
-=======
 import { staysActive } from "./utility/menu/stays-active";
 import { forYou } from "./utility/menu/forYou";
 import { goodies } from "./utility/menu/goodies";
+import {}
 
->>>>>>> staging
 export const MenuNav = ({ changeCat }) => {
     //move to util file later
     const menuCat = [

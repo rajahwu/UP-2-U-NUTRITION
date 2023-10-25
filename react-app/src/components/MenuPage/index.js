@@ -2,9 +2,12 @@ import { useState } from "react";
 import {useSelector} from "react-redux"
 
 import { MenuNav } from "./menuNav";
+<<<<<<< HEAD
 import OpenModalButton from "../OpenModalButton/index"
 import { AddItem } from "../../../../vite-project/src/components/MenuPage/utility/modals/AddItem";
 import { EditItem } from "../../../../vite-project/src/components/MenuPage/utility/modals/EditItem";
+=======
+>>>>>>> dan-dev
 
 import { supahShakes } from "./utility/menu/supah-shakes";
 
