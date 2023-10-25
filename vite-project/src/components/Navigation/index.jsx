@@ -2,28 +2,40 @@ import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 import { useState, useEffect } from 'react';
 
+export const randomElement = (arr) => {
+	// passing an array of elements to return a random one
+	const itemNumber = Math.floor(Math.random() * (arr.length));
+	return arr[itemNumber];
+};
+
 function Navigation({ isLoaded }) {
 	// const sessionUser = useSelector((state) => state.session.user);
-	const [menuImgSrc, setMenuImgSrc] = useState("https://i.imgur.com/TZPRDMT.png");
-	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("https://i.imgur.com/w0H7skQ.png")
-	const [eventsImgSrc, setEventsImgSrc] = useState("https://i.imgur.com/KFme3AW.png")
-	const [yourstoryImgSrc, setYourstoryImgSrc] = useState("https://i.imgur.com/2nqxwhP.png")
-	const [cartImgSrc, setCartImgSrc] = useState('https://i.imgur.com/YcGCXxA.png')
+	const [menuImgSrc, setMenuImgSrc] = useState("/images/icons/menu.png");
+	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
+	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
+	const [yourstoryImgSrc, setYourstoryImgSrc] = useState("/images/icons/your_story.png")
+	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png")
 
+	const menuColorRandom = [
+		"/images/icons/menu_ro_b.png",
+		"/images/icons/menu_ro_g.png",
+		"/images/icons/menu_ro_r.png",
+		"/images/icons/menu_ro_y.png"
+	]
 
 	return (
 		<div className="nav-bar">
 			<div className="logo">
 				<div className="nutrition-logo">
 					<NavLink exact to="/">
-						<img id="main-logo" src="https://i.imgur.com/CMlgCNO.png" alt="Main Logo" />
+						<img id="main-logo" src="/images/logo.png" alt="Main Logo" />
 					</NavLink>
 				</div>
 				<div className="logo2">
 					<NavLink exact to="/our-story">
 						<img id="sub-icon" src={ourstoryImgSrc}
-							onMouseEnter={() => setOurstoryImgSrc("https://i.imgur.com/ilOhLna.png")}
-							onMouseLeave={() => setOurstoryImgSrc("https://i.imgur.com/w0H7skQ.png")}
+							onMouseEnter={() => setOurstoryImgSrc("/images/icons/our_story_ro.png")}
+							onMouseLeave={() => setOurstoryImgSrc("/images/icons/our_story.png")}
 							className="ourstory-1" alt="Our Story" />
 					</NavLink>
 					<NavLink exact to="/menu">
@@ -31,20 +43,21 @@ function Navigation({ isLoaded }) {
 							id="sub-icon"
 							src={menuImgSrc}
 							alt="Menu"
-							onMouseEnter={() => setMenuImgSrc("https://i.imgur.com/hcQQL1l.png")}
-							onMouseLeave={() => setMenuImgSrc("https://i.imgur.com/TZPRDMT.png")}
+							onMouseEnter={() => setMenuImgSrc(randomElement(menuColorRandom))}
+							// onMouseEnter={() => setMenuImgSrc(console.log(randomIcon(menuColorRandom)))}
+							onMouseLeave={() => setMenuImgSrc("/images/icons/menu.png")}
 						/>
 					</NavLink>
 					<NavLink exact to="/events">
 						<img id="sub-icon" src={eventsImgSrc}
-							onMouseEnter={() => setEventsImgSrc("https://i.imgur.com/SpdMD8v.png")}
-							onMouseLeave={() => setEventsImgSrc("https://i.imgur.com/KFme3AW.png")}
+							onMouseEnter={() => setEventsImgSrc("/images/icons/events_ro.png")}
+							onMouseLeave={() => setEventsImgSrc("/images/icons/events.png")}
 							alt="Events" />
 					</NavLink>
 					<NavLink exact to="/your-story">
 						<img id="sub-icon" src={yourstoryImgSrc}
-							onMouseEnter={() => setYourstoryImgSrc("https://i.imgur.com/oIxZXRJ.png")}
-							onMouseLeave={() => setYourstoryImgSrc("https://i.imgur.com/2nqxwhP.png")}
+							onMouseEnter={() => setYourstoryImgSrc("/images/icons/your_story_ro.png")}
+							onMouseLeave={() => setYourstoryImgSrc("/images/icons/your_story.png")}
 							alt="Your Story" />
 					</NavLink>
 					<NavLink exact to="/cart">
