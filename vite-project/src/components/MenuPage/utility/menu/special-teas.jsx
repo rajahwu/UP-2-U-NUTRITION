@@ -179,4 +179,40 @@ export const specialTeas = [
 
         ]
     },
+    {
+        'id': 6,
+        'name': 'Teas other',
+        'category': 'special teas',
+        'price': '$5.99',
+        'image': '/images/teas/tea-temp.jpeg',
+        'ingredients': [
+            'Cream Cheese',
+            'Graham Cracker Crumbs',
+            'Powdered Sugar',
+            'Strawberry Ice Cream',
+            'Strawberry Milk',
+            'Fresh Strawberries',
+            'White Cake'],
+        'nutrition_table': [
+            {
+                'nutrient': 'Total Carbohydrate',
+                'weight': '10mg',
+                'percentage': 10
+            },
+            {
+                'nutrient': 'Dietary fiber',
+                'weight': '0.5mg',
+                'percentage': 2
+            },
+            {
+                'nutrient': 'Sugar',
+                'weight': '27g'
+            },
+            {
+                'nutrient': 'Protein',
+                'percentage': 14
+            },
+
+        ]
+    },
 ];

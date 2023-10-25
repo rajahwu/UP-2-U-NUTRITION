@@ -2,7 +2,7 @@ export const goodies = [
     {
         'id': 1,
         'name': 'Mint Tea',
-        'category': 'special teas',
+        'category': 'goodies',
         'price': '$13.99',
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
