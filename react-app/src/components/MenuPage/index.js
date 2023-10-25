@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import { MenuNav } from "./menuNav";
 
-
 import { supahShakes } from "./utility/menu/supah-shakes";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
 
