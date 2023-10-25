@@ -1,11 +1,17 @@
 import { useState } from "react";
+import {useSelector} from "react-redux"
 
 import { MenuNav } from "./menuNav";
-
+<<<<<<< HEAD
+import OpenModalButton from "../OpenModalButton/index"
+import { AddItem } from "../../../../vite-project/src/components/MenuPage/utility/modals/AddItem";
+import { EditItem } from "../../../../vite-project/src/components/MenuPage/utility/modals/EditItem";
+=======
+>>>>>>> dan-dev
 
 import { supahShakes } from "./utility/menu/supah-shakes";
-import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
 
+import { BackCardItem, FrontCardItem} from "./utility/card-shape";
 import "./MenuPage.css";
 
 const MenuPage = () => {
@@ -30,6 +36,11 @@ const MenuPage = () => {
     setFlippCardId(Infinity);
   };
 
+
+  //temp variable to mimic whether a user is logged in or not
+  const user = null
+
+  //function to pass to setState
   const setCatagory = (cat) => {
     setCurrentMenuCatagory(cat)
     console.log(cat)
@@ -40,6 +51,8 @@ const MenuPage = () => {
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
+
+
 
     //used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
@@ -54,6 +67,7 @@ const MenuPage = () => {
     <div className="menu">
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat={setCatagory} />
+      {user !== null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
       <div className="menu-item-container">
         <button
           className="menu-prev-next-btn"
@@ -73,7 +87,8 @@ const MenuPage = () => {
                   }
                 </div>
                 <button className="add-to-cart-btn">ADD TO CART</button>
-              </div>
+                {user !== null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
+            </div>
             );
           })}
         <button

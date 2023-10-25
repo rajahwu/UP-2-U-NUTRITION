@@ -1,8 +1,9 @@
-export const specialTeas = [
+export const goodies = [
     {
         'id': 1,
         'name': 'Mint Tea',
-        'category': 'supah shakes',
+        'category': 'special teas',
+        'price': '$13.99',
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -37,7 +38,8 @@ export const specialTeas = [
     {
         'id': 2,
         'name': 'Green Tea',
-        'category': 'supah shakes',
+        'category': 'special teas',
+        'price': '$12.99',
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -72,7 +74,8 @@ export const specialTeas = [
     {
         'id': 3,
         'name': 'Energy Tea',
-        'category': 'supah shakes',
+        'category': 'special teas',
+        'price': '$15.99',
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -107,7 +110,8 @@ export const specialTeas = [
     {
         'id': 4,
         'name': 'Black Tea',
-        'category': 'supah shakes',
+        'category': 'special teas',
+        'price': '$9.99',
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
@@ -142,7 +146,8 @@ export const specialTeas = [
     {
         'id': 5,
         'name': 'Teas Me',
-        'category': 'supah shakes',
+        'category': 'special teas',
+        'price': '$5.99',
         'image': '/images/teas/tea-temp.jpeg',
         'ingredients': [
             'Cream Cheese',
