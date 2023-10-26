@@ -24,15 +24,9 @@ def seed_menus():
     db.session.commit()
 
 def undo_menus():
-    try:
-        if environment == "production":
-            db.session.execute(f"TRUNCATE table {SCHEMA}.menus RESTART IDENTITY CASCADE;")
-        else:
-            db.session.execute(text("DELETE FROM menus"))
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        print(f"Error during undo_menus: {str(e)}")
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute(text("DELETE FROM menus"))
 
-if __name__ == '__main__':
-    seed_menus()
+    db.session.commit()
