@@ -9,7 +9,7 @@ const Events = () => {
 
   // console.log("this is event arr", eventArr)
   const event1 = Object.values(eventArr)
-  console.log("this is event1", event1)
+  // console.log("this is event1", event1)
 
 
   // let new_event = event1
@@ -45,7 +45,7 @@ const Events = () => {
   ];
 
 
-  console.log("this is date", events[0].date)
+  // console.log("this is date", events[0].date)
 
   const daysInMonth = new Date(
     currentMonth.getFullYear(),
@@ -99,28 +99,36 @@ const Events = () => {
 
     // console.log("this is event slice", event1)
     // if (!Array.isArray(eventArr)) throw new Error('eventArr is not an array')
-    const eventsForCurrentMonth = events.filter((event) => {
+    const eventsForCurrentMonth = event1.filter((event) => {
       const eventDate = new Date(event.date);
+      // console.log("this is event date", eventDate)
       return (
         eventDate.getMonth() === currentMonth.getMonth() &&
         eventDate.getFullYear() === currentMonth.getFullYear()
       );
     });
 
+    // console.log("this is events for current month", eventsForCurrentMonth[0].date)
+
+
     for (let i = 0; i < firstDayOfMonth; i++) {
       dayElements.push(<td key={`empty-${i}`} className='border'></td>)
     }
 
-    console.log("this is events for current month", eventsForCurrentMonth)
 
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-      const eventsForDay = eventsForCurrentMonth.filter((event) =>
-        // console.log("thisis event", event)
-        event.date.toDateString() === currentDate.toDateString())
+
+      const eventsForDay = eventsForCurrentMonth.filter((event) => {
+        const eventDate = new Date(event.date);
+        const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+        const formattedEventDate = eventDate.toLocaleDateString('en-US', options);
+        const formattedCurrentDate = currentDate.toLocaleDateString('en-US', options);
+        return formattedEventDate === formattedCurrentDate;
+      });
 
       dayElements.push(
-        <td
+        < td
           key={day}
           className="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition duration-500 ease hover:bg-gray-300"
         >
@@ -132,7 +140,7 @@ const Events = () => {
               ))}
             </div>
           </div>
-        </td>
+        </td >
       );
     }
 
