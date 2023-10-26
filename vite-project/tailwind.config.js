@@ -7,6 +7,8 @@ export default {
   theme: {
     extend: {},
   },
+  variants:{
+    opacity:['disabled', 'first']
+  },
   plugins: [],
 }
-
