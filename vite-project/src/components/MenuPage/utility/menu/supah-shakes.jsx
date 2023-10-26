@@ -1,15 +1,10 @@
-export const specialTeas = [
+export const supahShakes = [
     {
         'id': 1,
-        'name': 'Mint Tea',
-<<<<<<< HEAD
+        'name': 'Strawberry Cheesecake',
         'category': 'supah shakes',
-        'price': 4,
-=======
-        'category': 'special teas',
-        'price': '$13.99',
->>>>>>> staging
-        'image': '/images/teas/tea-temp.jpeg',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -42,15 +37,10 @@ export const specialTeas = [
     },
     {
         'id': 2,
-        'name': 'Green Tea',
-<<<<<<< HEAD
+        'name': 'BLUE Cheesecake',
         'category': 'supah shakes',
-        'price': 4,
-=======
-        'category': 'special teas',
-        'price': '$12.99',
->>>>>>> staging
-        'image': '/images/teas/tea-temp.jpeg',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -83,15 +73,10 @@ export const specialTeas = [
     },
     {
         'id': 3,
-        'name': 'Energy Tea',
-<<<<<<< HEAD
+        'name': 'RED Cheesecake',
         'category': 'supah shakes',
-        'price': 4,
-=======
-        'category': 'special teas',
         'price': '$15.99',
->>>>>>> staging
-        'image': '/images/teas/tea-temp.jpeg',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -124,15 +109,10 @@ export const specialTeas = [
     },
     {
         'id': 4,
-        'name': 'Black Tea',
-<<<<<<< HEAD
+        'name': 'ORANGE Cheesecake',
         'category': 'supah shakes',
-        'price': 4,
-=======
-        'category': 'special teas',
-        'price': '$9.99',
->>>>>>> staging
-        'image': '/images/teas/tea-temp.jpeg',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',
@@ -165,15 +145,10 @@ export const specialTeas = [
     },
     {
         'id': 5,
-        'name': 'Teas Me',
-<<<<<<< HEAD
+        'name': 'BLACK Cheesecake',
         'category': 'supah shakes',
-        'price': 4,
-=======
-        'category': 'special teas',
-        'price': '$5.99',
->>>>>>> staging
-        'image': '/images/teas/tea-temp.jpeg',
+        'price': '$15.99',
+        'image': '/images/shakes/strawberry_milkshake.webp',
         'ingredients': [
             'Cream Cheese',
             'Graham Cracker Crumbs',

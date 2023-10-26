@@ -16,8 +16,7 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ModalProvider>
       <Provider store={store}>
@@ -29,3 +28,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </ModalProvider>
   </React.StrictMode>,
 )
+
