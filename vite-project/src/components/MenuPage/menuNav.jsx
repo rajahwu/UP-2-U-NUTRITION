@@ -46,8 +46,8 @@ export const MenuNav = ({ changeCat }) => {
             alt=""
           />
         </div>
-  ))
-}
+      ))
+      }
     </div >
   );
 };

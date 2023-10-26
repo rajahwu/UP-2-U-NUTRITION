@@ -2,40 +2,55 @@ import { useState } from "react";
 import { MenuNav } from "./menuNav";
 import { supahShakes } from "./utility/menu/supah-shakes";
 import OpenModalButton from "../OpenModalButton/index";
-import {AddItem} from "./utility/modals/AddItem";
-import { EditItem } from "./utility/modals/EditItem";
+import { AddItem } from "./utility/forms/AddItem";
+import { EditItem } from "./utility/forms/EditItem";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
+import { menuCategories } from "./utility/menu/menu-categories";
+import { combinedMenu } from "./utility/menu/combined-menu";
 
 import "./MenuPage.css";
 
 const MenuPage = () => {
-
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
   const [currentMenuCategory, setCurrentMenuCategory] = useState(supahShakes);
+  const [startPosition, setStartPosition] = useState(0);
 
   //place holder for check on user
-  const user = "admin"
-
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const user = null
+  const nameOfLastCategory = menuCategories[menuCategories.length - 1];
+  const lengthOfLastCategory = combinedMenu[nameOfLastCategory].length;
 
   const itemsPerPage = 4;
-  let difference = supahShakes.length - itemsPerPage;
+  let difference = currentMenuCategory.length - itemsPerPage;
   const maxScrollPosition = Math.max(0, difference);
+  let idx = menuCategories.indexOf(currentMenuCategory[0].category)
+  let prevCategory = menuCategories[idx - 1];
+  let nextCategory = menuCategories[idx + 1];
 
   const handleScrollLeft = () => {
-    if (scrollPosition > 0) setScrollPosition(scrollPosition - itemsPerPage);
+    if (startPosition === 0 && currentMenuCategory[0].category !== menuCategories[0]) {
+      setCurrentMenuCategory(combinedMenu[prevCategory])
+    }
+    if (startPosition > 0) setStartPosition(startPosition - itemsPerPage);
+    console.log(startPosition, maxScrollPosition)
+
     setFlippCardId(Infinity);
   };
 
   const handleScrollRight = () => {
-    if (scrollPosition < maxScrollPosition) setScrollPosition(scrollPosition + itemsPerPage);
+    if (startPosition < maxScrollPosition) setStartPosition(startPosition + itemsPerPage)
+    else (
+      setCurrentMenuCategory(combinedMenu[nextCategory])
+    )
     setFlippCardId(Infinity);
+    console.log(startPosition, maxScrollPosition)
   };
 
   const setCategory = (cat) => {
     setCurrentMenuCategory(cat)
+    setStartPosition(0);
     setFlippCardId(Infinity);
   }
 
@@ -48,26 +63,28 @@ const MenuPage = () => {
       setFlippCardId(Infinity);
     } else {
       setFlippCardId(e.target.id);
+      console.log(flippedCardId, e.target.id)
     }
-    console.log(flippedCardId, e.target.id)
   };
+
 
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat={setCategory} />
-      {user !== null && <OpenModalButton modalComponent = {AddItem} buttonText = "Add Item" />}
+      {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />}
       <div className="menu-item-container">
         <button
-          className="menu-prev-next-btn"
-          onClick={handleScrollLeft}>
+          className={startPosition === 0 && currentMenuCategory[0].category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}
+          onClick={handleScrollLeft}
+          disabled={startPosition === 0 && currentMenuCategory[0].category === menuCategories[0]}
+        >
           {'<'}
         </button>
         {currentMenuCategory
-          .slice(scrollPosition, scrollPosition + itemsPerPage)
+          .slice(startPosition, startPosition + itemsPerPage)
           .map((item, i) => {
             return (
-
               <div id={i} key={i}>
                 <div id={i} onClick={flipCard}>
                   {/* Condally render the front or the back */}
@@ -77,17 +94,17 @@ const MenuPage = () => {
                   }
                 </div>
                 <button className="add-to-cart-btn">ADD TO CART</button>
-                {user !== null && <OpenModalButton modalComponent = {EditItem} buttonText = "Edit Item" />}
+                {user !== null && <OpenModalButton modalComponent={EditItem} buttonText="Edit Item" />}
               </div>
-          );
-        })}
+            );
+          })}
         <button
           className="menu-prev-next-btn"
           onClick={handleScrollRight}>
           {'>'}
         </button>
       </div>
-    </div>
+    </div >
   );
 };
 

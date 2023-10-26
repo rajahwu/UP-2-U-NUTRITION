@@ -10,15 +10,16 @@
     display: flex;
     /* justify-content: space-between; */
     width: 80%;
+    max-width: 1000px;
     height: 120px;
     margin: 20px auto 30px;
-    border: green solid 1px
+    /* border: green solid 1px */
 }
 
 .menu-nav-categories div {
     font-weight: bold;
     font-size: 24px;
-    color: #000000;
+    /* color: #000000; */
 }
 
 .categories-container {
@@ -31,12 +32,12 @@
     margin: auto;
     line-height: 28px;
     /* cursor: pointer; */
-    border: 1px red solid;
+    /* border: 1px red solid; */
     z-index: 1;
 }
 
 .category-title {
-    border: 1px blue solid;
+    /* border: 1px blue solid; */
     cursor: pointer;
     width: 100px;
 }
@@ -81,6 +82,14 @@
 .menu-prev-next-btn {
     background-color: white;
     /* border: none; */
+    font-size: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.menu-prev-next-btn-deactivated {
+    background-color: white;
+    color: rgb(200, 200, 200);
     font-size: 100px;
     height: 100px;
     margin: auto;
