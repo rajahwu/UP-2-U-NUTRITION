@@ -51,7 +51,8 @@ export function AddItem() {
 
  const deleteIngredients = (e) => {
     const tempIngredients = [...ingredients]
-    tempIngredients.splice(e.target.value, 1)
+    console.log(tempIngredients[e.target.id])
+    tempIngredients.splice(e.target.id, 1)
     setIngrediants(tempIngredients)
  }
 
@@ -135,7 +136,7 @@ export function AddItem() {
                 return (
             <div className="flex space-x-1" key={`ing-${ingredient}`}>
                 <div className="text-lg" id={i}>{ingredient}</div>
-                <div className="overflow-hidden" onClick={deleteIngredients}>
+                <div className="overflow-hidden" onClick={deleteIngredients} id={i}>
                     <img id={i} className="h-3 w-3" src="/images/x.png"></img>
                 </div>
             </div>)
