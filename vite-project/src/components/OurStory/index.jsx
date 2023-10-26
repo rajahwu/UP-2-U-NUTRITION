@@ -7,9 +7,8 @@ const OurStory = () => {
 
     return (
         <div className="ourstory-page">
-            <div className="ourstory-page-bgimg"></div>
             <div className="ourstory-page-content">
-                <div id="ourstory-title">OUR STORY</div>
+                <div id="ourstory-title" className='headers'>OUR STORY</div>
                 <img id="owner-img" src="https://i.imgur.com/mfTz11d.png"></img>
                 <div className="ourstory-body">Ex cillum deserunt irure deserunt qui magna nostrud id cillum proident fugiat cupidatat duis. Excepteur pariatur reprehenderit do commodo do eu proident voluptate consectetur. Lorem incididunt occaecat quis minim. Cupidatat adipisicing minim ut aliqua esse. Lorem magna eu cupidatat quis duis fugiat dolore do id ut.
 
@@ -59,6 +58,10 @@ const OurStory = () => {
                     </div>
                 </div>
             </div>
+            <div >
+                <img className="ourstory-page-bgimg" src='/images/BG_Our_Story.png' alt='' />
+            </div>
+
         </div>
     )
 }
