@@ -11,3 +11,16 @@
 button {
     cursor: pointer;
 }
+
+.green-btn {
+    background-color: #5EAA00;
+    border: solid 1px #5EAA00;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.green-btn:hover {
+    color: #5EAA00;
+    background-color: #FFFFFF;
+}

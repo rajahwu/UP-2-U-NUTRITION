@@ -1,3 +1,10 @@
+.events-request-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 1);
+}
+
 .event-container {
     display: flex;
     flex-direction: column;
@@ -5,12 +12,15 @@
     background: rgba(255, 255, 255, 1);
     width: 730px;
     height: 600px;
-    border-radius: 4px;
 }
 
-.event-color-bar {
+.event-bar {
     width: 730px;
     height: 15px;
+}
+
+.event-green-bar {
+    background-color: #5EAA00;
 }
 
 .divider {
@@ -38,4 +48,55 @@
 .event-hours {
     font-size: 38px;
     color: #000000;
+}
+
+.request-event-btn-container {
+    /* display: flex;
+    justify-content: flex-end;
+    align-items: flex-end; */
+    margin: 0 0 20px 0
+}
+
+.request-event-btn {
+    width: 140px;
+    height: 40px;
+}
+
+.form-request-event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-start-and-end {
+    display: flex;
+}
+
+.form-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-email-phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-inputs {
+    border: 1px solid rgba(196, 196, 196, 1)
 }

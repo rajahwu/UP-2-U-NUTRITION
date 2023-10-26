@@ -65,19 +65,10 @@
 
 .add-to-cart-btn {
     margin-top: 20px;
-    background-color: #5EAA00;
-    border: solid 1px #5EAA00;
-    width: 87px;
-    height: 28px;
-    border-radius: 2px;
-    font-size: 10px;
-    color: #FFFFFF;
+    width: 120px;
+    height: 40px;
 }
 
-.add-to-cart-btn:hover {
-    color: #5EAA00;
-    background-color: #FFFFFF;
-}
 
 .menu-prev-next-btn {
     background-color: white;

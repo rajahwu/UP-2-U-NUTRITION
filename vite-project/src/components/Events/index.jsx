@@ -1,9 +1,9 @@
-
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllEventsThunk } from '../../store/events';
 import OpenModalButton from '../OpenModalButton';
 import { EventsModal } from './events';
+import { RequestEventModal } from './requestEvents';
 import './Events.css'
 
 const Events = () => {
@@ -12,12 +12,9 @@ const Events = () => {
   const eventArr = useSelector(state => state.eventReducer)
   const event1 = Object.values(eventArr);
 
-
   useEffect(() => {
     dispatch(getAllEventsThunk())
   }, [dispatch])
-
-
 
   if (!eventArr) return
 
@@ -139,9 +136,18 @@ const Events = () => {
 
   return (
     <>
-      <div className="relative w-full h-24">
-        <h1 className="font-bold text-5xl mt-10 text-center pb-0">EVENTS</h1>
-        <button className="absolute top-0 right-5 landing-page-button rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-white-700">Request Event</button>
+      {/* <div className="relative w-full h-24"> */}
+      <div className="events-request-container">
+        <div className="headers">EVENTS</div>
+        <div className='request-event-btn-container'>
+          <OpenModalButton
+            buttonText='Request Event'
+            className="green-btn request-event-btn"
+            onItemClick=''
+            modalComponent={<RequestEventModal />}
+          />
+          {/* <button className="absolute top-0 right-5 landing-page-button rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium green">Request Event</button> */}
+        </div>
       </div>
       <div className="container mx-auto mt-0">
         <div className="wrapper rounded shadow w-full">

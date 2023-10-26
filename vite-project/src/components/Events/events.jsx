@@ -29,7 +29,7 @@ export const EventsModal = ({ event }) => {
     console.log(event)
     return (
         <div className="event-container">
-            <div className='event-color-bar' style={{ backgroundColor: `${event.color}` }}></div>
+            <div className='event-bar' style={{ backgroundColor: `${event.color}` }}></div>
             <div className="event-month-day">
                 {`${monthOfEvent} ${dayOfEvent}`}
             </div>
