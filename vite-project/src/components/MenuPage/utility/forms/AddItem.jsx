@@ -7,7 +7,7 @@ export function AddItem() {
   const [file, setFile] = useState("");
   const [preview, setPreview] = useState("")
   const [currentIngredients, setCurrentIngredients] = useState("")
-  const [ingredients, setIngrediants] = useState([""]);
+  const [ingredients, setIngrediants] = useState([]);
   const [nutrition, setNutrition] = useState([]);
   const [price, setPrice] = useState(4);
   const [errors, setErrors] = useState([]);
@@ -47,8 +47,11 @@ export function AddItem() {
     const tempIngredients = [...ingredients, ...currentIngredients.split(", ")]
     setCurrentIngredients("")
     setIngrediants(tempIngredients)
+ }
 
-    // setIngrediants(tempIngredients)
+ const deleteIngredients = (e) => {
+    const tempIngredients = [...ingredients]
+    tempIngredients.splice(e.target.value, 1)
  }
 
   return (
@@ -124,9 +127,19 @@ export function AddItem() {
         </div>
 
         <div className="grid grid-cols-3 align-between" >
-            <div className="">Current Ingrediants:</div>
+            <div className="text-lg">Current Ingredients:</div>
             <div></div>
-            {ingredients && ingredients.map(ingredient => <div key={`ing-${ingredient}`}>{ingredient}</div>)}
+            <div></div>
+            {ingredients.length !==0 && ingredients.map((ingredient, i) => {
+                return (
+            <div className="flex space-x-1" key={`ing-${ingredient}`}>
+                <div className="text-lg" id={i}>{ingredient}</div>
+                <div className="overflow-hidden" onClick={(e) => deleteIngredients}>
+                    <img id={i} className="h-3 w-3" src="/images/x.png"></img>
+                </div>
+            </div>)
+            })}
+
         </div>
       </form>
     </div>
