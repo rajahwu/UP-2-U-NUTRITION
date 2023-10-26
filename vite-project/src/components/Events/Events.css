@@ -1,0 +1,41 @@
+.event-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 1);
+    width: 730px;
+    height: 600px;
+    border-radius: 4px;
+}
+
+.event-color-bar {
+    width: 730px;
+    height: 15px;
+}
+
+.divider {
+    border-top: 1px solid #000;
+    width: 80%;
+}
+
+.event-title {
+    font-weight: bold;
+    font-size: 50px;
+    color: #000000;
+}
+
+.event-details {
+    font-size: 20px;
+    color: #000000;
+    margin: 40px;
+}
+
+.event-month-day {
+    font-size: 60px;
+    color: #000000;
+}
+
+.event-hours {
+    font-size: 38px;
+    color: #000000;
+}

@@ -1,26 +1,16 @@
+
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllEventsThunk } from '../../store/events';
+import OpenModalButton from '../OpenModalButton';
+import { EventsModal } from './events';
+import './Events.css'
 
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const dispatch = useDispatch()
   const eventArr = useSelector(state => state.eventReducer)
-
-  // console.log("this is event arr", eventArr)
-  const event1 = Object.values(eventArr)
-  // console.log("this is event1", event1)
-
-
-  // let new_event = event1
-  // const eventsForCurrentMonth = new_event.filter((event) => {
-  //   const eventDate = new Date(event.date);
-  //   return (
-  //     eventDate.getMonth() === currentMonth.getMonth() &&
-  //     eventDate.getFullYear() === currentMonth.getFullYear()
-  //   );
-  // });
-
+  const event1 = Object.values(eventArr);
 
 
   useEffect(() => {
@@ -30,22 +20,6 @@ const Events = () => {
 
 
   if (!eventArr) return
-
-  const events = [
-    {
-      date: new Date(currentMonth.getFullYear(), 10, 5),
-      title: 'Latinos in the US - Networking',
-      details: 'Lorem Ipsum'
-    },
-    {
-      date: new Date(currentMonth.getFullYear(), 10, 15),
-      title: 'Event 2',
-      details: 'Lorem Ipsom lskdjfalsdkjf '
-    },
-  ];
-
-
-  // console.log("this is date", events[0].date)
 
   const daysInMonth = new Date(
     currentMonth.getFullYear(),
@@ -95,26 +69,17 @@ const Events = () => {
 
     const dayElements = [];
 
-
-
-    // console.log("this is event slice", event1)
-    // if (!Array.isArray(eventArr)) throw new Error('eventArr is not an array')
     const eventsForCurrentMonth = event1.filter((event) => {
       const eventDate = new Date(event.date);
-      // console.log("this is event date", eventDate)
       return (
         eventDate.getMonth() === currentMonth.getMonth() &&
         eventDate.getFullYear() === currentMonth.getFullYear()
       );
     });
 
-    // console.log("this is events for current month", eventsForCurrentMonth[0].date)
-
-
     for (let i = 0; i < firstDayOfMonth; i++) {
       dayElements.push(<td key={`empty-${i}`} className='border'></td>)
     }
-
 
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
@@ -136,7 +101,15 @@ const Events = () => {
             <div className="top h-5 w-full flex flex-col">
               <span className="text-gray-500">{day}</span>
               {eventsForDay.map((event, index) => (
-                <span key={index} className="rounded-sm p-1 text-sm mb-1text-sm text-white bg-red-600 cursor-pointer">{event.title}</span>
+                <div key={index} className="">
+                  <span key={index} style={{ backgroundColor: `${event.color}` }} className='rounded-sm p-1 text-sm mb-1text-sm text-white cursor-pointer flex'>{event.title}</span>
+                  <OpenModalButton
+                    buttonText={event.title}
+                    className=""
+                    onItemClick=''
+                    modalComponent={<EventsModal event={event} />}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -163,10 +136,6 @@ const Events = () => {
     return weeks;
   };
 
-
-  // useEffect(() => {
-  //   dispatch(getAllEventsThunk())
-  // }, [dispatch])
 
   return (
     <>
