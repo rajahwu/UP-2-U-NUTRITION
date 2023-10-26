@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import session from './session'
 import eventReducer from './events';
 import logger from 'redux-logger'
+import menuReducer from './menus';
 
 const rootReducer = combineReducers({
   session,
-  eventReducer
+  eventReducer,
+  menuReducer
 });
 
 
