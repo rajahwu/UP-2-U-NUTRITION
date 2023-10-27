@@ -11,7 +11,7 @@ from .api.event_routes import event_routes
 from .seeds import seed_commands
 from .config import Config
 
-app = Flask(__name__, static_folder='../vite-project/build', static_url_path='/')
+app = Flask(__name__, static_folder='../vite-project/dist', static_url_path='/')
 
 # Setup login manager
 login = LoginManager(app)
@@ -34,22 +34,12 @@ db.init_app(app)
 Migrate(app, db)
 
 # Application Security
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 
 
-# Since we are deploying with Docker and Flask,
-# we won't be using a buildpack when we deploy to Heroku.
-# Therefore, we need to make sure that in production any
-# request made over http is redirected to https.
-# Well.........
-@app.before_request
-def https_redirect():
-    if os.environ.get('FLASK_ENV') == 'production':
-        if request.headers.get('X-Forwarded-Proto') == 'http':
-            url = request.url.replace('http://', 'https://', 1)
-            code = 301
-            return redirect(url, code=code)
-
+# @app.route('/test')
+# def test_route():
+#     return "Flask backend is working!"
 
 @app.after_request
 def inject_csrf_token(response):
