@@ -43,15 +43,6 @@
     align-items: center;
 }
 
-#sponsor-title {
-    font-size: 30px;
-    font-weight: 400;
-    color: white;
-    background-color: rgb(14, 137, 251);
-    padding: 8px 20px 2px 20px;
-    margin-top: 50px;
-    margin-bottom: 25px;
-}
 
 .sponsored-athletes-section {
     display: flex;
@@ -111,7 +102,7 @@
     width: 90%;
 }
 
-#address-title {
+.address-hours-title {
     font-size: 30px;
     font-weight: 400;
 }
@@ -126,4 +117,14 @@
     gap: 8px;
 }
 
-.our-story-athlete-image {}
+.ourstory-contact-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hours-and-address {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -20,7 +20,7 @@ const OurStory = () => {
                         Occaecat veniam quis aute mollit. Sit nisi sint in exercitation anim. Exercitation sit anim velit amet dolore duis in labore deserunt quis dolore sunt. Eiusmod irure consequat laborum cupidatat cupidatat. Dolor consequat minim qui ex nostrud incididunt ea. Pariatur occaecat ut occaecat ut labore voluptate aliqua mollit do duis.
 
                         Do in ad mollit deserunt ad laboris consequat sit ut esse irure deserunt quis duis. Quis minim culpa tempor excepteur consectetur cupidatat. Fugiat id occaecat nisi et. Qui enim dolore in dolore proident qui ipsum mollit esse quis sint culpa cupidatat incididunt. Ex est enim nostrud id nulla tempor laborum labore voluptate quis exercitation magna ad. Incididunt occaecat anim deserunt ipsum qui exercitation eiusmod enim id adipisicing ullamco.</div>
-                    <div id="sponsor-title">SPONSORING</div>
+                    <div className="headers bg-titles-blue">SPONSORING</div>
                     <div className="sponsored-athletes-section">
                         <div className="sponsored-athletes">
                             {athletes.map((athlete, i) => {
@@ -45,13 +45,11 @@ const OurStory = () => {
                             })}
                         </div>
                     </div>
+                    <div id="sponsor-title">CONTACT US</div>
                     <div className="ourstory-contact-section">
-                        <div className='address-content'>
-                            <span id="address-title">Address:</span>
-                            <br />
-                            <span id="address"> 1517 NW 23rd Ave, Gainesville, FL 32605 </span>
-                            <div className='hours-day-time'>
-                                <span> Hours:</span>
+                        <div className='hours-and-address'>
+                            <div className='business-hours'>
+                                <div className='address-hours-title'>Business Hours:</ div>
                                 <br />
                                 <span>Monday 7:30AM-8PM</span>
                                 <br />
@@ -67,14 +65,15 @@ const OurStory = () => {
                                 <br />
                                 <span>Sunday 9AM-3PM</span>
                                 <br />
-
                             </div>
-                            <span id="phone-number">Phone: (786) 651-1153 </span>
-                            <br />
+                            <div className='address'>
+                                <div className='address-hours-title'>Address:</div>
+                                <div id="address"> 1517 NW 23rd Ave, Gainesville, FL 32605 </div>
+                            </div>
                         </div>
+                        {/* <span id="phone-number">Phone: (786) 651-1153 </span> */}
                     </div>
-
-                    <div >
+                    <div>
                         <img className="ourstory-page-bg-img" src='/images/BG_Our_Story.png' alt='' />
                     </div>
                 </div>

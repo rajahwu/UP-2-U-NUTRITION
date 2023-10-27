@@ -28,7 +28,7 @@ function Navigation({ isLoaded }) {
 						<img id="main-logo" src="/images/logo.png" alt="Main Logo" />
 					</NavLink>
 				</div>
-				<div className="logo2">
+				<div className="icons-nav-bar">
 					<NavLink exact to="/our-story">
 						<img id="sub-icon" src={ourstoryImgSrc}
 							onMouseEnter={() => setOurstoryImgSrc("/images/icons/our_story_ro.png")}
