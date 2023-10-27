@@ -105,7 +105,7 @@ const MenuPage = () => {
                     : <FrontCardItem item={item} i={i} />
                   }
                 </div>
-                <button className="add-to-cart-btn">ADD TO CART</button>
+                <button className="green-btn add-to-cart-btn">ADD TO CART</button>
                 {user !== null && <OpenModalButton modalComponent={EditItem} buttonText="Edit Item" />}
               </div>
             );

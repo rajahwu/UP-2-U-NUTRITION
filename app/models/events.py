@@ -17,6 +17,7 @@ class Event(db.Model):
     date = db.Column(db.Date())
     start_time = db.Column(db.DateTime())
     end_time = db.Column(db.DateTime())
+    color = db.Column(db.String())
     created_at = db.Column(db.Date())
     updated_at = db.Column(db.Date())
 
@@ -31,6 +32,7 @@ class Event(db.Model):
         'date':self.date,
         'start_time':self.start_time,
         'end_time':self.end_time,
+        'color': self.color,
         'created_at':self.created_at,
         'updated_at':self.updated_at
         }
