@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
 import { supahShakes } from "./utility/menu/supah-shakes";
 import OpenModalButton from "../OpenModalButton/index";
@@ -9,12 +9,25 @@ import { menuCategories } from "./utility/menu/menu-categories";
 import { combinedMenu } from "./utility/menu/combined-menu";
 
 import "./MenuPage.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllMenuItemThunk } from "../../store/menus";
 
 const MenuPage = () => {
+  const dispatch = useDispatch()
+  const menu1 = useSelector(state => state.menuReducer)
+  const currentMenuCategory = Object.values(menu1)
+
+  useEffect(() => {
+    dispatch(getAllMenuItemThunk())
+  }, [dispatch])
+
+  // if (!menu_arr.length) return null
+
+  // console.log("this is menu =====", menu_arr)
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
-  const [currentMenuCategory, setCurrentMenuCategory] = useState(supahShakes);
+  // const [currentMenuCategory, setCurrentMenuCategory] = useState(supahShakes);
   const [startPosition, setStartPosition] = useState(0);
 
   //place holder for check on user
@@ -25,12 +38,12 @@ const MenuPage = () => {
   const itemsPerPage = 4;
   let difference = currentMenuCategory.length - itemsPerPage;
   const maxScrollPosition = Math.max(0, difference);
-  let idx = menuCategories.indexOf(currentMenuCategory[0].category)
+  let idx = menuCategories.indexOf(currentMenuCategory[0]?.category)
   let prevCategory = menuCategories[idx - 1];
   let nextCategory = menuCategories[idx + 1];
 
   const handleScrollLeft = () => {
-    if (startPosition === 0 && currentMenuCategory[0].category !== menuCategories[0]) {
+    if (startPosition === 0 && currentMenuCategory[0]?.category !== menuCategories[0]) {
       setCurrentMenuCategory(combinedMenu[prevCategory])
     }
     if (startPosition > 0) setStartPosition(startPosition - itemsPerPage);
@@ -67,7 +80,6 @@ const MenuPage = () => {
     }
   };
 
-
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
@@ -75,13 +87,13 @@ const MenuPage = () => {
       {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />}
       <div className="menu-item-container">
         <button
-          className={startPosition === 0 && currentMenuCategory[0].category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}
+          className={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}
           onClick={handleScrollLeft}
-          disabled={startPosition === 0 && currentMenuCategory[0].category === menuCategories[0]}
+          disabled={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0]}
         >
           {'<'}
         </button>
-        {currentMenuCategory
+        {currentMenuCategory && currentMenuCategory
           .slice(startPosition, startPosition + itemsPerPage)
           .map((item, i) => {
             return (
@@ -89,8 +101,8 @@ const MenuPage = () => {
                 <div id={i} onClick={flipCard}>
                   {/* Condally render the front or the back */}
                   {flippedCardId == i
-                    ? BackCardItem(item, i)
-                    : FrontCardItem(item, i)
+                    ? <BackCardItem item={item} i={i} />
+                    : <FrontCardItem item={item} i={i} />
                   }
                 </div>
                 <button className="green-btn add-to-cart-btn">ADD TO CART</button>
