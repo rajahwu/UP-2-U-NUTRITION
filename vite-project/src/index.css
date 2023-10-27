@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 body {
+    font-family: 'League Spartan', sans-serif;
     background-color: rgba(240, 240, 240, 1);
 }
 
