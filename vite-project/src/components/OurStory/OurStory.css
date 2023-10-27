@@ -5,19 +5,12 @@
     background-position: center;
     /* background-image: url("https://i.imgur.com/WHVne78.png"); */
     height: 100vh;
-
 }
 
-.ourstory-page-bgimg {
-    /* background-image: url("/images/BG_Our_Story.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; */
-    /* width: 80%; */
-    /* height: 80%; */
-    position: relative;
-    /* top: 0;
-    left: 0; */
+.ourstory-page-bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: -1;
     opacity: 0.5;
 }
@@ -56,35 +49,61 @@
     color: white;
     background-color: rgb(14, 137, 251);
     padding: 8px 20px 2px 20px;
-    margin-top: 10%;
-    margin-bottom: 7%;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
 .sponsored-athletes-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 5%;
 }
 
-.sponsored-photo {
+.sponsored-athletes {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    /* gap: 10px; */
-    width: 92%;
+    width: 1200px;
 }
 
-#athlete-photo {
-    width: 30%;
-    /* transition: transform 0.3s, filter 0.3s;
-    filter: brightness(1); */
+.athlete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 15px;
+    width: 300px;
+    height: 420px;
 }
 
-/* #athlete-photo:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-} */
+.our-story-athlete-image-container {
+    padding: 15px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.our-story-athlete-image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    /* background-position: center; */
+}
+
+.our-story-athlete-name {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.our-story-athlete-position {
+    font-size: 22px;
+}
+
+.our-story-athlete-favorite {
+    font-size: 18px;
+}
 
 .ourstory-contact-section {
     display: flex;
@@ -106,3 +125,5 @@
     flex-direction: column;
     gap: 8px;
 }
+
+.our-story-athlete-image {}
