@@ -6,6 +6,7 @@ function OpenModalButton({
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose,  // optional: callback function that will be called once the modal is closed
   className,
+  id,
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
@@ -16,7 +17,7 @@ function OpenModalButton({
   };
 
   return (
-    <button className={className} onClick={onClick}>{buttonText}</button>
+    <button className={className} onClick={onClick} id={id}>{buttonText}</button>
   );
 }
 
