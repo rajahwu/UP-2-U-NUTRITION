@@ -1,3 +1,6 @@
+import OpenModalButton from '../OpenModalButton'
+import { ContactUsModal } from './utility/contactUs'
+
 import { athletes } from './utility/athletes'
 
 import './OurStory.css'
@@ -45,30 +48,46 @@ const OurStory = () => {
                             })}
                         </div>
                     </div>
-                    <div id="sponsor-title">CONTACT US</div>
+                    <div className="headers bg-titles-blue">CONTACT US</div>
+                    <OpenModalButton
+                        buttonText='Send message or email'
+                        className="green-btn mess-email-btn"
+                        onItemClick=''
+                        modalComponent={<ContactUsModal />}
+                    />
                     <div className="ourstory-contact-section">
                         <div className='hours-and-address'>
                             <div className='business-hours'>
                                 <div className='address-hours-title'>Business Hours:</ div>
-                                <br />
-                                <span>Monday 7:30AM-8PM</span>
-                                <br />
-                                <span>Tuesday 7:30AM-8PM</span>
-                                <br />
-                                <span>Wednesday 7:30AM-8PM</span>
-                                <br />
-                                <span>Thursday 7:30AM-8PM</span>
-                                <br />
-                                <span>Friday 7:30AM-8PM</span>
-                                <br />
-                                <span>Saturday 9AM-3PM</span>
-                                <br />
-                                <span>Sunday 9AM-3PM</span>
-                                <br />
+                                <div className='actual-hours'>
+                                    <br />
+                                    <span>Monday 7:30AM-8PM</span>
+                                    <br />
+                                    <span>Tuesday 7:30AM-8PM</span>
+                                    <br />
+                                    <span>Wednesday 7:30AM-8PM</span>
+                                    <br />
+                                    <span>Thursday 7:30AM-8PM</span>
+                                    <br />
+                                    <span>Friday 7:30AM-8PM</span>
+                                    <br />
+                                    <span>Saturday 9AM-3PM</span>
+                                    <br />
+                                    <span>Sunday 9AM-3PM</span>
+                                    <br />
+                                </div>
                             </div>
                             <div className='address'>
                                 <div className='address-hours-title'>Address:</div>
-                                <div id="address"> 1517 NW 23rd Ave, Gainesville, FL 32605 </div>
+                                <div className='actual-address'>
+                                    <span>
+                                        1517 NW 23rd Ave,
+                                    </span>
+                                    <br />
+                                    <span>
+                                        Gainesville, FL 32605
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         {/* <span id="phone-number">Phone: (786) 651-1153 </span> */}

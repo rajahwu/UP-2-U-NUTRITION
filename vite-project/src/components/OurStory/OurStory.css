@@ -16,8 +16,6 @@
 }
 
 #ourstory-title {
-    font-size: 45px;
-    font-weight: 600;
     color: white;
     padding: 8px 20px 2px 20px;
     margin-top: 5%;
@@ -98,17 +96,13 @@
 
 .ourstory-contact-section {
     display: flex;
-    /* border: 1px solid red; */
-    width: 90%;
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 900px;
 }
 
 .address-hours-title {
-    font-size: 30px;
-    font-weight: 400;
-}
-
-#address {
-    font-size: 20px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .address-content {
@@ -125,6 +119,19 @@
 
 .hours-and-address {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    gap: 150px;
+    margin: 25px;
+}
+
+.actual-address {
+    font-size: 24px;
+}
+
+.actual-hours {
+    font-size: 24px;
+}
+
+.mess-email-btn {
+    width: 180px;
+    height: 40px;
 }
