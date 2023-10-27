@@ -61,10 +61,10 @@ function Navigation({ isLoaded }) {
 						<img id="sub-icon" src={cartImgSrc}
 							alt="Cart" />
 					</NavLink>
-					<div>
+					{/* <div>
 						<ProfileButton user={sessionUser} />
 						<p>Hello</p>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<div className="all-line">
