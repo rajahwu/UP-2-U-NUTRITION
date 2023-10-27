@@ -34,7 +34,7 @@ db.init_app(app)
 Migrate(app, db)
 
 # Application Security
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 # @app.route('/test')
