@@ -38,56 +38,62 @@ export const RequestEventModal = () => {
     return (
         <div className="event-request-container">
             <div className='event-bar event-green-bar'></div>
-            <form className="form-request-event-container event-container" onSubmit={handleSubmit}>
-                <div className="form-start-and-end">
-                    <div className="form-start">
-                        <label htmlFor="item-start">Start</label>
+            <div className='headers form-titles'>REQUEST EVENT</div>
+            <div className="divider"></div>
+            <div className="request-event-form-btn">
+                <form className="form-request-event-container event-container" onSubmit={handleSubmit}>
+                    <div className="form-start-and-end">
+                        <div className="form-start">
+                            <label htmlFor="item-start">Start</label>
+                            <input
+                                className="form-date-inputs"
+                                id="item-start"
+                                type="datetime-local"
+                                value={startTime}
+                                onChange={(e) => setStartTime(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="form-end">
+                            <label htmlFor="item-end">End</label>
+                            <input
+                                className="form-date-inputs"
+                                id="item-end"
+                                type="datetime-local"
+                                value={endTime}
+                                onChange={(e) => setEndTime(e.target.value)}
+                                required
+                            />
+                        </div>
+                    </div>
+                    {isValid ? null : <div style={{ color: 'red' }}>Invalid Input</div>}
+                    <div className="form-email-phone">
+                        <label htmlFor="item-email-phone">Email or Phone</label>
                         <input
                             className="form-inputs"
-                            id="item-start"
-                            type="datetime-local"
-                            value={startTime}
-                            onChange={(e) => setStartTime(e.target.value)}
+                            id="item-email-phone"
+                            type="text"
+                            value={emailOrPhone}
+                            onChange={handleEmailOrPhone}
                             required
                         />
                     </div>
-                    <div className="form-end">
-                        <label htmlFor="item-end">End</label>
-                        <input
+                    <div className="form-description">
+                        <label htmlFor="item-description">Description</label>
+                        <textarea
                             className="form-inputs"
-                            id="item-end"
-                            type="datetime-local"
-                            value={endTime}
-                            onChange={(e) => setEndTime(e.target.value)}
+                            id="item-description"
+                            type="text"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                             required
                         />
                     </div>
+                </form>
+                <div className="request-event-btn-container">
+                    <button className="green-btn request-event-btn" type="submit">Submit</button>
                 </div>
-                <div className="form-email-phone">
-                    <label htmlFor="item-email-phone">Email or Phone</label>
-                    <input
-                        className="form-inputs"
-                        id="item-email-phone"
-                        type="text"
-                        value={emailOrPhone}
-                        onChange={handleEmailOrPhone}
-                        required
-                    />
-                </div>
-                <div className="form-description">
-                    <label htmlFor="item-description">Description</label>
-                    <textarea
-                        className="form-inputs"
-                        id="item-description"
-                        type="text"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
-                </div>
-            </form>
-            <button className="green-btn" type="submit">Submit</button>
-            {isValid ? null : <div style={{ color: 'red' }}>Invalid Input</div>}
-        </div>
+            </div>
+        </div >
     )
 }

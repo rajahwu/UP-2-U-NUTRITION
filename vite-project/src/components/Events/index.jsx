@@ -137,7 +137,7 @@ const Events = () => {
   return (
     <>
       {/* <div className="relative w-full h-24"> */}
-      <div className="events-request-container">
+      <div className="events-request-modal">
         <div className="headers">EVENTS</div>
         <div className='request-event-btn-container'>
           <OpenModalButton
