@@ -13,6 +13,9 @@ from .seeds import seed_commands
 from .config import Config
 
 app = Flask(__name__, static_folder='../vite-project/dist', static_url_path='/')
+# app.run(debug=False)
+
+CORS(app, origins="*", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
 # Setup login manager
 login = LoginManager(app)
@@ -36,12 +39,15 @@ db.init_app(app)
 Migrate(app, db)
 
 # Application Security
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+# CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 # @app.route('/test')
 # def test_route():
 #     return "Flask backend is working!"
+def before_request():
+    if request.method == 'OPTIONS':
+        request._csrf_disabled = True
 
 @app.after_request
 def inject_csrf_token(response):
