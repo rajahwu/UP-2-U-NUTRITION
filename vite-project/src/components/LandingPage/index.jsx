@@ -1,8 +1,8 @@
-import { randomElement } from '../util'
-
 import './LandingPage.css'
+import { useNavigate } from 'react-router-dom'
 
 const LandingPage = () => {
+    const navigate = useNavigate();
 
     const dailySpecials = [
         'Sunday Special',
@@ -28,7 +28,7 @@ const LandingPage = () => {
                         <div className="green-line-order">
                             <div className="start-order">
                                 <div className='daily-specials'>{displaySpecials(dailySpecials)}</div>
-                                <button onClick={() => history.push("/menu")} className="landing-page-button">START YOUR ORDER</button>
+                                <button onClick={() => navigate("/menu")} className="landing-page-button">START YOUR ORDER</button>
                             </div>
                         </div>
                     </div>
