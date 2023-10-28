@@ -54,8 +54,6 @@ export function AddItem() {
       const data = await dispatch(createMenuItemThunk(newMenuItem))
 
     }
-    //do something on success
-    // console.log(newMenuItem);
   }
 
   const onImageChange = (e) => {
@@ -76,7 +74,7 @@ export function AddItem() {
 
   const deleteIngredients = (e) => {
     const tempIngredients = [...ingredients]
-    console.log(tempIngredients[e.target.id])
+  
     tempIngredients.splice(e.target.id, 1)
     setIngrediants(tempIngredients)
   }

@@ -15,7 +15,6 @@ const LandingPage = () => {
     ]
 
     const currentDate = new Date().getDay();
-    console.log(currentDate);
     const displaySpecials = (specials) => {
         return specials[currentDate]
     }
