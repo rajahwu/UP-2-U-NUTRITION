@@ -33,9 +33,13 @@ function LoginFormModal() {
   };
 
   return (
-    <div>
+    <div className="p-3">
       {user ? (
-        <button onClick={handleLogout}>logout</button>
+        <div className="flex flex-col items-center">
+          <h1 className="text-5xl">You are logged in!</h1>
+          <h2 className="text-2xl">Click the button below to logout!</h2>
+          <button onClick={handleLogout} className="text-3xl hover:bg-black hover:text-white">logout</button>
+        </div>
       ) : (
         <form onSubmit={handleSubmit} className="p-10 flex flex-col justify-center items-center w-full">
           <h1 className="text-5xl p-1">Log In</h1>
