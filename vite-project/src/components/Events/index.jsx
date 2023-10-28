@@ -137,7 +137,7 @@ const Events = () => {
 
   return (
     <>
-      {/* <div className="relative w-full h-24"> */}
+      <div className="relative w-full h-24">
       <div className="events-request-modal">
         <div className="headers">EVENTS</div>
         <div className='request-event-btn-container'>
@@ -179,6 +179,7 @@ const Events = () => {
             </thead>
             <tbody>{renderDays()}</tbody>
           </table>
+        </div>
         </div>
       </div>
     </>
