@@ -81,7 +81,7 @@ export const RequestEventModal = () => {
                     <div className="form-description">
                         <label htmlFor="item-description">Description</label>
                         <textarea
-                            className="form-inputs"
+                            className="form-inputs h-full"
                             id="item-description"
                             type="text"
                             value={description}

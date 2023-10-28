@@ -99,10 +99,10 @@ const Events = () => {
               <span className="text-gray-500">{day}</span>
               {eventsForDay.map((event, index) => (
                 <div key={index} className="">
-                  <span key={index} style={{ backgroundColor: `${event.color}` }} className='rounded-sm p-1 text-sm mb-1text-sm text-white cursor-pointer flex'>{event.title}</span>
                   <OpenModalButton
+                    style={{ backgroundColor: `${event.color}` }}
                     buttonText={event.title}
-                    className=""
+                    className="rounded-sm p-1 text-sm mb-1text-sm text-white cursor-pointer w-full flex"
                     onItemClick=''
                     modalComponent={<EventsModal event={event} />}
                   />
