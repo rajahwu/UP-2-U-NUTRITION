@@ -9,6 +9,7 @@ import './Events.css'
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const dispatch = useDispatch()
+  const user = useSelector(state => state.session.user)
   const eventArr = useSelector(state => state.eventReducer)
   const event1 = Object.values(eventArr);
 
@@ -141,7 +142,7 @@ const Events = () => {
         <div className="headers">EVENTS</div>
         <div className='request-event-btn-container'>
           <OpenModalButton
-            buttonText='Request Event'
+            buttonText={user ? ("Add Event"): ('Request Event')}
             className="green-btn request-event-btn"
             onItemClick=''
             modalComponent={<RequestEventModal />}
