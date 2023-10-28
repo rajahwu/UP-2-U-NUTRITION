@@ -2,34 +2,23 @@ import OpenModalButton from '../OpenModalButton'
 import { ContactUsModal } from './utility/contactUs'
 import LoginFormModal from '../LoginFormModal'
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from "../../store/session";
+
 import { athletes } from './utility/athletes'
 
 import './OurStory.css'
 
 const OurStory = () => {
-    const user = useSelector(state => state.session.user);
-    const dispatch = useDispatch();
-
-    const handleLogout = (e) => {
-        e.preventDefault();
-        dispatch(logout());
-    };
-
     return (
         <>
         <div className="ourstory-page">
             <div className="ourstory-page-bgimg"></div>
             <div className="ourstory-page-content">
-            {user ? (
+        
                 <OpenModalButton
                     buttonText='OUR STORY'
                     id='ourstory-title'
                     modalComponent={<LoginFormModal />}
                 />
-                ) : (
-                <button onClick={handleLogout}>Log Out</button>
-            )} 
                 <img id="owner-img" src="https://i.imgur.com/mfTz11d.png"></img>
                 <div className="ourstory-body">Ex cillum deserunt irure deserunt qui magna nostrud id cillum proident fugiat cupidatat duis. Excepteur pariatur reprehenderit do commodo do eu proident voluptate consectetur. Lorem incididunt occaecat quis minim. Cupidatat adipisicing minim ut aliqua esse. Lorem magna eu cupidatat quis duis fugiat dolore do id ut.
 
