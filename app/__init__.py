@@ -12,10 +12,13 @@ from .api.menu_item_routes import menu_item_routes
 from .seeds import seed_commands
 from .config import Config
 
+from flask import make_response
+
+
 app = Flask(__name__, static_folder='../vite-project/dist', static_url_path='/')
 # app.run(debug=False)
 
-CORS(app, origins="*", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+CORS(app, supports_credentials=True, origins="*", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
 # Setup login manager
 login = LoginManager(app)
@@ -49,8 +52,25 @@ def before_request():
     if request.method == 'OPTIONS':
         request._csrf_disabled = True
 
+
+# May need this later for https redirect
+# @app.before_request
+# def https_redirect():
+#     if os.environ.get('FLASK_ENV') == 'production':
+#         if request.headers.get('X-Forwarded-Proto') == 'http':
+#             url = request.url.replace('http://', 'https://', 1)
+#             code = 301
+#             return redirect(url, code=code)
+
+# @app.after_request
+# def inject_csrf_token(response):
+#     response.set_cookie('csrf_token', generate_csrf(), httponly=True)
+#     return response
+
+
 @app.after_request
 def inject_csrf_token(response):
+    print('hello')
     response.set_cookie(
         'csrf_token',
         generate_csrf(),
@@ -60,6 +80,11 @@ def inject_csrf_token(response):
         httponly=True)
     return response
 
+@app.route('/set-cookie')
+def set_cookie():
+    resp = make_response("Cookie Set")
+    resp.set_cookie('test_cookie', 'test_value')
+    return resp
 
 @app.route("/api/docs")
 def api_help():
