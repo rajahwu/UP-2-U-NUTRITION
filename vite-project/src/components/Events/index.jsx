@@ -9,6 +9,7 @@ import './Events.css'
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const dispatch = useDispatch()
+  const user = useSelector(state => state.session.user)
   const eventArr = useSelector(state => state.eventReducer)
   const event1 = Object.values(eventArr);
 
@@ -99,10 +100,10 @@ const Events = () => {
               <span className="text-gray-500">{day}</span>
               {eventsForDay.map((event, index) => (
                 <div key={index} className="">
-                  <span key={index} style={{ backgroundColor: `${event.color}` }} className='rounded-sm p-1 text-sm mb-1text-sm text-white cursor-pointer flex'>{event.title}</span>
                   <OpenModalButton
+                    style={{ backgroundColor: `${event.color}` }}
                     buttonText={event.title}
-                    className=""
+                    className="rounded-sm p-1 text-sm mb-1text-sm text-white cursor-pointer w-full flex"
                     onItemClick=''
                     modalComponent={<EventsModal event={event} />}
                   />
@@ -136,12 +137,12 @@ const Events = () => {
 
   return (
     <>
-      {/* <div className="relative w-full h-24"> */}
+      <div className="relative w-full h-24">
       <div className="events-request-modal">
         <div className="headers">EVENTS</div>
         <div className='request-event-btn-container'>
           <OpenModalButton
-            buttonText='Request Event'
+            buttonText={user ? ("Add Event"): ('Request Event')}
             className="green-btn request-event-btn"
             onItemClick=''
             modalComponent={<RequestEventModal />}
@@ -178,6 +179,7 @@ const Events = () => {
             </thead>
             <tbody>{renderDays()}</tbody>
           </table>
+        </div>
         </div>
       </div>
     </>

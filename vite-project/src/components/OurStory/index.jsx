@@ -1,19 +1,20 @@
 import OpenModalButton from '../OpenModalButton'
 import { ContactUsModal } from './utility/contactUs'
 import LoginFormModal from '../LoginFormModal'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { athletes } from './utility/athletes'
 
 import './OurStory.css'
 
 const OurStory = () => {
-
     return (
         <>
         <div className="ourstory-page">
             <div className="ourstory-page-bgimg"></div>
             <div className="ourstory-page-content">
-                <OpenModalButton 
+        
+                <OpenModalButton
                     buttonText='OUR STORY'
                     id='ourstory-title'
                     modalComponent={<LoginFormModal />}

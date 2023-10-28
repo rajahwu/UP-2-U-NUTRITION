@@ -26,7 +26,6 @@ export const EventsModal = ({ event }) => {
     const endTimeForDisplay = endTime[0] == 0 ?
         endTime.slice(1, 5) : endTime.slice(0, 5)
 
-    console.log(event)
     return (
         <div className="event-container">
             <div className='event-bar' style={{ backgroundColor: `${event.color}` }}></div>

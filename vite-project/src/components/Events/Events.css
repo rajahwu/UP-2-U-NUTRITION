@@ -76,6 +76,9 @@
 .request-event-btn {
     width: 140px;
     height: 40px;
+    position: absolute;
+    top: 0;
+    right: 5rem;
 }
 
 .form-request-event-container {
@@ -144,3 +147,10 @@
     text-align: center;
     /* padding-top: 25px; */
 }
+  
+
+  @media (max-width: 768px) {
+    .request-event-btn {
+      position: static;
+    }
+  }

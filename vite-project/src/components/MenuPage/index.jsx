@@ -23,7 +23,7 @@ const MenuPage = () => {
 
   // if (!menu_arr.length) return null
 
-  // console.log("this is menu =====", menu_arr)
+
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
@@ -47,7 +47,7 @@ const MenuPage = () => {
       setCurrentMenuCategory(combinedMenu[prevCategory])
     }
     if (startPosition > 0) setStartPosition(startPosition - itemsPerPage);
-    console.log(startPosition, maxScrollPosition)
+  
 
     setFlippCardId(Infinity);
   };
@@ -58,7 +58,7 @@ const MenuPage = () => {
       setCurrentMenuCategory(combinedMenu[nextCategory])
     )
     setFlippCardId(Infinity);
-    console.log(startPosition, maxScrollPosition)
+
   };
 
   const setCategory = (cat) => {
@@ -76,7 +76,6 @@ const MenuPage = () => {
       setFlippCardId(Infinity);
     } else {
       setFlippCardId(e.target.id);
-      console.log(flippedCardId, e.target.id)
     }
   };
 
