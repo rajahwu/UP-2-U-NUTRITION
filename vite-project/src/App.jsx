@@ -13,6 +13,7 @@ import Cart from "./components/Cart";
 import "./App.css";
 import { authenticate } from "./store/session";
 import { useDispatch } from "react-redux";
+import EditEvents from "./components/Events/editEvent";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/menu/add-item" element={<AddItem />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/our-story" element={<OurStory />} />
+        <Route path="/events/edit/:id" element={<EditEvents />} />
         <Route path="/events" element={<Events />} />
         <Route path="/your-story" element={<YourStory />} />
         <Route path="/cart" element={<Cart />} />

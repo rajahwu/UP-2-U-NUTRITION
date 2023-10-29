@@ -35,53 +35,33 @@ export const ContactUsModal = () => {
     }
 
     return (
-        <div>
-            <div className='coaching-bar coaching-yellow-bar'></div>
-            <div className="coaching-form-btn">
-                <form
-                    className="form-coaching-container"
-                    onSubmit={handleSubmit}
-                >
-                    <div className="form-coaching-name">
-                        <label htmlFor="item-name">Name</label>
-                        <input
-                            className="form-inputs"
-                            id="item-name"
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="form-email-phone">
-                        <label htmlFor="item-email-phone">Email or Phone</label>
-                        <input
-                            className="form-inputs"
-                            id="item-email-phone"
-                            type="text"
-                            value={emailOrPhone}
-                            onChange={handleEmailOrPhone}
-                            required
-                        />
-                    </div>
-                    {isValid ? null : <div style={{ color: 'red' }}>Invalid Input</div>}
-                    <div className="form-description">
-                        <label htmlFor="item-description">Description</label>
-                        <textarea
-                            className="form-inputs"
-                            id="item-description"
-                            type="text"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            required
-                        />
-                    </div>
-                </form>
-                <div className="coaching-btns-container">
-                    <button className="red-btn coaching-btn" type="submit">Cancel</button>
-                    <button className="green-btn coaching-btn" type="submit">Send</button>
-                </div>
-            </div>
-        </div >
+        <form className="contact-us-form flex flex-col gap-2 h-full" onSubmit={handleSubmit}>
+            <input
+                className="bg-white h-9"
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+            />
+            <input
+                className="bg-white h-9"
+                type="text"
+                placeholder="Email or Phone"
+                value={emailOrPhone}
+                onChange={handleEmailOrPhone}
+                required
+            />
+            {isValid ? null : <div style={{ color: 'red' }}>Invalid Input</div>}
+            <textarea
+                className="bg-white h-full"
+                type="text"
+                placeholder="Message"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+            />
+            <button className="" type="submit">Send</button>
+        </form>    
     )
 }
