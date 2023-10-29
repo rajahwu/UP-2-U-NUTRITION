@@ -26,12 +26,22 @@ def all_items():
 
     return menu_list
 
+
+@menu_item_routes.route("/<int:id>")
+def single_menu_item(id):
+    menu_item = MenuItem.query.get(id)
+    menu_item_detail = menu_item.to_dict()
+    res = {}
+    res[menu_item_detail['id']] = menu_item_detail
+    return res
+
+
 @menu_item_routes.route("", methods=["POST"])
 # @login_required
 def create_menu_item():
-    print("============== hitting", request.cookies)
+    # print("============== hitting", request.cookies)
     form = MenuForm()
-    # form["csrf_token"].data = request.cookies["csrf_token"]
+    form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         new_menu_item = MenuItem(
             name = form.data['name'],
@@ -45,11 +55,11 @@ def create_menu_item():
         db.session.commit()
 
         new_ingredient = Ingredient(
-            ingredient_name = form.data['name'],
+            ingredient_name = form.data['ingredient_name'],
             menu_id = new_menu_item.id
         )
 
-        # print("=================",form.data)
+
         db.session.add(new_ingredient)
         db.session.commit()
 
@@ -69,3 +79,49 @@ def create_menu_item():
     if form.errors:
         print("======== hitting form error",form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+@menu_item_routes.route("/<int:id>/ingredients",methods=["POST"])
+# @login_required
+def create_ingredient(id):
+    ingredient_form = IngredientForm()
+    ingredient_form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if ingredient_form.validate_on_submit():
+        new_ingredient = Ingredient(
+            ingredient_name = ingredient_form.data['ingredient_name'],
+            menu_id = id
+        )
+
+        db.session.add(new_ingredient)
+        db.session.commit()
+        return {"resIngredient":new_ingredient.to_dict()}
+
+    if ingredient_form.errors:
+        return {"errors":validation_errors_to_error_messages(ingredient_form.errors)}, 400
+
+
+@menu_item_routes.route("<int:id>/nutritions", methods=["POST"])
+# @login_required
+def create_nutrition(id):
+    nutrition_form = NutritionForm()
+    nutrition_form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if nutrition_form.validate_on_submit():
+        new_nutrient = Nutrition(
+            nutrient = nutrition_form.data["nutrient"],
+            weight = nutrition_form.data["weight"],
+            percentage = nutrition_form.data["percentage"],
+            menu_id = id
+        )
+
+        db.session.add(new_nutrient)
+        db.session.commit()
+        return {"resNutrition":new_nutrient.to_dict()}
+
+    if nutrition_form.errors:
+        return {"errors":validation_errors_to_error_messages(nutrition_form.errors)}, 400
+
+@menu_item_routes.route("<int:id>/update", methods=["PUT"])
+# @login_required
+def update_menu_item(id):
+    pass

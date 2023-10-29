@@ -12,11 +12,11 @@ def seed_menus():
     )
 
     ingredient_item1 = Ingredient(
-        name = "Graham Cracker Crumbs",
+        ingredient_name = "Graham Cracker Crumbs",
         menu_id = 1
     )
     ingredient_item2 = Ingredient(
-        name = "Strawberry Ice Cream",
+        ingredient_name = "Strawberry Ice Cream",
         menu_id = 1
     )
 
@@ -47,12 +47,12 @@ def seed_menus():
     )
 
     ingredient_item3 = Ingredient(
-        name = "Cream Cheese",
+        ingredient_name = "Cream Cheese",
         menu_id = 2
     )
 
     ingredient_item4 = Ingredient(
-        name = "Blue Cheese",
+        ingredient_name = "Blue Cheese",
         menu_id = 2
     )
 

@@ -58,7 +58,7 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-	const response = await fetch("/api/auth/logout", {
+	const response = await fetch("http://localhost:5000/api/auth/logout", {
 		headers: {
 			"Content-Type": "application/json",
 		},
