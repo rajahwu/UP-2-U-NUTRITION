@@ -1,6 +1,11 @@
-export const EventsModal = ({ event }) => {
-    console.log("End date:", event.start_time);
+import { useNavigate } from "react-router-dom";
+import { useModal } from "../../context/Modal";
+import { Navigate } from "react-router-dom";
 
+export const EventsModal = ({ event }) => {
+    console.log("End date:", event);
+    const navigate = useNavigate()
+    const {closeModal} = useModal();
     const displayDate = (eventDates) => {
         console.log("eventDates", eventDates);
         if (eventDates) {
@@ -9,6 +14,11 @@ export const EventsModal = ({ event }) => {
             return `${month} ${day}`;
         }
         return "";
+    }
+
+    const handleClick = (id) => {
+        closeModal()
+        navigate(`events/edit/${id}`)
     }
 
     // Create Date objects from the start_time and end_time strings
@@ -28,7 +38,7 @@ export const EventsModal = ({ event }) => {
                     <div className="event-month-day"> - {displayDate(new Date(event.end_date))}</div>
                 ) : null}
             </div>
-            <button className="absolute top-10 right-20 cursor-pointer hover:text-blue-500 underline-offset-1">[Edit]</button>
+            <button onClick={handleClick(event.id)}className="absolute top-10 right-20 cursor-pointer hover:text-blue-500 underline-offset-1">[Edit]</button>
             <div className="event-hours">
                 {`${startTimeFormatted} - ${endTimeFormatted}`}
             </div>
