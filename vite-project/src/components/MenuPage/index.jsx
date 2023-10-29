@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
-import { supahShakes } from "./utility/menu/supah-shakes";
+
 import OpenModalButton from "../OpenModalButton/index";
 import { AddItem } from "./utility/forms/AddItem";
 import { EditItem } from "./utility/forms/EditItem";
@@ -47,7 +47,7 @@ const MenuPage = () => {
       setCurrentMenuCategory(combinedMenu[prevCategory])
     }
     if (startPosition > 0) setStartPosition(startPosition - itemsPerPage);
-  
+
 
     setFlippCardId(Infinity);
   };

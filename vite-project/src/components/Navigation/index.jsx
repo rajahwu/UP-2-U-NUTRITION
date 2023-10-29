@@ -3,6 +3,7 @@ import './Navigation.css';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { randomElement } from '../util';
+import { totalSum } from '../util';
 import ProfileButton from './ProfileButton';
 
 function Navigation({ isLoaded }) {
@@ -19,6 +20,7 @@ function Navigation({ isLoaded }) {
 		"/images/icons/menu_ro_r.png",
 		"/images/icons/menu_ro_y.png"
 	]
+
 
 	return (
 		<div className="nav-bar">
@@ -58,7 +60,8 @@ function Navigation({ isLoaded }) {
 							alt="Your Story" />
 					</NavLink>
 					<NavLink exact="true" to="/cart">
-						<img id="sub-icon" src={cartImgSrc}
+						<img id="sub-icon"
+							src={cartImgSrc}
 							alt="Cart" />
 					</NavLink>
 					{/* <div>

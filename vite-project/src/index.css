@@ -23,6 +23,17 @@ body {
     background-color: rgba(0, 145, 209, 1);
 }
 
+.bg-titles-yellow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 8px 35px 0;
+    /* margin-top: 10%; */
+    margin-bottom: 2%;
+    background-color: #FFAD01;
+}
+
 .bg-titles-green {
     display: flex;
     justify-content: center;
