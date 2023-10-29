@@ -33,6 +33,7 @@ export const createMenuItemThunk = (data) => async (dispatch) => {
         body: data,
         credentials: "include"
     })
+    console.log("-====================== this is res", res)
     if (res.ok) {
         const { resMenuItem } = await res.json()
         dispatch(actionAddMenuItem(resMenuItem))

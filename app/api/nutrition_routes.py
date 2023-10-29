@@ -39,3 +39,12 @@ def update_nutrition(id):
 
     if form.errors:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+@nutrition_routes.route("<int:id>/delete",methods=['DELETE'])
+# @login_required
+def delete_nutrition(id):
+    nutrition = Nutrition.query.get(id)
+
+    db.session.delete(nutrition)
+    db.session.commit()
+    return {"res":"Successfully deleted"}
