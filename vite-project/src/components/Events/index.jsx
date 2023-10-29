@@ -68,7 +68,7 @@ const Events = () => {
     const dayElements = [];
 
     const eventsForCurrentMonth = event1.filter((event) => {
-      const eventDate = new Date(event.date);
+      const eventDate = new Date(event.start_date);
       return (
         eventDate.getMonth() === currentMonth.getMonth() &&
         eventDate.getFullYear() === currentMonth.getFullYear()
@@ -83,7 +83,7 @@ const Events = () => {
       const currentDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
 
       const eventsForDay = eventsForCurrentMonth.filter((event) => {
-        const eventDate = new Date(event.date);
+        const eventDate = new Date(event.start_date);
         const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
         const formattedEventDate = eventDate.toLocaleDateString('en-US', options);
         const formattedCurrentDate = currentDate.toLocaleDateString('en-US', options);

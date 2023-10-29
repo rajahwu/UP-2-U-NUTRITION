@@ -1,0 +1,27 @@
+
+#map {
+height: 100%;
+}
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+.footer{
+    margin: 0px;
+    border-top: 5px solid #d98c00;
+    background-color: rgb(236, 236, 236);
+}
+
+.red-line-border{
+    border-top: 5px solid #d52540;
+}
+
+.green-line-border{
+    border-top: 3px solid #5eac00;
+}
+
+.blue-line-border{
+    border-top: 3px solid #0093d3;
+}

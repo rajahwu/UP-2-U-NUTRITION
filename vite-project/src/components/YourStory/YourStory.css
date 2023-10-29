@@ -36,20 +36,6 @@
     margin-bottom: 30px;
 }
 
-.form-coaching-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-coaching-name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100px;
-}
-
 .coaching-btn {
     margin: 15px 50px;
     width: 140px;

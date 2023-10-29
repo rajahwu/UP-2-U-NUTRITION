@@ -54,16 +54,18 @@ class Ingredient(db.Model):
     __tablename__= 'ingredients'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(5000),nullable=False)
+    ingredient_name = db.Column(db.String(5000),nullable=False)
 
     menu_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('menu_items.id')), nullable=True)
 
     def __repr__(self):
-        return f'<Ingredient {self.id}, {self.name} was created>'
+        return f'<Ingredient {self.id}, {self.ingredient_name} was created>'
 
     def to_dict(self):
         return {
-            'name':self.name
+            'id':self.id,
+            'ingredient_name':self.ingredient_name,
+            'menu_id':self.menu_id
         }
 
     menu_item = db.relationship('MenuItem', back_populates='ingredients')
@@ -87,9 +89,11 @@ class Nutrition(db.Model):
 
     def to_dict(self):
         return {
+            'id':self.id,
             'nutrient':self.nutrient,
             'weight':self.weight,
-            'percentage':self.percentage
+            'percentage':self.percentage,
+            'menu_id':self.menu_id
         }
 
     menu_item = db.relationship('MenuItem', back_populates='nutritions')

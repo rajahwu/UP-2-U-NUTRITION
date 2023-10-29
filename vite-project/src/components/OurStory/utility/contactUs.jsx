@@ -1,87 +1,74 @@
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
+
 
 export const ContactUsModal = () => {
     const [name, setName] = useState('');
-    const [emailOrPhone, setEmailOrPhone] = useState('');
+    const [emailOrPhone, setEmail] = useState('');
     const [description, setDescription] = useState('');
-
     const [isValid, setIsValid] = useState(true);
 
-    const handleEmailOrPhone = (e) => {
-        const value = e.target.value;
-        setEmailOrPhone(value);
-        validateEmailOrPhone(value);
+    const [state, handleSubmit] = useForm('mknlylwj')
+    if (state.succeeded){
+        window.alert('Message sent!')
     }
 
-    const validateEmailOrPhone = (inputValue) => {
-        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-        const phoneRegex = /^[0-9]{10}$/;
+    // const validateEmailOrPhone = (inputValue) => {
+    //     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    //     const phoneRegex = /^[0-9]{10}$/;
 
-        if (emailRegex.test(inputValue) || phoneRegex.test(inputValue)) {
-            setIsValid(true);
-        } else {
-            setIsValid(false);
-        }
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (isValid) {
-            console.log("Input is Valid: ", emailOrPhone)
-        } else {
-            console.log("Input is not Valid: ", emailOrPhone)
-        }
-    }
+    //     if (emailRegex.test(inputValue) || phoneRegex.test(inputValue)) {
+    //         setIsValid(true);
+    //     } else {
+    //         setIsValid(false);
+    //     }
+    // }
 
     return (
-        <div>
-            <div className='coaching-bar coaching-yellow-bar'></div>
-            <div className="coaching-form-btn">
-                <form
-                    className="form-coaching-container"
-                    onSubmit={handleSubmit}
-                >
-                    <div className="form-coaching-name">
-                        <label htmlFor="item-name">Name</label>
-                        <input
-                            className="form-inputs"
-                            id="item-name"
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="form-email-phone">
-                        <label htmlFor="item-email-phone">Email or Phone</label>
-                        <input
-                            className="form-inputs"
-                            id="item-email-phone"
-                            type="text"
-                            value={emailOrPhone}
-                            onChange={handleEmailOrPhone}
-                            required
-                        />
-                    </div>
-                    {isValid ? null : <div style={{ color: 'red' }}>Invalid Input</div>}
-                    <div className="form-description">
-                        <label htmlFor="item-description">Description</label>
-                        <textarea
-                            className="form-inputs"
-                            id="item-description"
-                            type="text"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            required
-                        />
-                    </div>
-                </form>
-                <div className="coaching-btns-container">
-                    <button className="red-btn coaching-btn" type="submit">Cancel</button>
-                    <button className="green-btn coaching-btn" type="submit">Send</button>
-                </div>
-            </div>
-        </div >
+        <form className="contact-us-form flex flex-col gap-2 h-full" onSubmit={handleSubmit}>
+            <input
+                className="bg-white h-9"
+                type="text"
+                placeholder="Name"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+            />
+            <ValidationError 
+                prefix="Name"
+                field="name"
+                errors={state.errors}
+            />
+            <input
+                className="bg-white h-9"
+                type="text"
+                placeholder="Email"
+                value={emailOrPhone}
+                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                required
+            />
+            <ValidationError 
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+            />
+            <textarea
+                className="bg-white h-full"
+                type="text"
+                placeholder="Message"
+                value={description}
+                name="message"
+                onChange={(e) => setDescription(e.target.value)}
+                required
+            />
+            <ValidationError 
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+            />
+            <button type="submit" disabled={state.submitting}>Send</button>
+        </form>    
     )
 }

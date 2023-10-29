@@ -83,7 +83,8 @@ const MenuPage = () => {
     <div className="menu">
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat={setCategory} />
-      {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />}
+      {/* {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />} */}
+      <AddItem />
       <div className="menu-item-container">
         <button
           className={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}
