@@ -22,9 +22,7 @@ export const BackCardItem = ({ item, i }) => {
             return (
               <div key={k}>
                 <div>
-                  <p>{nutrition.nutrient}</p>
-                  <p>{nutrition.weight} g</p>
-                  <p>{nutrition.percentage} %</p>
+                  <p>{nutrition.nutrient}: {nutrition.weight} - {nutrition.percentage} %</p>
                 </div>
               </div>
             )
