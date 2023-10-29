@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
-import { supahShakes } from "./utility/menu/supah-shakes";
+
 import OpenModalButton from "../OpenModalButton/index";
 import { AddItem } from "./utility/forms/AddItem";
 import { EditItem } from "./utility/forms/EditItem";
@@ -47,7 +47,7 @@ const MenuPage = () => {
       setCurrentMenuCategory(combinedMenu[prevCategory])
     }
     if (startPosition > 0) setStartPosition(startPosition - itemsPerPage);
-  
+
 
     setFlippCardId(Infinity);
   };
@@ -83,7 +83,8 @@ const MenuPage = () => {
     <div className="menu">
       <div className="headers">OUR MENU</div>
       <MenuNav changeCat={setCategory} />
-      {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />}
+      {/* {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />} */}
+      <AddItem />
       <div className="menu-item-container">
         <button
           className={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}

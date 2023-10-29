@@ -7,22 +7,22 @@ export const BackCardItem = ({ item, i }) => {
       <div id={i} className="card-content-back">
         <div id={i} className="product-name-back">{item.name}</div>
         <div id={i} className="product-ingredients">
+          <h3>Ingredients: </h3>
           {item.ingredients?.map((ingredient, j) => {
             return (
               <div key={j}>
-                <div>{ingredient.name}</div>
+                <div>{ingredient.ingredient_name}</div>
               </div>
             )
           })}
         </div>
         <div className="product-nutrition">
+          <h3>Nutrition: </h3>
           {item.nutritions && item.nutritions?.map((nutrition, k) => {
             return (
               <div key={k}>
                 <div>
-                  <p>{nutrition.nutrient}</p>
-                  <p>{nutrition.weight} g</p>
-                  <p>{nutrition.percentage} %</p>
+                  <p>{nutrition.nutrient}: {nutrition.weight} - {nutrition.percentage} %</p>
                 </div>
               </div>
             )

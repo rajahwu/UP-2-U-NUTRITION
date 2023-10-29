@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Navigation from "./components/Navigation";
@@ -8,7 +9,7 @@ import OurStory from "./components/OurStory";
 import Events from "./components/Events";
 import YourStory from "./components/YourStory";
 import { AddItem } from "./components/MenuPage/utility/forms/AddItem";
-import { Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import "./App.css";
 import { authenticate } from "./store/session";
