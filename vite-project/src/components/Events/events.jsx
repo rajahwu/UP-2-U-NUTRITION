@@ -1,44 +1,53 @@
-const months = {
-    'Jan': 'January',
-    'Feb': 'February',
-    'Mar': 'March',
-    'Apr': 'April',
-    'May': 'May',
-    'Jun': 'June',
-    'Jul': 'July',
-    'Aug': 'August',
-    'Sep': 'September',
-    'Oct': 'October',
-    'Nov': 'November',
-    'Dec': 'December'
-}
+import { useNavigate } from "react-router-dom";
+import { useModal } from "../../context/Modal";
+import { Navigate } from "react-router-dom";
+
 export const EventsModal = ({ event }) => {
-    const dateOfEventArr = event.date.split(' ');
-    const monthOfEvent = months[dateOfEventArr[2]];
-    const dayOfEvent = dateOfEventArr[1];
+    console.log("End date:", event);
+    const navigate = useNavigate()
+    const {closeModal} = useModal();
+    const displayDate = (eventDates) => {
+        console.log("eventDates", eventDates);
+        if (eventDates) {
+            const month = eventDates.toLocaleString('default', { month: 'long' });
+            const day = eventDates.getDate();
+            return `${month} ${day}`;
+        }
+        return "";
+    }
 
-    const startTime = event.start_time.split(' ')[4]
-    const endTime = event.end_time.split(' ')[4]
+    const handleClick = (id) => {
+        closeModal()
+        navigate(`events/edit/${id}`)
+    }
 
-    const startTimeForDisplay = startTime[0] == 0 ?
-        startTime.slice(1, 5) : startTime.slice(0, 5)
+    // Create Date objects from the start_time and end_time strings
+    const startTime = new Date(event.start_time);
+    const endTime = new Date(event.end_time);
 
-    const endTimeForDisplay = endTime[0] == 0 ?
-        endTime.slice(1, 5) : endTime.slice(0, 5)
+    // Format the times in "h:mm a" (hours:minutes AM/PM) format
+    const startTimeFormatted = startTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    const endTimeFormatted = endTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
 
     return (
         <div className="event-container">
             <div className='event-bar' style={{ backgroundColor: `${event.color}` }}></div>
-            <div className="event-month-day">
-                {`${monthOfEvent} ${dayOfEvent}`}
+            <div className="flex ">
+                <div className="event-month-day">{displayDate(new Date(event.start_date))}</div>
+                {event.end_date ? (
+                    <div className="event-month-day"> - {displayDate(new Date(event.end_date))}</div>
+                ) : null}
             </div>
+            <button onClick={handleClick(event.id)}className="absolute top-10 right-20 cursor-pointer hover:text-blue-500 underline-offset-1">[Edit]</button>
             <div className="event-hours">
-                {`${startTimeForDisplay} - ${endTimeForDisplay}`}
+                {`${startTimeFormatted} - ${endTimeFormatted}`}
             </div>
             <div className="divider"></div>
             <div className="event-title">{event.title}</div>
             <div className="divider"></div>
             <div className="event-details">{event.details}</div>
+            <div>For more information contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
         </div>
     )
 }
+

@@ -1,7 +1,5 @@
 import OpenModalButton from '../OpenModalButton'
-import { ContactUsModal } from './utility/contactUs'
 import LoginFormModal from '../LoginFormModal'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { athletes } from './utility/athletes'
 
@@ -54,54 +52,13 @@ const OurStory = () => {
                             })}
                         </div>
                     </div>
-                    <div className="headers bg-titles-blue">CONTACT US</div>
-                    <OpenModalButton
-                        buttonText='Send message or email'
-                        className="green-btn mess-email-btn"
-                        onItemClick=''
-                        modalComponent={<ContactUsModal />}
-                    />
-                    <div className="ourstory-contact-section">
-                        <div className='hours-and-address'>
-                            <div className='business-hours'>
-                                <div className='address-hours-title'>Business Hours:</ div>
-                                <div className='actual-hours'>
-                                    <br />
-                                    <span>Monday 7:30AM-8PM</span>
-                                    <br />
-                                    <span>Tuesday 7:30AM-8PM</span>
-                                    <br />
-                                    <span>Wednesday 7:30AM-8PM</span>
-                                    <br />
-                                    <span>Thursday 7:30AM-8PM</span>
-                                    <br />
-                                    <span>Friday 7:30AM-8PM</span>
-                                    <br />
-                                    <span>Saturday 9AM-3PM</span>
-                                    <br />
-                                    <span>Sunday 9AM-3PM</span>
-                                    <br />
-                                </div>
-                            </div>
-                            <div className='address'>
-                                <div className='address-hours-title'>Address:</div>
-                                <div className='actual-address'>
-                                    <span>
-                                        1517 NW 23rd Ave,
-                                    </span>
-                                    <br />
-                                    <span>
-                                        Gainesville, FL 32605
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+
+      
                         {/* <span id="phone-number">Phone: (786) 651-1153 </span> */}
                     </div>
                     <div>
                         <img className="ourstory-page-bg-img" src='/images/BG_Our_Story.png' alt='' />
                     </div>
-                </div>
             </div >
         </>
     )
