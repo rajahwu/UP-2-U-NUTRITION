@@ -9,7 +9,7 @@ import OurStory from "./components/OurStory";
 import Events from "./components/Events";
 import YourStory from "./components/YourStory";
 import { AddItem } from "./components/MenuPage/utility/forms/AddItem";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import "./App.css";
 import { authenticate } from "./store/session";
