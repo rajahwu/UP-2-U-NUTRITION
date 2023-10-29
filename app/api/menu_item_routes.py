@@ -37,7 +37,7 @@ def single_menu_item(id):
 
 
 @menu_item_routes.route("", methods=["POST"])
-# @login_required
+@login_required
 def create_menu_item():
     # print("============== hitting", request.cookies)
     form = MenuForm()

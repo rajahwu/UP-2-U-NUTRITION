@@ -17,8 +17,8 @@ const actionAddMenuItem = (menu_item) => ({
 
 //thunk
 export const getAllMenuItemThunk = () => async (dispatch) => {
-    const res = await fetch("http://127.0.0.1:5000/api/menus", {
-        credentials: "include"
+    const res = await fetch("/api/menus", {
+        // credentials: "include"
     })
     if (res.ok) {
         const data = await res.json()
@@ -28,12 +28,12 @@ export const getAllMenuItemThunk = () => async (dispatch) => {
 }
 
 export const createMenuItemThunk = (data) => async (dispatch) => {
-    const res = await fetch("http://127.0.0.1:5000/api/menus", {
+    const res = await fetch("/api/menus", {
         method: 'POST',
         body: data,
-        credentials: "include"
+        // credentials: "include"
     })
-    console.log("-====================== this is res", res)
+    // console.log("-====================== this is res", res)
     if (res.ok) {
         const { resMenuItem } = await res.json()
         dispatch(actionAddMenuItem(resMenuItem))

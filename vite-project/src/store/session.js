@@ -31,7 +31,7 @@ export const authenticate = () => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
-	const response = await fetch("http://localhost:5000/api/auth/login", {
+	const response = await fetch("/api/auth/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -58,7 +58,7 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-	const response = await fetch("http://localhost:5000/api/auth/logout", {
+	const response = await fetch("/api/auth/logout", {
 		headers: {
 			"Content-Type": "application/json",
 		},
