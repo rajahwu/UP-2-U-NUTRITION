@@ -11,7 +11,7 @@ padding: 0;
 .footer{
     margin: 0px;
     border-top: 5px solid #d98c00;
-    height: 100px;
+    background-color: rgb(236, 236, 236);
 }
 
 .red-line-border{

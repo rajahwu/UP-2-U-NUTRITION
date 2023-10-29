@@ -35,9 +35,9 @@ export const ContactUsModal = () => {
     }
 
     return (
-        <form className="contact-us-form flex flex-col gap-1" onSubmit={handleSubmit}>
+        <form className="contact-us-form flex flex-col gap-2 h-full" onSubmit={handleSubmit}>
             <input
-                className="bg-black"
+                className="bg-white h-9"
                 type="text"
                 placeholder="Name"
                 value={name}
@@ -45,7 +45,7 @@ export const ContactUsModal = () => {
                 required
             />
             <input
-                className="bg-black"
+                className="bg-white h-9"
                 type="text"
                 placeholder="Email or Phone"
                 value={emailOrPhone}
@@ -54,7 +54,7 @@ export const ContactUsModal = () => {
             />
             {isValid ? null : <div style={{ color: 'red' }}>Invalid Input</div>}
             <textarea
-                className="bg-black"
+                className="bg-white h-full"
                 type="text"
                 placeholder="Message"
                 value={description}
