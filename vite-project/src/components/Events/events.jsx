@@ -28,6 +28,7 @@ export const EventsModal = ({ event }) => {
                     <div className="event-month-day"> - {displayDate(new Date(event.end_date))}</div>
                 ) : null}
             </div>
+            <button className="absolute top-10 right-20 cursor-pointer hover:text-blue-500 underline-offset-1">[Edit]</button>
             <div className="event-hours">
                 {`${startTimeFormatted} - ${endTimeFormatted}`}
             </div>
@@ -35,7 +36,7 @@ export const EventsModal = ({ event }) => {
             <div className="event-title">{event.title}</div>
             <div className="divider"></div>
             <div className="event-details">{event.details}</div>
-            <div>For more information contact us at [phone number]</div>
+            <div>For more information contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
         </div>
     )
 }
