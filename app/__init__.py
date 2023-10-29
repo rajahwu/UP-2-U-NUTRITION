@@ -70,14 +70,12 @@ def before_request():
 
 @app.after_request
 def inject_csrf_token(response):
-    csrf_token_from_cookies = request.cookies.get('csrf_token')
 
     # Generate a new CSRF token
     csrf_token = generate_csrf()
 
     # Print both the generated CSRF token and the value of the "csrf_token" cookie for comparison
-    print('Generated CSRF Token:=========', csrf_token)
-    print('CSRF Token from Cookies:=========', csrf_token_from_cookies)
+    # print('Generated CSRF Token:=========', csrf_token)
     response.set_cookie(
         'csrf_token',
         csrf_token,
@@ -85,6 +83,9 @@ def inject_csrf_token(response):
         samesite='Strict' if os.environ.get(
             'FLASK_ENV') == 'production' else None,
         httponly=True)
+    # csrf_token_from_cookies = request.cookies.get('csrf_token')
+    # print('CSRF Token from Cookies:=========', csrf_token_from_cookies)
+    print("==================",response)
     return response
 
 @app.route('/set-cookie')

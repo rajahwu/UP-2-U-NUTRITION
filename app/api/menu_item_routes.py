@@ -27,10 +27,11 @@ def all_items():
     return menu_list
 
 @menu_item_routes.route("", methods=["POST"])
+# @login_required
 def create_menu_item():
-
+    print("============== hitting", request.cookies)
     form = MenuForm()
-    form["csrf_token"].data = request.cookies["csrf_token"]
+    # form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         new_menu_item = MenuItem(
             name = form.data['name'],
@@ -66,4 +67,5 @@ def create_menu_item():
         return {"resMenuItem":new_menu_item.to_dict()}
 
     if form.errors:
+        print("======== hitting form error",form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
