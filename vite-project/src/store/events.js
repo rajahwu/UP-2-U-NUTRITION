@@ -35,7 +35,6 @@ const eventReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_EVENTS:
             newState = { ...action.events }
-            // console.log("this is aciton", newState)
             return newState
         default:
             return state

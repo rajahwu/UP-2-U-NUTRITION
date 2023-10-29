@@ -24,18 +24,18 @@ function Navigation({ isLoaded }) {
 		<div className="nav-bar">
 			<div className="logo">
 				<div className="nutrition-logo">
-					<NavLink exact to="/">
+					<NavLink exact="true" to="/">
 						<img id="main-logo" src="/images/logo.png" alt="Main Logo" />
 					</NavLink>
 				</div>
 				<div className="icons-nav-bar">
-					<NavLink exact to="/our-story">
+					<NavLink exact="true" to="/our-story">
 						<img id="sub-icon" src={ourstoryImgSrc}
 							onMouseEnter={() => setOurstoryImgSrc("/images/icons/our_story_ro.png")}
 							onMouseLeave={() => setOurstoryImgSrc("/images/icons/our_story.png")}
 							className="ourstory-1" alt="Our Story" />
 					</NavLink>
-					<NavLink exact to="/menu">
+					<NavLink exact="true" to="/menu">
 						<img
 							id="sub-icon"
 							src={menuImgSrc}
@@ -45,19 +45,19 @@ function Navigation({ isLoaded }) {
 							onMouseLeave={() => setMenuImgSrc("/images/icons/menu.png")}
 						/>
 					</NavLink>
-					<NavLink exact to="/events">
+					<NavLink exact="true" to="/events">
 						<img id="sub-icon" src={eventsImgSrc}
 							onMouseEnter={() => setEventsImgSrc("/images/icons/events_ro.png")}
 							onMouseLeave={() => setEventsImgSrc("/images/icons/events.png")}
 							alt="Events" />
 					</NavLink>
-					<NavLink exact to="/your-story">
+					<NavLink exact="true" to="/your-story">
 						<img id="sub-icon" src={yourstoryImgSrc}
 							onMouseEnter={() => setYourstoryImgSrc("/images/icons/your_story_ro.png")}
 							onMouseLeave={() => setYourstoryImgSrc("/images/icons/your_story.png")}
 							alt="Your Story" />
 					</NavLink>
-					<NavLink exact to="/cart">
+					<NavLink exact="true" to="/cart">
 						<img id="sub-icon" src={cartImgSrc}
 							alt="Cart" />
 					</NavLink>
