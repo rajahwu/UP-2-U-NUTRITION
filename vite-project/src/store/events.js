@@ -1,6 +1,7 @@
 //actions
 
 const GET_ALL_EVENTS = 'events/GET_ALL_EVENTS'
+const ADD_EVENT = 'events/ADD_EVENT'
 
 //action creators
 
@@ -8,6 +9,11 @@ const GET_ALL_EVENTS = 'events/GET_ALL_EVENTS'
 export const actionGetAllEvents = (events) => ({
     type: GET_ALL_EVENTS,
     events
+})
+
+export const actionAddEvent = (event) => ({
+    type: ADD_EVENT,
+    event
 })
 
 //thunk
@@ -24,6 +30,23 @@ export const getAllEventsThunk = () => async (dispatch) => {
     //     console.error('Error fetching data:', error);
     //     // You can dispatch an action or handle the error in another way here.
     // }
+}
+
+export const createEventThunk = (data) => async (dispatch) => {
+    const res = await fetch("/api/events", {
+        method: 'POST',
+        body: data
+    })
+    if (res.ok) {
+        const { resEvent } = await res.json()
+        dispatch(actionAddEvent(resEvent))
+        return resEvent
+    } else {
+        const error = await res.json()
+        if (error.errors) {
+            return error
+        }
+    }
 }
 
 
