@@ -20,7 +20,7 @@ def all_events():
 
     return event_list
 
-@event_routes.route("", methods=["POST"])
+@event_routes.route("/", methods=["POST"])
 @login_required
 def create_event():
     form = EventForm()
