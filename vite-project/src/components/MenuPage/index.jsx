@@ -102,7 +102,6 @@ const MenuPage = () => {
         {currentMenuCategory && currentMenuCategory
           .slice(startPosition, startPosition + itemsPerPage)
           .map((item, i) => {
-            // { console.log(item) }
             return (
               <div id={i} key={i}>
                 <div id={i} onClick={flipCard}>

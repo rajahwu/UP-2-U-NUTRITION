@@ -22,7 +22,6 @@ const Cart = () => {
   const handleAmountChange = (product, newAmount) => {
     product.amount = newAmount;
     if (product.amount >= 1) dispatch(updateCartItemAmount(product));
-    // dispatch(updateCartItemAmount(product));
   };
 
   const handleRemoveProduct = (product) => {
