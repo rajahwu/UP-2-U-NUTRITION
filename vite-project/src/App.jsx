@@ -13,6 +13,7 @@ import { authenticate } from "./store/session";
 import { useDispatch } from "react-redux";
 import EditEvents from "./components/Events/editEvent";
 import LoginFormPage from "./components/LoginFormPage";
+import EditItem from "./components/MenuPage/utility/forms/EditItem";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/menu/add-item" element={<AddItem />} />
+        <Route path="/menu/:id/edit/" element={<EditItem />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/our-story" element={<OurStory />} />
         <Route path="/events/edit/:id" element={<EditEvents />} />
