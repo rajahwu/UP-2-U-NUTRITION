@@ -1,8 +1,4 @@
-import OpenModalButton from '../OpenModalButton'
-import LoginFormModal from '../LoginFormModal'
-
 import { athletes } from './utility/athletes'
-
 import './OurStory.css'
 
 const OurStory = () => {
@@ -11,12 +7,7 @@ const OurStory = () => {
         <div className="ourstory-page">
             <div className="ourstory-page-bgimg"></div>
             <div className="ourstory-page-content">
-        
-                <OpenModalButton
-                    buttonText='OUR STORY'
-                    id='ourstory-title'
-                    modalComponent={<LoginFormModal />}
-                />
+                <h1 id='ourstory-title'>OUR STORY</h1>
                 <img id="owner-img" src="https://i.imgur.com/mfTz11d.png"></img>
                 <div className="ourstory-body">Ex cillum deserunt irure deserunt qui magna nostrud id cillum proident fugiat cupidatat duis. Excepteur pariatur reprehenderit do commodo do eu proident voluptate consectetur. Lorem incididunt occaecat quis minim. Cupidatat adipisicing minim ut aliqua esse. Lorem magna eu cupidatat quis duis fugiat dolore do id ut.
 
