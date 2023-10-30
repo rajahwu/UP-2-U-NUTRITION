@@ -3,7 +3,7 @@ import { MenuNav } from "./menuNav";
 
 import OpenModalButton from "../OpenModalButton/index";
 import { AddItem } from "./utility/forms/AddItem";
-import { EditItem } from "./utility/forms/EditItem";
+// import { EditItem } from "./utility/forms/EditItem";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
 import { menuCategories } from "./utility/menu/menu-categories";
 import { combinedMenu } from "./utility/menu/combined-menu";
@@ -11,12 +11,13 @@ import { combinedMenu } from "./utility/menu/combined-menu";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
+import EditItem from "./utility/forms/EditItem";
 
 const MenuPage = () => {
   const dispatch = useDispatch()
   const menu1 = useSelector(state => state.menuReducer)
   const currentMenuCategory = Object.values(menu1)
-
+  const user = useSelector(state => state.session.user)
   useEffect(() => {
     dispatch(getAllMenuItemThunk())
   }, [dispatch])
@@ -31,7 +32,7 @@ const MenuPage = () => {
   const [startPosition, setStartPosition] = useState(0);
 
   //place holder for check on user
-  const user = null
+  // const user = null
   const nameOfLastCategory = menuCategories[menuCategories.length - 1];
   const lengthOfLastCategory = combinedMenu[nameOfLastCategory].length;
 
@@ -96,6 +97,7 @@ const MenuPage = () => {
         {currentMenuCategory && currentMenuCategory
           .slice(startPosition, startPosition + itemsPerPage)
           .map((item, i) => {
+            // { console.log(item) }
             return (
               <div id={i} key={i}>
                 <div id={i} onClick={flipCard}>
@@ -106,7 +108,10 @@ const MenuPage = () => {
                   }
                 </div>
                 <button className="green-btn add-to-cart-btn">ADD TO CART</button>
-                {user !== null && <OpenModalButton modalComponent={EditItem} buttonText="Edit Item" />}
+                {user !== null &&
+                  <OpenModalButton
+                    modalComponent={<EditItem menu_item={item} />}
+                    buttonText="Edit Item" />}
               </div>
             );
           })}

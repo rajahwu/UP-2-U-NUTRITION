@@ -2,7 +2,7 @@
 
 const GET_ALL_MENU = 'menus/GET_ALL_MENU'
 const ADD_MENU_ITEM = 'menus/ADD_MENU_ITEM'
-
+const EDIT_MENU_ITEM = 'menus/EDIT_MENU_ITEM'
 //action creators
 
 const actionGetAllMenu = (menu_items) => ({
@@ -12,6 +12,11 @@ const actionGetAllMenu = (menu_items) => ({
 
 const actionAddMenuItem = (menu_item) => ({
     type: ADD_MENU_ITEM,
+    menu_item
+})
+
+const actionEditMenuItem = (menu_item) => ({
+    type: EDIT_MENU_ITEM,
     menu_item
 })
 
@@ -43,6 +48,16 @@ export const createMenuItemThunk = (data) => async (dispatch) => {
         if (error.errors) {
             return error
         }
+    }
+}
+
+export const editMenuItemThunk = (menu_id, info) => async (dispatch) => {
+    const res = await fetch(`/api/menus/${menu_id}/update`, {
+        method: 'PUT',
+        body: info
+    })
+    if (res.ok) {
+        const { resMenuItem } = await res.json()
     }
 }
 
