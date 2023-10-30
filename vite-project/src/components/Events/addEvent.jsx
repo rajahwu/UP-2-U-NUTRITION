@@ -66,10 +66,21 @@ export function AddEvent() {
           />
         </div>
         <div className="flex flex-col space-y-3">
-          <label htmlFor="event-title">Start Date:</label>
+          <label htmlFor="start-date">Start Date:</label>
           <input
             className="bg-gray-100 rounded text-center h-10 txt-lg"
-            id="event-title"
+            id="start-date"
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="flex flex-col space-y-3">
+          <label htmlFor="end-date">End Date:</label>
+          <input
+            className="bg-gray-100 rounded text-center h-10 txt-lg"
+            id="end-date"
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
