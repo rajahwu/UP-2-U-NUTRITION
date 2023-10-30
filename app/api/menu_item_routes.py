@@ -77,7 +77,7 @@ def create_menu_item():
         return {"resMenuItem":new_menu_item.to_dict()}
 
     if form.errors:
-        # print("======== hitting form error",form.errors)
+        print("======== hitting form error",form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 @menu_item_routes.route("/<int:id>/ingredients",methods=["POST"])
