@@ -18,7 +18,7 @@ export const authenticate = () => async (dispatch) => {
 		headers: {
 			"Content-Type": "application/json",
 		},
-		credentials: 'include',  // <-- Add this line
+		// credentials: 'include',  // <-- Add this line
 	});
 	if (response.ok) {
 		const data = await response.json();
@@ -40,7 +40,7 @@ export const login = (email, password) => async (dispatch) => {
 			email,
 			password,
 		}),
-		credentials: 'include',  // <-- Add this line
+		// credentials: 'include',  // <-- Add this line
 	});
 
 	if (response.ok) {

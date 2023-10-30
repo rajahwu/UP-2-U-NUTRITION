@@ -54,14 +54,14 @@ def create_menu_item():
         db.session.add(new_menu_item)
         db.session.commit()
 
-        new_ingredient = Ingredient(
-            ingredient_name = form.data['ingredient_name'],
-            menu_id = new_menu_item.id
-        )
-
-
-        db.session.add(new_ingredient)
-        db.session.commit()
+        ingredient_list = form.data['ingredient_name'].split(",")
+        for ingredient in ingredient_list:
+            ingredient = Ingredient(
+                ingredient_name = ingredient,
+                menu_id = new_menu_item.id
+            )
+            db.session.add(ingredient)
+            db.session.commit()
 
 
         new_nutrition = Nutrition(
