@@ -4,9 +4,10 @@ import { getCartItems } from '../../store/cart';
 import './Cart.css'
 
 function calculateTotalPrice(items) {
-    return items.reduce((total, item) => total + (item.price || 0) * (item.amount || 1), 0);
+    const totalPrice = items.reduce((total, item) => total + (item.price || 0) * (item.amount || 1), 0);
+    return parseFloat(totalPrice.toFixed(2));
   }
-  
+
 const Cart = () => {
     const [amount, setAmount] = useState(0);
     const [total, setTotal] = useState(0);
@@ -60,7 +61,7 @@ const Cart = () => {
                             />
                             <div className='product-incart-name'>{product.name}</div>
                             <div className='product-incart-price'>{product.price}</div>
-                            <div className='product-incart-price'>{`$${+product.price * +product.amount}`}</div>
+                            <div className='product-incart-price'>{`$${parseFloat(product.price * product.amount).toFixed(2)}`}</div>
                             <div onClick={() => { /* This is where the delete product from cart goes */ }}>
                                 X
                             </div>

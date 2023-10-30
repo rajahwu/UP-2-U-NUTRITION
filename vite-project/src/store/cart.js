@@ -50,7 +50,7 @@ const cartReducer = (state = initialState, action) => {
             return newState
         case ADD_TO_CART:
             newState = { ...state };
-            console.log("Add to cart reducer", {id: action.menu_item.id, amount: action.menu_item.amount, newState})
+            // console.log("Add to cart reducer", {id: action.menu_item.id, amount: action.menu_item.amount, newState})
             if (newState[action.menu_item.id]) {
                 // Item already exists in the cart, increment the 'amount'
                 newState[action.menu_item.id].amount = (newState[action.menu_item.id].amount || 0) + (action.menu_item.amount || 1);
