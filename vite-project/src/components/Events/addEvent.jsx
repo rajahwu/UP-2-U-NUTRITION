@@ -3,11 +3,23 @@ import { useState } from "react";
 export function AddEvent() {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [color, setColor] = useState("");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const event = {
       title,
+      details,
+      startDate,
+      endDate,
+      startTime,
+      endTime,
+      color
     };
     console.log(event);
   };
@@ -32,6 +44,22 @@ export function AddEvent() {
             required
           />
         </div>
+        <div className="flex flex-col space-y-3">
+          <label htmlFor="event-title">Start Date:</label>
+          <input
+            className="bg-gray-100 rounded text-center h-10 txt-lg"
+            id="event-title"
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            required
+          />
+        </div>
+        {/* {startDate &&
+
+        } */}
+
+
         <button>Submit Event</button>
       </form>
     </div>
