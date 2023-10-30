@@ -7,7 +7,8 @@ import { AddItem } from "./utility/forms/AddItem";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
 import { menuCategories } from "./utility/menu/menu-categories";
 import { combinedMenu } from "./utility/menu/combined-menu";
-
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
@@ -86,20 +87,24 @@ const MenuPage = () => {
       <MenuNav changeCat={setCategory} />
       {/* {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />} */}
       <AddItem />
+      {/* <button
+            className={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}
+            onClick={handleScrollLeft}
+            disabled={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0]}
+            >
+            {'<'}
+          </button> */}
       <div className="menu-item-container">
-        <button
-          className={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}
-          onClick={handleScrollLeft}
-          disabled={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0]}
+        <Carousel
+          showArrows={true}
+          showThumbs={false}
+          centerSlidePercentage={100 / 4}
+          centerMode={true}
         >
-          {'<'}
-        </button>
-        {currentMenuCategory && currentMenuCategory
-          .slice(startPosition, startPosition + itemsPerPage)
-          .map((item, i) => {
+          {currentMenuCategory && currentMenuCategory.map((item, i) => {
             // { console.log(item) }
             return (
-              <div id={i} key={i}>
+              <div id={i} key={i} className="border-black">
                 <div id={i} onClick={flipCard}>
                   {/* Condally render the front or the back */}
                   {flippedCardId == i
@@ -107,19 +112,20 @@ const MenuPage = () => {
                     : <FrontCardItem item={item} i={i} />
                   }
                 </div>
-                <button className="green-btn add-to-cart-btn">ADD TO CART</button>
-                {user !== null &&
-                  <OpenModalButton
-                    modalComponent={<EditItem menu_item={item} />}
-                    buttonText="Edit Item" />}
+                {/* <button className="green-btn add-to-cart-btn">ADD TO CART</button>
+              {user !== null &&
+                <OpenModalButton
+                  modalComponent={<EditItem menu_item={item} />}
+                  buttonText="Edit Item" />} */}
               </div>
             );
           })}
-        <button
+        </Carousel>
+        {/* <button
           className="menu-prev-next-btn"
           onClick={handleScrollRight}>
           {'>'}
-        </button>
+        </button> */}
       </div>
     </div >
   );

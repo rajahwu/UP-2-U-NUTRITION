@@ -57,10 +57,19 @@
 
 .menu-item-container {
     display: flex;
-    /* overflow-x: auto;
-    width: 1000px; */
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     margin: auto;
+    /* width: 90%; */
+    border: 1px solid red;
+}
+
+.border-black {
+    border: 1px solid black;
+    height: 100%;
+
 }
 
 .add-to-cart-btn {
