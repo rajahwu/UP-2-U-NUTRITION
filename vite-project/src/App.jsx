@@ -1,7 +1,4 @@
 import { useState, useEffect } from "react";
-
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import MenuPage from "./components/MenuPage";
@@ -15,6 +12,7 @@ import "./App.css";
 import { authenticate } from "./store/session";
 import { useDispatch } from "react-redux";
 import EditEvents from "./components/Events/editEvent";
+import LoginFormPage from "./components/LoginFormPage";
 import EditItem from "./components/MenuPage/utility/forms/EditItem";
 
 function App() {
@@ -53,7 +51,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/menu/add-item" element={<AddItem />} />
         <Route path="/menu/:id/edit/" element={<EditItem />} />
         <Route path="/menu" element={<MenuPage />} />
@@ -62,6 +60,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/your-story" element={<RedirectYourStory url={externalUrl} splashPageUrl='/' />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path='/login' element={<LoginFormPage />} />
       </Routes>
     </>
   );
