@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 1262f959122b
+Revision ID: ca8f00b55c18
 Revises: 
-Create Date: 2023-10-29 04:46:03.066066
+Create Date: 2023-10-29 19:14:55.874132
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1262f959122b'
+revision = 'ca8f00b55c18'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,7 +22,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('details', sa.String(length=1000), nullable=False),
-    sa.Column('date', sa.Date(), nullable=True),
+    sa.Column('start_date', sa.Date(), nullable=False),
+    sa.Column('end_date', sa.Date(), nullable=True),
     sa.Column('start_time', sa.DateTime(), nullable=True),
     sa.Column('end_time', sa.DateTime(), nullable=True),
     sa.Column('color', sa.String(), nullable=True),
@@ -50,7 +51,7 @@ def upgrade():
     )
     op.create_table('ingredients',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.String(length=5000), nullable=False),
+    sa.Column('ingredient_name', sa.String(length=5000), nullable=False),
     sa.Column('menu_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['menu_id'], ['menu_items.id'], ),
     sa.PrimaryKeyConstraint('id')

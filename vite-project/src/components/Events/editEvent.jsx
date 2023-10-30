@@ -1,7 +1,7 @@
 
 const EditEvents = () => {
     return (
-        <div>HELLO world</div>
+        <div>Edit Events</div>
     )
 }
 
