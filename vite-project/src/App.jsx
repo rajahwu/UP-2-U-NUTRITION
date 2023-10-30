@@ -26,6 +26,18 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  const RedirectYourStory = ({ url }) => {
+    useEffect(() => {
+      const timeout = setTimeout(() => {
+        window.location.href = url;
+      }, 1000)
+
+      return () => clearTimeout(timeout)
+    }, [url]);
+
+    return <h5>Redirecting...</h5>;
+  }
+
   const externalUrl = 'https://form.jotform.com/231567063516052';
 
   return (
@@ -39,7 +51,7 @@ function App() {
         <Route path="/our-story" element={<OurStory />} />
         <Route path="/events/edit/:id" element={<EditEvents />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/your-story" element={<YourStory />} />
+        <Route path="/your-story" element={<RedirectYourStory url={externalUrl} />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </>

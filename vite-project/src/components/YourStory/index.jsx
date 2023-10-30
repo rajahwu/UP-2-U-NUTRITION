@@ -1,21 +1,15 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 
-const YourStory = () => {
-    // const navigate = useNavigate();
 
-    // console.log(navigate)
-    // const externalUrl = 'https://form.jotform.com/231567063516052';
+const YourStory = ({ url }) => {
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         // 👇 Redirects to about page, note the `replace: true`
-    //         navigate(externalUrl, { replace: true });
-    //     }, 1000);
-    // }, []);
+    useEffect(() => {
+        window.location.href = url;
+    }, [url]);
 
-    return <div>Redirecting...</div>;
+    return <h5>Redirecting...</h5>;
+
 }
 
 
