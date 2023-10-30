@@ -4,7 +4,7 @@ import './OurStory.css'
 const OurStory = () => {
     return (
         <>
-        <div className="ourstory-page">
+      <div className="ourstory-page">
             <div className="ourstory-page-bgimg"></div>
             <div className="ourstory-page-content">
                 <h1 id='ourstory-title'>OUR STORY</h1>
@@ -44,12 +44,12 @@ const OurStory = () => {
                         </div>
                     </div>
 
-      
-                        {/* <span id="phone-number">Phone: (786) 651-1153 </span> */}
-                    </div>
-                    <div>
-                        <img className="ourstory-page-bg-img" src='/images/BG_Our_Story.png' alt='' />
-                    </div>
+
+                    {/* <span id="phone-number">Phone: (786) 651-1153 </span> */}
+                </div>
+                <div>
+                    <img className="ourstory-page-bg-img" src='/images/BG_Our_Story.png' alt='' />
+                </div>
             </div >
         </>
     )
