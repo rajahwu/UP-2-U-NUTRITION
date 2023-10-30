@@ -20,8 +20,8 @@ const MenuPage = () => {
   const currentMenuCategory = Object.values(menu1)
   const user = useSelector(state => state.session.user)
 
-  const handleAddToCart = (item) => {
-    dispatch(addToCart(item))
+  const handleAddToCart = (item, amount) => {
+    dispatch(addToCart(item, amount))
   }
   useEffect(() => {
     dispatch(getAllMenuItemThunk())
@@ -112,7 +112,7 @@ const MenuPage = () => {
                     : <FrontCardItem item={item} i={i} />
                   }
                 </div>
-                <button onClick={() => handleAddToCart(item)} className="green-btn add-to-cart-btn">ADD TO CART</button>
+                <button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>
                 {user !== null &&
                   <OpenModalButton
                     modalComponent={<EditItem menu_item={item} />}

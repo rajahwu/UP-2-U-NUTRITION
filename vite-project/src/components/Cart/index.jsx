@@ -1,17 +1,42 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { totalSum } from '../util';
-import { testCart } from './testCart';
-
+import { useSelector } from 'react-redux';
+import { getCartItems } from '../../store/cart';
 import './Cart.css'
 
-
+function calculateTotalPrice(items) {
+    return items.reduce((total, item) => total + (item.price || 0) * (item.amount || 1), 0);
+  }
+  
 const Cart = () => {
-    const [amount, setAmount] = useState(0)
+    const [amount, setAmount] = useState(0);
     const [total, setTotal] = useState(0);
+    const cartItems = useSelector(state => state.cartReducer)
 
-    const productsInCartList = Object.values(testCart)
+    // const productsInCartList = Object.values(testCart)
+
+    const productsInCartList = Object.values(cartItems).map(item => {
+        return  {
+            name: item.name,
+            price: item.price,
+            image: item.image,
+            amount: item.amount
+        }
+    })
+    
+
+    // console.log("prd", productsInCartList)
+    console.log(Object.values(cartItems).map(item => {
+        return  {
+            name: item.name,
+            price: item.price,
+            image: item.image,
+            amount: item.amount
+        }
+    }))
+
+    useEffect(() => {
+        getCartItems()
+    },[])
 
 
     return (
@@ -35,7 +60,7 @@ const Cart = () => {
                             />
                             <div className='product-incart-name'>{product.name}</div>
                             <div className='product-incart-price'>{product.price}</div>
-                            <div className='product-incart-price'>{`$${product.price.slice(1) * product.amount}`}</div>
+                            <div className='product-incart-price'>{`$${+product.price * +product.amount}`}</div>
                             <div onClick={() => { /* This is where the delete product from cart goes */ }}>
                                 X
                             </div>
@@ -44,7 +69,7 @@ const Cart = () => {
                 })}
                 <div className='total-incart-container'>
                     <div className='total-incart'>Cart Total</div>
-                    <div className='total-incart-value'>{`$${totalSum(productsInCartList)}`}</div>
+                    <div className='total-incart-value'>{`$${calculateTotalPrice(productsInCartList)}`}</div>
                 </div>
                 <div>Any price may variate for any special modification</div>
                 <div className="">
