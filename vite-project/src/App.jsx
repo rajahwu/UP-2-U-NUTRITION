@@ -26,21 +26,25 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const RedirectYourStory = ({ url }) => {
+  const RedirectYourStory = ({ url, splashPageUrl }) => {
     useEffect(() => {
       const redirect = () => {
         const a = document.createElement('a');
         a.href = url;
         a.target = '_blank';
         a.click();
+
+        setTimeout(() => {
+          window.location.href = splashPageUrl;
+        }, 2000)
       };
 
       const timeout = setTimeout(redirect, 1000)
 
       return () => clearTimeout(timeout)
-    }, [url]);
+    }, [url, splashPageUrl]);
 
-    return <h5>Redirecting...</h5>;
+    return <div className="redirecting">Redirecting...</div>;
   }
 
   const externalUrl = 'https://form.jotform.com/231567063516052';
@@ -56,7 +60,7 @@ function App() {
         <Route path="/our-story" element={<OurStory />} />
         <Route path="/events/edit/:id" element={<EditEvents />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/your-story" element={<RedirectYourStory url={externalUrl} />} />
+        <Route path="/your-story" element={<RedirectYourStory url={externalUrl} splashPageUrl='/' />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
