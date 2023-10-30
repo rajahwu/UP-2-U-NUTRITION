@@ -25,6 +25,8 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  const externalUrl = 'https://form.jotform.com/231567063516052';
+
   return (
     <>
       <Navigation isLoaded={isLoaded} />
