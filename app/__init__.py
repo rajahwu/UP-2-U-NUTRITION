@@ -89,7 +89,7 @@ def inject_csrf_token(response):
         httponly=True)
     # csrf_token_from_cookies = request.cookies.get('csrf_token')
     # print('CSRF Token from Cookies:=========', csrf_token_from_cookies)
-    print("==================",response)
+    # print("==================",response)
     return response
 
 @app.route('/set-cookie')

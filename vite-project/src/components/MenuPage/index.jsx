@@ -1,10 +1,9 @@
-
 import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
-import { BackCardItem, FrontCardItem} from "./utility/CardShape";
+import { BackCardItem, FrontCardItem } from "./utility/CardShape";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
@@ -35,8 +34,6 @@ const MenuPage = () => {
     dispatch(getAllMenuItemThunk());
   }, [dispatch]);
 
-
-
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -45,7 +42,7 @@ const MenuPage = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4
+      items: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -56,9 +53,6 @@ const MenuPage = () => {
       items: 1
     }
   };
-  
-  if (!menu1 === 0) return null;
-
   return (
     <div className="menu">
       <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
@@ -70,7 +64,7 @@ const MenuPage = () => {
           itemClass="carousel-item"
           swipeable={true}
         >
-         {menu1.map((item, i) => {
+          {menu1.map((item, i) => {
             return (
               <div id={i} key={i} onClick={flipCard}>
                 {flippedCardId == i ? (
