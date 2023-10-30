@@ -12,13 +12,17 @@ import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
 import EditItem from "./utility/forms/EditItem";
-import { addToCart } from "../util/addToCart";
+import { addToCart } from "../../store/cart";
 
 const MenuPage = () => {
   const dispatch = useDispatch()
   const menu1 = useSelector(state => state.menuReducer)
   const currentMenuCategory = Object.values(menu1)
   const user = useSelector(state => state.session.user)
+
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item))
+  }
   useEffect(() => {
     dispatch(getAllMenuItemThunk())
   }, [dispatch])
@@ -108,7 +112,7 @@ const MenuPage = () => {
                     : <FrontCardItem item={item} i={i} />
                   }
                 </div>
-                <button onClick={() => addToCart(item)} className="green-btn add-to-cart-btn">ADD TO CART</button>
+                <button onClick={() => handleAddToCart(item)} className="green-btn add-to-cart-btn">ADD TO CART</button>
                 {user !== null &&
                   <OpenModalButton
                     modalComponent={<EditItem menu_item={item} />}
