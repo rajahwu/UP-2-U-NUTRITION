@@ -28,9 +28,14 @@ function App() {
 
   const RedirectYourStory = ({ url }) => {
     useEffect(() => {
-      const timeout = setTimeout(() => {
-        window.location.href = url;
-      }, 1000)
+      const redirect = () => {
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.click();
+      };
+
+      const timeout = setTimeout(redirect, 1000)
 
       return () => clearTimeout(timeout)
     }, [url]);
