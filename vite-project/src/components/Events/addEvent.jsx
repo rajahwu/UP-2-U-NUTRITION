@@ -8,16 +8,10 @@ export function AddEvent() {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [color, setColor] = useState("");
-  const [wantTime, setWantTime] = useState(false);
+  const [allDay, setAllDay] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //if the Add Time box is unchecked make sure no time is added on submit
-    if(!wantTime){
-        setStartTime("")
-        setEndTime("")
-    }
 
     const event = {
       title,
@@ -73,39 +67,50 @@ export function AddEvent() {
             required
           />
         </div>
+
+        {!allDay && (
+            <div className="flex place-content-between">
+              <div>
+                <label htmlFor="startTime">Start Time:</label>
+                <input
+                  id="startTime"
+                  type="time"
+                  value={startTime}
+                  onChange={(e) => setStartTime(e.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="endTime">End Time:</label>
+                <input
+                  id="endTime"
+                  type="time"
+                  value={endTime}
+                  onChange={(e) => setEndTime(e.target.value)}
+                />
+              </div>
+            </div>
+        )}
         <div className="flex space-x-3">
-          <label htmlFor="want-start-time">Add Time:</label>
+          <label htmlFor="all-day">All Day:</label>
           <input
             className=""
-            id="want-start-time"
+            id="all-day"
             type="checkbox"
-            value={wantTime}
-            onChange={() => setWantTime(!wantTime)}
+            value={allDay}
+            onChange={() => setAllDay(!allDay)}
           />
         </div>
-        {wantTime && (
-          <div className="flex place-content-between">
-            <div>
-              <label htmlFor="startTime">Start Time:</label>
-              <input
-                id="startTime"
-                type="time"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="endTime">End Time:</label>
-              <input
-                id="endTime"
-                type="time"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
-              />
-            </div>
-          </div>
-        )}
-
+        <div className="flex flex-col space-y-3">
+          <label htmlFor="color">Choose Color:</label>
+          <input
+            className="bg-gray-100 rounded text-center h-10 txt-lg"
+            id="color"
+            type="select"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
+            required
+          />
+        </div>
         <button>Submit Event</button>
       </form>
     </div>
