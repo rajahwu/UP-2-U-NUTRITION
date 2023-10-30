@@ -144,8 +144,8 @@
 }
   
 
-  @media (max-width: 768px) {
-    .request-event-btn {
-      position: static;
-    }
-  }
+@media (max-width: 768px) {
+.request-event-btn {
+    position: static;
+}
+}

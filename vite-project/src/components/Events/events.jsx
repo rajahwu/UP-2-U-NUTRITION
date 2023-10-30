@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux"
 import { useModal } from "../../context/Modal";
-import { Navigate } from "react-router-dom";
 
 export const EventsModal = ({ event }) => {
     console.log("End date:", event);
-    const navigate = useNavigate()
-    const {closeModal} = useModal();
+    const user = useSelector(state => state.session.user)
+    const navigate = useNavigate();
+    const { closeModal } = useModal();
     const displayDate = (eventDates) => {
         console.log("eventDates", eventDates);
         if (eventDates) {
@@ -16,9 +17,9 @@ export const EventsModal = ({ event }) => {
         return "";
     }
 
-    const handleClick = (id) => {
-        closeModal()
-        navigate(`events/edit/${id}`)
+    const handleClick = () => {
+        closeModal();
+        navigate(`events/edit/${event.id}`);
     }
 
     // Create Date objects from the start_time and end_time strings
@@ -32,13 +33,12 @@ export const EventsModal = ({ event }) => {
     return (
         <div className="event-container">
             <div className='event-bar' style={{ backgroundColor: `${event.color}` }}></div>
-            <div className="flex ">
+            <div className="flex">
                 <div className="event-month-day">{displayDate(new Date(event.start_date))}</div>
                 {event.end_date ? (
                     <div className="event-month-day"> - {displayDate(new Date(event.end_date))}</div>
                 ) : null}
             </div>
-            <button onClick={handleClick(event.id)}className="absolute top-10 right-20 cursor-pointer hover:text-blue-500 underline-offset-1">[Edit]</button>
             <div className="event-hours">
                 {`${startTimeFormatted} - ${endTimeFormatted}`}
             </div>
@@ -46,8 +46,9 @@ export const EventsModal = ({ event }) => {
             <div className="event-title">{event.title}</div>
             <div className="divider"></div>
             <div className="event-details">{event.details}</div>
-            <div>For more information contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
+            <div>For more information, contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
+            {user ? (<button onClick={handleClick} className="text-2xl hover:underline hover:text-blue-900">[Edit Event]</button>
+            ):(null)}
         </div>
     )
 }
-
