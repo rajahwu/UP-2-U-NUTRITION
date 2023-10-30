@@ -58,6 +58,13 @@ export const editMenuItemThunk = (menu_id, info) => async (dispatch) => {
     })
     if (res.ok) {
         const { resMenuItem } = await res.json()
+        dispatch(actionEditMenuItem(resMenuItem))
+        return resMenuItem
+    } else {
+        const data = await res.json()
+        if (data.errors) {
+            return data
+        }
     }
 }
 
@@ -76,6 +83,9 @@ const menuReducer = (state = initialState, action) => {
             newState = { ...state }
             newState[action.menu_item.id] = action.menu_item
             return newState
+        case EDIT_MENU_ITEM:
+            newState = { ...state }
+
         default:
             return state
     }
