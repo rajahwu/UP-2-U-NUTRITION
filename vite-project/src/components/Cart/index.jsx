@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCartItems, updateCartItemAmount, removeFromCart } from "../../store/cart";
+import {
+  getCartItems,
+  updateCartItemAmount,
+  removeFromCart,
+} from "../../store/cart";
 import "./Cart.css";
 
 function calculateTotalPrice(items) {
@@ -17,7 +21,8 @@ const Cart = () => {
 
   const handleAmountChange = (product, newAmount) => {
     product.amount = newAmount;
-    dispatch(updateCartItemAmount(product));
+    if (product.amount >= 1) dispatch(updateCartItemAmount(product));
+    // dispatch(updateCartItemAmount(product));
   };
 
   const handleRemoveProduct = (product) => {
@@ -26,7 +31,7 @@ const Cart = () => {
 
   const productsInCartList = Object.values(cartItems).map((item) => {
     return {
-      id: item.id,  
+      id: item.id,
       name: item.name,
       price: item.price,
       image: item.image,
@@ -55,8 +60,8 @@ const Cart = () => {
                 type="number"
                 className="product-incart-amount"
                 onChange={(e) => {
-                    console.log("input changed: ", e.target.value)
-                    handleAmountChange(product, parseFloat(e.target.value))
+                  console.log("input changed: ", e.target.value);
+                  handleAmountChange(product, parseFloat(e.target.value));
                 }}
                 value={product.amount}
               />
@@ -67,7 +72,7 @@ const Cart = () => {
               ).toFixed(2)}`}</div>
               <button
                 onClick={() => {
-                    handleRemoveProduct(product);
+                  handleRemoveProduct(product);
                 }}
               >
                 X
