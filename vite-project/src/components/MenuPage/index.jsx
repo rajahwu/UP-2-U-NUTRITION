@@ -6,17 +6,15 @@ import { AddItem } from "./utility/forms/AddItem";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
 import { menuCategories } from "./utility/menu/menu-categories";
 import { combinedMenu } from "./utility/menu/combined-menu";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import { useNavigate } from "react-router-dom";
 
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
-
-// Import EditItem here only once
-import EditItem from "./utility/forms/EditItem";
 import { addToCart } from "../../store/cart";
+import EditItem from "./utility/forms/EditItem";
 
 const MenuPage = () => {
 
@@ -48,15 +46,7 @@ const MenuPage = () => {
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
   }
-  useEffect(() => {
-    dispatch(getAllMenuItemThunk())
-  }, [dispatch])
 
-  // if (!menu_arr.length) return null
-
-
-  //Variable to hold which card should be flipped.
-  //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
 
   const flipCard = async (e) => {
@@ -80,25 +70,25 @@ const MenuPage = () => {
       {user && <button onClick={() => navigate("/menu/add-item")}>Add Item</button>}
       <MenuNav />
       <div className="menu-item-container">
-        {/* <Carousel responsive={responsive}
-        > */}
-        {menuArr && menuArr.map((item, i) => {
-          return (
-            <div id={i} key={i} onClick={flipCard}>
-              {flippedCardId == i ? (
-                <BackCardItem item={item} i={i} />
-              ) : (
-                <FrontCardItem item={item} i={i} />
-              )}
-              <button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>
-              {user !== null &&
-                <OpenModalButton
-                  modalComponent={<EditItem menu_item={item} />}
-                  buttonText="Edit Item" />}
-            </div>
-          );
-        })}
-        {/* </Carousel> */}
+        <Carousel responsive={responsive}
+        >
+          {menuArr && menuArr.map((item, i) => {
+            return (
+              <div id={i} key={i} onClick={flipCard}>
+                {flippedCardId == i ? (
+                  <BackCardItem item={item} i={i} />
+                ) : (
+                  <FrontCardItem item={item} i={i} />
+                )}
+                <button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>
+                {user !== null &&
+                  <OpenModalButton
+                    modalComponent={<EditItem menu_item={item} />}
+                    buttonText="Edit Item" />}
+              </div>
+            );
+          })}
+        </Carousel>
       </div>
     </div>
   );
