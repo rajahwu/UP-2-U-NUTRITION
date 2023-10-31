@@ -135,22 +135,24 @@ def create_nutrition(id):
 @login_required
 def update_menu_item(id):
     menu_item_form = MenuForm()
-    print("==============",menu_item_form.data)
+
     menu_item_form["csrf_token"].data = request.cookies["csrf_token"]
 
     if menu_item_form.validate_on_submit():
         menu_item = MenuItem.query.get(id)
-        print("=-=-=-===-=-=-==-", menu_item)
 
-        menu_item.name = menu_item_form['name']
-        menu_item.category = menu_item_form['category']
-        menu_item.price = menu_item_form['price']
-        menu_item.image = menu_item_form['image']
+
+
+        menu_item.name = menu_item_form.data['name']
+        menu_item.category = menu_item_form.data['category']
+        menu_item.price = menu_item_form.data['price']
+        menu_item.image = menu_item_form.data['image']
         menu_item.created_at = date.today()
-
+        # print("========",menu_item.price)
         db.session.commit()
 
         ingredients = menu_item_form.data['ingredient_name'].split(",")
+        # print("=========] this is ingredients",ingredients)
         for ingredient_name in ingredients:
             existing_ingredient = Ingredient.query.filter_by(menu_id=id, ingredient_name=ingredient_name).first()
 

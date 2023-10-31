@@ -90,8 +90,10 @@ const EditItem = ({ menu_item }) => {
         updatedMenuItem.append("name", name)
         updatedMenuItem.append('image', image)
         updatedMenuItem.append('category', category)
+        // console.log(typeof price)
         updatedMenuItem.append('price', price)
         updatedMenuItem.append('ingredient_name', ingredients)
+
 
 
         // console.log("========", nutrientEntries)

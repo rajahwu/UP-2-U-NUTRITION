@@ -3,6 +3,7 @@
 const GET_ALL_MENU = 'menus/GET_ALL_MENU'
 const ADD_MENU_ITEM = 'menus/ADD_MENU_ITEM'
 const EDIT_MENU_ITEM = 'menus/EDIT_MENU_ITEM'
+const DELETE_MENU_ITEM = 'menus/DELETE_MENU_ITEM'
 //action creators
 
 const actionGetAllMenu = (menu_items) => ({
@@ -18,6 +19,11 @@ const actionAddMenuItem = (menu_item) => ({
 const actionEditMenuItem = (menu_item) => ({
     type: EDIT_MENU_ITEM,
     menu_item
+})
+
+const actionDeleteMenuItem = (menu_id) => ({
+    type: DELETE_MENU_ITEM,
+    menu_id
 })
 
 //thunk
@@ -52,6 +58,7 @@ export const createMenuItemThunk = (data) => async (dispatch) => {
     }
 }
 
+
 export const editMenuItemThunk = (menu_id, info) => async (dispatch) => {
     const res = await fetch(`/api/menus/${menu_id}/update`, {
         method: 'PUT',
@@ -69,6 +76,14 @@ export const editMenuItemThunk = (menu_id, info) => async (dispatch) => {
     }
 }
 
+export const deleteMenuItemThunk = (menu_id) => async (dispatch) => {
+    const res = await fetch(`/api/menus/${menu_id}/delete`, {
+        method: 'DELETE'
+    })
+    if (res.ok) {
+        dispatch(actionDeleteMenuItem(menu_id))
+    }
+}
 
 //Reducer
 
@@ -88,6 +103,10 @@ const menuReducer = (state = initialState, action) => {
             newState = { ...state }
             newState[action.menu_item.id] = { ...newState[action.menu_item.id], ...action.menu_item }
             return newState;
+        case DELETE_MENU_ITEM:
+            newState = { ...state }
+            delete newState[action.menu_id]
+            return newState
         default:
             return state
     }
