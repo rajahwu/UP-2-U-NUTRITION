@@ -2,28 +2,21 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from 'react-router-dom';
 import { useModal } from '../../../../context/Modal';
-import { editMenuItemThunk } from '../../../../store/menus';
+import { editMenuItemThunk, getAllMenuItemThunk } from '../../../../store/menus';
 
 
 const EditItem = ({ menu_item }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { closeModal } = useModal()
-    // const { id } = useParams()
     const menuItemObj = useSelector(state => state.menuReducer)
     const user = useSelector(state => state.session.user)
-    // const menuItem = menuItemObj[id]
+
 
     const [name, setName] = useState(menu_item?.name || "");
     const [category, setCategory] = useState(menu_item?.category || "");
     const [price, setPrice] = useState(menu_item?.price || "");
     const [image, setImage] = useState(menu_item?.image || "")
-    // const [nutrient, setNutrient] = useState(menu_item?.nutrient || "")
-    // const [weight, setWeight] = useState(menu_item?.weight || "")
-    // const [percentage, setPercentage] = useState(menu_item?.percentage || "")
-    // const [ingredient, setIngredient] = useState(
-    //     menu_item?.ingredients || [{ id: null, ingredient_name: '' }]
-    // );
     const [ingredients, setIngredients] = useState(menu_item?.ingredients.map(ingredient => ingredient.ingredient_name) || ['']);
     const [nutrientEntries, setNutrientEntries] = useState(
         menu_item?.nutritions || [{ nutrient: '', weight: '', percentage: '' }]
@@ -39,9 +32,7 @@ const EditItem = ({ menu_item }) => {
         if (!category) error.category = "Category is required"
         if (!price) error.price = "Price is required"
         if (!image) error.image = "Image is required"
-        // if (!nutrient) error.nutrient = "Nutrient is required"
-        // if (!weight) error.weight = "Weight is required"
-        // if (!percentage) error.percentage = "Percentage is required"
+
         if (!ingredients) error.ingredients = "Ingredient is required"
         nutrientEntries.forEach((entry, index) => {
             if (!entry.nutrient) error[`nutrient${index}`] = `Nutrient #${index + 1} is required`;
@@ -53,6 +44,7 @@ const EditItem = ({ menu_item }) => {
         setErrors(error);
 
     }, [name, category, price, image, nutrientEntries, ingredients])
+
 
     const addNutrientEntry = () => {
         setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '', percentage: '' }]);
@@ -82,7 +74,7 @@ const EditItem = ({ menu_item }) => {
         setNutrientEntries(updatedEntries);
     };
 
-    console.log("________---------", ingredients)
+    // console.log("________---------", ingredients)
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -107,17 +99,15 @@ const EditItem = ({ menu_item }) => {
             percentageArray.push(entry.percentage);
         });
 
-        // console.log("================ nutrient", nutrientArray)
-        // console.log("================ weight", weightArray)
-        // console.log("================ percentage", percentageArray)
 
         updatedMenuItem.append(`nutrient`, nutrientArray);
         updatedMenuItem.append(`weight`, weightArray);
         updatedMenuItem.append(`percentage`, percentageArray);
 
-        console.log("=========", errors)
+        // console.log("=========", errors)
         if (!Object.keys(errors).length) {
             const result = await dispatch(editMenuItemThunk(menu_item.id, updatedMenuItem));
+
 
             if (!result.errors) {
                 closeModal();

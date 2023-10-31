@@ -9,11 +9,18 @@ import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
 import { addToCart } from "../../store/cart";
+import { useNavigate } from "react-router-dom";
+import EditItem from "./utility/forms/EditItem";
+import OpenModalButton from "../OpenModalButton";
+import DeleteItem from "./utility/forms/DeleteItem";
+
 
 const MenuPage = () => {
   const [category, setCategory] = useState('combos')
   const dispatch = useDispatch()
   const menu1 = Object.values(useSelector(state => state.menuReducer))
+  const user = useSelector(state => state.session.user)
+  const navigate = useNavigate()
 
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
@@ -84,7 +91,7 @@ const responsive = {
   return (
     <div className="menu">
       <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
-      <MenuNav setCategory={setCategory}/>
+      <MenuNav />
       <div className="menu-item-container p-6">
         <Carousel
           responsive={responsive}
@@ -93,7 +100,7 @@ const responsive = {
           swipeable={true}
           showDots={false} 
         >
-          {renderCarousel()}
+          {renderCarousel}
         </Carousel>
       </div>
     </div>

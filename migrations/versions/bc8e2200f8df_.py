@@ -1,14 +1,8 @@
 """empty message
 
-<<<<<<<< HEAD:migrations/versions/3659da28a6a4_.py
-Revision ID: 3659da28a6a4
+Revision ID: bc8e2200f8df
 Revises: 
-Create Date: 2023-10-31 12:01:13.997578
-========
-Revision ID: d93520d4fc8e
-Revises: 
-Create Date: 2023-10-31 11:58:42.799427
->>>>>>>> 9dc7f85fcd700a1b18847f3cfc03bf5dfde7726c:migrations/versions/d93520d4fc8e_.py
+Create Date: 2023-10-30 20:16:33.076446
 
 """
 from alembic import op
@@ -16,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<<< HEAD:migrations/versions/3659da28a6a4_.py
-revision = '3659da28a6a4'
-========
-revision = 'd93520d4fc8e'
->>>>>>>> 9dc7f85fcd700a1b18847f3cfc03bf5dfde7726c:migrations/versions/d93520d4fc8e_.py
+revision = 'bc8e2200f8df'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -71,7 +61,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nutrient', sa.String(length=5000), nullable=False),
     sa.Column('weight', sa.String(), nullable=True),
-    sa.Column('percentage', sa.String(), nullable=True),
+    sa.Column('percentage', sa.Integer(), nullable=True),
     sa.Column('menu_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['menu_id'], ['menu_items.id'], ),
     sa.PrimaryKeyConstraint('id')
