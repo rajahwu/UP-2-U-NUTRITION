@@ -8,11 +8,12 @@ const Map = () => {
   };
 
   const center = {
-    lat: 29.673025884857015,
-    lng: -82.34123079475737,
+    lat: 29.672982939291256,
+    lng: -82.34131254724184,
   };
 
   return (
+
     <LoadScript googleMapsApiKey="AIzaSyBWUUeHQhks55sgL_DJdpkHMM0anGVCZ8A">
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -21,7 +22,8 @@ const Map = () => {
       >
         {/* Add markers, info windows, and other map elements here */}
       </GoogleMap>
-    </LoadScript>
+    </LoadScript >
+
   );
 };
 

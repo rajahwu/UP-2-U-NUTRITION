@@ -29,7 +29,7 @@ const LandingPage = () => {
                             <div className="green-line-order">
                                 <div className="start-order">
                                     <div className='daily-specials'>{displaySpecials(dailySpecials)}</div>
-                                    <button onClick={() => navigate("/menu")} className="landing-page-button">START YOUR ORDER</button>
+                                    <button onClick={() => navigate("/login")} className="landing-page-button">START HERE</button>
                                 </div>
                             </div>
                         </div>

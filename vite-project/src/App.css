@@ -9,3 +9,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.redirecting {
+  margin: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}

@@ -1,20 +1,23 @@
+
 import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
-
 import OpenModalButton from "../OpenModalButton/index";
 import { AddItem } from "./utility/forms/AddItem";
-// import { EditItem } from "./utility/forms/EditItem";
 import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
 import { menuCategories } from "./utility/menu/menu-categories";
 import { combinedMenu } from "./utility/menu/combined-menu";
-
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
+
+// Import EditItem here only once
 import EditItem from "./utility/forms/EditItem";
 import { addToCart } from "../../store/cart";
 
 const MenuPage = () => {
+
   const dispatch = useDispatch()
   const menu1 = useSelector(state => state.menuReducer)
   const currentMenuCategory = Object.values(menu1)
@@ -33,51 +36,11 @@ const MenuPage = () => {
   //Variable to hold which card should be flipped.
   //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
-  // const [currentMenuCategory, setCurrentMenuCategory] = useState(supahShakes);
-  const [startPosition, setStartPosition] = useState(0);
 
-  //place holder for check on user
-  // const user = null
-  const nameOfLastCategory = menuCategories[menuCategories.length - 1];
-  const lengthOfLastCategory = combinedMenu[nameOfLastCategory].length;
-
-  const itemsPerPage = 4;
-  let difference = currentMenuCategory.length - itemsPerPage;
-  const maxScrollPosition = Math.max(0, difference);
-  let idx = menuCategories.indexOf(currentMenuCategory[0]?.category)
-  let prevCategory = menuCategories[idx - 1];
-  let nextCategory = menuCategories[idx + 1];
-
-  const handleScrollLeft = () => {
-    if (startPosition === 0 && currentMenuCategory[0]?.category !== menuCategories[0]) {
-      setCurrentMenuCategory(combinedMenu[prevCategory])
-    }
-    if (startPosition > 0) setStartPosition(startPosition - itemsPerPage);
-
-
-    setFlippCardId(Infinity);
-  };
-
-  const handleScrollRight = () => {
-    if (startPosition < maxScrollPosition) setStartPosition(startPosition + itemsPerPage)
-    else (
-      setCurrentMenuCategory(combinedMenu[nextCategory])
-    )
-    setFlippCardId(Infinity);
-
-  };
-
-  const setCategory = (cat) => {
-    setCurrentMenuCategory(cat)
-    setStartPosition(0);
-    setFlippCardId(Infinity);
-  }
-
-  //function to flip the card when clicked
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
-    //used double equality to match string numbers against int
+    // Used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
       setFlippCardId(Infinity);
     } else {
@@ -85,17 +48,20 @@ const MenuPage = () => {
     }
   };
 
+  useEffect(() => {
+    dispatch(getAllMenuItemThunk());
+  }, [dispatch]);
   return (
     <div className="menu">
       <div className="headers">OUR MENU</div>
-      <MenuNav changeCat={setCategory} />
-      {/* {user !== null && <OpenModalButton modalComponent={AddItem} buttonText="Add Item" />} */}
-      <AddItem />
+      <MenuNav />
       <div className="menu-item-container">
-        <button
-          className={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0] ? "menu-prev-next-btn-deactivated" : "menu-prev-next-btn"}
-          onClick={handleScrollLeft}
-          disabled={startPosition === 0 && currentMenuCategory[0]?.category === menuCategories[0]}
+        <Carousel
+          showArrows={true}
+          showThumbs={false}
+          showStatus={false}
+          centerMode={true}
+        // centerSlidePercentage={100 / 100}
         >
           {'<'}
         </button>
@@ -116,16 +82,13 @@ const MenuPage = () => {
                   <OpenModalButton
                     modalComponent={<EditItem menu_item={item} />}
                     buttonText="Edit Item" />}
+
               </div>
             );
           })}
-        <button
-          className="menu-prev-next-btn"
-          onClick={handleScrollRight}>
-          {'>'}
-        </button>
+        </Carousel>
       </div>
-    </div >
+    </div>
   );
 };
 
