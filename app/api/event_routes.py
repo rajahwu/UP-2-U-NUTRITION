@@ -30,7 +30,7 @@ def all_events():
     return event_list
 
 @event_routes.route("/", methods=["POST"])
-@login_required
+# @login_required
 def create_event():
     # date_format = "%Y-%m-%d %H:%M:%S"
     # no_time_date_format = "%Y-%m-%d"
