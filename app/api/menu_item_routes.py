@@ -148,11 +148,11 @@ def update_menu_item(id):
         menu_item.price = menu_item_form.data['price']
         menu_item.image = menu_item_form.data['image']
         menu_item.created_at = date.today()
-        # print("========",menu_item.price)
+
         db.session.commit()
 
         ingredients = menu_item_form.data['ingredient_name'].split(",")
-        # print("=========] this is ingredients",ingredients)
+
         for ingredient_name in ingredients:
             existing_ingredient = Ingredient.query.filter_by(menu_id=id, ingredient_name=ingredient_name).first()
 
@@ -202,7 +202,7 @@ def update_menu_item(id):
         return {"errors": validation_errors_to_error_messages(menu_item_form.errors)}, 400
 
 @menu_item_routes.route("/<int:id>/delete", methods=['DELETE'])
-# @login_required
+@login_required
 def delete_menu_item(id):
     menu_item = MenuItem.query.get(id)
 

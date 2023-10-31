@@ -1,47 +1,24 @@
-
 import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
-import OpenModalButton from "../OpenModalButton/index";
-import { AddItem } from "./utility/forms/AddItem";
-import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
-import { menuCategories } from "./utility/menu/menu-categories";
-import { combinedMenu } from "./utility/menu/combined-menu";
+import { BackCardItem, FrontCardItem } from "./utility/CardShape";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { useNavigate } from "react-router-dom";
-
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
 import { addToCart } from "../../store/cart";
+import { useNavigate } from "react-router-dom";
 import EditItem from "./utility/forms/EditItem";
+import OpenModalButton from "../OpenModalButton";
+import DeleteItem from "./utility/forms/DeleteItem";
+
 
 const MenuPage = () => {
-
-  const navigate = useNavigate()
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
   const dispatch = useDispatch()
-  const menu1 = useSelector(state => state.menuReducer)
-  const menuArr = Object.values(menu1)
+  const menu1 = Object.values(useSelector(state => state.menuReducer))
   const user = useSelector(state => state.session.user)
+  const navigate = useNavigate()
 
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
@@ -64,15 +41,38 @@ const MenuPage = () => {
     dispatch(getAllMenuItemThunk());
   }, [dispatch]);
 
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   return (
     <div className="menu">
-      <div className="headers">OUR MENU</div>
-      {user && <button onClick={() => navigate("/menu/add-item")}>Add Item</button>}
+      <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
+      {user && <button onClick={() => navigate('/menu/add-item')}>Add Item</button>}
       <MenuNav />
-      <div className="menu-item-container">
-        <Carousel responsive={responsive}
+      <div className="menu-item-container p-6">
+        <Carousel
+          responsive={responsive}
+          containerClass="w-full h-full"
+          itemClass="carousel-item"
+          swipeable={true}
         >
-          {menuArr && menuArr.map((item, i) => {
+          {menu1.map((item, i) => {
             return (
               <div id={i} key={i} onClick={flipCard}>
                 {flippedCardId == i ? (
@@ -85,6 +85,12 @@ const MenuPage = () => {
                   <OpenModalButton
                     modalComponent={<EditItem menu_item={item} />}
                     buttonText="Edit Item" />}
+                {user !== null &&
+                  <OpenModalButton
+                    modalComponent={<DeleteItem menu_id={item.id} />}
+                    buttonText={<i className="fa-solid fa-eraser"></i>}
+                  />
+                }
               </div>
             );
           })}
