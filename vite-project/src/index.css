@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'League Spartan', sans-serif;
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.headers {
+    font-weight: bold;
+    font-size: 56px;
+}
+
+.bg-titles-blue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 8px 35px 0;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    background-color: rgba(0, 145, 209, 1);
+}
+
+.bg-titles-yellow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 8px 35px 0;
+    /* margin-top: 10%; */
+    margin-bottom: 2%;
+    background-color: #FFAD01;
+}
+
+.bg-titles-green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 8px 35px 0;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    background-color: #5EAA00;
+}
+
+.bg-titles-red {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 8px 35px 0;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    background-color: #D32540;
+}
+
+button {
+    cursor: pointer;
+}
+
+.green-btn {
+    background-color: #5EAA00;
+    border: solid 1px #5EAA00;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.green-btn:hover {
+    color: #5EAA00;
+    background-color: #FFFFFF;
+}
+
+.red-btn {
+    background-color: #D32540;
+    border: solid 1px #D32540;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.red-btn:hover {
+    color: #D32540;
+    background-color: #FFFFFF;
+}
