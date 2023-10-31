@@ -1,40 +1,23 @@
 
 import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
-import OpenModalButton from "../OpenModalButton/index";
-import { AddItem } from "./utility/forms/AddItem";
-import { BackCardItem, FrontCardItem, EmptyCardItem } from "./utility/CardShape";
-import { menuCategories } from "./utility/menu/menu-categories";
-import { combinedMenu } from "./utility/menu/combined-menu";
-import { Carousel } from 'react-responsive-carousel';
+import { BackCardItem, FrontCardItem} from "./utility/CardShape";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
-
-// Import EditItem here only once
-import EditItem from "./utility/forms/EditItem";
 import { addToCart } from "../../store/cart";
 
 const MenuPage = () => {
-
   const dispatch = useDispatch()
-  const menu1 = useSelector(state => state.menuReducer)
-  const currentMenuCategory = Object.values(menu1)
-  const user = useSelector(state => state.session.user)
+  const menu1 = Object.values(useSelector(state => state.menuReducer))
 
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
   }
-  useEffect(() => {
-    dispatch(getAllMenuItemThunk())
-  }, [dispatch])
 
-  // if (!menu_arr.length) return null
-
-
-  //Variable to hold which card should be flipped.
-  //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
 
   const flipCard = async (e) => {
@@ -51,38 +34,51 @@ const MenuPage = () => {
   useEffect(() => {
     dispatch(getAllMenuItemThunk());
   }, [dispatch]);
+
+
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+  
+  if (!menu1 === 0) return null;
+
   return (
     <div className="menu">
-      <div className="headers">OUR MENU</div>
+      <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
       <MenuNav />
-      <div className="menu-item-container">
+      <div className="menu-item-container p-6">
         <Carousel
-          showArrows={true}
-          showThumbs={false}
-          showStatus={false}
-          centerMode={true}
-        // centerSlidePercentage={100 / 100}
+          responsive={responsive}
+          containerClass="w-full h-full"
+          itemClass="carousel-item"
+          swipeable={true}
         >
-          {'<'}
-        </button>
-        {currentMenuCategory && currentMenuCategory
-          .slice(startPosition, startPosition + itemsPerPage)
-          .map((item, i) => {
+         {menu1.map((item, i) => {
             return (
-              <div id={i} key={i}>
-                <div id={i} onClick={flipCard}>
-                  {/* Condally render the front or the back */}
-                  {flippedCardId == i
-                    ? <BackCardItem item={item} i={i} />
-                    : <FrontCardItem item={item} i={i} />
-                  }
-                </div>
+              <div id={i} key={i} onClick={flipCard}>
+                {flippedCardId == i ? (
+                  <BackCardItem item={item} i={i} />
+                ) : (
+                  <FrontCardItem item={item} i={i} />
+                )}
                 <button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>
-                {user !== null &&
-                  <OpenModalButton
-                    modalComponent={<EditItem menu_item={item} />}
-                    buttonText="Edit Item" />}
-
               </div>
             );
           })}
