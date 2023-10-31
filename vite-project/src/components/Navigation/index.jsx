@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { randomElement } from '../util';
 import { totalSum } from '../util';
-import ProfileButton from './ProfileButton';
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector((state) => state.session.user);

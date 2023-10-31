@@ -54,14 +54,14 @@ def create_menu_item():
         db.session.add(new_menu_item)
         db.session.commit()
 
-        new_ingredient = Ingredient(
-            ingredient_name = form.data['ingredient_name'],
-            menu_id = new_menu_item.id
-        )
-
-
-        db.session.add(new_ingredient)
-        db.session.commit()
+        ingredient_list = form.data['ingredient_name'].split(",")
+        for ingredient in ingredient_list:
+            ingredient = Ingredient(
+                ingredient_name = ingredient,
+                menu_id = new_menu_item.id
+            )
+            db.session.add(ingredient)
+            db.session.commit()
 
 
         new_nutrition = Nutrition(
@@ -77,7 +77,7 @@ def create_menu_item():
         return {"resMenuItem":new_menu_item.to_dict()}
 
     if form.errors:
-        # print("======== hitting form error",form.errors)
+        print("======== hitting form error",form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 @menu_item_routes.route("/<int:id>/ingredients",methods=["POST"])
