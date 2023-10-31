@@ -41,16 +41,3 @@ export const FrontCardItem = ({ item, i }) => {
     </div>
   );
 };
-
-//variable to store the shape of the front of the card
-export const EmptyCardItem = ({ item, i }) => {
-  return (
-    <div id={i} className="card-body front-card">
-      <div className="card-content" id={i}>X
-        {/* <div className="product-name" id={i}>{item.name}</div>
-        <img className="product-image" id={i} src={item.image} alt="" />
-        <div className="product-price" id={i}>{item.price}</div> */}
-      </div>
-    </div>
-  );
-};
