@@ -8,7 +8,7 @@ import { forYou } from "./utility/menu/forYou";
 import { goodies } from "./utility/menu/goodies";
 import { menuCategories } from "./utility/menu/menu-categories"
 
-export const MenuNav = ({ changeCat }) => {
+export const MenuNav = ({props}) => {
 
   const menuSelectionLines = [
     "/images/selected_cat/circle_1.png",
@@ -19,15 +19,8 @@ export const MenuNav = ({ changeCat }) => {
     "/images/selected_cat/circle_6.png",
   ];
 
-  const clickHandler = (e) => {
-    // e.stopPropagation();
-    // e.preventDefault();
-    if (e.target.id === "combos") changeCat(combos)
-    else if (e.target.id === "supah shakes") changeCat(supahShakes)
-    else if (e.target.id === "special teas") changeCat(specialTeas)
-    else if (e.target.id === "for you") changeCat(forYou)
-    else if (e.target.id === "stays active") changeCat(staysActive)
-    else if (e.target.id === "goodies") changeCat(goodies)
+  const clickHandler = (menuItem) => {
+    props.setCategory(menuItem)
   };
 
   return (
@@ -37,7 +30,7 @@ export const MenuNav = ({ changeCat }) => {
           key={`category-${i}`}
           id={cat}
           className="categories-container category-title"
-          onClick={clickHandler}
+          onClick={clickHandler(cat)}
         >
           {cat}
           <img
