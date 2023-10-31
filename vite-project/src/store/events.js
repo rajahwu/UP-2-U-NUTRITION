@@ -12,7 +12,7 @@ export const actionGetAllEvents = (events) => ({
 
 //thunk
 export const getAllEventsThunk = () => async (dispatch) => {
-    const res = await fetch("http://127.0.0.1:5000/api/events/");
+    const res = await fetch("/api/events/");
     if (res.ok) {
         const data = await res.json();
         dispatch(actionGetAllEvents(data));
