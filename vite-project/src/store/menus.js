@@ -33,6 +33,7 @@ export const getAllMenuItemThunk = () => async (dispatch) => {
 }
 
 export const createMenuItemThunk = (data) => async (dispatch) => {
+    // console.log("========= this is data", data)
     const res = await fetch("/api/menus", {
         method: 'POST',
         body: data,
@@ -85,7 +86,8 @@ const menuReducer = (state = initialState, action) => {
             return newState
         case EDIT_MENU_ITEM:
             newState = { ...state }
-
+            newState[action.menu_item.id] = { ...newState[action.menu_item.id], ...action.menu_item }
+            return newState;
         default:
             return state
     }

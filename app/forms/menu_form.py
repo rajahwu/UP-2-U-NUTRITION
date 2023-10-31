@@ -18,7 +18,7 @@ class MenuForm(FlaskForm):
     ingredient_name = StringField('Ingredient_name', validators=[DataRequired()])
     nutrient = StringField('Nutrient', validators=[DataRequired()])
     weight = StringField('Weight')
-    percentage = IntegerField('Percentage')
+    percentage = StringField('Percentage')
     created_at = DateField('Date')
     submit = SubmitField('Submit')
 

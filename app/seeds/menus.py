@@ -24,14 +24,14 @@ def seed_menus():
         nutrient = "Fat",
         menu_id = 1,
         weight = "10mg",
-        percentage = 5
+        percentage = "5"
     )
 
     nutrition_item2 = Nutrition(
         nutrient = "Carb",
         menu_id = 1,
         weight = "50mg",
-        percentage = 10
+        percentage = "7"
     )
 
 
@@ -60,14 +60,14 @@ def seed_menus():
         nutrient = "Fat",
         menu_id = 2,
         weight = "15mg",
-        percentage = 5
+        percentage = "5"
     )
 
     nutrition_item4 = Nutrition(
         nutrient = "Carb",
         menu_id = 2,
         weight = "550mg",
-        percentage = 10
+        percentage = "10"
     )
 
 
@@ -98,14 +98,14 @@ def seed_menus():
         nutrient = "Fat",
         menu_id = 3,
         weight = "20mg",
-        percentage = 5
+        percentage = "5"
     )
 
     nutrition_item6 = Nutrition(
         nutrient = "Carb",
         menu_id = 3,
         weight = "100mg",
-        percentage = 10
+        percentage = "10"
     )
 
     menu_item3.ingredients.extend([ingredient_item5,ingredient_item6])
@@ -134,14 +134,14 @@ def seed_menus():
         nutrient = "Fat",
         menu_id = 3,
         weight = "20mg",
-        percentage = 5
+        percentage = "5"
     )
 
     nutrition_item8 = Nutrition(
         nutrient = "Carb",
         menu_id = 3,
         weight = "100mg",
-        percentage = 10
+        percentage = "10"
     )
 
     menu_item4.ingredients.extend([ingredient_item7,ingredient_item8])
@@ -169,14 +169,14 @@ def seed_menus():
         nutrient = "Fat",
         menu_id = 3,
         weight = "20mg",
-        percentage = 5
+        percentage = "5"
     )
 
     nutrition_item10 = Nutrition(
         nutrient = "Carb",
         menu_id = 3,
         weight = "100mg",
-        percentage = 10
+        percentage = "10"
     )
 
     menu_item5.ingredients.extend([ingredient_item9,ingredient_item10])
