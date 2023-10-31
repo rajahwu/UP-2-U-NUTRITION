@@ -19,14 +19,14 @@ const MenuPage = () => {
     dispatch(addToCart(item, amount))
   }
 
-  const [flippedCardId, setFlippCardId] = useState(Infinity);
+  const [flippedCardId, setFlippCardId] = useState(null);
 
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
     // Used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
-      setFlippCardId(Infinity);
+      setFlippCardId(null);
     } else {
       setFlippCardId(e.target.id);
     }
@@ -55,8 +55,8 @@ const responsive = {
     }
   };
 
-
   const renderCarousel = () => {
+
     let menuSubset = []
 
     menu1.forEach((item) => {
@@ -91,6 +91,7 @@ const responsive = {
           containerClass="w-full h-full"
           itemClass="carousel-item"
           swipeable={true}
+          showDots={false} 
         >
           {renderCarousel()}
         </Carousel>
