@@ -8,10 +8,17 @@ import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
 import { addToCart } from "../../store/cart";
+import { useNavigate } from "react-router-dom";
+import EditItem from "./utility/forms/EditItem";
+import OpenModalButton from "../OpenModalButton";
+import DeleteItem from "./utility/forms/DeleteItem";
+
 
 const MenuPage = () => {
   const dispatch = useDispatch()
   const menu1 = Object.values(useSelector(state => state.menuReducer))
+  const user = useSelector(state => state.session.user)
+  const navigate = useNavigate()
 
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
@@ -56,6 +63,7 @@ const MenuPage = () => {
   return (
     <div className="menu">
       <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
+      {user && <button onClick={() => navigate('/menu/add-item')}>Add Item</button>}
       <MenuNav />
       <div className="menu-item-container p-6">
         <Carousel
@@ -73,6 +81,16 @@ const MenuPage = () => {
                   <FrontCardItem item={item} i={i} />
                 )}
                 <button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>
+                {user !== null &&
+                  <OpenModalButton
+                    modalComponent={<EditItem menu_item={item} />}
+                    buttonText="Edit Item" />}
+                {user !== null &&
+                  <OpenModalButton
+                    modalComponent={<DeleteItem menu_id={item.id} />}
+                    buttonText={<i className="fa-solid fa-eraser"></i>}
+                  />
+                }
               </div>
             );
           })}

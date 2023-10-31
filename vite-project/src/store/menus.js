@@ -67,6 +67,7 @@ export const editMenuItemThunk = (menu_id, info) => async (dispatch) => {
     if (res.ok) {
         const { resMenuItem } = await res.json()
         dispatch(actionEditMenuItem(resMenuItem))
+        dispatch(getAllMenuItemThunk())
         return resMenuItem
     } else {
         const data = await res.json()
