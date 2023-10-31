@@ -79,7 +79,7 @@ def inject_csrf_token(response):
     csrf_token = generate_csrf()
 
     # Print both the generated CSRF token and the value of the "csrf_token" cookie for comparison
-    # print('Generated CSRF Token:=========', csrf_token)
+    print('Generated CSRF Token:=========', csrf_token)
     response.set_cookie(
         'csrf_token',
         csrf_token,

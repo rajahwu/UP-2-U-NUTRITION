@@ -20,7 +20,7 @@ export function AddEvent() {
     setErrors([])
 
     if(allDay){
-      setStartTime("0:00")
+      setStartTime("00:00")
       setEndTime("23:59")
     }
 
@@ -29,11 +29,11 @@ export function AddEvent() {
       details,
       startDate,
       endDate,
-      "startTime": `${startDate}T${startTime}:00`,
-      "endTime": `${endDate}T${endTime}:00`,
+      "startTime": `${startDate} ${startTime}:00`,
+      "endTime": `${endDate} ${endTime}:00`,
       color,
     };
-
+    console.log(event)
     const data = dispatch(createEventThunk(event))
     if(data.errors){
       console.log(data.errors)
