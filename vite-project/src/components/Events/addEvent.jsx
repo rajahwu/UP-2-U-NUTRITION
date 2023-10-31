@@ -2,8 +2,10 @@ import { useState } from "react";
 import { createEventThunk } from "../../store/events";
 import { useDispatch } from "react-redux";
 
+
 export function AddEvent() {
   const dispatch = useDispatch()
+
 
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
@@ -33,7 +35,7 @@ export function AddEvent() {
       "endTime": `${endDate} ${endTime}:00`,
       color,
     };
-    console.log(event)
+
     const data = dispatch(createEventThunk(event))
     if(data.errors){
       console.log(data.errors)
