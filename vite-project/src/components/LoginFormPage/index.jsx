@@ -36,7 +36,8 @@ function LoginFormPage() {
     {user ? (
       <button onClick={handleLogout}>Logout</button>
     ): (
-      <div className="flex h-full flex-1 flex-col justify-center px-3 py-9 lg:px-8">
+      <div className="login-container">
+      <div className="login-box flex flex-1 flex-col justify-center px-3 py-9 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-extrabold leading-9 tracking-tight text-gray-900">
             Sign in to your account
@@ -97,7 +98,9 @@ function LoginFormPage() {
           <p className="mt-10 text-center text-sm text-gray-500">Not a member?{' '}<a href="#" style={{color: "#5eac00"}} className="font-semibold leading-6">Sign Up</a>
           </p>
         </div>
-      </div>)}
+      </div>
+      </div>
+      )}
       
     </>
   );
