@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { createEventThunk } from "../../store/events";
+import { useDispatch } from "react-redux";
 
 export function AddEvent() {
+  const dispatch = useDispatch()
+
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -9,9 +13,11 @@ export function AddEvent() {
   const [endTime, setEndTime] = useState("");
   const [color, setColor] = useState("");
   const [allDay, setAllDay] = useState(false);
+  const [errors, setErrors] = useState([])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors([])
 
     if(allDay){
       setStartTime("0:00")
@@ -27,7 +33,14 @@ export function AddEvent() {
       "endTime": `${endDate}T${endTime}:00`,
       color,
     };
-    console.log(event);
+
+    const data = dispatch(createEventThunk(event))
+    if(data.errors){
+      console.log(data.errors)
+    } else {
+      console.log(data)
+    }
+
   };
 
   return (

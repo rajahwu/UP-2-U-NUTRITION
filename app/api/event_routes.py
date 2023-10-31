@@ -21,7 +21,7 @@ def all_events():
     return event_list
 
 @event_routes.route("/", methods=["POST"])
-@login_required
+# @login_required
 def create_event():
     form = EventForm()
     form['csrf_token'].data = request.cookies["csrf_token"]
