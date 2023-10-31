@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { menuCategories } from "../menu/menu-categories";
 import { useDispatch, useSelector } from "react-redux";
 import { createMenuItemThunk } from "../../../../store/menus";
 import { useNavigate } from "react-router-dom";

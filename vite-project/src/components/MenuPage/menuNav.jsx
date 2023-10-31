@@ -1,6 +1,7 @@
-import { useState } from "react";
 
-export const MenuNav = ({props}) => {
+
+export const MenuNav = ({setCategory}) => {
+
   const menuCategories = [
     "combos",
     "supah shakes",
@@ -9,8 +10,10 @@ export const MenuNav = ({props}) => {
     "stays active",
     "goodies",
   ];
+
   const handleMenuItemClick = (menuItem) => {
-    props.setCategory(menuItem)
+    console.log("menuItem", menuItem);
+    setCategory(menuItem)
   }
 
   const menuSelectionLines = [
@@ -26,6 +29,7 @@ export const MenuNav = ({props}) => {
     <div className="menu-nav-categories" >
       <div className='menu-panel flex w-full'>
         {menuCategories.map((cat, i) => ( 
+          
           <div 
             key={`category-${i}`} 
             className="categories-container category-title" 
@@ -34,6 +38,7 @@ export const MenuNav = ({props}) => {
               className='selector-lines' 
               src={menuSelectionLines[i]} alt=""
             />
+            <div>{console.log('cat', cat)}</div>
           </div>
         ))}
       </div>
