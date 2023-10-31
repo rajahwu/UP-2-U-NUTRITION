@@ -1,19 +1,28 @@
 import { useState } from "react";
 import { createEventThunk } from "../../store/events";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { dateFormater } from "./util/dateFormatter";
 
 
 export function AddEvent() {
   const dispatch = useDispatch()
+  const location = useLocation()
 
+  const event = location.state
 
-  const [title, setTitle] = useState("");
-  const [details, setDetails] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-  const [color, setColor] = useState("");
+  const tempStartDate = event.start_date ? dateFormater(event.start_date) : ""
+  const tempEndDate = event.end_date ? dateFormater(event.end_date) : ""
+  const tempStartTime = event.start_time ? event.start_time.slice(-12,-7) : ""
+  const tempEndTime = event.start_time ? event.start_time.slice(-12,-7) : ""
+
+  const [title, setTitle] = useState(event.title || "");
+  const [details, setDetails] = useState(event.details || "");
+  const [startDate, setStartDate] = useState(tempStartDate);
+  const [endDate, setEndDate] = useState(tempEndDate);
+  const [startTime, setStartTime] = useState(tempStartTime);
+  const [endTime, setEndTime] = useState(tempEndTime);
+  const [color, setColor] = useState(event.color || "");
   const [allDay, setAllDay] = useState(false);
   const [errors, setErrors] = useState([])
 
@@ -36,11 +45,13 @@ export function AddEvent() {
       color,
     };
 
-    const data = dispatch(createEventThunk(event))
-    if(data.errors){
-      console.log(data.errors)
-    } else {
-      console.log(data)
+    if(event){
+      const data = dispatch(createEventThunk(event))
+      if(data.errors){
+        console.log(data.errors)
+      } else {
+        console.log(data)
+      }
     }
 
   };
@@ -84,22 +95,6 @@ export function AddEvent() {
             type="date"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-          />
-        </div>
-        {/* {startDate &&
-
-        } */}
-
-
-        <div className="flex flex-col space-y-3">
-          <label htmlFor="start-date">Start Date:</label>
-          <input
-            className="bg-gray-100 rounded text-center h-10 txt-lg"
-            id="start-date"
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            required
           />
         </div>
 
