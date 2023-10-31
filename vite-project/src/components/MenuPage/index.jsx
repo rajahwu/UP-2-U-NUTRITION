@@ -14,13 +14,27 @@ import { getAllMenuItemThunk } from "../../store/menus";
 
 // Import EditItem here only once
 import EditItem from "./utility/forms/EditItem";
+import { addToCart } from "../../store/cart";
 
 const MenuPage = () => {
-  const dispatch = useDispatch();
-  const menuObject = useSelector(state => state.menuReducer);
-  const menuArr = Object.values(menuObject);
-  console.log("menuArr:", menuArr);
-  const user = useSelector(state => state.session.user);
+
+  const dispatch = useDispatch()
+  const menu1 = useSelector(state => state.menuReducer)
+  const currentMenuCategory = Object.values(menu1)
+  const user = useSelector(state => state.session.user)
+
+  const handleAddToCart = (item, amount) => {
+    dispatch(addToCart(item, amount))
+  }
+  useEffect(() => {
+    dispatch(getAllMenuItemThunk())
+  }, [dispatch])
+
+  // if (!menu_arr.length) return null
+
+
+  //Variable to hold which card should be flipped.
+  //useState will make sure the page is rerendered everytime the variable changes.
   const [flippedCardId, setFlippCardId] = useState(Infinity);
 
   const flipCard = async (e) => {
@@ -49,14 +63,26 @@ const MenuPage = () => {
           centerMode={true}
         // centerSlidePercentage={100 / 100}
         >
-          {menuArr && menuArr.map((item, i) => {
+          {'<'}
+        </button>
+        {currentMenuCategory && currentMenuCategory
+          .slice(startPosition, startPosition + itemsPerPage)
+          .map((item, i) => {
             return (
-              <div id={i} key={i} onClick={flipCard}>
-                {flippedCardId == i ? (
-                  <BackCardItem item={item} i={i} />
-                ) : (
-                  <FrontCardItem item={item} i={i} />
-                )}
+              <div id={i} key={i}>
+                <div id={i} onClick={flipCard}>
+                  {/* Condally render the front or the back */}
+                  {flippedCardId == i
+                    ? <BackCardItem item={item} i={i} />
+                    : <FrontCardItem item={item} i={i} />
+                  }
+                </div>
+                <button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>
+                {user !== null &&
+                  <OpenModalButton
+                    modalComponent={<EditItem menu_item={item} />}
+                    buttonText="Edit Item" />}
+
               </div>
             );
           })}
