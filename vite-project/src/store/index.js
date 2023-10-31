@@ -4,11 +4,13 @@ import session from './session'
 import eventReducer from './events';
 import logger from 'redux-logger'
 import menuReducer from './menus';
+import cartReducer from './cart';
 
 const rootReducer = combineReducers({
   session,
   eventReducer,
-  menuReducer
+  menuReducer,
+  cartReducer
 });
 
 
