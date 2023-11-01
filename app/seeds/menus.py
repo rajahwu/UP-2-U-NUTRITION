@@ -295,7 +295,33 @@ def seed_menus():
 def undo_menus():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.menu_items RESTART IDENTITY CASCADE;")
+        
     else:
         db.session.execute(text("DELETE FROM menu_items"))
 
     db.session.commit()
+
+
+def undo_ingredients():
+    # Use the appropriate method to remove data from the ingredients table.
+    # For example, if you're in a development environment, use DELETE:
+    if environment == "development":
+        db.session.execute(text("DELETE FROM ingredients"))
+    # For production, you may want to use TRUNCATE with CASCADE:
+    elif environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.ingredients RESTART IDENTITY CASCADE;")
+    
+    db.session.commit()
+
+def undo_nutrition():
+    # Use the appropriate method to remove data from the ingredients table.
+    # For example, if you're in a development environment, use DELETE:
+    if environment == "development":
+        db.session.execute(text("DELETE FROM nutritions"))
+    # For production, you may want to use TRUNCATE with CASCADE:
+    elif environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.nutritions RESTART IDENTITY CASCADE;")
+    
+    db.session.commit()
+
+
