@@ -58,33 +58,31 @@ def create_event():
 
     if form.errors:
         return{"errors": validation_errors_to_error_messages}
+
 @event_routes.route("/update/<id>", methods=["PUT"])
 @login_required
 def edit_event(id):
-    date_format = "%Y-%m-%d %H:%M:%S"
-    no_time_date_format = "%Y-%m-%d"
     event = Event.query.get(id)
-    edited_event = request.json
+    event_form = EventForm()
+    event_form["csrf_token"].data = request.cookies["csrf_token"]
 
-    form = EventForm()
-    form['csrf_token'].data = request.cookies["csrf_token"]
-    # print(event.to_dict(), "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", edited_event)
+    response = request.json
+    temp_start_date = datetime.strptime(response["start_date"], "%Y-%m-%d")
+    temp_end_date = datetime.strptime(response["end_date"], "%Y-%m-%d")
+    temp_start_time = datetime.strptime(response["start_time"], "%Y-%m-%d %H:%M:%S")
+    temp_end_time = datetime.strptime(response["end_time"],"%Y-%m-%d %H:%M:%S")
+    print(response["start_time"])
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", temp_start_time, type(temp_start_time), type(temp_start_date),type(temp_end_date),type(temp_end_time))
+    if event_form.validate_on_submit():
+        event.title = event_form.data['title'],
+        event.details = event_form.data['details'],
+        event.start_date = temp_start_date,
+        event.end_date = temp_end_date,
+        event.start_time = temp_start_time,
+        event.end_time = temp_end_time,
+        event.color = event_form.data['color'],
 
-    if form.validate_on_submit():
+    db.session.commit()
 
-        event.title = edited_event['title'],
-        # event.details = edited_event['details'],
-        # event.start_date = datetime.strptime(edited_event["start_date"], no_time_date_format),
-        # event.end_date = datetime.strptime(edited_event["end_date"], no_time_date_format),
-        # event.start_time = datetime.strptime(edited_event["start_time"], date_format),
-        # event.end_time = datetime.strptime(edited_event["end_time"],date_format ),
-        # event.color = edited_event['color'],
-        # event.updated_at = date.today()
-
-        db.session.commit()
-        return event.to_dict()
-
-
-
-    if form.errors:
+    if event_form.errors:
         return{"errors": validation_errors_to_error_messages}

@@ -17,7 +17,7 @@ export function AddEvent() {
   const tempStartDate = event && event.start_date ? dateFormater(event.start_date) : ""
   const tempEndDate = event && event.end_date ? dateFormater(event.end_date) : ""
   const tempStartTime = event && event.start_time ? event.start_time.slice(-12,-7) : ""
-  const tempEndTime = event && event.start_time ? event.start_time.slice(-12,-7) : ""
+  const tempEndTime = event && event.end_time ? event.end_time.slice(-12,-7) : ""
   const tempColor = event && event.color ? event.color : ""
 
   const [title, setTitle] = useState(tempTitle);
@@ -57,16 +57,14 @@ export function AddEvent() {
       } else {
         console.log("no errors")
       }
+    } else {
+      const data = dispatch(createEventThunk(eventToSend))
+      if(data.errors){
+        console.log(data.errors)
+      } else {
+        navigate('/events')
+      }
     }
-    // if(!event) console.log("Add Event")
-    // if(event){
-    //   const data = dispatch(createEventThunk(event))
-    //   if(data.errors){
-    //     console.log(data.errors)
-    //   } else {
-    //     navigate('/events')
-    //   }
-    // }
 
   };
 
