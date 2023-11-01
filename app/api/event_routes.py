@@ -37,8 +37,12 @@ def create_event():
 
     response = request.json
     # print("!!!!!!!!!!!!!!!!", datetime.strptime(response["start_date"],no_time_date_format ))
+    print(response, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     form = EventForm()
     form['csrf_token'].data = request.cookies["csrf_token"]
+
+
+
     if form.validate_on_submit():
         new_event = Event(
             title = form.data['title'],
@@ -51,7 +55,9 @@ def create_event():
             created_at = date.today()
         )
 
+        print(new_event.to_dict(), "===================================================")
         db.session.add(new_event)
+
         db.session.commit()
 
         return{'event': new_event.to_dict()}
@@ -71,18 +77,17 @@ def edit_event(id):
     temp_end_date = datetime.strptime(response["end_date"], "%Y-%m-%d")
     temp_start_time = datetime.strptime(response["start_time"], "%Y-%m-%d %H:%M:%S")
     temp_end_time = datetime.strptime(response["end_time"],"%Y-%m-%d %H:%M:%S")
-    print(response["start_time"])
+    # print(response["start_time"])
     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", temp_start_time, type(temp_start_time), type(temp_start_date),type(temp_end_date),type(temp_end_time))
-    if event_form.validate_on_submit():
-        event.title = event_form.data['title'],
-        event.details = event_form.data['details'],
-        event.start_date = temp_start_date,
-        event.end_date = temp_end_date,
-        event.start_time = temp_start_time,
-        event.end_time = temp_end_time,
-        event.color = event_form.data['color'],
+
+    event.title = event_form.data['title'],
+    event.details = event_form.data['details'],
+    event.start_date = temp_start_date,
+    event.end_date = temp_end_date,
+    event.start_time = temp_start_time,
+    event.end_time = temp_end_time,
+    event.color = event_form.data['color'],
 
     db.session.commit()
 
-    if event_form.errors:
-        return{"errors": validation_errors_to_error_messages}
+    return event.to_dict()

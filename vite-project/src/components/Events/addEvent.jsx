@@ -11,7 +11,6 @@ export function AddEvent() {
   const navigate = useNavigate()
 
   const event = location.state
-
   const tempTitle = event && event.title ? event.title : ""
   const tempDetails = event && event.details ? event.details : ""
   const tempStartDate = event && event.start_date ? dateFormater(event.start_date) : ""
@@ -58,6 +57,7 @@ export function AddEvent() {
         console.log("no errors")
       }
     } else {
+      console.log(eventToSend)
       const data = dispatch(createEventThunk(eventToSend))
       if(data.errors){
         console.log(data.errors)
