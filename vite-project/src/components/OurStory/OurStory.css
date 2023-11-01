@@ -30,11 +30,13 @@
     /* border: 1px solid red; */
 }
 
+
 .ourstory-body {
     margin-top: 4%;
     text-align: center;
-    /* border: 1px solid red; */
     width: 90%;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background-color: rgba(215, 215, 215, 0.5);
 }
 
 .ourstory-page-content {

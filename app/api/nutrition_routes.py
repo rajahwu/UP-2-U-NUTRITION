@@ -31,7 +31,7 @@ def update_nutrition(id):
 
         nutrition.nutrient = form.data['nutrient']
         nutrition.weight = form.data['weight']
-        nutrition.percentage = form.data['percentage']
+
         nutrition.menu_id = menu_id
 
         db.session.commit()

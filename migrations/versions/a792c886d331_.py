@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 690ae696bbd7
+Revision ID: a792c886d331
 Revises: 
-Create Date: 2023-10-31 19:37:44.031720
+Create Date: 2023-11-01 14:27:43.859617
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '690ae696bbd7'
+revision = 'a792c886d331'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,7 +36,7 @@ def upgrade():
     sa.Column('name', sa.String(length=5000), nullable=False),
     sa.Column('category', sa.String(), nullable=False),
     sa.Column('price', sa.Float(), nullable=False),
-    sa.Column('image', sa.String(), nullable=False),
+    sa.Column('image', sa.String(), nullable=True),
     sa.Column('created_at', sa.Date(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
@@ -52,16 +52,15 @@ def upgrade():
     )
     op.create_table('ingredients',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('ingredient_name', sa.String(length=5000), nullable=False),
+    sa.Column('ingredient_name', sa.String(length=5000), nullable=True),
     sa.Column('menu_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['menu_id'], ['menu_items.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('nutritions',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('nutrient', sa.String(length=5000), nullable=False),
+    sa.Column('nutrient', sa.String(length=5000), nullable=True),
     sa.Column('weight', sa.String(), nullable=True),
-    sa.Column('percentage', sa.String(), nullable=True),
     sa.Column('menu_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['menu_id'], ['menu_items.id'], ),
     sa.PrimaryKeyConstraint('id')

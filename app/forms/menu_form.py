@@ -15,19 +15,17 @@ class MenuForm(FlaskForm):
     image = StringField('Image')
     category = StringField('Category')
     price = FloatField('Price')
-    ingredient_name = StringField('Ingredient_name', validators=[DataRequired()])
-    nutrient = StringField('Nutrient', validators=[DataRequired()])
+    ingredient_name = StringField('Ingredient_name')
+    nutrient = StringField('Nutrient')
     weight = StringField('Weight')
-    percentage = StringField('Percentage')
     created_at = DateField('Date')
     submit = SubmitField('Submit')
 
 class IngredientForm(FlaskForm):
-    ingredient_name = StringField('Ingredient_name', validators=[DataRequired()])
+    ingredient_name = StringField('Ingredient_name')
     submit = SubmitField('Submit')
 
 class NutritionForm(FlaskForm):
-    nutrient = StringField('Nutrient', validators=[DataRequired()])
+    nutrient = StringField('Nutrient')
     weight = StringField('Weight')
-    percentage = IntegerField('Percentage')
     submit = SubmitField('Submit')

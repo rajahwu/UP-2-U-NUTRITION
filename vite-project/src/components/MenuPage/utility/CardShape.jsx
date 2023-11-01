@@ -8,12 +8,12 @@ export const BackCardItem = ({ item, i }) => {
   return (
     <div id={i} className="card-body back-card">
       <div id={i} className="card-content-back">
-        {console.log("item", item)}
+        {/* {console.log("item", item)} */}
         <div id={i} className="product-name-back">{item.name}</div>
         <div id={i} className="">
           <h3 className="menu-items-sub-cat">Ingredients: </h3>
           {item.ingredients?.map((ingredient, j) => {
-            { console.log('ingredient:', ingredient) }
+            // { console.log('ingredient:', ingredient) }
             return (
               <div key={j}>{ingredient.ingredient_name}</div>
             )
@@ -23,7 +23,7 @@ export const BackCardItem = ({ item, i }) => {
           <h3 className="menu-items-sub-cat">Nutrition:</h3>
           {item.nutritions && item.nutritions?.map((nutrition, k) => {
             return (
-              <p key={k} >{nutrition.nutrient}: {nutrition.weight} - {nutrition.percentage} %</p>
+              <p key={k} >{nutrition.nutrient}: {nutrition.weight}</p>
             )
           })}
         </div>
