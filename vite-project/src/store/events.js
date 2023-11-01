@@ -3,6 +3,7 @@
 const GET_ALL_EVENTS = 'events/GET_ALL_EVENTS'
 const ADD_EVENT = 'events/ADD_EVENT'
 const EDIT_EVENT = 'events/EDIT_EVENT'
+const DELETE_EVENT = 'events/DELETE_EVENT'
 
 //action creators
 
@@ -20,6 +21,11 @@ export const actionAddEvent = (event) => ({
 export const actionEditEvent = (event) => ({
     type: EDIT_EVENT,
     event
+})
+
+export const actionDeleteEvent = (eventId) => ({
+    type: DELETE_EVENT,
+    eventId
 })
 
 //thunk
@@ -85,6 +91,15 @@ export const editEventThunk = (data) => async (dispatch) => {
         if (error.errors) {
             return error
         }
+    }
+}
+
+export const deleteEventThunk = (event_id) => async (dispatch) => {
+    const res = await fetch(`/api/events/${event_id}/delete`, {
+        method: 'DELETE'
+    })
+    if (res.ok){
+        dispatch(actionDeleteEvent)
     }
 }
 

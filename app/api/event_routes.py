@@ -80,14 +80,22 @@ def edit_event(id):
     # print(response["start_time"])
     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", temp_start_time, type(temp_start_time), type(temp_start_date),type(temp_end_date),type(temp_end_time))
 
-    event.title = event_form.data['title'],
-    event.details = event_form.data['details'],
-    event.start_date = temp_start_date,
-    event.end_date = temp_end_date,
-    event.start_time = temp_start_time,
-    event.end_time = temp_end_time,
-    event.color = event_form.data['color'],
+    event.title = response['title']
+    event.details = response['details']
+    event.start_date = temp_start_date
+    event.end_date = temp_end_date
+    event.start_time = temp_start_time
+    event.end_time = temp_end_time
+    event.color = response['color']
 
     db.session.commit()
 
     return event.to_dict()
+
+@event_routes.route('<int:id>/delete', methods=['DELETE'])
+@login_required
+def delete_event(id):
+    event = Event.query.get(id)
+    db.session.delete(event)
+    db.session.commit()
+    return {"res":"Successfully deleted"}

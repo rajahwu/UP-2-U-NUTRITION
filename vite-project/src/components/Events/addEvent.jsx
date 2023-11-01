@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createEventThunk, editEventThunk } from "../../store/events";
+import { createEventThunk, deleteEventThunk, editEventThunk } from "../../store/events";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { dateFormater } from "./util/dateFormatter";
@@ -54,7 +54,7 @@ export function AddEvent() {
       if(data.errors){
         console.log(data.errors)
       } else {
-        console.log("no errors")
+        navigate('/events')
       }
     } else {
       console.log(eventToSend)
@@ -67,6 +67,20 @@ export function AddEvent() {
     }
 
   };
+
+  const handleCancel = (e) => {
+    e.preventDefault()
+    if(window.confirm("Are you sure you want to stop editing this event?")){
+      navigate("/events")
+    }
+  }
+  const handleDelete = (e) => {
+    e.preventDefault()
+    if(window.confirm("Are you sure you want to delete this event?")){
+      dispatch(deleteEventThunk(event.id))
+      navigate("/events")
+    }
+  }
 
   return (
     <div className="w-full max-w-lg m-auto">
@@ -175,6 +189,8 @@ export function AddEvent() {
         </div>
 
         <button>Submit Event</button>
+        <button onClick={handleCancel}>Cancel</button>
+        <button onClick={handleDelete}>Delete Event</button>
       </form>
     </div>
   );
