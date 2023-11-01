@@ -13,9 +13,38 @@ import EditItem from "./utility/forms/EditItem";
 import DeleteItem from "./utility/forms/DeleteItem";
 import { AddItem } from "./utility/forms/AddItem";
 
+const AddToCartButton = ({ item, price }) => {
+  const dispatch = useDispatch();
+  const handleAddToCart = (item, amount) => {
+    item.price = price.toFixed(2);
+    dispatch(addToCart(item, amount));
+  };
+  return (
+    <button
+      onClick={() => handleAddToCart(item, 1)}
+      className="green-btn add-to-cart-btn"
+    >
+      ADD TO CART
+    </button>
+  );
+};
+
+
 const OrderDetails = ({ item }) => {
   const [addons, setAddons] = useState();
+  const [price, setPrice] = useState(item.price);
+
   console.log("item", item);
+  console.log("price", price);
+
+  const handleCheckboxChange = (event, addon) => {
+    console.log(price, "on change")
+    const { checked } = event.target;
+    const addonPrice = 1.00; 
+    const updatedPrice = checked ? price + addonPrice : price - addonPrice;
+    setPrice(updatedPrice);
+    console.log(price, "on change")
+    }
 
   useEffect(() => {
     import("../../../../team_15_csv_parser/data/addons.json")
@@ -27,45 +56,38 @@ const OrderDetails = ({ item }) => {
       });
     // console.log("addons", addons);
   });
+  
   return (
     <div className="flex flex-col">
       {/* <img>{item.image}</img> */}
-      <h1 className="font-bold text-2xl text-center">{item.name}</h1>
+      <h1 className="font-bold text-2xl">{item.name}</h1>
+      <p>{price?.toFixed(2)}</p>
     {addons
       ? addons["ADD-ONS"].map((addon, i) => {
           return (
             <div className="flex mx-5 my-3" key={i}>
               <form>
+                <div>
                 <input
                   className="mr-2"
                   type="checkbox"
                   name={addon.addon_name}
                   value={addon["ADD-ONS"]}
+                  onChange={e => handleCheckboxChange(e, addon)}
                   />
                 <label className="" htmlFor={addon.addon_name}>{addon["ADD-ONS"]}</label>
+                <span className="mx-3">$1.00</span>
+                </div>
                 <p>{addon["NUTRITIONAL FACTS"]}</p>
               </form>
             </div>
           );
         })
       : null};
+
+      <AddToCartButton item={item} price={price} />
       </div>
   )
-};
-
-const AddToCartButton = ({ item }) => {
-  const dispatch = useDispatch();
-  const handleAddToCart = (item, amount) => {
-    dispatch(addToCart(item, amount));
-  };
-  return (
-    <button
-      onClick={() => handleAddToCart(item, 1)}
-      className="green-btn add-to-cart-btn"
-    >
-      ADD TO CART
-    </button>
-  );
 };
 
 const MenuPage = () => {
