@@ -1,31 +1,38 @@
-
 import { useEffect, useState } from "react";
 import { MenuNav } from "./menuNav";
-import { BackCardItem, FrontCardItem} from "./utility/CardShape";
+import { BackCardItem, FrontCardItem } from "./utility/CardShape";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
 import { addToCart } from "../../store/cart";
+import { useNavigate } from "react-router-dom";
+import OpenModalButton from "../OpenModalButton";
+import EditItem from "./utility/forms/EditItem";
+import DeleteItem from "./utility/forms/DeleteItem";
+import { AddItem } from "./utility/forms/AddItem";
 
 const MenuPage = () => {
+  const [category, setCategory] = useState('combos')
   const dispatch = useDispatch()
-  const menu1 = Object.values(useSelector(state => state.menuReducer))
+  const menu1 = Object.values(useSelector(state => state.menuReducer));
+  const user = useSelector(state => state.session.user)
+  const navigate = useNavigate()
+  console.log('menu', menu1)
 
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
   }
-
-  const [flippedCardId, setFlippCardId] = useState(Infinity);
+  console.log("========", user)
+  const [flippedCardId, setFlippCardId] = useState(null);
 
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
     // Used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
-      setFlippCardId(Infinity);
+      setFlippCardId(null);
     } else {
       setFlippCardId(e.target.id);
     }
@@ -35,17 +42,14 @@ const MenuPage = () => {
     dispatch(getAllMenuItemThunk());
   }, [dispatch]);
 
-
-
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4
+      items: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -55,33 +59,65 @@ const MenuPage = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1
     }
-  };
+  }; 
   
-  if (!menu1 === 0) return null;
+
+  const renderCarousel = () => {
+
+    let menuSubset = []
+
+    menu1.forEach((item) => {
+      if (category === item.category) {
+        menuSubset.push(item)
+      }
+    })
+    console.log('menuSubset', menuSubset);
+    return (
+      menuSubset.map((item, i) => {
+        return (
+          <div key={i}>
+            <div id={i} key={i} onClick={flipCard}>
+              {flippedCardId == i ? (
+                <BackCardItem item={item} i={i} />
+              ) : (
+                <FrontCardItem item={item} i={i} />
+              )}
+            </div>
+            {user?.admin ? (
+              <div className="flex justify-center gap-2">
+                <OpenModalButton
+                  modalComponent={<EditItem menu_item={item} />}
+                  buttonText={<button className="green-btn add-to-cart-btn">EDIT ITEM</button>}
+                />
+                <OpenModalButton
+                  modalComponent={<DeleteItem menu_id={item.id} />}
+                  buttonText={<button className="red-btn add-to-cart-btn">DELETE</button>}
+                />
+              </div>
+            ) : (<button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>)}
+          </div>
+        );
+      })
+    )
+  }
 
   return (
     <div className="menu">
       <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
-      <MenuNav />
-      <div className="menu-item-container p-6">
+      {user?.admin ? (
+        <div>
+          <button className="blue-btn add-to-cart-btn" onClick={() => navigate("/menu/add-item")}>ADD ITEM</button>
+        </div>) : (null)}
+      <MenuNav setCategory={setCategory} />
+      <div className="menu-item-container">
         <Carousel
           responsive={responsive}
           containerClass="w-full h-full"
           itemClass="carousel-item"
           swipeable={true}
+          showDots={false}
         >
-         {menu1.map((item, i) => {
-            return (
-              <div id={i} key={i} onClick={flipCard}>
-                {flippedCardId == i ? (
-                  <BackCardItem item={item} i={i} />
-                ) : (
-                  <FrontCardItem item={item} i={i} />
-                )}
-                <button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>
-              </div>
-            );
-          })}
+          {renderCarousel()}
         </Carousel>
       </div>
     </div>
