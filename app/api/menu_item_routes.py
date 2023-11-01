@@ -153,20 +153,31 @@ def update_menu_item(id):
 
         ingredients = menu_item_form.data['ingredient_name'].split(",")
 
+
+        # Fetch all existing ingredients for the menu item
+        existing_ingredients = Ingredient.query.filter_by(menu_id=id).all()
+
+        # Create a set of existing ingredient names for efficient comparison
+        existing_ingredient_names = set(ingredient.ingredient_name for ingredient in existing_ingredients)
+
+        # Iterate over the updated ingredients
         for ingredient_name in ingredients:
-            existing_ingredient = Ingredient.query.filter_by(menu_id=id, ingredient_name=ingredient_name).first()
+            if ingredient_name.strip() != "":
+                if ingredient_name not in existing_ingredient_names:
+                    # Ingredient is missing in the updated data, create a new ingredient
+                    new_ingredient = Ingredient(
+                        ingredient_name=ingredient_name,
+                        menu_id=id
+                    )
+                    db.session.add(new_ingredient)
 
-            if existing_ingredient:
-                # Update existing ingredient
-                existing_ingredient.ingredient_name = ingredient_name
-            else:
-                # Create a new ingredient
-                new_ingredient = Ingredient(
-                    ingredient_name=ingredient_name,
-                    menu_id=id
-                )
-                db.session.add(new_ingredient)
+        # Iterate over the existing ingredients
+        for existing_ingredient in existing_ingredients:
+            if existing_ingredient.ingredient_name not in ingredients:
+                # Existing ingredient is missing in the updated data, delete it
+                db.session.delete(existing_ingredient)
 
+        # Commit the changes to the database
         db.session.commit()
 
         # Handle nutrition updates
@@ -176,22 +187,36 @@ def update_menu_item(id):
 
         existing_nutrients = Nutrition.query.filter_by(menu_id=id).all()
 
-        for i, nutrient_name in enumerate(nutrients):
-            if i < len(existing_nutrients):
-                # Update existing nutrition
-                existing_nutrient = existing_nutrients[i]
-                existing_nutrient.nutrient = nutrient_name
-                existing_nutrient.weight = weights[i]
-                existing_nutrient.percentage = percentages[i]
-            else:
-                # Create new nutrition
-                new_nutrition = Nutrition(
-                    nutrient=nutrient_name,
-                    weight=weights[i],
-                    percentage=percentages[i],
-                    menu_id=id
-                )
-                db.session.add(new_nutrition)
+        # Determine the minimum length among the existing data and the incoming data
+        min_length = min(len(nutrients), len(weights), len(percentages), len(existing_nutrients))
+
+        for i in range(min_length):
+            # Check if the incoming data is different from the existing data
+            if (
+                nutrients[i] != existing_nutrients[i].nutrient or
+                weights[i] != existing_nutrients[i].weight or
+                percentages[i] != existing_nutrients[i].percentage
+            ):
+                # If different, replace with the incoming data
+                if i < len(existing_nutrients):
+                    existing_nutrient = existing_nutrients[i]
+                    existing_nutrient.nutrient = nutrients[i]
+                    existing_nutrient.weight = weights[i]
+                    existing_nutrient.percentage = percentages[i]
+
+        # Add any additional values beyond the incoming data length
+        for i in range(min_length, len(nutrients)):
+            new_nutrition = Nutrition(
+                nutrient=nutrients[i],
+                weight=weights[i],
+                percentage=percentages[i],
+                menu_id=id
+            )
+            db.session.add(new_nutrition)
+
+        # Delete any extra existing data beyond the incoming data length
+        for i in range(min_length, len(existing_nutrients)):
+            db.session.delete(existing_nutrients[i])
 
         db.session.commit()
 

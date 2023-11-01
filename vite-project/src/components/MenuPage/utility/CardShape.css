@@ -21,6 +21,13 @@
     border-radius: 10px;
 }
 
+
+#trash-icon {
+    position: absolute;
+    top: 0;
+    right: 7px;
+}
+
 .product-name-front {
     font-weight: bold;
     width: 200px;

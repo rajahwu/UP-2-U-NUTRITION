@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from 'react-router-dom';
 import { useModal } from '../../../../context/Modal';
 import { editMenuItemThunk, getAllMenuItemThunk } from '../../../../store/menus';
-
+import './AddItem.css'
 
 const EditItem = ({ menu_item }) => {
     const dispatch = useDispatch()
@@ -17,7 +17,9 @@ const EditItem = ({ menu_item }) => {
     const [category, setCategory] = useState(menu_item?.category || "");
     const [price, setPrice] = useState(menu_item?.price || "");
     const [image, setImage] = useState(menu_item?.image || "")
-    const [ingredients, setIngredients] = useState(menu_item?.ingredients.map(ingredient => ingredient.ingredient_name) || ['']);
+    const [ingredients, setIngredients] = useState(
+        menu_item?.ingredients.map(ingredient => ingredient.ingredient_name).join(',') || ''
+    );
     const [nutrientEntries, setNutrientEntries] = useState(
         menu_item?.nutritions || [{ nutrient: '', weight: '', percentage: '' }]
     );
@@ -74,7 +76,7 @@ const EditItem = ({ menu_item }) => {
         setNutrientEntries(updatedEntries);
     };
 
-    // console.log("________---------", ingredients)
+    // console.log("________---------", menu_item)
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -117,121 +119,213 @@ const EditItem = ({ menu_item }) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div className="txt_field">
-                    <label>
-                        <div>Name <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
+
+        <div className="edit-item-form">
+            <form class="w-full max-w-lg" onSubmit={handleSubmit}>
+                <h1 id="form-title">EDIT FORM</h1>
+                <div class="flex-col flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                            Name
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Name..." value={name} onChange={(e) => setName(e.target.value)} />
+                        {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            Image
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Image..." value={image}
+                            onChange={(e) => setImage(e.target.value)} />
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            Category
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Category..." value={category}
+                            onChange={(e) => setCategory(e.target.value)} />
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            Price
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Price..." value={price}
+                            onChange={(e) => setPrice(e.target.value)} />
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                            Ingredient
+                        </label>
                         <input
-                            id="routine-description"
-                            placeholder="Name..."
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="ingredients"
+                            placeholder="Separated by ',' without spacing"
                             type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        ></input>
-                        {errors.name && <span className="error">{errors.name}</span>}
-                    </label>
+                            value={ingredients}
+                            onChange={(e) => setIngredients(e.target.value)}
+                        />
+                        <p class="text-gray-600 text-xs italic">For example: Milk,Egg,Sugar</p>
+                    </div>
                 </div>
-                <div className="txt_field">
-                    <label>
-                        <div>Image <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                        <input
-                            id="routine-description"
-                            placeholder="Image..."
-                            type="text"
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
-                        ></input>
-                        {errors.image && <span className="error">{errors.image}</span>}
-                    </label>
-                </div>
-                <div className="txt_field">
-                    <label>
-                        <div>Category <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                        <input
-                            id="routine-description"
-                            placeholder="Category..."
-                            type="text"
-                            value={category}
-                            onChange={(e) => setCategory(e.target.value)}
-                        ></input>
-                        {errors.category && <span className="error">{errors.category}</span>}
-                    </label>
-                </div>
-                <div className="txt_field">
-                    <label>
-                        <div>Price <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                        <input
-                            id="routine-description"
-                            placeholder="Price..."
-                            type="text"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                        ></input>
-                        {errors.price && <span className="error">{errors.price}</span>}
-                    </label>
-                </div>
-                <div className="txt_field">
-                    <label>
-                        <div>Ingredients <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                        {ingredients.map((ingredient, index) => (
-                            <input
-                                key={index}
-                                id={`ingredient-${index}`}
-                                placeholder="Ingredient..."
-                                type="text"
-                                value={ingredient}
-                                onChange={(e) => {
-                                    const updatedIngredients = [...ingredients];
-                                    updatedIngredients[index] = e.target.value;
-                                    setIngredients(updatedIngredients);
-                                }}
-                            />
-                        ))}
-                    </label>
-                </div>
-                <div className="txt_field">
-                    <label>
-                        <div>Nutrient Fields</div>
-                        {nutrientEntries.map((entry, index) => (
-                            <div key={index}>
-                                <select
-                                    value={entry.nutrient}
-                                    onChange={(e) => handleNutrientChange(e, index)}
-                                >
-                                    <option value="">Select Nutrient</option>
-                                    <option value="Fat">Fat</option>
-                                    <option value="Carb">Carb</option>
-                                    <option value="Protein">Protein</option>
-                                </select>
-                                {entry.nutrient && (
-                                    <div>
-                                        <input
-                                            id="routine-description"
-                                            placeholder="Weight..."
-                                            type="text"
-                                            value={entry.weight}
-                                            onChange={(e) => handleWeightChange(e, index)}
-                                        />
-                                        <input
-                                            id="routine-description"
-                                            placeholder="Percentage..."
-                                            type="text" // Change to type "number" for integer input
-                                            value={entry.percentage}
-                                            onChange={(e) => handlePercentageChange(e, index)}
-                                        />
-                                    </div>
-                                )}
-                                <button type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>
+                <div class="flex flex-wrap -mx-3 mb-2">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                            Nutritient Fields
+                        </label>
+                        {nutrientEntries.map((entry, index) => (<div key={index} class="relative">
+                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" value={entry.nutrient} onChange={(e) => handleNutrientChange(e, index)}>
+                                <option value="">Select Nutrient</option>
+                                <option value="Fat">Fat</option>
+                                <option value="Carb">Carb</option>
+                                <option value="Protein">Protein</option>
+                            </select>
+                            <div class={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 ${entry.nutrient ? 'hide-svg' : ''}`}>
+                                <svg class="fill-current w-4 w-6 mb-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                             </div>
-                        ))}
-                        <button type="button" onClick={addNutrientEntry}>Add Nutrient Field</button>
-                    </label>
+                            {entry.nutrient && (
+                                <div>
+                                    <input
+                                        class="appearance-none mt-4 block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                        placeholder="Weight..."
+                                        type="text"
+                                        value={entry.weight}
+                                        onChange={(e) => handleWeightChange(e, index)}
+                                    />
+                                    <input
+                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                        placeholder="Percentage..."
+                                        type="text"
+                                        value={entry.percentage}
+                                        onChange={(e) => handlePercentageChange(e, index)}
+                                    />
+                                </div>
+                            )}
+                            <button className="red-btn-add" type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>
+                        </div>))}
+                        <button className="green-btn-add" type="button" onClick={addNutrientEntry}>Add Nutrient Field</button>
+                    </div>
                 </div>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+                <button className="blue-btn-add" type="submit">Submit</button>
+            </form >
+        </div >
     );
 };
 
 export default EditItem
+
+{/* <div>
+    <form onSubmit={handleSubmit}>
+        <div className="txt_field">
+            <label>
+                <div>Name <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
+                <input
+                    id="routine-description"
+                    placeholder="Name..."
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                ></input>
+                {errors.name && <span className="error">{errors.name}</span>}
+            </label>
+        </div>
+        <div className="txt_field">
+            <label>
+                <div>Image <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
+                <input
+                    id="routine-description"
+                    placeholder="Image..."
+                    type="text"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                ></input>
+                {errors.image && <span className="error">{errors.image}</span>}
+            </label>
+        </div>
+        <div className="txt_field">
+            <label>
+                <div>Category <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
+                <input
+                    id="routine-description"
+                    placeholder="Category..."
+                    type="text"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                ></input>
+                {errors.category && <span className="error">{errors.category}</span>}
+            </label>
+        </div>
+        <div className="txt_field">
+            <label>
+                <div>Price <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
+                <input
+                    id="routine-description"
+                    placeholder="Price..."
+                    type="text"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                ></input>
+                {errors.price && <span className="error">{errors.price}</span>}
+            </label>
+        </div>
+        <div className="txt_field">
+            <label>
+                <div>Ingredients <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
+                {ingredients.map((ingredient, index) => (
+                    <input
+                        key={index}
+                        id={`ingredient-${index}`}
+                        placeholder="Ingredient..."
+                        type="text"
+                        value={ingredient}
+                        onChange={(e) => {
+                            const updatedIngredients = [...ingredients];
+                            updatedIngredients[index] = e.target.value;
+                            setIngredients(updatedIngredients);
+                        }}
+                    />
+                ))}
+            </label>
+        </div>
+        <div className="txt_field">
+            <label>
+                <div>Nutrient Fields</div>
+                {nutrientEntries.map((entry, index) => (
+                    <div key={index}>
+                        <select
+                            value={entry.nutrient}
+                            onChange={(e) => handleNutrientChange(e, index)}
+                        >
+                            <option value="">Select Nutrient</option>
+                            <option value="Fat">Fat</option>
+                            <option value="Carb">Carb</option>
+                            <option value="Protein">Protein</option>
+                        </select>
+                        {entry.nutrient && (
+                            <div>
+                                <input
+                                    id="routine-description"
+                                    placeholder="Weight..."
+                                    type="text"
+                                    value={entry.weight}
+                                    onChange={(e) => handleWeightChange(e, index)}
+                                />
+                                <input
+                                    id="routine-description"
+                                    placeholder="Percentage..."
+                                    type="text" // Change to type "number" for integer input
+                                    value={entry.percentage}
+                                    onChange={(e) => handlePercentageChange(e, index)}
+                                />
+                            </div>
+                        )}
+                        <button type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>
+                    </div>
+                ))}
+                <button type="button" onClick={addNutrientEntry}>Add Nutrient Field</button>
+            </label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div> */}

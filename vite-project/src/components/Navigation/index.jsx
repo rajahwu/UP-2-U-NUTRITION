@@ -71,20 +71,20 @@ function Navigation({ isLoaded }) {
 							src={cartImgSrc}
 							alt="Cart" />
 					</NavLink>
-					
+
 				</div>
 				{user ? (
-					<div onClick={handleLogout}className="cursor-pointer flex flex-col justify-center items-center">
+					<div onClick={handleLogout} className="cursor-pointer flex flex-col justify-center items-center">
 						<i className="fa-solid fa-arrow-right-from-bracket"></i>
 						<div className="p-1">Log Out</div>
 					</div>
 				) : (
-				<div onClick={handleLogout}className="cursor-pointer flex flex-col justify-center items-center">
-					<i className="fa-solid fa-arrow-right-to-bracket"></i>
-					<div onClick={() => navigate('/login')}className="p-1">Log In</div>
-				</div>
+					<div onClick={() => navigate('/login')} className="cursor-pointer flex flex-col justify-center items-center">
+						<i className="fa-solid fa-arrow-right-to-bracket"></i>
+						<div className="p-1">Log In</div>
+					</div>
 				)}
-				
+
 			</div>
 			<div className="all-line">
 				<div className="orange-line"></div>

@@ -7,12 +7,10 @@
 .menu-nav-categories {
     display: flex;
     width: 100%;
-}
-
-.menu-nav-categories div {
     font-weight: bold;
     font-size: 24px;
 }
+
 
 .categories-container {
     display: flex;
@@ -32,7 +30,7 @@
 .selector-lines {
     position: absolute;
     visibility: hidden;
-    z-index: -1;
+    /* z-index: 1; */
 }
 
 .category-title:hover .selector-lines {
@@ -71,5 +69,3 @@
     height: 100px;
     margin: auto;
 }
-
-
