@@ -85,3 +85,6 @@ class Nutrition(db.Model):
             'percentage':self.percentage,
             'menu_id':self.menu_id
         }
+    
+
+    menu_items = db.relationship('MenuItem', back_populates='nutritions')
