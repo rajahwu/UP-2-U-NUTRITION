@@ -59,9 +59,8 @@ const MenuPage = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1
     }
-  };
-
-  if (!user) return null
+  }; 
+  
 
   const renderCarousel = () => {
 
@@ -76,7 +75,7 @@ const MenuPage = () => {
     return (
       menuSubset.map((item, i) => {
         return (
-          <div>
+          <div key={i}>
             <div id={i} key={i} onClick={flipCard}>
               {flippedCardId == i ? (
                 <BackCardItem item={item} i={i} />
@@ -84,8 +83,7 @@ const MenuPage = () => {
                 <FrontCardItem item={item} i={i} />
               )}
             </div>
-            {user.admin ? (
-
+            {user?.admin ? (
               <div className="flex justify-center gap-2">
                 <OpenModalButton
                   modalComponent={<EditItem menu_item={item} />}
@@ -96,8 +94,6 @@ const MenuPage = () => {
                   buttonText={<button className="red-btn add-to-cart-btn">DELETE</button>}
                 />
               </div>
-
-
             ) : (<button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>)}
           </div>
         );
@@ -108,7 +104,7 @@ const MenuPage = () => {
   return (
     <div className="menu">
       <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
-      {user.admin ? (
+      {user?.admin ? (
         <div>
           <button className="blue-btn add-to-cart-btn" onClick={() => navigate("/menu/add-item")}>ADD ITEM</button>
         </div>) : (null)}
