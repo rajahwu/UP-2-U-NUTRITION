@@ -1,4 +1,7 @@
 import "./CardShape.css";
+import OpenModalButton from "../../OpenModalButton";
+import { useModal } from "../../../context/Modal";
+import EditItem from "./forms/EditItem";
 
 //variable to store the shape of the back of the card
 export const BackCardItem = ({ item, i }) => {
@@ -10,9 +13,9 @@ export const BackCardItem = ({ item, i }) => {
         <div id={i} className="">
           <h3 className="menu-items-sub-cat">Ingredients: </h3>
           {item.ingredients?.map((ingredient, j) => {
-            {console.log('ingredient:', ingredient)}
+            { console.log('ingredient:', ingredient) }
             return (
-                <div key={j}>{ingredient.ingredient_name}</div>
+              <div key={j}>{ingredient.ingredient_name}</div>
             )
           })}
         </div>
@@ -20,7 +23,7 @@ export const BackCardItem = ({ item, i }) => {
           <h3 className="menu-items-sub-cat">Nutrition:</h3>
           {item.nutritions && item.nutritions?.map((nutrition, k) => {
             return (
-                <p key={k} >{nutrition.nutrient}: {nutrition.weight} - {nutrition.percentage} %</p>
+              <p key={k} >{nutrition.nutrient}: {nutrition.weight} - {nutrition.percentage} %</p>
             )
           })}
         </div>
