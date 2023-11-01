@@ -17,22 +17,8 @@ class MenuItem(db.Model):
     image = db.Column(db.String(), nullable=False)
     created_at = db.Column(db.Date(), nullable=False)
 
-    # user = db.relationship('User', back_populates = 'menus')
-
-    # one to many relationship for ingredients
-
-    ingredients = db.relationship(
-        'Ingredient',
-        back_populates='menu_item',
-        cascade = 'all, delete-orphan'
-    )
-
-    nutritions = db.relationship(
-        'Nutrition',
-        back_populates='menu_item',
-        cascade = 'all, delete-orphan'
-    )
-
+    ingredients = db.relationship('Ingredient',back_populates='menu_item',cascade = 'all, delete-orphan')
+    nutritions = db.relationship('Nutrition',back_populates='menu_item', cascade = 'all, delete-orphan')
 
     def __repr__(self):
         return f'<MenuItem {self.id}, {self.name}, created Menu item #{self.id}'
@@ -53,6 +39,9 @@ class MenuItem(db.Model):
 class Ingredient(db.Model):
     __tablename__= 'ingredients'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
     ingredient_name = db.Column(db.String(5000),nullable=False)
 
@@ -71,9 +60,11 @@ class Ingredient(db.Model):
     menu_item = db.relationship('MenuItem', back_populates='ingredients')
 
 
-
 class Nutrition(db.Model):
     __tablename__ = 'nutritions'
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     nutrient = db.Column(db.String(5000), nullable=False)
