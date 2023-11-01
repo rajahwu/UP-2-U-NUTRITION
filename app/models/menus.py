@@ -87,4 +87,4 @@ class Nutrition(db.Model):
         }
     
 
-    menu_items = db.relationship('MenuItem', back_populates='nutritions')
+    menu_item = db.relationship('MenuItem', back_populates='nutritions')
