@@ -1,28 +1,32 @@
 import { useState } from "react";
-import { createEventThunk } from "../../store/events";
+import { createEventThunk, editEventThunk } from "../../store/events";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { dateFormater } from "./util/dateFormatter";
 
 
 export function AddEvent() {
   const dispatch = useDispatch()
   const location = useLocation()
+  const navigate = useNavigate()
 
   const event = location.state
 
-  const tempStartDate = event.start_date ? dateFormater(event.start_date) : ""
-  const tempEndDate = event.end_date ? dateFormater(event.end_date) : ""
-  const tempStartTime = event.start_time ? event.start_time.slice(-12,-7) : ""
-  const tempEndTime = event.start_time ? event.start_time.slice(-12,-7) : ""
+  const tempTitle = event && event.title ? event.title : ""
+  const tempDetails = event && event.details ? event.details : ""
+  const tempStartDate = event && event.start_date ? dateFormater(event.start_date) : ""
+  const tempEndDate = event && event.end_date ? dateFormater(event.end_date) : ""
+  const tempStartTime = event && event.start_time ? event.start_time.slice(-12,-7) : ""
+  const tempEndTime = event && event.start_time ? event.start_time.slice(-12,-7) : ""
+  const tempColor = event && event.color ? event.color : ""
 
-  const [title, setTitle] = useState(event.title || "");
-  const [details, setDetails] = useState(event.details || "");
+  const [title, setTitle] = useState(tempTitle);
+  const [details, setDetails] = useState(tempDetails);
   const [startDate, setStartDate] = useState(tempStartDate);
   const [endDate, setEndDate] = useState(tempEndDate);
   const [startTime, setStartTime] = useState(tempStartTime);
   const [endTime, setEndTime] = useState(tempEndTime);
-  const [color, setColor] = useState(event.color || "");
+  const [color, setColor] = useState(tempColor);
   const [allDay, setAllDay] = useState(false);
   const [errors, setErrors] = useState([])
 
@@ -35,7 +39,7 @@ export function AddEvent() {
       setEndTime("23:59")
     }
 
-    const event = {
+    const eventToSend = {
       title,
       details,
       startDate,
@@ -44,15 +48,25 @@ export function AddEvent() {
       "endTime": `${endDate} ${endTime}:00`,
       color,
     };
-
-    if(event){
-      const data = dispatch(createEventThunk(event))
+    if(event) {
+      eventToSend.id = event.id
+      console.log(eventToSend)
+      const data = await dispatch(editEventThunk(eventToSend))
       if(data.errors){
         console.log(data.errors)
       } else {
-        console.log(data)
+        console.log("no errors")
       }
     }
+    // if(!event) console.log("Add Event")
+    // if(event){
+    //   const data = dispatch(createEventThunk(event))
+    //   if(data.errors){
+    //     console.log(data.errors)
+    //   } else {
+    //     navigate('/events')
+    //   }
+    // }
 
   };
 

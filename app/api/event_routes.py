@@ -30,7 +30,7 @@ def all_events():
     return event_list
 
 @event_routes.route("/", methods=["POST"])
-# @login_required
+@login_required
 def create_event():
     # date_format = "%Y-%m-%d %H:%M:%S"
     # no_time_date_format = "%Y-%m-%d"
@@ -55,6 +55,36 @@ def create_event():
         db.session.commit()
 
         return{'event': new_event.to_dict()}
+
+    if form.errors:
+        return{"errors": validation_errors_to_error_messages}
+@event_routes.route("/update/<id>", methods=["PUT"])
+@login_required
+def edit_event(id):
+    date_format = "%Y-%m-%d %H:%M:%S"
+    no_time_date_format = "%Y-%m-%d"
+    event = Event.query.get(id)
+    edited_event = request.json
+
+    form = EventForm()
+    form['csrf_token'].data = request.cookies["csrf_token"]
+    # print(event.to_dict(), "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", edited_event)
+
+    if form.validate_on_submit():
+
+        event.title = edited_event['title'],
+        # event.details = edited_event['details'],
+        # event.start_date = datetime.strptime(edited_event["start_date"], no_time_date_format),
+        # event.end_date = datetime.strptime(edited_event["end_date"], no_time_date_format),
+        # event.start_time = datetime.strptime(edited_event["start_time"], date_format),
+        # event.end_time = datetime.strptime(edited_event["end_time"],date_format ),
+        # event.color = edited_event['color'],
+        # event.updated_at = date.today()
+
+        db.session.commit()
+        return event.to_dict()
+
+
 
     if form.errors:
         return{"errors": validation_errors_to_error_messages}

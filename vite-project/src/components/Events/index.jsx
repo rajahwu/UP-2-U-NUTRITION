@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 import { getAllEventsThunk } from '../../store/events';
 import OpenModalButton from '../OpenModalButton';
 import { EventsModal } from './events';
@@ -11,6 +12,8 @@ import './Events.css'
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const user = useSelector(state => state.session.user)
   const eventArr = useSelector(state => state.eventReducer)
   const event1 = Object.values(eventArr);
@@ -20,6 +23,7 @@ const Events = () => {
   }, [dispatch])
 
   if (!eventArr) return
+
 
   const daysInMonth = new Date(
     currentMonth.getFullYear(),
@@ -143,12 +147,22 @@ const Events = () => {
       <div className="events-request-modal">
         <div className="headers">EVENTS</div>
         <div className='request-event-btn-container'>
+          {
+          user ?
+          <button
+          onClick = {() => navigate('/events/add-event')}
+          className='green-btn request-event-btn'
+          >
+            Add Event
+          </button>
+          :
           <OpenModalButton
-            buttonText={user ? ("Add Event"): ('Request Event')}
+            buttonText='Request Event'
             className="green-btn request-event-btn"
             onItemClick=""
-            modalComponent={user ? <AddEvent/> : <RequestEventModal />}
+            modalComponent={<RequestEventModal />}
           />
+          }
           {/* <button className="absolute top-0 right-5 landing-page-button rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium green">Request Event</button> */}
         </div>
       </div>
