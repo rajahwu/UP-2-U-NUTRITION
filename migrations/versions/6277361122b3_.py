@@ -59,7 +59,7 @@ def upgrade():
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('admin', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email') that's it OK
+    sa.UniqueConstraint('email')
     )
 
 
