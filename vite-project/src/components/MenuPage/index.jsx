@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MenuNav } from "./menuNav";
 import { BackCardItem, FrontCardItem } from "./utility/CardShape";
 import Carousel from 'react-multi-carousel';
@@ -19,12 +19,13 @@ const MenuPage = () => {
   const menu1 = Object.values(useSelector(state => state.menuReducer));
   const user = useSelector(state => state.session.user)
   const navigate = useNavigate()
-  console.log('menu', menu1)
+  const cardContainerRef = useRef(null);
+  // console.log('menu', menu1)
 
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
   }
-  console.log("========", user)
+  // console.log("========", user)
   const [flippedCardId, setFlippCardId] = useState(null);
 
   const flipCard = async (e) => {
@@ -49,7 +50,7 @@ const MenuPage = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 4
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -59,8 +60,26 @@ const MenuPage = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1
     }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (cardContainerRef.current && !cardContainerRef.current.contains(event.target)) {
+        // Click occurred outside of the card container
+        setFlippCardId(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   }; 
   
+
 
   const renderCarousel = () => {
 
@@ -75,8 +94,8 @@ const MenuPage = () => {
     return (
       menuSubset.map((item, i) => {
         return (
-          <div key={i}>
-            <div id={i} key={i} onClick={flipCard}>
+          <div>
+            <div ref={cardContainerRef} id={i} key={i} onClick={flipCard}>
               {flippedCardId == i ? (
                 <BackCardItem item={item} i={i} />
               ) : (

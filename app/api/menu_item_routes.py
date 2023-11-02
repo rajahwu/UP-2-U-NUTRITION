@@ -65,19 +65,18 @@ def create_menu_item():
 
         nutrient_list = form.data['nutrient'].split(",")
         weight_list = form.data['weight'].split(",")
-        percentage_list = form.data['percentage'].split(",")
+
 
 
 
         for i in range(len(nutrient_list)):
             nutrient = nutrient_list[i]
             weight = weight_list[i]
-            percentage = percentage_list[i]
+
 
             new_nutrition = Nutrition(
                 nutrient = nutrient,
                 weight = weight,
-                percentage = percentage,
                 menu_id = new_menu_item.id
             )
 
@@ -120,7 +119,6 @@ def create_nutrition(id):
         new_nutrient = Nutrition(
             nutrient = nutrition_form.data["nutrient"],
             weight = nutrition_form.data["weight"],
-            percentage = nutrition_form.data["percentage"],
             menu_id = id
         )
 
@@ -183,33 +181,33 @@ def update_menu_item(id):
         # Handle nutrition updates
         nutrients = menu_item_form.data['nutrient'].split(",")
         weights = menu_item_form.data['weight'].split(",")
-        percentages = menu_item_form.data['percentage'].split(",")
+
 
         existing_nutrients = Nutrition.query.filter_by(menu_id=id).all()
 
         # Determine the minimum length among the existing data and the incoming data
-        min_length = min(len(nutrients), len(weights), len(percentages), len(existing_nutrients))
+        min_length = min(len(nutrients), len(weights), len(existing_nutrients))
 
         for i in range(min_length):
             # Check if the incoming data is different from the existing data
             if (
                 nutrients[i] != existing_nutrients[i].nutrient or
-                weights[i] != existing_nutrients[i].weight or
-                percentages[i] != existing_nutrients[i].percentage
+                weights[i] != existing_nutrients[i].weight
+
             ):
                 # If different, replace with the incoming data
                 if i < len(existing_nutrients):
                     existing_nutrient = existing_nutrients[i]
                     existing_nutrient.nutrient = nutrients[i]
                     existing_nutrient.weight = weights[i]
-                    existing_nutrient.percentage = percentages[i]
+
 
         # Add any additional values beyond the incoming data length
         for i in range(min_length, len(nutrients)):
             new_nutrition = Nutrition(
                 nutrient=nutrients[i],
                 weight=weights[i],
-                percentage=percentages[i],
+
                 menu_id=id
             )
             db.session.add(new_nutrition)

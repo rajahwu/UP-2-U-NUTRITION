@@ -39,7 +39,7 @@ const EditItem = ({ menu_item }) => {
         nutrientEntries.forEach((entry, index) => {
             if (!entry.nutrient) error[`nutrient${index}`] = `Nutrient #${index + 1} is required`;
             if (!entry.weight) error[`weight${index}`] = `Weight #${index + 1} is required`;
-            if (!entry.percentage) error[`percentage${index}`] = `Percentage #${index + 1} is required`;
+            // if (!entry.percentage) error[`percentage${index}`] = `Percentage #${index + 1} is required`;
         });
 
 
@@ -70,11 +70,11 @@ const EditItem = ({ menu_item }) => {
         setNutrientEntries(updatedEntries);
     };
 
-    const handlePercentageChange = (e, index) => {
-        const updatedEntries = [...nutrientEntries];
-        updatedEntries[index].percentage = e.target.value;
-        setNutrientEntries(updatedEntries);
-    };
+    // const handlePercentageChange = (e, index) => {
+    //     const updatedEntries = [...nutrientEntries];
+    //     updatedEntries[index].percentage = e.target.value;
+    //     setNutrientEntries(updatedEntries);
+    // };
 
     // console.log("________---------", menu_item)
 
@@ -93,18 +93,18 @@ const EditItem = ({ menu_item }) => {
         // console.log("========", nutrientEntries)
         const nutrientArray = [];
         const weightArray = [];
-        const percentageArray = [];
+        // const percentageArray = [];
 
         nutrientEntries.forEach((entry) => {
             nutrientArray.push(entry.nutrient);
             weightArray.push(entry.weight);
-            percentageArray.push(entry.percentage);
+            // percentageArray.push(entry.percentage);
         });
 
 
         updatedMenuItem.append(`nutrient`, nutrientArray);
         updatedMenuItem.append(`weight`, weightArray);
-        updatedMenuItem.append(`percentage`, percentageArray);
+        // updatedMenuItem.append(`percentage`, percentageArray);
 
         // console.log("=========", errors)
         if (!Object.keys(errors).length) {
@@ -177,9 +177,13 @@ const EditItem = ({ menu_item }) => {
                         {nutrientEntries.map((entry, index) => (<div key={index} class="relative">
                             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" value={entry.nutrient} onChange={(e) => handleNutrientChange(e, index)}>
                                 <option value="">Select Nutrient</option>
+                                <option value="Calories">Calories</option>
                                 <option value="Fat">Fat</option>
                                 <option value="Carb">Carb</option>
+                                <option value="Fiber">Fiber</option>
                                 <option value="Protein">Protein</option>
+                                <option value="Vitamins & Minerals">Vitamins & Minerals</option>
+                                <option value="Caffeine">Caffeine</option>
                             </select>
                             <div class={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 ${entry.nutrient ? 'hide-svg' : ''}`}>
                                 <svg class="fill-current w-4 w-6 mb-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
@@ -193,13 +197,13 @@ const EditItem = ({ menu_item }) => {
                                         value={entry.weight}
                                         onChange={(e) => handleWeightChange(e, index)}
                                     />
-                                    <input
+                                    {/* <input
                                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                                         placeholder="Percentage..."
                                         type="text"
                                         value={entry.percentage}
                                         onChange={(e) => handlePercentageChange(e, index)}
-                                    />
+                                    /> */}
                                 </div>
                             )}
                             <button className="red-btn-add" type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>
