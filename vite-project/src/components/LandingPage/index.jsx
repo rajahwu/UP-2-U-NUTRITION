@@ -7,13 +7,13 @@ const LandingPage = () => {
     const navigate = useNavigate();
     const user = useSelector(state => state.session.user)
     const dailySpecials = [
-        'Sunday Special',
-        'Monday Special',
-        'Tuesday Special',
-        'Wednesday Special',
-        'Thursday Special',
-        'Friday Special',
-        'Saturday Special',
+        'Sunday Specials',
+        'Monday Specials',
+        'Tuesday Specials',
+        'Wednesday Specials',
+        'Thursday Specials',
+        'Friday Specials',
+        'Saturday Specials',
     ]
 
     const currentDate = new Date().getDay();
@@ -29,6 +29,7 @@ const LandingPage = () => {
                         <div className="red-line-order">
                             <div className="green-line-order">
                                 <div className="start-order">
+                                    <h1 className="font-bold text-3xl mt-1">YOUR HOME AWAY FROM HOME</h1>
                                     <div className='daily-specials'>{displaySpecials(dailySpecials)}</div>
                                     {user ? (
                                         <button onClick={() => navigate("/menu")} className="landing-page-button">START ORDER</button>
