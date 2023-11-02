@@ -20,18 +20,17 @@ const MenuPage = () => {
   const user = useSelector(state => state.session.user)
   const navigate = useNavigate()
   const cardContainerRef = useRef(null);
-  // console.log('menu', menu1)
+
 
   const handleAddToCart = (item, amount) => {
     dispatch(addToCart(item, amount))
   }
-  // console.log("========", user)
+
   const [flippedCardId, setFlippCardId] = useState(null);
 
   const flipCard = async (e) => {
     e.stopPropagation();
     e.preventDefault();
-    // Used double equality to match string numbers against int
     if (flippedCardId == e.target.id) {
       setFlippCardId(null);
     } else {
@@ -77,12 +76,8 @@ const MenuPage = () => {
     };
   }, []);
 
-  }; 
-  
-
 
   const renderCarousel = () => {
-
     let menuSubset = []
 
     menu1.forEach((item) => {
@@ -94,7 +89,7 @@ const MenuPage = () => {
     return (
       menuSubset.map((item, i) => {
         return (
-          <div>
+          <div key={i}>
             <div ref={cardContainerRef} id={i} key={i} onClick={flipCard}>
               {flippedCardId == i ? (
                 <BackCardItem item={item} i={i} />
