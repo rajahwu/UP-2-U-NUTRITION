@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { MenuNav } from "./menuNav";
 import { BackCardItem, FrontCardItem } from "./utility/CardShape";
+import { useModal } from "../../context/Modal";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./MenuPage.css";
@@ -14,24 +15,32 @@ import DeleteItem from "./utility/forms/DeleteItem";
 import { AddItem } from "./utility/forms/AddItem";
 
 const AddToCartButton = ({ item, price }) => {
+  const { closeModal } = useModal()
   const dispatch = useDispatch();
   const handleAddToCart = (item, amount) => {
     item.price = price.toFixed(2);
     dispatch(addToCart(item, amount));
+    closeModal()
   };
   return (
     <button
       onClick={() => handleAddToCart(item, 1)}
-      className="green-btn add-to-cart-btn"
+      className="flex-1 green-btn add-to-cart-btn"
     >
       ADD TO CART
     </button>
   );
 };
 
+const CancelOrderButton = () => {
+  const { closeModal } = useModal()
+  return <button onClick={() => closeModal()} className="flex-1">Cancel</button>
+}
+
 const OrderDetails = ({ item }) => {
   const [addons, setAddons] = useState();
   const [price, setPrice] = useState(item.price);
+  const [quantity, setQuantity] = useState(1)
 
   const handleCheckboxChange = (event, addon) => {
     const { checked } = event.target;
@@ -39,6 +48,12 @@ const OrderDetails = ({ item }) => {
     const updatedPrice = checked ? price + addonPrice : price - addonPrice;
     setPrice(updatedPrice);
   };
+
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+    setPrice(item.price * newQuantity);
+  };
+
 
   useEffect(() => {
     import("../../../../team_15_csv_parser/data/addons.json")
@@ -59,9 +74,16 @@ const OrderDetails = ({ item }) => {
           <p className="mx-5 text-xl text-theme-red">${price?.toFixed(2)}</p>
         </div>
         <div className="self-center mx-5">
-          <button className="px-2 bg-orange-600 rounded-l-lg">-</button>
-          <input className="w-5" type="text" />
-          <button className="px-2 bg-orange-600 rounded-r-lg">+</button>
+          <button onClick={() => {
+            setQuantity(quantity - 1)
+            setPrice(price * quantity)
+            }} className="px-2 bg-orange-600 rounded-l-lg">-</button>
+          <input className="w-5" type="text" value={quantity} onChange={(e) => {
+            handleQuantityChange(quantity - 1)
+            }}/>
+          <button onClick={() => {
+           handleQuantityChange(quantity + 1)
+            }} className="px-2 bg-orange-600 rounded-r-lg">+</button>
         </div>
       </div>
       {addons
@@ -88,8 +110,10 @@ const OrderDetails = ({ item }) => {
             );
           })
         : null}
-
-      <AddToCartButton item={item} price={price} />
+      <div className="inline-flex flex-auto">
+        <CancelOrderButton />
+        <AddToCartButton item={item} price={price} />
+      </div>
     </div>
   );
 };
