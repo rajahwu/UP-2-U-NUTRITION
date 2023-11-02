@@ -94,15 +94,6 @@ menu_data = [
         'weights': ["265", "5g", "24g", "10g","32g","21"]
     },
       {
-        'name': 'Mango Pina',
-        'price': 12.48,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'supah shakes',
-        'ingredients': ['Pina Colada', 'Mango Pineapple', 'Vanilla Protein', 'Tropical Fiber', 'Honey', 'Hint Peach Mango Protein Juice'],
-        'nutrients': ["Calories","Fat", "Carb", "Fiber","Protein", "Vitamins & Minerals"],
-        'weights': ["285", "5g", "25g", "10g","35g","21"]
-    },
-      {
         'name': 'Thin Mint',
         'price': 12.48,
         'image': 'https://i.imgur.com/OJbcnTl.jpg',
@@ -174,15 +165,7 @@ menu_data = [
         'nutrients': ["Calories","Fat", "Carb", "Fiber","Protein", "Vitamins & Minerals"],
         'weights': ["265", "5g", "24g", "10g","32g","21"]
     },
-      {
-        'name': 'Cookie Dough',
-        'price': 12.48,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'supah shakes',
-        'ingredients':['Dulce de Leche', 'Cookies and cream', 'Vanilla protein', 'Unflavored fiber', 'Caramel Sugar Free Syrup', 'Twix Powder'],
-        'nutrients': ["Calories","Fat", "Carb", "Fiber","Protein", "Vitamins & Minerals"],
-        'weights': ["265", "5g", "24g", "10g","32g","21"]
-    },
+
       {
         'name': 'Caramel Pie',
         'price': 12.48,
