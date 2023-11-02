@@ -1,6 +1,6 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-from .menus import seed_menus,undo_menus, undo_ingredients, undo_nutrition
+from .menus import seed_menus,undo_menus
 from .events import seed_events,undo_events
 
 from app.models.db import db, environment, SCHEMA
