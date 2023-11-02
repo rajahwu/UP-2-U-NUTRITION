@@ -182,7 +182,6 @@ def update_menu_item(id):
         nutrients = menu_item_form.data['nutrient'].split(",")
         weights = menu_item_form.data['weight'].split(",")
 
-
         existing_nutrients = Nutrition.query.filter_by(menu_id=id).all()
 
         # Determine the minimum length among the existing data and the incoming data
@@ -201,13 +200,11 @@ def update_menu_item(id):
                     existing_nutrient.nutrient = nutrients[i]
                     existing_nutrient.weight = weights[i]
 
-
         # Add any additional values beyond the incoming data length
         for i in range(min_length, len(nutrients)):
             new_nutrition = Nutrition(
                 nutrient=nutrients[i],
                 weight=weights[i],
-
                 menu_id=id
             )
             db.session.add(new_nutrition)

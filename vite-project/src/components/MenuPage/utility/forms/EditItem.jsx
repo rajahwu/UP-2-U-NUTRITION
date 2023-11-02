@@ -184,6 +184,7 @@ const EditItem = ({ menu_item }) => {
                                 <option value="Protein">Protein</option>
                                 <option value="Vitamins & Minerals">Vitamins & Minerals</option>
                                 <option value="Caffeine">Caffeine</option>
+
                             </select>
                             <div class={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 ${entry.nutrient ? 'hide-svg' : ''}`}>
                                 <svg class="fill-current w-4 w-6 mb-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
@@ -197,13 +198,16 @@ const EditItem = ({ menu_item }) => {
                                         value={entry.weight}
                                         onChange={(e) => handleWeightChange(e, index)}
                                     />
+
                                     {/* <input
-                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                                         placeholder="Percentage..."
                                         type="text"
                                         value={entry.percentage}
                                         onChange={(e) => handlePercentageChange(e, index)}
+
                                     /> */}
+
                                 </div>
                             )}
                             <button className="red-btn-add" type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>

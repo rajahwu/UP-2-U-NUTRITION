@@ -210,62 +210,62 @@ menu_data = [
         'nutrients': ["Calories","Fat", "Carb", "Fiber","Protein", "Vitamins & Minerals","Caffeine"],
         'weights': ["290", "7g", "26g", "10g","35g","21","**80mg"]
     },
-      {
-        'name': 'Trusty Basic',
-        'price': 12,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['Aloe','Tea','Shake']
-    },
-      {
-        'name': 'Supah Basic',
-        'price': 13,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['Aloe','Tea','Supah']
-    },
-      {
-        'name': 'Waffle Basic',
-        'price': 13,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['Aloe','Tea','Waffle']
-    },
-      {
-        'name': 'Protein Bowl Basic',
-        'price': 15,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['Aloe','Tea','Protein Bowl']
-    },
-      {
-        'name': 'VIP',
-        'price': 14,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['SpecialTea','Shake']
-    },
-      {
-        'name': 'Supah Special',
-        'price': 16,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['SpecialTea','Supah']
-    },
-      {
-        'name': 'Waffle Special',
-        'price': 16,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['SpecialTea','Waffle']
-    },
-      {
-        'name': 'Protein Bowl Special',
-        'price': 18,
-        'image': 'https://i.imgur.com/OJbcnTl.jpg',
-        'category': 'combos',
-        'ingredients':['SpecialTea','Protein Bowl']
-    },
+    #   {
+    #     'name': 'Trusty Basic',
+    #     'price': 12,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['Aloe','Tea','Shake']
+    # },
+    #   {
+    #     'name': 'Supah Basic',
+    #     'price': 13,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['Aloe','Tea','Supah']
+    # },
+    #   {
+    #     'name': 'Waffle Basic',
+    #     'price': 13,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['Aloe','Tea','Waffle']
+    # },
+    #   {
+    #     'name': 'Protein Bowl Basic',
+    #     'price': 15,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['Aloe','Tea','Protein Bowl']
+    # },
+    #   {
+    #     'name': 'VIP',
+    #     'price': 14,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['SpecialTea','Shake']
+    # },
+    #   {
+    #     'name': 'Supah Special',
+    #     'price': 16,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['SpecialTea','Supah']
+    # },
+    #   {
+    #     'name': 'Waffle Special',
+    #     'price': 16,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['SpecialTea','Waffle']
+    # },
+    #   {
+    #     'name': 'Protein Bowl Special',
+    #     'price': 18,
+    #     'image': 'https://i.imgur.com/OJbcnTl.jpg',
+    #     'category': 'combos',
+    #     'ingredients':['SpecialTea','Protein Bowl']
+    # },
 ]
 
 # Creates the `flask seed all` command
