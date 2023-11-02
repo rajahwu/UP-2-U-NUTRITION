@@ -4,20 +4,17 @@ from sqlalchemy.sql import text
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', 
+    demo = User( 
         email='demo@aa.io', 
         password='HowMuchWoodCouldAWoodchuckChuck123',
         admin= True
     )
-    marnie = User(
-        username='marnie', 
+    marnie = User( 
         email='marnie@aa.io', 
         password='password',
         admin= False
     )
     bobbie = User(
-        username='bobbie', 
         email='bobbie@aa.io', 
         password='password',
         admin= False

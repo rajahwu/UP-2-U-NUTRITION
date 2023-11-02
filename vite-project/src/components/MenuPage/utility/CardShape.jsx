@@ -20,12 +20,14 @@ export const BackCardItem = ({ item, i }) => {
           })}
         </div>
         <div>
-          <h3 className="menu-items-sub-cat">Nutrition:</h3>
-          {item.nutritions && item.nutritions?.map((nutrition, k) => {
-            return (
-              <p key={k} >{nutrition.nutrient}: {nutrition.weight}</p>
-            )
-          })}
+          {item.nutritions && item.nutritions.length > 0 ? (
+            <div>
+              <h3 className="menu-items-sub-cat">Nutrition:</h3>
+              {item.nutritions.map((nutrition, k) => {
+                return <p key={k} >{nutrition.nutrient}: {nutrition.weight}</p>
+              })}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

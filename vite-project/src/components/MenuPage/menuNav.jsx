@@ -1,12 +1,12 @@
 
 
-export const MenuNav = ({setCategory}) => {
+export const MenuNav = ({ setCategory }) => {
 
   const menuCategories = [
     "combos",
     "supah shakes",
     "special teas",
-    "for you",
+    "more for you",
     "stays active",
     "goodies",
   ];
@@ -28,14 +28,14 @@ export const MenuNav = ({setCategory}) => {
   return (
     <div className="menu-nav-categories" >
       <div className='menu-panel flex w-full'>
-        {menuCategories.map((cat, i) => ( 
-          
-          <div 
-            key={`category-${i}`} 
-            className="categories-container category-title" 
+        {menuCategories.map((cat, i) => (
+
+          <div
+            key={`category-${i}`}
+            className="categories-container category-title"
             onClick={() => handleMenuItemClick(cat)}>{cat}
-            <img 
-              className='selector-lines' 
+            <img
+              className='selector-lines'
               src={menuSelectionLines[i]} alt=""
             />
             <div>{console.log('cat', cat)}</div>

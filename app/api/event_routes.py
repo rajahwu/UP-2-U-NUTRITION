@@ -30,15 +30,19 @@ def all_events():
     return event_list
 
 @event_routes.route("/", methods=["POST"])
-# @login_required
+@login_required
 def create_event():
     # date_format = "%Y-%m-%d %H:%M:%S"
     # no_time_date_format = "%Y-%m-%d"
 
     response = request.json
     # print("!!!!!!!!!!!!!!!!", datetime.strptime(response["start_date"],no_time_date_format ))
+    print(response, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     form = EventForm()
     form['csrf_token'].data = request.cookies["csrf_token"]
+
+
+
     if form.validate_on_submit():
         new_event = Event(
             title = form.data['title'],
@@ -51,10 +55,47 @@ def create_event():
             created_at = date.today()
         )
 
+        print(new_event.to_dict(), "===================================================")
         db.session.add(new_event)
+
         db.session.commit()
 
         return{'event': new_event.to_dict()}
 
     if form.errors:
         return{"errors": validation_errors_to_error_messages}
+
+@event_routes.route("/update/<id>", methods=["PUT"])
+@login_required
+def edit_event(id):
+    event = Event.query.get(id)
+    event_form = EventForm()
+    event_form["csrf_token"].data = request.cookies["csrf_token"]
+
+    response = request.json
+    temp_start_date = datetime.strptime(response["start_date"], "%Y-%m-%d")
+    temp_end_date = datetime.strptime(response["end_date"], "%Y-%m-%d")
+    temp_start_time = datetime.strptime(response["start_time"], "%Y-%m-%d %H:%M:%S")
+    temp_end_time = datetime.strptime(response["end_time"],"%Y-%m-%d %H:%M:%S")
+    # print(response["start_time"])
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", temp_start_time, type(temp_start_time), type(temp_start_date),type(temp_end_date),type(temp_end_time))
+
+    event.title = response['title']
+    event.details = response['details']
+    event.start_date = temp_start_date
+    event.end_date = temp_end_date
+    event.start_time = temp_start_time
+    event.end_time = temp_end_time
+    event.color = response['color']
+
+    db.session.commit()
+
+    return event.to_dict()
+
+@event_routes.route('<int:id>/delete', methods=['DELETE'])
+@login_required
+def delete_event(id):
+    event = Event.query.get(id)
+    db.session.delete(event)
+    db.session.commit()
+    return {"res":"Successfully deleted"}

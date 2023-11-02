@@ -9,6 +9,9 @@
     width: 100%;
     font-weight: bold;
     font-size: 24px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin: 0px;
 }
 
 
@@ -47,6 +50,9 @@
     align-items: center;
     height: 100%;
     width: 100%;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 2rem;
 }
 
 .add-to-cart-btn {
@@ -68,4 +74,20 @@
     font-size: 100px;
     height: 100px;
     margin: auto;
+}
+
+.carousel-item {
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
