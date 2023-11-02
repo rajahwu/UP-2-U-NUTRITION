@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { MenuNav } from "./menuNav";
 import { BackCardItem, FrontCardItem } from "./utility/CardShape";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import "./MenuPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMenuItemThunk } from "../../store/menus";
@@ -12,7 +12,6 @@ import OpenModalButton from "../OpenModalButton";
 import EditItem from "./utility/forms/EditItem";
 import DeleteItem from "./utility/forms/DeleteItem";
 import { AddItem } from "./utility/forms/AddItem";
-
 
 const AddToCartButton = ({ item, price }) => {
   const dispatch = useDispatch();
@@ -34,18 +33,12 @@ const OrderDetails = ({ item }) => {
   const [addons, setAddons] = useState();
   const [price, setPrice] = useState(item.price);
 
-  console.log("item", item);
-  console.log("price", price);
-
   const handleCheckboxChange = (event, addon) => {
-    console.log(price, "on change")
     const { checked } = event.target;
-    const addonPrice = 1.00;
+    const addonPrice = 1.0;
     const updatedPrice = checked ? price + addonPrice : price - addonPrice;
     setPrice(updatedPrice);
-    console.log(price, "on change")
-  }
-
+  };
 
   useEffect(() => {
     import("../../../../team_15_csv_parser/data/addons.json")
@@ -55,40 +48,50 @@ const OrderDetails = ({ item }) => {
       .catch((err) => {
         console.error(err);
       });
-    // console.log("addons", addons);
   });
 
   return (
     <div className="flex flex-col">
       {/* <img>{item.image}</img> */}
-      <h1 className="font-bold text-2xl">{item.name}</h1>
-      <p>{price?.toFixed(2)}</p>
+      <div className="flex justify-between bg-slate-400">
+        <div>
+          <h1 className="mx-5 text-2xl font-bold">{item.name}</h1>
+          <p className="mx-5 text-xl text-theme-red">${price?.toFixed(2)}</p>
+        </div>
+        <div className="self-center mx-5">
+          <button className="px-2 bg-orange-600 rounded-l-lg">-</button>
+          <input className="w-5" type="text" />
+          <button className="px-2 bg-orange-600 rounded-r-lg">+</button>
+        </div>
+      </div>
       {addons
         ? addons["ADD-ONS"].map((addon, i) => {
-          return (
-            <div className="flex mx-5 my-3" key={i}>
-              <form>
-                <div>
-                  <input
-                    className="mr-2"
-                    type="checkbox"
-                    name={addon.addon_name}
-                    value={addon["ADD-ONS"]}
-                    onChange={e => handleCheckboxChange(e, addon)}
-                  />
-                  <label className="" htmlFor={addon.addon_name}>{addon["ADD-ONS"]}</label>
-                  <span className="mx-3">$1.00</span>
-                </div>
-                <p>{addon["NUTRITIONAL FACTS"]}</p>
-              </form>
-            </div>
-          );
-        })
-        : null};
+            return (
+              <div className="flex mx-5 my-3" key={i}>
+                <form>
+                  <div>
+                    <input
+                      className="mr-2"
+                      type="checkbox"
+                      name={addon.addon_name}
+                      value={addon["ADD-ONS"]}
+                      onChange={(e) => handleCheckboxChange(e, addon)}
+                    />
+                    <label className="" htmlFor={addon.addon_name}>
+                      {addon["ADD-ONS"]}
+                    </label>
+                    <span className="mx-3">$1.00</span>
+                  </div>
+                  <p>{addon["NUTRITIONAL FACTS"]}</p>
+                </form>
+              </div>
+            );
+          })
+        : null}
 
       <AddToCartButton item={item} price={price} />
     </div>
-  )
+  );
 };
 
 const MenuPage = () => {
@@ -137,22 +140,23 @@ const MenuPage = () => {
     },
   };
 
-
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (cardContainerRef.current && !cardContainerRef.current.contains(event.target)) {
+      if (
+        cardContainerRef.current &&
+        !cardContainerRef.current.contains(event.target)
+      ) {
         // Click occurred outside of the card container
         setFlippCardId(null);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
 
   const renderCarousel = () => {
     let menuSubset = [];
@@ -195,11 +199,11 @@ const MenuPage = () => {
               className="green-btn add-to-cart-btn"
               modalComponent={<OrderDetails item={item} />}
               buttonText="Add to Cart"
-            // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
-            // onModalClose,  // optional: callback function that will be called once the modal is closed
-            // className,
-            // id,
-            // style
+              // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
+              // onModalClose,  // optional: callback function that will be called once the modal is closed
+              // className,
+              // id,
+              // style
             />
           )}
         </div>
@@ -207,14 +211,19 @@ const MenuPage = () => {
     });
   };
 
-
   return (
     <div className="menu">
-      <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
+      <h1 className="py-10 text-6xl font-bold">OUR MENU</h1>
       {user?.admin ? (
         <div>
-          <button className="blue-btn add-to-cart-btn" onClick={() => navigate("/menu/add-item")}>ADD ITEM</button>
-        </div >) : (null)}
+          <button
+            className="blue-btn add-to-cart-btn"
+            onClick={() => navigate("/menu/add-item")}
+          >
+            ADD ITEM
+          </button>
+        </div>
+      ) : null}
       <MenuNav setCategory={setCategory} />
       <div className="menu-item-container">
         <Carousel
@@ -227,7 +236,7 @@ const MenuPage = () => {
           {renderCarousel()}
         </Carousel>
       </div>
-    </div >
+    </div>
   );
 };
 
