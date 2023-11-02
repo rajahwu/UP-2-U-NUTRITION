@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 6277361122b3
-Revises: 
+Revises:
 Create Date: 2023-11-01 11:37:28.945889
 
 """
@@ -58,7 +58,8 @@ def upgrade():
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('admin', sa.Boolean(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('email') that's it OK
     )
 
 
