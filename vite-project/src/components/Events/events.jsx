@@ -19,7 +19,7 @@ export const EventsModal = ({ event }) => {
 
     const handleClick = () => {
         closeModal();
-        navigate(`events/edit/${event.id}`);
+        navigate(`events/edit/${event.id}`, {state: event});
     }
 
     // Create Date objects from the start_time and end_time strings
