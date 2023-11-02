@@ -430,13 +430,95 @@ menu_data = [
         'weights': ["25","0"]
     },
     {
-        'name': "Cafe con Leche",
-        'price': 8.32,
-        'image': 'https://i.imgur.com/IRGbQqF.jpg',
-        'category': 'more for you',
-        'ingredients': ['Milk'],
-        'nutrients': ["Calories","Fat", "Carb","Protein"],
-        'weights': ["170","9g","9g","15g"]
+        'name': "Bad & Boujee",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients': ['hydration', 'orange liftoff', 'original tea', 'pineapple', 'tropical punch', 'blue blast'],
+    },
+    {
+        'name': "Great Scott",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['Lime liftoff (x2)', 'original tea', 'cranberry Aloe', 'lemonade', 'limeade', 'blue raspberry'],
+    },
+    {
+        'name': "Summer Refresher",
+        'price': 10.40,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['collagen', 'pom Liftoff', 'lemon tea', 'cranberry Aloe', 'margarita', 'watermelon', 'cranberry'],
+    },
+    {
+        'name': "Triple Berry Blast",
+        'price': 13.52,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['Collagen & protein juice', 'tropical liftoff', 'Raspberry tea', 'Cranberry Aloe', 'strawberry'],
+    },
+    {
+        'name': "Feel Good",
+        'price': 12.48,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['immunity & probiotics', 'Lime liftoff', 'relaxation tea', 'mandarin Aloe', 'lemonade', 'limeade'],
+    },
+    {
+        'name': "Hydrating Hi-C",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['hydration', 'orange liftoff', 'lemon tea', 'mango aloe', 'limeade', 'mango'],
+    },
+    {
+        'name': "Pink Starburst",
+        'price': 10.40,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['collagen & protein juice', 'pomegranate tea', 'mango Aloe', 'strawberry', 'watermelon']
+    },
+    {
+        'name': "Acai Refresher",
+        'price': 12.48,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['electrolytes', 'pom liftoff', 'raspberry tea', 'cranberry Aloe', 'strawberry', 'acai berry']
+    },
+    {
+        'name': "Orange Starburst",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['Collagen & protein juice', 'orange liftoff', 'mandarin Aloe', 'orange pineapple']
+    },
+    {
+        'name': "Cran-Apple",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['bcaa', 'pom liftoff', 'raspberry tea', 'cranberry Aloe', 'cranberry', 'green apple']
+    },
+    {
+        'name': "Cran-Apple",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['bcaa', 'pom liftoff', 'raspberry tea', 'cranberry Aloe', 'cranberry', 'green apple']
+    },
+    {
+        'name': "Strawberry Mango Daiquitea",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['collagen', 'tropical liftoff', 'lemon tea', 'Mango Aloe', 'margarita', 'strawberry', 'pineapple']
+    },
+    {
+        'name': "Firecracker",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['collagen', 'tropical liftoff', 'lemon tea', 'Mango Aloe', 'margarita', 'strawberry', 'pineapple']
     },
 ]
 
