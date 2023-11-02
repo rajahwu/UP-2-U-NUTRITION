@@ -15,7 +15,7 @@ const actionGetCartItems = (menu_items) => ({
 const actionAddToCart = (menu_item, amount = 1) => ({
     type: ADD_TO_CART,
     menu_item,
-    amount
+    amount,
 })
 
 const actionUpdateCart = (menu_item, amount) => ({ type: UPDATE_CART, menu_item, amount })

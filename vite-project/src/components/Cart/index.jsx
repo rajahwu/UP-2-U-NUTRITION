@@ -35,6 +35,7 @@ const Cart = () => {
       price: item.price,
       image: item.image,
       amount: item.amount || 0,
+      addons: item.addons,
     };
   });
 
@@ -42,6 +43,7 @@ const Cart = () => {
     getCartItems();
   }, []);
 
+  console.log("productsInCartList", productsInCartList);
   return (
     <div className="your-cart-container">
       <div className="headers bg-titles-yellow">YOUR CART</div>
@@ -76,6 +78,11 @@ const Cart = () => {
               >
                 X
               </button>
+              <div>
+                {product.addons?.map((addon, i) => (
+                  <p key={i}>w. {addon["ADD-ONS"]}</p>
+                ))}
+              </div>
             </div>
           );
         })}

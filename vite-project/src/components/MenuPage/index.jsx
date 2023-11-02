@@ -40,13 +40,22 @@ const CancelOrderButton = () => {
 const OrderDetails = ({ item }) => {
   const [addons, setAddons] = useState();
   const [price, setPrice] = useState(item.price);
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
+  const [checkedAddons, setCheckedAddons] = useState([]);
 
   const handleCheckboxChange = (event, addon) => {
     const { checked } = event.target;
     const addonPrice = 1.0;
     const updatedPrice = checked ? price + addonPrice : price - addonPrice;
     setPrice(updatedPrice);
+    if (checked) {
+      setCheckedAddons([...checkedAddons, addon]);
+      item.addons = checkedAddons;
+    } else {
+      const updatedAddons = checkedAddons.filter((a) => a !== addon);
+      setCheckedAddons(updatedAddons);
+      item.addons = checkedAddons;
+    }
   };
 
   const handleQuantityChange = (newQuantity) => {
