@@ -70,7 +70,6 @@ class Nutrition(db.Model):
     nutrient = db.Column(db.String(5000), nullable=True)
     weight = db.Column(db.String())
 
-
     menu_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('menu_items.id')), nullable=True)
 
 
