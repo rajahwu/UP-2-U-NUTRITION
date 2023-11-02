@@ -155,48 +155,65 @@ const MenuPage = () => {
 
 
   const renderCarousel = () => {
-    let menuSubset = []
+    let menuSubset = [];
+
     menu1.forEach((item) => {
       if (category === item.category) {
         menuSubset.push(item);
       }
-    })
-    console.log('menuSubset', menuSubset);
-    return (
-      menuSubset.map((item, i) => {
-        return (
-          <div key={i}>
-            <div ref={cardContainerRef} id={i} key={i} onClick={flipCard}>
-              {flippedCardId == i ? (
-                <BackCardItem item={item} i={i} />
-              ) : (
-                <FrontCardItem item={item} i={i} />
-              )}
-            </div>
-            {user?.admin ? (
-              <div className="flex justify-center gap-2">
-                <OpenModalButton
-                  modalComponent={<EditItem menu_item={item} />}
-                  buttonText={<button className="green-btn add-to-cart-btn">EDIT ITEM</button>}
-                />
-                <OpenModalButton
-                  modalComponent={<DeleteItem menu_id={item.id} />}
-                  buttonText={<button className="red-btn add-to-cart-btn">DELETE</button>}
-                />
-              </div>
-            ) : (<button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>)}
+    });
+    console.log("menuSubset", menuSubset);
+    return menuSubset.map((item, i) => {
+      return (
+        <div key={i}>
+          <div id={i} key={i} ref={cardContainerRef} onClick={flipCard}>
+            {flippedCardId == i ? (
+              <BackCardItem item={item} i={i} />
+            ) : (
+              <FrontCardItem item={item} i={i} />
+            )}
           </div>
-        );
-      })
-    )
-  }
+          {user?.admin ? (
+            <div className="flex justify-center gap-2">
+              <OpenModalButton
+                modalComponent={<EditItem menu_item={item} />}
+                buttonText={
+                  <button className="green-btn add-to-cart-btn">
+                    EDIT ITEM
+                  </button>
+                }
+              />
+              <OpenModalButton
+                modalComponent={<DeleteItem menu_id={item.id} />}
+                buttonText={
+                  <button className="red-btn add-to-cart-btn">DELETE</button>
+                }
+              />
+            </div>
+          ) : (
+            <OpenModalButton
+              className="green-btn add-to-cart-btn"
+              modalComponent={<OrderDetails item={item} />}
+              buttonText="Add to Cart"
+            // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
+            // onModalClose,  // optional: callback function that will be called once the modal is closed
+            // className,
+            // id,
+            // style
+            />
+          )}
+        </div>
+      );
+    });
+  };
+
 
   return (
     <div className="menu">
       <h1 className="font-bold text-6xl py-10">OUR MENU</h1>
       {user?.admin ? (
         <div>
-  <button className="blue-btn add-to-cart-btn" onClick={() => navigate("/menu/add-item")}>ADD ITEM</button>
+          <button className="blue-btn add-to-cart-btn" onClick={() => navigate("/menu/add-item")}>ADD ITEM</button>
         </div >) : (null)}
       <MenuNav setCategory={setCategory} />
       <div className="menu-item-container">
