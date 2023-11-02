@@ -40,7 +40,7 @@ export const FrontCardItem = ({ item, i }) => {
         <div id={i} className="product-name-front">{item.name}</div>
         <img id={i} className="product-image" src={item.image} alt="" />
       </div>
-      <div id={i} className="product-price">{item.price}</div>
+      <div id={i} className="product-price">${item.price}</div>
     </div>
   );
 };
