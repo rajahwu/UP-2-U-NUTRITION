@@ -77,6 +77,8 @@ const MenuPage = () => {
     };
   }, []);
 
+  }; 
+  
 
 
   const renderCarousel = () => {
@@ -101,7 +103,6 @@ const MenuPage = () => {
               )}
             </div>
             {user?.admin ? (
-
               <div className="flex justify-center gap-2">
                 <OpenModalButton
                   modalComponent={<EditItem menu_item={item} />}
@@ -112,8 +113,6 @@ const MenuPage = () => {
                   buttonText={<button className="red-btn add-to-cart-btn">DELETE</button>}
                 />
               </div>
-
-
             ) : (<button onClick={() => handleAddToCart(item, 1)} className="green-btn add-to-cart-btn">ADD TO CART</button>)}
           </div>
         );

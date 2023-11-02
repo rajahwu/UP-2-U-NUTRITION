@@ -1,6 +1,7 @@
-from app.models import MenuItem,Ingredient,Nutrition, db, SCHEMA,environment
+from app.models import MenuItem, Ingredient,Nutrition, db, SCHEMA,environment
 from sqlalchemy.sql import text
 from datetime import datetime
+
 
 
 # menu_data = [
@@ -48,7 +49,8 @@ def seed_menus(menu_data):
 
 def undo_menus():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.menu_items RESTART IDENTITY CASCADE;")
+
     else:
         db.session.execute(text("DELETE FROM menu_items"))
 
