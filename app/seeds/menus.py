@@ -32,12 +32,13 @@ def seed_menus(menu_data):
             ingredient = Ingredient(ingredient_name=ingredient_name)
             menu_item.ingredients.append(ingredient)
 
-        for i in range(len(data['nutrients'])):
-            nutrient = Nutrition(
-                nutrient=data['nutrients'][i],
-                weight=data['weights'][i]
-            )
-            menu_item.nutritions.append(nutrient)
+        if 'nutrients' in data:  # Check if 'nutrients' key exists
+            for i in range(len(data['nutrients'])):
+                nutrient = Nutrition(
+                    nutrient=data['nutrients'][i],
+                    weight=data['weights'][i]
+                )
+                menu_item.nutritions.append(nutrient)
 
         menuitems.append(menu_item)
 

@@ -266,6 +266,195 @@ menu_data = [
         'category': 'combos',
         'ingredients':['SpecialTea','Protein Bowl']
     },
+    {
+        'name': 'Smurfs Up',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Sex on the Beach',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Sunset Crush',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Captain America',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Razzmatazz',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Passion Fruit',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Fruit Rollup',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Miami Vice',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Dragon Slayer',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Cucumberita',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Cosmo & Wanda',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Watermelon Splash',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Mangorita',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Cocomelon',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Peach Please',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': 'Cotton Candy',
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': "Tropic Like It's Hot",
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': "Hulk",
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': "Beach Bum",
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': "Grape-A-Liscious",
+        'price': 7.28,
+        'image': 'https://i.imgur.com/qM8XnTT.jpg',
+        'category': 'special teas',
+        'ingredients': ['Tea'],
+        'nutrients': ["Calories","Sugar"],
+        'weights': ["25","0"]
+    },
+    {
+        'name': "Cafe con Leche",
+        'price': 8.32,
+        'image': 'https://i.imgur.com/IRGbQqF.jpg',
+        'category': 'more for you',
+        'ingredients': ['Milk'],
+        'nutrients': ["Calories","Fat", "Carb","Protein"],
+        'weights': ["170","9g","9g","15g"]
+    },
 ]
 
 # Creates the `flask seed all` command
