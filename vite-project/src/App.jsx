@@ -11,7 +11,7 @@ import Cart from "./components/Cart";
 import "./App.css";
 import { authenticate } from "./store/session";
 import { useDispatch } from "react-redux";
-import EditEvents from "./components/Events/editEvent";
+// import EditEvents from "./components/Events/editEvent";
 import LoginFormPage from "./components/LoginFormPage";
 import EditItem from "./components/MenuPage/utility/forms/EditItem";
 import { AddEvent } from "./components/Events/addEvent";
@@ -58,7 +58,7 @@ function App() {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/our-story" element={<OurStory />} />
         <Route path="/events/add-event" element={<AddEvent />} />
-        <Route path="/events/edit/:id" element={<EditEvents />} />
+        <Route path="/events/edit/:id" element={<AddEvent />} />
         <Route path="/events" element={<Events />} />
         <Route path="/your-story" element={<RedirectYourStory url={externalUrl} splashPageUrl='/' />} />
         <Route path="/cart" element={<Cart />} />

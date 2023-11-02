@@ -1,9 +1,13 @@
 .ourstory-page {
-    /* background-size: cover; */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    /* background-image: url("https://i.imgur.com/WHVne78.png"); */
+    height: 100vh;
+}
+
+.about-us-container{
+    display: flex;
+    padding: 5rem 8rem;
     height: 100vh;
 }
 
@@ -12,7 +16,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 #ourstory-title {
@@ -20,21 +24,25 @@
     padding: 8px 20px 2px 20px;
     margin-top: 5%;
     margin-bottom: 2%;
-    background-color: rgb(183, 34, 34);
     font-size: 3rem;
     font-weight: bold;
+    background-color: rgba(0, 145, 209, 1);
 }
 
 #owner-img {
-    width: 45%;
-    /* border: 1px solid red; */
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+    height: 100%;
 }
+
 
 .ourstory-body {
     margin-top: 4%;
     text-align: center;
-    /* border: 1px solid red; */
     width: 90%;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+    height: 97%;
 }
 
 .ourstory-page-content {

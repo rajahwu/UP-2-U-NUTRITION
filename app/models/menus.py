@@ -14,7 +14,7 @@ class MenuItem(db.Model):
     name = db.Column(db.String(5000), nullable=False)
     category = db.Column(db.String(),nullable=False)
     price = db.Column(db.Float(), nullable=False)
-    image = db.Column(db.String(), nullable=False)
+    image = db.Column(db.String(), nullable=True)
     created_at = db.Column(db.Date(), nullable=False)
 
     ingredients = db.relationship('Ingredient',back_populates='menu_item',cascade = 'all, delete-orphan')
@@ -43,7 +43,8 @@ class Ingredient(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    ingredient_name = db.Column(db.String(5000),nullable=False)
+    ingredient_name = db.Column(db.String(5000),nullable=True)
+
     menu_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('menu_items.id')), nullable=True)
 
     def __repr__(self):
@@ -66,9 +67,8 @@ class Nutrition(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    nutrient = db.Column(db.String(5000), nullable=False)
+    nutrient = db.Column(db.String(5000), nullable=True)
     weight = db.Column(db.String())
-    percentage = db.Column(db.String())
 
     menu_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('menu_items.id')), nullable=True)
 
@@ -82,7 +82,6 @@ class Nutrition(db.Model):
             'id':self.id,
             'nutrient':self.nutrient,
             'weight':self.weight,
-            'percentage':self.percentage,
             'menu_id':self.menu_id
         }
     
