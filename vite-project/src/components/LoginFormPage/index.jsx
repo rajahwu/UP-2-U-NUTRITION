@@ -95,7 +95,8 @@ function LoginFormPage() {
               >Sign in</button>
             </div>
           </form>
-          <p className="mt-10 text-center text-sm text-gray-500">Not a member?{' '}<a href="#" style={{color: "#5eac00"}} className="font-semibold leading-6">Sign Up</a>
+          <p className="mt-10 text-center text-sm text-gray-500">Not a member?{' '}
+            <a href="#" style={{color: "#5eac00"}} onClick={() => navigate('/signup')} className="font-semibold leading-6">Sign Up</a>
           </p>
         </div>
       </div>
