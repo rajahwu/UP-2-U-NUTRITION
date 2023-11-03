@@ -9,12 +9,12 @@
 # Contributors: 
 ## Contributors
 
-|      |       |       |
-|------|-------|-------|
-| [![Han Nguyen](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/han-nguyen-developer) | [![Vincent Radford](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vincent-radford-1a9599173) | [![Tien Hoang](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tien-hoang-6205b5281) |
-| Han Nguyen | Vincent Radford | Tien Hoang |
 
-|      |       |       |
+|------|-------|-------|
+| Han Nguyen | Vincent Radford | Tien Hoang |
+| [![Han Nguyen](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/han-nguyen-developer) | [![Vincent Radford](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vincent-radford-1a9599173) | [![Tien Hoang](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tien-hoang-6205b5281) |
+
+
 |------|-------|-------|
 | [![Daniel Blanco](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/blancodaniel) | [![Dave Sexton](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dave-sexton-jr) |      |
 | Daniel Blanco | Dave Sexton |       |
