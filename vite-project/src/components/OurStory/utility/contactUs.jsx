@@ -110,7 +110,6 @@ export const ContactUsModal = () => {
                 errors={state.errors}
             />
             <button type="submit" disabled={state.submitting}
-            // onClick={onSubmit}
             >Send</button>
         </form>
     )

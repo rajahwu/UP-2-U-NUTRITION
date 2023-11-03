@@ -25,23 +25,40 @@ const AddToCartButton = ({ item, price }) => {
   return (
     <button
       onClick={() => handleAddToCart(item, 1)}
-      className="flex-1 green-btn add-to-cart-btn"
+      className="green-btn w-full p-1"
     >
-      ADD TO CART
+      Add to cart
     </button>
   );
 };
 
 const CancelOrderButton = () => {
   const { closeModal } = useModal()
-  return <button onClick={() => closeModal()} className="flex-1">Cancel</button>
+  return <button onClick={() => closeModal()} className="red-btn w-full p-1">Cancel</button>
 }
 
 const OrderDetails = ({ item }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
   const [addons, setAddons] = useState();
   const [price, setPrice] = useState(item.price);
   const [quantity, setQuantity] = useState(1);
   const [checkedAddons, setCheckedAddons] = useState([]);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggle1 = () => {
+    setIsOpen1(!isOpen1)
+  };
+
+  const toggle2 = () => {
+    setIsOpen2(!isOpen2)
+  };
+
+  
 
   const handleCheckboxChange = (event, addon) => {
     const { checked } = event.target;
@@ -76,50 +93,124 @@ const OrderDetails = ({ item }) => {
 
   return (
     <div className="flex flex-col">
-      {/* <img>{item.image}</img> */}
-      <div className="flex justify-between bg-slate-400">
-        <div>
-          <h1 className="mx-5 text-2xl font-bold">{item.name}</h1>
-          <p className="mx-5 text-xl text-theme-red">${price?.toFixed(2)}</p>
+      <div className="flex justify-between border-b-2">
+        <div className='p-3'>
+          <h1 className="font-bold text-3xl">{item.name}</h1>
+          <div className="flex">
+            <h4 className="">${price?.toFixed(2)}</h4>
+            <h4>{item.nutritions.calories? (` | ${item.nutritions.calories}`): (null)}</h4>
+          </div>
         </div>
-        <div className="self-center mx-5">
-          <button onClick={() => {
-            setQuantity(quantity - 1)
-            setPrice(price * quantity)
-            }} className="px-2 bg-orange-600 rounded-l-lg">-</button>
-          <input className="w-5" type="text" value={quantity} onChange={(e) => {
-            handleQuantityChange(quantity - 1)
-            }}/>
-          <button onClick={() => {
-           handleQuantityChange(quantity + 1)
-            }} className="px-2 bg-orange-600 rounded-r-lg">+</button>
+        <div className="flex flex-col p-3 w-50 justify-center">
+          <h4>Quantity:</h4>
+          <div className="flex items-center border-4">
+            <button onClick={() => {
+              setQuantity(quantity - 1)
+              setPrice(price * quantity)
+              }} className="px-2 rounded-l-lg text-center">-</button>
+            <input className="w-4 " type="text" value={quantity} onChange={(e) => {
+              handleQuantityChange(quantity - 1)
+              }}/>
+            <button onClick={() => {
+            handleQuantityChange(quantity + 1)
+              }} className="px-2rounded-r-lg text-center">+</button>
+          </div>
         </div>
       </div>
-      {addons
-        ? addons["ADD-ONS"].map((addon, i) => {
-            return (
-              <div className="flex mx-5 my-3" key={i}>
-                <form>
-                  <div>
-                    <input
-                      className="mr-2"
-                      type="checkbox"
-                      name={addon.addon_name}
-                      value={addon["ADD-ONS"]}
-                      onChange={(e) => handleCheckboxChange(e, addon)}
-                    />
-                    <label className="" htmlFor={addon.addon_name}>
-                      {addon["ADD-ONS"]}
-                    </label>
-                    <span className="mx-3">$1.00</span>
-                  </div>
-                  <p>{addon["NUTRITIONAL FACTS"]}</p>
-                </form>
+      <div>
+      <div className="description-container p-3" onClick={toggle}>
+            <div className='flex justify-between'>
+            <h2 className="text-2xl">Ingredients</h2>
+            <button className="show-more-button">
+              {isOpen ? (
+                <>
+                  <i className="fa-solid fa-angle-up"></i>
+                </>
+              ) : (
+                <>
+                  <i className="fa-solid fa-angle-down"></i>
+                </>
+              )}
+            </button>
+            </div>   
+              <div className="flex gap-3">
+                {item.ingredients.map((ingredients, i) => {
+                  return (
+                    <p className={`ingredients-description ${isOpen ? "expanded" : ""}`} key={i}>{ingredients.ingredient_name}</p>
+                  )
+                })}
               </div>
-            );
-          })
-        : null}
-      <div className="inline-flex flex-auto">
+      </div>
+      <div className="description-container p-3 " onClick={toggle1}>
+            <div className='flex justify-between'>
+            <h2 className="text-2xl">Nutrition</h2>
+            <button className="show-more-button" >
+              {isOpen1 ? (
+                <>
+                  <i className="fa-solid fa-angle-up"></i>
+                </>
+              ) : (
+                <>
+                  <i className="fa-solid fa-angle-down"></i>
+                </>
+              )}
+            </button>
+            </div>   
+              <div className="flex gap-3">
+                {item.nutritions.map((nutrient, i) => {
+                  return (
+                    <div className={`ingredients-description ${isOpen1 ? "expanded" : ""}`} key={i}>
+                      <p>{nutrient.nutrient}</p>
+                      <p>{nutrient.weight}</p>
+                    </div>
+                  )
+                })}
+              </div>
+      </div>
+      <div className="p-3 " onClick={toggle2}>
+            <div className='flex justify-between'>
+            <h2 className="text-2xl">Add-ons</h2>
+            <button className="show-more-button" >
+              {isOpen2 ? (
+                <>
+                  <i className="fa-solid fa-angle-up"></i>
+                </>
+              ) : (
+                <>
+                  <i className="fa-solid fa-angle-down"></i>
+                </>
+              )}
+            </button>
+            </div>   
+              <div>
+              {addons
+              ? addons["ADD-ONS"].map((addon, i) => {
+                  return (
+                    <div className={`ingredients-description ${isOpen2 ? "expanded" : ""}`} key={i}>
+                      <form>
+                        <div>
+                          <input
+                            className="mr-2"
+                            type="checkbox"
+                            name={addon.addon_name}
+                            value={addon["ADD-ONS"]}
+                            onChange={(e) => handleCheckboxChange(e, addon)}
+                          />
+                          <label className="" htmlFor={addon.addon_name}>
+                            {addon["ADD-ONS"]}
+                          </label>
+                          <span className="mx-3">$1.00</span>
+                        </div>
+                        <p>{addon["NUTRITIONAL FACTS"]}</p>
+                      </form>
+                    </div>
+                  );
+                })
+              : null}
+              </div>
+      </div>
+      </div>
+      <div className="flex gap-3 p-3">
         <CancelOrderButton />
         <AddToCartButton item={item} price={price} />
       </div>

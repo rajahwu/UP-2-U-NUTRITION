@@ -80,6 +80,28 @@
     animation: slideIn 1s ease-in-out;
 }
 
+
+.description-container{
+    border-bottom: 2px solid rgb(227, 227, 227);
+}
+
+
+.show-more-button {
+    display: block;
+    background-color: transparent;
+  }
+
+  .ingredients-description {
+    max-height: 0px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    line-height: 30px;
+  }
+
+  .ingredients-description.expanded {
+    max-height: 100px;
+  }
+
 @keyframes slideIn {
     0% {
         transform: translateX(-100%);
