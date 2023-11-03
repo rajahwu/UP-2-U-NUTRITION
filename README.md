@@ -1,16 +1,7 @@
 <div align="center">
    <img src="/vite-project/public/images/logo.png" with="200" height="200" justify="center"/>
 </div>
-
-Type the command:
-```
-$ node --version
-```
-You should be on node version 16, if you are not type:
-```
-$ nvm install 16
-$ nvm use 16
-```
+---
 
 2. Install dependencies
 
