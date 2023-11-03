@@ -1,5 +1,4 @@
-## Getting started
-1. Clone this repository (only this branch)
+<img src="/vite-project/public/images/logo.png"/>
 
 Type the command:
 ```
