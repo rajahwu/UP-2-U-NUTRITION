@@ -37,7 +37,6 @@ const CancelOrderButton = () => {
   const { closeModal } = useModal()
 
   return <button onClick={() => closeModal()} className="red-btn w-full p-1">Cancel</button>
-
 }
 
 const OrderDetails = ({ item }) => {
@@ -96,8 +95,7 @@ const OrderDetails = ({ item }) => {
   });
 
   return (
-    <div className="flex flex-col">
-
+    <div className="flex flex-col p-3">
       <div className="flex justify-between border-b-2">
         <div className='p-3'>
           <h1 className="font-bold text-3xl">{item.name}</h1>
@@ -138,7 +136,7 @@ const OrderDetails = ({ item }) => {
               )}
             </button>
             </div>   
-              <div className="flex gap-3">
+              <div className="gap-3 break-normal">
                 {item.ingredients.map((ingredients, i) => {
                   return (
                     <p className={`ingredients-description ${isOpen ? "expanded" : ""}`} key={i}>{ingredients.ingredient_name}</p>
@@ -146,7 +144,7 @@ const OrderDetails = ({ item }) => {
                 })}
               </div>
       </div>
-      <div className="description-container p-3 " onClick={toggle1}>
+      <div className="description-container p-3" onClick={toggle1}>
             <div className='flex justify-between'>
             <h2 className="text-2xl">Nutrition</h2>
             <button className="show-more-button" >
@@ -161,10 +159,11 @@ const OrderDetails = ({ item }) => {
               )}
             </button>
             </div>   
-              <div className="flex gap-3">
+              <div className="">
                 {item.nutritions.map((nutrient, i) => {
+                  {console.log('nutrient', nutrient)}
                   return (
-                    <div className={`ingredients-description ${isOpen1 ? "expanded" : ""}`} key={i}>
+                    <div className={`ingredients-description ${isOpen1 ? "expanded" : ""} flex justify-between`} key={i}>
                       <p>{nutrient.nutrient}</p>
                       <p>{nutrient.weight}</p>
                     </div>
@@ -192,7 +191,7 @@ const OrderDetails = ({ item }) => {
               ? addons["ADD-ONS"].map((addon, i) => {
                   return (
                     <div className={`ingredients-description ${isOpen2 ? "expanded" : ""}`} key={i}>
-                      <form>
+                      <form className="">
                         <div>
                           <input
                             className="mr-2"

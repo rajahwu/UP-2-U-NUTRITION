@@ -99,7 +99,7 @@
   .ingredients-description {
     max-height: 0px;
     overflow: hidden;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 1.0s ease-in-out;
     line-height: 30px;
   }
 
