@@ -72,13 +72,14 @@ def edit_event(id):
     event_form = EventForm()
     event_form["csrf_token"].data = request.cookies["csrf_token"]
 
+
     response = request.json
     temp_start_date = datetime.strptime(response["start_date"], "%Y-%m-%d")
     temp_end_date = datetime.strptime(response["end_date"], "%Y-%m-%d")
     temp_start_time = datetime.strptime(response["start_time"], "%Y-%m-%d %H:%M:%S")
     temp_end_time = datetime.strptime(response["end_time"],"%Y-%m-%d %H:%M:%S")
     # print(response["start_time"])
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", temp_start_time, type(temp_start_time), type(temp_start_date),type(temp_end_date),type(temp_end_time))
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", temp_start_time, temp_start_date)
 
     event.title = response['title']
     event.details = response['details']

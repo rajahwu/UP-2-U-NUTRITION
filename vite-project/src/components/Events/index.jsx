@@ -72,9 +72,11 @@ const Events = () => {
     ).getDay();
 
     const dayElements = [];
-
     const eventsForCurrentMonth = event1.filter((event) => {
+
       const eventDate = new Date(event.start_date);
+      const enventDateHours = eventDate.getHours()
+      eventDate.setHours(+enventDateHours + 4)
       return (
         eventDate.getMonth() === currentMonth.getMonth() &&
         eventDate.getFullYear() === currentMonth.getFullYear()
@@ -90,9 +92,11 @@ const Events = () => {
 
       const eventsForDay = eventsForCurrentMonth.filter((event) => {
         const eventDate = new Date(event.start_date);
+        const enventDateHours = eventDate.getHours()
+        eventDate.setHours(+enventDateHours + 4)
         const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-        const formattedEventDate = eventDate.toLocaleDateString('en-US', options);
-        const formattedCurrentDate = currentDate.toLocaleDateString('en-US', options);
+        const formattedEventDate = eventDate.toDateString('en-US', options);
+        const formattedCurrentDate = currentDate.toDateString('en-US', options);
         return formattedEventDate === formattedCurrentDate;
       });
 

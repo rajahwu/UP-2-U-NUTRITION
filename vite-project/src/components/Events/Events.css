@@ -68,16 +68,15 @@
 }
 
 .request-event-btn-container {
-    /* display: flex;
+    display: flex;
     justify-content: flex-end;
-    align-items: flex-end; */
+    align-items: flex-end;
     margin: 0 0 20px 0
 }
 
 .request-event-btn {
     width: 140px;
     height: 40px;
-    position: absolute;
     top: 1rem;
     right: 5rem;
 }
@@ -140,9 +139,9 @@
 
 .form-titles {
     text-align: center;
-    /* padding-top: 25px; */
+    padding-top: 25px;
 }
-  
+
 
 @media (max-width: 768px) {
 .request-event-btn {

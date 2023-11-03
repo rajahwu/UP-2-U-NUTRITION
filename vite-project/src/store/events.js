@@ -87,10 +87,7 @@ export const editEventThunk = (data) => async (dispatch) => {
         dispatch(actionEditEvent(event))
         return event
     } else {
-        const error = await res.json()
-        if (error.errors) {
-            return error
-        }
+        console.log("error")
     }
 }
 
