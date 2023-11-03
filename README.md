@@ -2,7 +2,9 @@
    <img src="/vite-project/public/images/logo.png" with="200" height="200" justify="center"/>
 </div>
 
-<div align='center'>
+<div>
+   <h2>Up 2 U Nutrition allows users to make orders, view information, and see upcoming events directly from the restaurant! </h2>
+</div>
   
 ### Quick Links
   
