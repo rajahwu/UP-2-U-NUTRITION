@@ -236,7 +236,7 @@ const MenuPage = () => {
             </div>
           ) : (
             <OpenModalButton
-              className="green-btn add-to-cart-btn"
+              className="green-btn add-to-cart-btn mb-3"
               modalComponent={<OrderDetails item={item} />}
               buttonText="Add to Cart"
             // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
@@ -266,11 +266,11 @@ const MenuPage = () => {
       ) : null}
       <MenuNav setCategory={setCategory} />
       <div className="">
-        <button onClick={handleViewAllClick} className="blue-btn add-to-cart-btn">
+        <button onClick={handleViewAllClick} className="blue-btn add-to-cart-btn handle-view">
           {carouselDisabled ? "Group View" : "View All"}
         </button>
       </div>
-      <div className={`menu-item-container ${carouselDisabled ? "group-view" : ""}`}>
+      <div className={`menu-item-container ${carouselDisabled ? "group-view carousel-item2" : ""}`}>
         {carouselDisabled ? renderCarousel() : (
           <Carousel
             responsive={responsive}
