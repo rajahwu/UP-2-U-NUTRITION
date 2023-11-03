@@ -23,10 +23,10 @@ const placeOrder = () => {
 
 const OrderConfirmation = () => {
   return (
-    <div>
-      <div>Thank you for your order!</div>
+    <div className="p-5 text-xl">
+      <div className="text-2xl text-sky-500">Thank you for your order!</div>
       <div>Order Number: 123456789</div>
-      <div>Pick Up</div>
+      <div className="text-theme-green">Pick Up</div>
     </div>
   );
 };
