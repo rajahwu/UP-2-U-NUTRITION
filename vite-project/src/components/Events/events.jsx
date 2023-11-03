@@ -23,8 +23,16 @@ export const EventsModal = ({ event }) => {
     }
 
     // Create Date objects from the start_time and end_time strings
-    const startTime = new Date(event.start_time);
-    const endTime = new Date(event.end_time);
+    let startTime = new Date(event.start_time);
+    startTime.setHours(+startTime.getHours() + 4);
+    let endTime = new Date(event.end_time);
+    endTime.setHours(+endTime.getHours() + 4);
+
+    let startDate = new Date(event.start_date)
+    startDate.setHours(+startDate.getHours() + 4);
+    let endDate = new Date(event.end_date);
+    endDate.setHours(+endDate.getHours() + 4);
+
 
     // Format the times in "h:mm a" (hours:minutes AM/PM) format
     const startTimeFormatted = startTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
@@ -34,9 +42,9 @@ export const EventsModal = ({ event }) => {
         <div className="event-container">
             <div className='event-bar' style={{ backgroundColor: `${event.color}` }}></div>
             <div className="flex">
-                <div className="event-month-day">{displayDate(new Date(event.start_date))}</div>
+                <div className="event-month-day">{displayDate(startDate)}</div>
                 {event.end_date ? (
-                    <div className="event-month-day"> - {displayDate(new Date(event.end_date))}</div>
+                    <div className="event-month-day"> - {displayDate(new Date(endDate))}</div>
                 ) : null}
             </div>
             <div className="event-hours">
