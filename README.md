@@ -7,33 +7,33 @@
 </div>
 
 ## Contributors:
-<div>
-<div id="badges" align="center">
-  <h2>Han Nguyen</h2>
+<div align="center">
+<div id="badges" >
+  <h4>Han Nguyen</h4>
   <a href=https://www.linkedin.com/in/han-nguyen-developer>
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
 </div>
-<div id="badges" align="center">
-  <h2>Vincent Radford</h2>
-  <a href=https://www.linkedin.com/in/vincent-radford-1a9599173/>
+<div id="badges">
+  <h4>Vincent Radford</h4>
+  <a href=https://www.linkedin.com/in/vincent-radford-1a9599173>
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
 </div>
-<div id="badges" align="center">
-    <h2>Tien Hoang</h2>
-    <a href=https://www.linkedin.com/in/tien-hoang-6205b5281/>
+<div id="badges">
+    <h4>Tien Hoang</h4>
+    <a href=https://www.linkedin.com/in/tien-hoang-6205b5281>
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
 </div>
-<div id="badges" align="center">
-  <h2>Daniel Blanco</h2>
+<div id="badges">
+  <h4>Daniel Blanco</h4>
   <a href=https://www.linkedin.com/in/blancodaniel>
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
 </div>
-<div id="badges" align="center">
-  <h2>Dave Sexton</h2>
+<div id="badges">
+  <h4>Dave Sexton</h4>
   <a href=https://www.linkedin.com/in/dave-sexton-jr>
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
