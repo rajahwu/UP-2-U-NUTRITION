@@ -1,4 +1,6 @@
-<img src="/vite-project/public/images/logo.png" with="200" height="200" justify="center"/>
+<div align="center">
+   <img src="/vite-project/public/images/logo.png" with="200" height="200" justify="center"/>
+</div>
 
 Type the command:
 ```
