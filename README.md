@@ -4,6 +4,9 @@
 
 <div align="center" justify="center">
    <h2>Up 2 U Nutrition allows users to make orders, view information, and see upcoming events directly from the restaurant! Check it out <a href=https://up-2-u-nutrition.onrender.com>here</a>!</h2>
+   ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+   ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+   ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 </div>
 
 # Contributors:
