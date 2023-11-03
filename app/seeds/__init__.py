@@ -254,7 +254,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Mango Aloe', 'Lemon Tea', 'Lemon Liftoff', 'Blue Blast & Blue Raspberry flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -263,7 +263,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Cranberry Aloe', 'Raspberry Tea', 'Orange Liftoff', 'Orange & Tropical Punch flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -272,7 +272,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Mango Aloe', 'Peach Tea', 'Tropical Liftoff', 'Orange & Peach flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -281,7 +281,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Cranberry Aloe', 'Raspberry Tea', 'Pomegranate Liftoff', 'Strawberry & Blue Blast flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -290,7 +290,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Cranberry Aloe', 'Raspberry Tea', 'Lemon Liftoff', 'Lemon & Raspberry Lemonade flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -299,7 +299,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Mango Aloe', 'Raspberry Tea', 'Pineapple Liftoff', 'Passion Fruit & Peach flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -308,7 +308,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Mandarin Aloe', 'Raspberry Tea', 'Orange Liftoff', 'Watermelon & Strawberry flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -317,7 +317,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Mango Aloe', 'Raspberry Tea', 'Pineapple Liftoff', 'Coconut & Strawberry Flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -326,7 +326,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Mandarin Aloe', 'Original Tea', 'Blackberry Liftoff', 'Dragonfruit & Strawberry Kiwi flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -335,7 +335,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Cranberry Aloe', 'Raspberry Tea', 'Pomegranate Liftoff', 'Rainbow Candy & Cucumber Lime flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -344,7 +344,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Cranberry Aloe', 'Lemon Tea', 'Pomegranate Liftoff', 'Tropical Punch & Green Apple flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -362,7 +362,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ['Cranberry Aloe', 'Raspberry Tea', 'Pomegranate Liftoff', 'Watermelon & Raspberry Lemonade flavors'],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -371,7 +371,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ["Mango Aloe", "Raspberry Tea", "Tropical Liftoff", "Coconut & Watermelon"],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -380,7 +380,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ["Mango Aloe", "Peach Tea", "Orange Liftoff", "Peach & Orange"],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -389,7 +389,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ["Mandarin Aloe", "Raspberry Tea", "Pomegranate Liftoff", "Watermelon & Rainbow Candy"],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -407,7 +407,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ["Mango Aloe", "Peach Tea", "Tropical Liftoff", "Passion Fruit & Tropical Punch"],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -416,7 +416,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ["Mandarin Aloe", "Peach Tea", "Pineapple Liftoff", "Orange & Strawberry"],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -425,7 +425,7 @@ menu_data = [
         'price': 7.28,
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
-        'ingredients': ['Tea'],
+        'ingredients': ["Mandarin Aloe", "Raspberry Tea", "Pomegranate Liftoff", "Grape & Strawberry"],
         'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
         'weights': ["25","0","7g","21"]
     },
@@ -750,6 +750,42 @@ menu_data = [
         'ingredients':['Meal Shake', 'Protein Baked Goods', 'Egg', 'Oatmeal'],
         'nutrients':["Calories","Fat","Carb", "Fiber","Protein"],
         'weights':["413","11g","45g","8g","35g"]
+    },
+       {
+        'name': "Horchata / Venezuelan Chicha",
+        'price': 14.56,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein', 'Prolessa Duo (fat reducer)'],
+        'nutrients':["Calories","Fat","Carb","Protein"],
+        'weights':["270","10g","23g","24g"]
+    },
+       {
+        'name': "Tea-Tox",
+        'price': 8.32,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Aloe', 'Tea', 'Probiotics', 'Fiber'],
+        'nutrients':["Calories","Carb","Fiber"],
+        'weights':["35-40","9g","6g"]
+    },
+       {
+        'name': "Tea-Tox",
+        'price': 8.32,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Aloe Tea', 'Best Defense', 'Immunity Essentials'],
+        'nutrients':["Calories","Carb"],
+        'weights':["35-40","7g"]
+    },
+       {
+        'name': "Up2U Jugs",
+        'price': 8.32,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Aloe', 'Tea', 'Collagen', 'H3O', 'Liftoff', 'Protein Juice', 'Fiber'],
+        'nutrients':["Calories","Carb","Fiber","Protein"],
+        'weights':["305-315","44g","12g","32g"]
     },
 
 
