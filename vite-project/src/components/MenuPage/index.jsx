@@ -86,38 +86,38 @@ const OrderDetails = ({ item }) => {
           <button onClick={() => {
             setQuantity(quantity - 1)
             setPrice(price * quantity)
-            }} className="px-2 bg-orange-600 rounded-l-lg">-</button>
+          }} className="px-2 bg-orange-600 rounded-l-lg">-</button>
           <input className="w-5" type="text" value={quantity} onChange={(e) => {
             handleQuantityChange(quantity - 1)
-            }}/>
+          }} />
           <button onClick={() => {
-           handleQuantityChange(quantity + 1)
-            }} className="px-2 bg-orange-600 rounded-r-lg">+</button>
+            handleQuantityChange(quantity + 1)
+          }} className="px-2 bg-orange-600 rounded-r-lg">+</button>
         </div>
       </div>
       {addons
         ? addons["ADD-ONS"].map((addon, i) => {
-            return (
-              <div className="flex mx-5 my-3" key={i}>
-                <form>
-                  <div>
-                    <input
-                      className="mr-2"
-                      type="checkbox"
-                      name={addon.addon_name}
-                      value={addon["ADD-ONS"]}
-                      onChange={(e) => handleCheckboxChange(e, addon)}
-                    />
-                    <label className="" htmlFor={addon.addon_name}>
-                      {addon["ADD-ONS"]}
-                    </label>
-                    <span className="mx-3">$1.00</span>
-                  </div>
-                  <p>{addon["NUTRITIONAL FACTS"]}</p>
-                </form>
-              </div>
-            );
-          })
+          return (
+            <div className="flex mx-5 my-3" key={i}>
+              <form>
+                <div>
+                  <input
+                    className="mr-2"
+                    type="checkbox"
+                    name={addon.addon_name}
+                    value={addon["ADD-ONS"]}
+                    onChange={(e) => handleCheckboxChange(e, addon)}
+                  />
+                  <label className="" htmlFor={addon.addon_name}>
+                    {addon["ADD-ONS"]}
+                  </label>
+                  <span className="mx-3">$1.00</span>
+                </div>
+                <p>{addon["NUTRITIONAL FACTS"]}</p>
+              </form>
+            </div>
+          );
+        })
         : null}
       <div className="inline-flex flex-auto">
         <CancelOrderButton />
@@ -133,12 +133,19 @@ const MenuPage = () => {
   const menu1 = Object.values(useSelector((state) => state.menuReducer));
   const user = useSelector((state) => state.session.user);
   const navigate = useNavigate();
+  const [carouselDisabled, setCarouselDisabled] = useState(false);
+  const [flippedCardId, setFlippCardId] = useState(null);
+  const [cardWidth, setCardWidth] = useState("100%")
   console.log("menu", menu1);
   const cardContainerRef = useRef(null);
 
-  console.log("========", user);
+  // console.log("========", user);
 
-  const [flippedCardId, setFlippCardId] = useState(null);
+
+  const handleViewAllClick = () => {
+    setCarouselDisabled(!carouselDisabled);
+    setCardWidth(carouselDisabled ? "100%" : "50%")
+  };
 
   const flipCard = async (e) => {
     e.stopPropagation();
@@ -161,7 +168,7 @@ const MenuPage = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -202,8 +209,8 @@ const MenuPage = () => {
     console.log("menuSubset", menuSubset);
     return menuSubset.map((item, i) => {
       return (
-        <div key={i}>
-          <div id={i} key={i} ref={cardContainerRef} onClick={flipCard}>
+        <div className="outside-each-card" key={i}>
+          <div className="each-card" id={i} key={i} ref={cardContainerRef} onClick={flipCard}>
             {flippedCardId == i ? (
               <BackCardItem item={item} i={i} />
             ) : (
@@ -232,11 +239,11 @@ const MenuPage = () => {
               className="green-btn add-to-cart-btn"
               modalComponent={<OrderDetails item={item} />}
               buttonText="Add to Cart"
-              // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
-              // onModalClose,  // optional: callback function that will be called once the modal is closed
-              // className,
-              // id,
-              // style
+            // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
+            // onModalClose,  // optional: callback function that will be called once the modal is closed
+            // className,
+            // id,
+            // style
             />
           )}
         </div>
@@ -258,18 +265,25 @@ const MenuPage = () => {
         </div>
       ) : null}
       <MenuNav setCategory={setCategory} />
-      <div className="menu-item-container">
-        <Carousel
-          responsive={responsive}
-          containerClass="w-full h-full"
-          itemClass="carousel-item"
-          swipeable={true}
-          showDots={false}
-        >
-          {renderCarousel()}
-        </Carousel>
+      <div className="">
+        <button onClick={handleViewAllClick} className="blue-btn add-to-cart-btn">
+          {carouselDisabled ? "Group View" : "View All"}
+        </button>
       </div>
-    </div>
+      <div className={`menu-item-container ${carouselDisabled ? "group-view" : ""}`}>
+        {carouselDisabled ? renderCarousel() : (
+          <Carousel
+            responsive={responsive}
+            containerClass="w-full h-full"
+            itemClass="carousel-item"
+            swipeable={true}
+            showDots={false}
+          >
+            {renderCarousel()}
+          </Carousel>
+        )}
+      </div>
+    </div >
   );
 };
 
