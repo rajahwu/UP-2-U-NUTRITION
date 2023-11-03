@@ -7,7 +7,7 @@
 </div>
 
 ## Contributors:
-<div align="center">
+<div>
 <div id="badges" >
   <h4>Han Nguyen</h4>
   <a href=https://www.linkedin.com/in/han-nguyen-developer>
