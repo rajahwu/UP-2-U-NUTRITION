@@ -9,6 +9,7 @@ export const MenuNav = ({ setCategory }) => {
     "more for you",
     "stays active",
     "goodies",
+    "insaniteas"
   ];
 
   const handleMenuItemClick = (menuItem) => {

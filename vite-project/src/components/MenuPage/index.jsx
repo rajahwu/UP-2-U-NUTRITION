@@ -26,6 +26,7 @@ const AddToCartButton = ({ item, price }) => {
     <button
       onClick={() => handleAddToCart(item, 1)}
       className="green-btn w-full p-1"
+
     >
       Add to cart
     </button>
@@ -34,7 +35,9 @@ const AddToCartButton = ({ item, price }) => {
 
 const CancelOrderButton = () => {
   const { closeModal } = useModal()
+
   return <button onClick={() => closeModal()} className="red-btn w-full p-1">Cancel</button>
+
 }
 
 const OrderDetails = ({ item }) => {
@@ -45,6 +48,7 @@ const OrderDetails = ({ item }) => {
   const [price, setPrice] = useState(item.price);
   const [quantity, setQuantity] = useState(1);
   const [checkedAddons, setCheckedAddons] = useState([]);
+
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -58,7 +62,7 @@ const OrderDetails = ({ item }) => {
     setIsOpen2(!isOpen2)
   };
 
-  
+
 
   const handleCheckboxChange = (event, addon) => {
     const { checked } = event.target;
@@ -93,6 +97,7 @@ const OrderDetails = ({ item }) => {
 
   return (
     <div className="flex flex-col">
+
       <div className="flex justify-between border-b-2">
         <div className='p-3'>
           <h1 className="font-bold text-3xl">{item.name}</h1>
@@ -224,12 +229,19 @@ const MenuPage = () => {
   const menu1 = Object.values(useSelector((state) => state.menuReducer));
   const user = useSelector((state) => state.session.user);
   const navigate = useNavigate();
+  const [carouselDisabled, setCarouselDisabled] = useState(false);
+  const [flippedCardId, setFlippCardId] = useState(null);
+  const [cardWidth, setCardWidth] = useState("100%")
   console.log("menu", menu1);
   const cardContainerRef = useRef(null);
 
-  console.log("========", user);
+  // console.log("========", user);
 
-  const [flippedCardId, setFlippCardId] = useState(null);
+
+  const handleViewAllClick = () => {
+    setCarouselDisabled(!carouselDisabled);
+    setCardWidth(carouselDisabled ? "100%" : "50%")
+  };
 
   const flipCard = async (e) => {
     e.stopPropagation();
@@ -252,7 +264,7 @@ const MenuPage = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -293,8 +305,8 @@ const MenuPage = () => {
     console.log("menuSubset", menuSubset);
     return menuSubset.map((item, i) => {
       return (
-        <div key={i}>
-          <div id={i} key={i} ref={cardContainerRef} onClick={flipCard}>
+        <div className="outside-each-card" key={i}>
+          <div className="each-card" id={i} key={i} ref={cardContainerRef} onClick={flipCard}>
             {flippedCardId == i ? (
               <BackCardItem item={item} i={i} />
             ) : (
@@ -320,7 +332,7 @@ const MenuPage = () => {
             </div>
           ) : (
             <OpenModalButton
-              className="green-btn add-to-cart-btn"
+              className="green-btn add-to-cart-btn mb-3"
               modalComponent={<OrderDetails item={item} />}
               buttonText="Add to Cart"
               // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
@@ -349,16 +361,23 @@ const MenuPage = () => {
         </div>
       ) : null}
       <MenuNav setCategory={setCategory} />
-      <div className="menu-item-container">
-        <Carousel
-          responsive={responsive}
-          containerClass="w-full h-full"
-          itemClass="carousel-item"
-          swipeable={true}
-          showDots={false}
-        >
-          {renderCarousel()}
-        </Carousel>
+      <div className="">
+        <button onClick={handleViewAllClick} className="blue-btn add-to-cart-btn handle-view">
+          {carouselDisabled ? "Group View" : "View All"}
+        </button>
+      </div>
+      <div className={`menu-item-container ${carouselDisabled ? "group-view carousel-item2" : ""}`}>
+        {carouselDisabled ? renderCarousel() : (
+          <Carousel
+            responsive={responsive}
+            containerClass="w-full h-full"
+            itemClass="carousel-item"
+            swipeable={true}
+            showDots={false}
+          >
+            {renderCarousel()}
+          </Carousel>
+        )}
       </div>
     </div>
   );
