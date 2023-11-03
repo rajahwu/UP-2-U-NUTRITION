@@ -15,12 +15,16 @@ import DeleteItem from "./utility/forms/DeleteItem";
 import { AddItem } from "./utility/forms/AddItem";
 
 const AddToCartButton = ({ item, price }) => {
+  const user = useSelector(state => state.session.user)
   const { closeModal } = useModal()
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const handleAddToCart = (item, amount) => {
     item.price = price.toFixed(2);
     dispatch(addToCart(item, amount));
     closeModal()
+
   };
   return (
     <button
@@ -101,7 +105,7 @@ const OrderDetails = ({ item }) => {
           <h1 className="font-bold text-3xl">{item.name}</h1>
           <div className="flex">
             <h4 className="">${price?.toFixed(2)}</h4>
-            <h4>{item.nutritions.calories? (` | ${item.nutritions.calories}`): (null)}</h4>
+            <h4>{item.nutritions.calories ? (` | ${item.nutritions.calories}`) : (null)}</h4>
           </div>
         </div>
         <div className="flex flex-col p-3 w-50 justify-center">
@@ -110,19 +114,19 @@ const OrderDetails = ({ item }) => {
             <button onClick={() => {
               setQuantity(quantity - 1)
               setPrice(price * quantity)
-              }} className="px-2 rounded-l-lg text-center">-</button>
+            }} className="px-2 rounded-l-lg text-center">-</button>
             <input className="w-4 " type="text" value={quantity} onChange={(e) => {
               handleQuantityChange(quantity - 1)
-              }}/>
+            }} />
             <button onClick={() => {
-            handleQuantityChange(quantity + 1)
-              }} className="px-2rounded-r-lg text-center">+</button>
+              handleQuantityChange(quantity + 1)
+            }} className="px-2rounded-r-lg text-center">+</button>
           </div>
         </div>
       </div>
       <div>
-      <div className="description-container p-3" onClick={toggle}>
-            <div className='flex justify-between'>
+        <div className="description-container p-3" onClick={toggle}>
+          <div className='flex justify-between'>
             <h2 className="text-2xl">Ingredients</h2>
             <button className="show-more-button">
               {isOpen ? (
@@ -135,17 +139,17 @@ const OrderDetails = ({ item }) => {
                 </>
               )}
             </button>
-            </div>   
-              <div className="gap-3 break-normal">
-                {item.ingredients.map((ingredients, i) => {
-                  return (
-                    <p className={`ingredients-description ${isOpen ? "expanded" : ""}`} key={i}>{ingredients.ingredient_name}</p>
-                  )
-                })}
-              </div>
-      </div>
-      <div className="description-container p-3" onClick={toggle1}>
-            <div className='flex justify-between'>
+          </div>
+          <div className="gap-3 break-normal">
+            {item.ingredients.map((ingredients, i) => {
+              return (
+                <p className={`ingredients-description ${isOpen ? "expanded" : ""}`} key={i}>{ingredients.ingredient_name}</p>
+              )
+            })}
+          </div>
+        </div>
+        <div className="description-container p-3" onClick={toggle1}>
+          <div className='flex justify-between'>
             <h2 className="text-2xl">Nutrition</h2>
             <button className="show-more-button" >
               {isOpen1 ? (
@@ -158,21 +162,21 @@ const OrderDetails = ({ item }) => {
                 </>
               )}
             </button>
-            </div>   
-              <div className="">
-                {item.nutritions.map((nutrient, i) => {
-                  {console.log('nutrient', nutrient)}
-                  return (
-                    <div className={`ingredients-description ${isOpen1 ? "expanded" : ""} flex justify-between`} key={i}>
-                      <p>{nutrient.nutrient}</p>
-                      <p>{nutrient.weight}</p>
-                    </div>
-                  )
-                })}
-              </div>
-      </div>
-      <div className="p-3 " onClick={toggle2}>
-            <div className='flex justify-between'>
+          </div>
+          <div className="">
+            {item.nutritions.map((nutrient, i) => {
+              { console.log('nutrient', nutrient) }
+              return (
+                <div className={`ingredients-description ${isOpen1 ? "expanded" : ""} flex justify-between`} key={i}>
+                  <p>{nutrient.nutrient}</p>
+                  <p>{nutrient.weight}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+        <div className="p-3 " onClick={toggle2}>
+          <div className='flex justify-between'>
             <h2 className="text-2xl">Add-ons</h2>
             <button className="show-more-button" >
               {isOpen2 ? (
@@ -185,34 +189,34 @@ const OrderDetails = ({ item }) => {
                 </>
               )}
             </button>
-            </div>   
-              <div>
-              {addons
+          </div>
+          <div>
+            {addons
               ? addons["ADD-ONS"].map((addon, i) => {
-                  return (
-                    <div className={`ingredients-description ${isOpen2 ? "expanded" : ""}`} key={i}>
-                      <form className="">
-                        <div>
-                          <input
-                            className="mr-2"
-                            type="checkbox"
-                            name={addon.addon_name}
-                            value={addon["ADD-ONS"]}
-                            onChange={(e) => handleCheckboxChange(e, addon)}
-                          />
-                          <label className="" htmlFor={addon.addon_name}>
-                            {addon["ADD-ONS"]}
-                          </label>
-                          <span className="mx-3">$1.00</span>
-                        </div>
-                        <p>{addon["NUTRITIONAL FACTS"]}</p>
-                      </form>
-                    </div>
-                  );
-                })
+                return (
+                  <div className={`ingredients-description ${isOpen2 ? "expanded" : ""}`} key={i}>
+                    <form className="">
+                      <div>
+                        <input
+                          className="mr-2"
+                          type="checkbox"
+                          name={addon.addon_name}
+                          value={addon["ADD-ONS"]}
+                          onChange={(e) => handleCheckboxChange(e, addon)}
+                        />
+                        <label className="" htmlFor={addon.addon_name}>
+                          {addon["ADD-ONS"]}
+                        </label>
+                        <span className="mx-3">$1.00</span>
+                      </div>
+                      <p>{addon["NUTRITIONAL FACTS"]}</p>
+                    </form>
+                  </div>
+                );
+              })
               : null}
-              </div>
-      </div>
+          </div>
+        </div>
       </div>
       <div className="flex gap-3 p-3">
         <CancelOrderButton />
@@ -330,16 +334,18 @@ const MenuPage = () => {
               />
             </div>
           ) : (
-            <OpenModalButton
-              className="green-btn add-to-cart-btn mb-3"
-              modalComponent={<OrderDetails item={item} />}
-              buttonText="Add to Cart"
+            <div>
+              {user ? (<OpenModalButton
+                className="green-btn add-to-cart-btn mb-3"
+                modalComponent={<OrderDetails item={item} />}
+                buttonText="Add to Cart"
               // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
               // onModalClose,  // optional: callback function that will be called once the modal is closed
               // className,
               // id,
               // style
-            />
+              />) : (<button onClick={() => navigate('/login')} className="green-btn add-to-cart-btn mb-3">Login to Order</button>)}
+            </div>
           )}
         </div>
       );
