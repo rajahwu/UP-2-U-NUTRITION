@@ -36,17 +36,20 @@ export const RequestEventModal = () => {
     }
 
     return (
-        <div className="event-request-container">
-            <div className='event-bar event-green-bar'></div>
-            <div className='headers form-titles'>REQUEST EVENT</div>
+        <div className="w-full max-w-3xl m-auto">
+            <div className='event-bar event-green-bar w-full'></div>
+            <div className='headers form-titles p-3'>REQUEST EVENT</div>
             <div className="divider"></div>
-            <div className="request-event-form-btn">
-                <form className="form-request-event-container event-container" onSubmit={handleSubmit}>
-                    <div className="form-start-and-end">
-                        <div className="form-start">
-                            <label htmlFor="item-start">Start</label>
+            <div className="request-event-form-btn w-full flex flex-col p-8">
+                <form className="pt-8 flex flex-col space-y-10 " onSubmit={handleSubmit}>
+                    <div className="form-start-and-end flex flex-col space-y-10 ">
+                        <div className="flex space-x-3 place-content-center">
+                            <label htmlFor="item-start
+                            "
+                            className="p-3"
+                            >Start:</label>
                             <input
-                                className="form-date-inputs"
+                                className="bg-gray-100 rounded text-center h-10 txt-lg p-4"
                                 id="item-start"
                                 type="datetime-local"
                                 value={startTime}
@@ -54,10 +57,12 @@ export const RequestEventModal = () => {
                                 required
                             />
                         </div>
-                        <div className="form-end">
-                            <label htmlFor="item-end">End</label>
+                        <div className="flex space-x-3 place-content-center">
+                            <label htmlFor="item-end"
+                            className="p-3"
+                            >End:</label>
                             <input
-                                className="form-date-inputs"
+                                className="bg-gray-100 rounded text-center h-10 txt-lg p-4"
                                 id="item-end"
                                 type="datetime-local"
                                 value={endTime}
@@ -67,21 +72,12 @@ export const RequestEventModal = () => {
                         </div>
                     </div>
                     {isValid ? null : <div style={{ color: 'red' }}>Invalid Input</div>}
-                    <div className="form-email-phone">
-                        <label htmlFor="item-email-phone">Email or Phone</label>
-                        <input
-                            className="form-inputs"
-                            id="item-email-phone"
-                            type="text"
-                            value={emailOrPhone}
-                            onChange={handleEmailOrPhone}
-                            required
-                        />
-                    </div>
-                    <div className="form-description">
-                        <label htmlFor="item-description">Description</label>
+
+                    <div className="flex space-y-4 w-5/6 m-auto flex-col place-content-center">
+                        <label htmlFor="item-description"
+                        className="pt-3 pl-1">Description:</label>
                         <textarea
-                            className="form-inputs h-full"
+                            className="bg-gray-100 rounded  h-100 txt-lg resize-none p-3"
                             id="item-description"
                             type="text"
                             value={description}
@@ -89,10 +85,23 @@ export const RequestEventModal = () => {
                             required
                         />
                     </div>
-                </form>
+                    <div className="flex space-x-3 pt-7 place-content-center">
+                        <label htmlFor="item-email-phone"
+                        className="p-3"
+                        >Email/Phone:</label>
+                        <input
+                            className="bg-gray-100 rounded text-center h-10 txt-lg p-4"
+                            id="item-email-phone"
+                            type="text"
+                            value={emailOrPhone}
+                            onChange={handleEmailOrPhone}
+                            required
+                        />
+                    </div>
                 <div className="request-event-btn-container">
                     <button className="green-btn request-event-btn" type="submit">Submit</button>
                 </div>
+                </form>
             </div>
         </div >
     )
