@@ -6,8 +6,7 @@
    <h2>Up 2 U Nutrition allows users to make orders, view information, and see upcoming events directly from the restaurant! Check it out <a href=https://up-2-u-nutrition.onrender.com>here</a>!</h2>
 </div>
 
-# Contributors:
-<div>
+# Contributors: <div>
    <div id="badges" >
      <h4>Han Nguyen</h4>
      <a href=https://www.linkedin.com/in/han-nguyen-developer>
