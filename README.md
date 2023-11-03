@@ -4,6 +4,7 @@
 
 <div align="center" justify="center">
    <h2>Up 2 U Nutrition allows users to make orders, view information, and see upcoming events directly from the restaurant! Check it out <a href=https://up-2-u-nutrition.onrender.com>here</a>!</h2>
+</div>
 
 # Contributors:
 <div>
