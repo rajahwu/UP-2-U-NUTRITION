@@ -1,0 +1,28 @@
+{
+    "basics": [
+        {
+            "basics": "Shake Flavor + Protein",
+            "nutritional-facts": "200 calories, 4g fat, 18g carbs, 3g fiber, 24g protein",
+            "ingredients": "Protein base: Soy isolate (plant based)",
+            "name": "basics"
+        },
+        {
+            "basics": "Aloe",
+            "nutritional-facts": "0 to 5 calories",
+            "ingredients": null,
+            "name": "basics"
+        },
+        {
+            "basics": "Tea",
+            "nutritional-facts": "5 calories, 0-25-40-85mg caffeine",
+            "ingredients": null,
+            "name": "basics"
+        },
+        {
+            "basics": "SpecialTeas",
+            "nutritional-facts": "25 calories, 7g carbs, 0 sugar, 180mg caffeine",
+            "ingredients": null,
+            "name": "basics"
+        }
+    ]
+}

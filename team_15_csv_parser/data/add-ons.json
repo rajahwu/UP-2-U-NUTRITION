@@ -1,0 +1,79 @@
+{
+    "add-ons": [
+        {
+            "nutritional-facts": "15 - 30 calories, 6g soluble & insoluble fiber",
+            "price": "2.03",
+            "name": "Active fiber"
+        },
+        {
+            "nutritional-facts": "0 calories",
+            "price": "2.08",
+            "name": "Probiotic"
+        },
+        {
+            "nutritional-facts": "70 calories, 15g protein",
+            "price": "3.12",
+            "name": "Protein Juice"
+        },
+        {
+            "nutritional-facts": "75mg caffeine, vitamins C & Bs: B1, B2, B3, B5, B6, B7 & B12, panax ginseng",
+            "price": "3.12 / 4.16",
+            "name": "Liftoff"
+        },
+        {
+            "nutritional-facts": "60 calories, 5g fat, 4g fat, CLA",
+            "price": null,
+            "name": "Prolessa Duo (fat reducer)"
+        },
+        {
+            "nutritional-facts": "20 calories, 2g protein, vitamins A, C & E",
+            "price": null,
+            "name": "Collagen"
+        },
+        {
+            "nutritional-facts": "40 calories",
+            "price": "5.2",
+            "name": "Niteworks (Nitric Oxide)"
+        },
+        {
+            "nutritional-facts": "60 calories, electrolytes: potassium, sodium & magnesium, vitamins C & E",
+            "price": null,
+            "name": "H3O (hydration)"
+        },
+        {
+            "nutritional-facts": "15 calories, 1000mg vitamin C, Zinc, echinacea",
+            "price": null,
+            "name": "Best Defense "
+        },
+        {
+            "nutritional-facts": "10 calories, Epicor, Vitamins C & D, Zinc",
+            "price": "2.08",
+            "name": "Immunity Essentials"
+        },
+        {
+            "nutritional-facts": "100 calories, 15g protein, 2g sugar, 80mg caffeine",
+            "price": null,
+            "name": "Protein Coffee"
+        },
+        {
+            "nutritional-facts": null,
+            "price": null,
+            "name": "New Mom Supplement"
+        },
+        {
+            "nutritional-facts": null,
+            "price": null,
+            "name": "Kids Supplement"
+        },
+        {
+            "nutritional-facts": "140 calories, 10g protein, 4g fat, 15g carbs",
+            "price": "3.12",
+            "name": "Protein Bars"
+        },
+        {
+            "nutritional-facts": "65 calories, 4g protein, 7g carbs",
+            "price": "2.08",
+            "name": "Protein Bites"
+        }
+    ]
+}

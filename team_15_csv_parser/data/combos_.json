@@ -1,0 +1,52 @@
+{
+    "combos_": [
+        {
+            "combos": "Trusty Basic",
+            "mix": "Basic Aloe + Basic Tea + Basic Shake",
+            "price": "12",
+            "name": "combos_"
+        },
+        {
+            "combos": "VIP",
+            "mix": "SpecialTea + Basic Shake",
+            "price": "14",
+            "name": "combos_"
+        },
+        {
+            "combos": "Supah Basic",
+            "mix": "Basic Aloe + Basic Tea + Supah Shake",
+            "price": "13",
+            "name": "combos_"
+        },
+        {
+            "combos": "Supah Special",
+            "mix": "SpecialTea + Supah Shake",
+            "price": "16",
+            "name": "combos_"
+        },
+        {
+            "combos": "Waffle Basic",
+            "mix": "Basic Aloe + Basic Tea + Protein Waffles",
+            "price": "13",
+            "name": "combos_"
+        },
+        {
+            "combos": "Waffle Special",
+            "mix": "SpecialTea + Protein Waffles",
+            "price": "16",
+            "name": "combos_"
+        },
+        {
+            "combos": "Protein Bowl Basic",
+            "mix": "Basic Aloe + Basic Tea + Protein Bowl",
+            "price": "15",
+            "name": "combos_"
+        },
+        {
+            "combos": "Protein Bowl Special",
+            "mix": "SpecialTea + Protein Bowl",
+            "price": "18",
+            "name": "combos_"
+        }
+    ]
+}

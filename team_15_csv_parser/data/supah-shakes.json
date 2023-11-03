@@ -1,0 +1,144 @@
+{
+    "supah-shakes": [
+        {
+            "supah-shakes": "Oreo Explosion ",
+            "ingredients": "Cookies and cream, Vanilla Protein, Unflavored Fiber, Sugar Free Chocolate Syrup, Crumbled Oreos",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Fruity Pebbles ",
+            "ingredients": "Wild Berry, Orange Cream,Vanilla Protein, Unflavored Fiber,Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Churro **",
+            "ingredients": "Dulce de leche, Vanilla Protein, Unflavored Fiber, Chai Tea, Caramel Sugar Free Syrup, Cinnamon Toast Crunch Cereal",
+            "nutritional-facts": "aprox 270 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals; ** 85mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Caramel Pie",
+            "ingredients": "Dulce de Leche, Vanilla Protein, Apple Fiber, Caramel Sugar Free Syrup, Cinnamon ",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Banana Split",
+            "ingredients": "Wild Berry, Banana Caramel, Vanilla Protein, Unflavored fiber, Chocolate Sugar Free Syrup, Granola (contains almonds)",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Cookie Dough ",
+            "ingredients": "Dulce de Leche, Cookies and cream, Vanilla protein, Unflavored fiber, Caramel Sugar Free Syrup, Twix Powder",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Strawberry Cheesecake",
+            "ingredients": "Strawberry Cheesecake, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Graham Crackers Crumbs",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Caramel Frappe **",
+            "ingredients": "Dulce de Leche, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint of Caramel Macchiato Iced Protein Coffee ",
+            "nutritional-facts": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Minty Goodness",
+            "ingredients": "Mint Chocolate, Vanilla Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Toasted Pralines Latte **",
+            "ingredients": "Pralines & Cream, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint House Blend Iced Protein Coffee",
+            "nutritional-facts": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Captain Crunch",
+            "ingredients": "Pina Colada, Pralines & Cream, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Captain Crunch Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Mocha **",
+            "ingredients": "Cafe Latte, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Hint Mocha Iced Protein Coffee",
+            "nutritional-facts": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Mango Pina",
+            "ingredients": "Pina Colada, Mango Pineapple, Vanilla Protein, Tropical Fiber, Honey, Hint Peach Mango Protein Juice",
+            "nutritional-facts": "aprox 285 calories, 6g fat, 25g carbs, 10g fiber, 35g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Banana Nut",
+            "ingredients": "Banana Caramel, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Sliced Almonds",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Key West",
+            "ingredients": "Strawberry Cheesecake, Mango Pineapple, Vanilla Protein, Tropical Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Pumpkin Banana",
+            "ingredients": "Banana Caramel, Pumpkin Spice, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Granola (contains almonds)",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Thin Mint",
+            "ingredients": "Mint Chocolate, Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Brownie",
+            "ingredients": "Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Chocolate chips",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Vanilla Bean",
+            "ingredients": "French Vanilla, Cookies and Cream, Vanilla Protein, Unflavored Fiber, Cinnamon, Whipped Cream (contains dairy)",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Rainbow",
+            "ingredients": "Pina Colada, Orange Cream, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        }
+    ]
+}
