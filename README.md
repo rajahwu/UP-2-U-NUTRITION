@@ -52,13 +52,17 @@
 </div>
 </div>
 
+
+# How to run locally:
+1. Clone down the repo.
+
 2. Install dependencies
 
       ```bash
       pipenv install -r requirements.txt
       ```
 
-3. Rename the **.env.example** file to **.env** based on the example with proper settings for your
+3. Create a .env with the proper settings for your
    development environment
 
 4. Make sure the SQLite3 database connection URL is in the **.env** file
@@ -84,5 +88,18 @@
 
    ```bash
    flask run
+   ```
+   
+7. Get into the vite-app and run the Vite app
+   ```bash
+   cd vite-project
+   ```
+
+   ```bash
+   npm install
+   ```
+
+   ```bash
+   npm run dev
    ```
 
