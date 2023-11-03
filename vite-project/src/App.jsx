@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import LoginFormPage from "./components/LoginFormPage";
 import EditItem from "./components/MenuPage/utility/forms/EditItem";
 import { AddEvent } from "./components/Events/addEvent";
+import SignupFormPage from "./components/SignupFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,29 +25,6 @@ function App() {
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
-
-  const RedirectYourStory = ({ url, splashPageUrl }) => {
-    useEffect(() => {
-      const redirect = () => {
-        const a = document.createElement('a');
-        a.href = url;
-        a.target = '_blank';
-        a.click();
-
-        setTimeout(() => {
-          window.location.href = splashPageUrl;
-        }, 2000)
-      };
-
-      const timeout = setTimeout(redirect, 1000)
-
-      return () => clearTimeout(timeout)
-    }, [url, splashPageUrl]);
-
-    return <div className="redirecting">Redirecting...</div>;
-  }
-
-  const externalUrl = 'https://form.jotform.com/231567063516052';
 
   return (
     <>
@@ -60,9 +38,10 @@ function App() {
         <Route path="/events/add-event" element={<AddEvent />} />
         <Route path="/events/edit/:id" element={<AddEvent />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/your-story" element={<RedirectYourStory url={externalUrl} splashPageUrl='/' />} />
+        {/* <Route path="/your-story" element={} /> */}
         <Route path="/cart" element={<Cart />} />
         <Route path='/login' element={<LoginFormPage />} />
+        <Route path='/signup' element={<SignupFormPage />} />
       </Routes>
     </>
   );
