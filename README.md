@@ -6,38 +6,38 @@
    <h2>Up 2 U Nutrition allows users to make orders, view information, and see upcoming events directly from the restaurant! Check it out <a href=https://up-2-u-nutrition.onrender.com>here</a>!</h2>
 </div>
 
-## Contributors:
+# Contributors:
 <div>
-<div id="badges" >
-  <h4>Han Nguyen</h4>
-  <a href=https://www.linkedin.com/in/han-nguyen-developer>
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-  </a>
-</div>
-<div id="badges">
-  <h4>Vincent Radford</h4>
-  <a href=https://www.linkedin.com/in/vincent-radford-1a9599173>
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-  </a>
-</div>
-<div id="badges">
-    <h4>Tien Hoang</h4>
-    <a href=https://www.linkedin.com/in/tien-hoang-6205b5281>
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-  </a>
-</div>
-<div id="badges">
-  <h4>Daniel Blanco</h4>
-  <a href=https://www.linkedin.com/in/blancodaniel>
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-  </a>
-</div>
-<div id="badges">
-  <h4>Dave Sexton</h4>
-  <a href=https://www.linkedin.com/in/dave-sexton-jr>
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-  </a>
-</div>
+   <div id="badges" >
+     <h4>Han Nguyen</h4>
+     <a href=https://www.linkedin.com/in/han-nguyen-developer>
+       <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+     </a>
+   </div>
+   <div id="badges">
+     <h4>Vincent Radford</h4>
+     <a href=https://www.linkedin.com/in/vincent-radford-1a9599173>
+       <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+     </a>
+   </div>
+   <div id="badges">
+       <h4>Tien Hoang</h4>
+       <a href=https://www.linkedin.com/in/tien-hoang-6205b5281>
+       <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+     </a>
+   </div>
+   <div id="badges">
+     <h4>Daniel Blanco</h4>
+     <a href=https://www.linkedin.com/in/blancodaniel>
+       <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+     </a>
+   </div>
+   <div id="badges">
+     <h4>Dave Sexton</h4>
+     <a href=https://www.linkedin.com/in/dave-sexton-jr>
+       <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+     </a>
+   </div>
 </div>
   
 </div>
