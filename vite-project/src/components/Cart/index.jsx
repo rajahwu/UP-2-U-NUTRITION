@@ -5,6 +5,7 @@ import {
   getCartItems,
   updateCartItemAmount,
   removeFromCart,
+  placeOrderThunk,
 } from "../../store/cart";
 import "./Cart.css";
 
@@ -22,6 +23,32 @@ const Cart = () => {
   const navigate = useNavigate()
   const taxRate = 0.082;
   const convenienceFee = 0.33;
+
+  const cartItemArr = Object.values(cartItems)
+  // console.log("this is cart Items", cartItemArr)
+
+  const handlePlaceOrder = async () => {
+    // Create an array to store the order information for each item in the cart
+    const orderInfo = cartItemArr.map((item) => {
+      const addons = item.addons.map((addon) => addon['ADD-ONS']).join(', '); // Join addons with commas
+      // console.log("this is item addon", addons)
+      return `NEW ORDER: ${item.name} - ${addons}`;
+    });
+
+    // Join the order information with line breaks to separate each item
+    const orderMessage = orderInfo.join('\n');
+    console.log("this is order message=====", orderMessage)
+
+    // Dispatch the placeOrderThunk action with the order information
+    await dispatch(placeOrderThunk(orderMessage));
+
+    // Send a message with the order details
+    // You may want to replace this part with your actual SMS sending logic
+    // Example: sendSMS(orderMessage);
+
+    console.log("Order placed with the following items:", orderMessage);
+    // console.log(orderMessage);
+  };
 
   const handleAmountChange = (product, newAmount) => {
     product.amount = newAmount;
@@ -136,10 +163,10 @@ const Cart = () => {
         <div className="inline-flex flex-auto w-full">
           <button className="flex-1" onClick={() => {
             return navigate('/menu')
-            }}>
+          }}>
             Continue Shoping
           </button>
-          <button className="flex-1 green-btn your-cart-btn" type="submit">
+          <button onClick={handlePlaceOrder} className="flex-1 green-btn your-cart-btn" type="submit">
             Place Order
           </button>
         </div>

@@ -16,12 +16,6 @@ auth_token = os.environ['TWILIO_AUTH_TOKEN']
 twilio_number = os.environ['TWILIO_PHONE_NUMBER']
 client = Client(account_sid, auth_token)
 
-message = client.messages \
-    .create(
-        body='This is a Message from team 15',
-        from_=twilio_number,
-        to='+14692339320'
-    )
 
 # print(message.sid)
 

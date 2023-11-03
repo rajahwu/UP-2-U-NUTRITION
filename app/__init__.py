@@ -11,16 +11,19 @@ from .api.event_routes import event_routes
 from .api.menu_item_routes import menu_item_routes
 from .api.ingredient_routes import ingredient_routes
 from .api.nutrition_routes import nutrition_routes
+from .api.send_sms import twilio_routes
 from .seeds import seed_commands
 from .config import Config
 
 from flask import make_response
 
 
-app = Flask(__name__, static_folder='../vite-project/dist', static_url_path='/')
+app = Flask(__name__, static_folder='../vite-project/dist',
+            static_url_path='/')
 # app.run(debug=False)
 
-CORS(app, supports_credentials=True, origins="*", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+CORS(app, supports_credentials=True, origins="*",
+     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
 # Setup login manager
 login = LoginManager(app)
@@ -42,6 +45,7 @@ app.register_blueprint(event_routes, url_prefix='/api/events')
 app.register_blueprint(menu_item_routes, url_prefix='/api/menus')
 app.register_blueprint(ingredient_routes, url_prefix='/api/ingredients')
 app.register_blueprint(nutrition_routes, url_prefix='/api/nutritions')
+app.register_blueprint(twilio_routes, url_prefix='/api/twilio')
 db.init_app(app)
 Migrate(app, db)
 
@@ -92,11 +96,13 @@ def inject_csrf_token(response):
     # print("==================",response)
     return response
 
+
 @app.route('/set-cookie')
 def set_cookie():
     resp = make_response("Cookie Set")
     resp.set_cookie('test_cookie', 'test_value')
     return resp
+
 
 @app.route("/api/docs")
 def api_help():
@@ -104,9 +110,9 @@ def api_help():
     Returns all API routes and their doc strings
     """
     acceptable_methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
-    route_list = { rule.rule: [[ method for method in rule.methods if method in acceptable_methods ],
-                    app.view_functions[rule.endpoint].__doc__ ]
-                    for rule in app.url_map.iter_rules() if rule.endpoint != 'static' }
+    route_list = {rule.rule: [[method for method in rule.methods if method in acceptable_methods],
+                              app.view_functions[rule.endpoint].__doc__]
+                  for rule in app.url_map.iter_rules() if rule.endpoint != 'static'}
     return route_list
 
 
