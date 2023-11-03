@@ -7,17 +7,38 @@
 </div>
 
 # Contributors: 
-## Contributors
-
-
-|------|-------|-------|
-| Han Nguyen | Vincent Radford | Tien Hoang |
-| [![Han Nguyen](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/han-nguyen-developer) | [![Vincent Radford](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vincent-radford-1a9599173) | [![Tien Hoang](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tien-hoang-6205b5281) |
-
-
-|------|-------|-------|
-| [![Daniel Blanco](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/blancodaniel) | [![Dave Sexton](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dave-sexton-jr) |      |
-| Daniel Blanco | Dave Sexton |       |
+<div>
+<div id="badges" >
+  <h4>Han Nguyen</h4>
+  <a href=https://www.linkedin.com/in/han-nguyen-developer>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges">
+  <h4>Vincent Radford</h4>
+  <a href=https://www.linkedin.com/in/vincent-radford-1a9599173>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges">
+    <h4>Tien Hoang</h4>
+    <a href=https://www.linkedin.com/in/tien-hoang-6205b5281>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges">
+  <h4>Daniel Blanco</h4>
+  <a href=https://www.linkedin.com/in/blancodaniel>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges">
+  <h4>Dave Sexton</h4>
+  <a href=https://www.linkedin.com/in/dave-sexton-jr>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+</div>
 
 2. Install dependencies
 
