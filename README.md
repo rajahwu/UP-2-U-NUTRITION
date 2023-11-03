@@ -5,6 +5,40 @@
 <div align="center" justify="center">
    <h2>Up 2 U Nutrition allows users to make orders, view information, and see upcoming events directly from the restaurant! Check it out <a href=https://up-2-u-nutrition.onrender.com>here</a>!</h2>
 </div>
+
+## Contributors:
+<div>
+<div id="badges" align="center">
+  <h2>Han Nguyen</h2>
+  <a href=https://www.linkedin.com/in/han-nguyen-developer>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges" align="center">
+  <h2>Vincent Radford</h2>
+  <a href=https://www.linkedin.com/in/vincent-radford-1a9599173/>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges" align="center">
+    <h2>Tien Hoang</h2>
+    <a href=https://www.linkedin.com/in/tien-hoang-6205b5281/>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges" align="center">
+  <h2>Daniel Blanco</h2>
+  <a href=https://www.linkedin.com/in/blancodaniel>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+<div id="badges" align="center">
+  <h2>Dave Sexton</h2>
+  <a href=https://www.linkedin.com/in/dave-sexton-jr>
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+</div>
   
 </div>
 2. Install dependencies
