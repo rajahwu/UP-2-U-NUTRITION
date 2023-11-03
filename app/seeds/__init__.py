@@ -255,8 +255,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Sex on the Beach',
@@ -264,8 +264,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Sunset Crush',
@@ -273,8 +273,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Captain America',
@@ -282,8 +282,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Razzmatazz',
@@ -291,8 +291,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Passion Fruit',
@@ -300,8 +300,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Fruit Rollup',
@@ -309,8 +309,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Miami Vice',
@@ -318,8 +318,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Dragon Slayer',
@@ -327,8 +327,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Cucumberita',
@@ -336,8 +336,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Cosmo & Wanda',
@@ -345,8 +345,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Watermelon Splash',
@@ -354,8 +354,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Mangorita',
@@ -363,8 +363,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Cocomelon',
@@ -372,8 +372,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Peach Please',
@@ -381,8 +381,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': 'Cotton Candy',
@@ -390,8 +390,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': "Tropic Like It's Hot",
@@ -399,8 +399,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': "Hulk",
@@ -408,8 +408,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': "Beach Bum",
@@ -417,8 +417,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': "Grape-A-Liscious",
@@ -426,8 +426,8 @@ menu_data = [
         'image': 'https://i.imgur.com/qM8XnTT.jpg',
         'category': 'special teas',
         'ingredients': ['Tea'],
-        'nutrients': ["Calories","Sugar"],
-        'weights': ["25","0"]
+        'nutrients': ["Calories","Sugar","Carb","Vitamins & Minerals"],
+        'weights': ["25","0","7g","21"]
     },
     {
         'name': "Bad & Boujee",
@@ -435,6 +435,8 @@ menu_data = [
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
         'ingredients': ['hydration', 'orange liftoff', 'original tea', 'pineapple', 'tropical punch', 'blue blast'],
+        'nutrients':["Calories","Carb","Sugar","Caffeine","Vitamins & Minerals"],
+        'weights':["80","14g","12g","180mg","21"]
     },
     {
         'name': "Great Scott",
@@ -442,6 +444,8 @@ menu_data = [
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
         'ingredients':['Lime liftoff (x2)', 'original tea', 'cranberry Aloe', 'lemonade', 'limeade', 'blue raspberry'],
+        'nutrients':["Calories","Carb","Caffeine","Vitamins & Minerals"],
+        'weights':["40","8g","255mg","21"]
     },
     {
         'name': "Summer Refresher",
@@ -449,6 +453,8 @@ menu_data = [
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
         'ingredients':['collagen', 'pom Liftoff', 'lemon tea', 'cranberry Aloe', 'margarita', 'watermelon', 'cranberry'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["45","2g","2g","180mg","21"]
     },
     {
         'name': "Triple Berry Blast",
@@ -456,6 +462,8 @@ menu_data = [
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
         'ingredients':['Collagen & protein juice', 'tropical liftoff', 'Raspberry tea', 'Cranberry Aloe', 'strawberry'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["115","5g","17g","180mg","21"]
     },
     {
         'name': "Feel Good",
@@ -463,6 +471,8 @@ menu_data = [
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
         'ingredients':['immunity & probiotics', 'Lime liftoff', 'relaxation tea', 'mandarin Aloe', 'lemonade', 'limeade'],
+        'nutrients':["Calories","Carb","Caffeine","Vitamins & Minerals"],
+        'weights':["25","7g","75mg","21"]
     },
     {
         'name': "Hydrating Hi-C",
@@ -470,34 +480,46 @@ menu_data = [
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
         'ingredients':['hydration', 'orange liftoff', 'lemon tea', 'mango aloe', 'limeade', 'mango'],
+        'nutrients':["Calories","Carb","Sugar","Caffeine","Vitamins & Minerals"],
+        'weights':["80","14g","12g","180mg","21"]
+
+    },
+    {
+        'name': "Monster",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':["Aloe","Tea","Liftoff","Hydration"],
+        'nutrients':["Calories","Carb","Sugar","Caffeine","Vitamins & Minerals"],
+        'weights':["70","17g","9g","180mg","21"]
+
     },
     {
         'name': "Pink Starburst",
         'price': 10.40,
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
-        'ingredients':['collagen & protein juice', 'pomegranate tea', 'mango Aloe', 'strawberry', 'watermelon']
+        'ingredients':['collagen & protein juice', 'pomegranate tea', 'mango Aloe', 'strawberry', 'watermelon'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["90","5g","17g","45mg","21"]
     },
     {
         'name': "Acai Refresher",
         'price': 12.48,
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
-        'ingredients':['electrolytes', 'pom liftoff', 'raspberry tea', 'cranberry Aloe', 'strawberry', 'acai berry']
+        'ingredients':['electrolytes', 'pom liftoff', 'raspberry tea', 'cranberry Aloe', 'strawberry', 'acai berry'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["90","5g","17g","180mg","21"]
     },
     {
         'name': "Orange Starburst",
         'price': 11.44,
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
-        'ingredients':['Collagen & protein juice', 'orange liftoff', 'mandarin Aloe', 'orange pineapple']
-    },
-    {
-        'name': "Cran-Apple",
-        'price': 11.44,
-        'image': 'https://i.imgur.com/LRnUbYY.jpg',
-        'category': 'insaniteas',
-        'ingredients':['bcaa', 'pom liftoff', 'raspberry tea', 'cranberry Aloe', 'cranberry', 'green apple']
+        'ingredients':['Collagen & protein juice', 'orange liftoff', 'mandarin Aloe', 'orange pineapple'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["105","9g","17g","75mg","21"]
     },
     {
         'name': "Cran-Apple",
@@ -511,15 +533,226 @@ menu_data = [
         'price': 11.44,
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
-        'ingredients':['collagen', 'tropical liftoff', 'lemon tea', 'Mango Aloe', 'margarita', 'strawberry', 'pineapple']
+        'ingredients':['collagen', 'tropical liftoff', 'lemon tea', 'Mango Aloe', 'margarita', 'strawberry', 'pineapple'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["40","6g","2g","180mg","21"]
     },
     {
         'name': "Firecracker",
         'price': 11.44,
         'image': 'https://i.imgur.com/LRnUbYY.jpg',
         'category': 'insaniteas',
-        'ingredients':['collagen', 'tropical liftoff', 'lemon tea', 'Mango Aloe', 'margarita', 'strawberry', 'pineapple']
+        'ingredients':['collagen', 'lime liftoff', 'pomegranate tea', 'cranberry Aloe', 'limeade', 'blue raspberry', 'cherry'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["40","6g","2g","120mg","21"]
     },
+    {
+        'name': "Pretty in Pink",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['collagen & protein juice', 'pom liftoff', 'pomegranate tea', 'watermelon'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["15","4g","17g","120mg","21"]
+    },
+    {
+        'name': "Leaky Teaki",
+        'price': 13.52,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['hydration & vitamin c boost', 'pineapple liftoff', 'mango Aloe', 'coconut', 'strawberry'],
+        'nutrients':["Calories","Carb","Sugar","Caffeine","Vitamins & Minerals"],
+        'weights':["90","21g","12g","75mg","21"]
+    },
+    {
+        'name': "Emerald",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['protein juice', 'orange liftoff', 'original tea', 'mandarin Aloe', 'blue blast', 'pina colada'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["90","7g","15g","180mg","21"]
+    },
+    {
+        'name': "Reborn",
+        'price': 14.56,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['pom & blackberry liftoff & hydration', 'original tea', 'mandarin Aloe', 'Raspberry lemonade'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["95","22g","12g","255mg","21"]
+    },
+    {
+        'name': "Goblet of Fire",
+        'price': 10.40,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['hydration', 'orange liftoff', 'cranberry Aloe', 'cherry', 'watermelon'],
+        'nutrients':["Calories","Carb","Sugar","Caffeine","Vitamins & Minerals"],
+        'weights':["80","18g","12g","75mg","21"]
+    },
+    {
+        'name': "Golden Snitch",
+        'price': 10.40,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['protein juice', 'pineapple Liftoff', 'Mango Aloe', 'lemonade', 'pineapple'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["85","7g","15g","75mg","21"]
+    },
+    {
+        'name': "Amorentia (Love Potion)",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['protein juice', 'pineapple Liftoff', 'Mango Aloe', 'lemonade', 'pineapple']
+    },
+    {
+        'name': "Polyjuice Potion",
+        'price': 13.52,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['pre-workout', 'blackberry liftoff', 'cranberry Aloe', 'grape', 'blue blast'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["105","9g","17g","75mg","21"]
+    },
+    {
+        'name': "Sorcerer's Stone",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['hydration & protein juice', 'peach tea', 'Mango Aloe', 'mango', 'dragonfruit'],
+        'nutrients':["Calories","Carb","Sugar","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["135","17g","12g","15g","105mg","21"]
+    },
+    {
+        'name': "Gryffindor",
+        'price': 9.36,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['collagen', 'pom liftoff', 'pomegranate tea', 'lemonade', 'cherry'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["40","6g","2g","180mg","21"]
+    },
+    {
+        'name': "Hufflepuff",
+        'price': 11.44,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['protein juice', 'tropical liftoff', 'peach tea', 'mango Aloe', 'coconut', 'passion fruit'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["90","7g","15g","180mg","21"]
+    },
+    {
+        'name': "Ravenclaw",
+        'price': 10.40,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['collagen & bcaa', 'lemon tea', 'mandarin Aloe', 'margarita', 'blue blast'],
+        'nutrients':["Calories","Carb","Protein","Caffeine","Vitamins & Minerals"],
+        'weights':["50","2g","2g","105mg","21"]
+    },
+    {
+        'name': "Slytherin",
+        'price': 10.40,
+        'image': 'https://i.imgur.com/LRnUbYY.jpg',
+        'category': 'insaniteas',
+        'ingredients':['hydration', 'tropical liftoff', 'mango Aloe', 'orange pineapple', 'blue raspberry', 'blue blast'],
+        'nutrients':["Calories","Carb","Sugar","Caffeine","Vitamins & Minerals"],
+        'weights':["75","18g","12g","75mg","21"]
+    },
+    # {
+    #     'name': "Protein Shake",
+    #     'price': 10.40,
+    #     'image': 'https://i.imgur.com/LRnUbYY.jpg',
+    #     'category': 'vegan line',
+    #     'ingredients':['hydration', 'tropical liftoff', 'mango Aloe', 'orange pineapple', 'blue raspberry', 'blue blast'],
+    #     'nutrients':["Calories", "Fat","Carb","Sugar","Vitamins & Minerals"],
+    #     'weights':["130","4g","4g","12g","21"]
+    # },
+       {
+        'name': "Cafe con Leche",
+        'price': 10.40,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Protein Coffee', 'Prolessa Duo (fat reducer)'],
+        'nutrients':["Calories","Fat","Carb","Protein"],
+        'weights':["170","9g","9g","15g"]
+    },
+       {
+        'name': "Cake Pop",
+        'price': 2.08,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein', 'Dry Sugar Free Syrup Flavors'],
+        'nutrients':["Calories","Fat","Carb","Protein"],
+        'weights':["42","1g","5g","5g"]
+    },
+       {
+        'name': "Protein Donuts (each)",
+        'price': 3.12,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein Baked Goods', 'Eggs', 'Almond Flour', 'Coconut Oil', 'Sweetener'],
+        'nutrients':["Calories","Fat","Carb","Fiber","Protein"],
+        'weights':["136","10g","10g","3g","5g"]
+    },
+       {
+        'name': "Protein Churros",
+        'price': 9.36,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein Baked Goods', 'Egg'],
+        'nutrients':["Calories","Fat","Carb","Fiber","Protein"],
+        'weights':["272","9g","18g","3g","30g"]
+    },
+       {
+        'name': "Acai Bowl",
+        'price': 13,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein', 'Frozen Berries', 'Acai Powder & flavor', 'CR7'],
+        'nutrients':["Calories","Fat","Carb","Fiber","Protein"],
+        'weights':["307","7g","39g","7g","25g"]
+    },
+       {
+        'name': "Monkey Bowl",
+        'price': 13,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein', 'PBfit', 'Fiber', 'Frozen Bananas'],
+        'nutrients':["Calories","Fat","Carb","Fiber","Protein"],
+        'weights':["365","5g","58g","15g","30g"]
+    },
+       {
+        'name': "Tropical Fusion Bowl",
+        'price': 13,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein', 'Aloe', 'Fiber', 'Frozen Mangoes'],
+        'nutrients':["Calories","Fat","Carb","Fiber","Protein"],
+        'weights':["305","4g","48g","11g","25g"]
+    },
+       {
+        'name': "Lava Shake",
+        'price': 13.52,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein', 'Liftoff'],
+        'nutrients':["Calories","Fat","Carb","Protein"],
+        'weights':["245","5g","29g","25g"]
+    },
+       {
+        'name': "Protein Waffles",
+        'price': 11,
+        'image': 'https://i.imgur.com/ZpO0yi3.jpg',
+        'category': 'more for you',
+        'ingredients':['Meal Shake', 'Protein Baked Goods', 'Egg', 'Oatmeal'],
+        'nutrients':["Calories","Fat","Carb", "Fiber","Protein"],
+        'weights':["413","11g","45g","8g","35g"]
+    },
+
+
 ]
 
 # Creates the `flask seed all` command
