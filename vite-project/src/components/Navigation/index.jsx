@@ -11,7 +11,7 @@ function Navigation({ isLoaded }) {
 	const [menuImgSrc, setMenuImgSrc] = useState("/images/icons/menu.png");
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
-	const [yourstoryImgSrc, setYourstoryImgSrc] = useState("/images/icons/your_story.png")
+	// const [yourstoryImgSrc, setYourstoryImgSrc] = useState("/images/icons/your_story.png")
 	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png")
 	const user = useSelector(state => state.session.user);
 	const navigate = useNavigate();
@@ -60,20 +60,18 @@ function Navigation({ isLoaded }) {
 							onMouseLeave={() => setEventsImgSrc("/images/icons/events.png")}
 							alt="Events" />
 					</NavLink>
-					<NavLink exact="true" to="/your-story">
+					{/* <NavLink exact="true" to="/your-story">
 						<img id="sub-icon" src={yourstoryImgSrc}
 							onMouseEnter={() => setYourstoryImgSrc("/images/icons/your_story_ro.png")}
 							onMouseLeave={() => setYourstoryImgSrc("/images/icons/your_story.png")}
 							alt="Your Story" />
-					</NavLink>
+					</NavLink> */}
 					<NavLink exact="true" to="/cart">
 						<img id="sub-icon"
 							src={cartImgSrc}
 							alt="Cart" />
 					</NavLink>
-
-				</div>
-				{user ? (
+					{user ? (
 					<div onClick={handleLogout} className="cursor-pointer flex flex-col justify-center items-center">
 						<i className="fa-solid fa-arrow-right-from-bracket"></i>
 						<div className="p-1">Log Out</div>
@@ -84,6 +82,8 @@ function Navigation({ isLoaded }) {
 						<div className="p-1">Log In</div>
 					</div>
 				)}
+
+				</div>
 
 			</div>
 			<div className="all-line">

@@ -86,7 +86,6 @@ function LoginFormPage() {
                 />
               </div>
             </div>
-
             <div>
               <button 
                 type="submit" 

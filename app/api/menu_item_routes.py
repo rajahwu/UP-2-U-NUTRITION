@@ -4,6 +4,7 @@ from datetime import date
 from ..models.db import db
 from ..models.menus import MenuItem,Ingredient,Nutrition
 from ..forms.menu_form import MenuForm,IngredientForm,NutritionForm
+from .aws_helpers import (upload_file_to_s3, get_unique_filename)
 
 
 menu_item_routes = Blueprint('menu_items', __name__)
@@ -43,9 +44,18 @@ def create_menu_item():
     form = MenuForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
+
+        image = form.data['image']
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
+        print("====================upload:", upload)
+
+        if 'url' not in upload:
+            return {'error': 'Uh oh , fix the upload'}
+
         new_menu_item = MenuItem(
             name = form.data['name'],
-            image = form.data['image'],
+            image = upload['url'],
             category = form.data['category'],
             price = form.data['price'],
             created_at = date.today(),

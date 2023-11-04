@@ -10,18 +10,10 @@ export function AddItem() {
 
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
-  const [file, setFile] = useState("");
-  const [preview, setPreview] = useState("")
   const [currentIngredients, setCurrentIngredients] = useState("")
-  const [ingredients, setIngrediants] = useState([]);
-  const [nutrition, setNutrition] = useState([]);
   const [price, setPrice] = useState("");
   const [errors, setErrors] = useState([]);
-  const [submitted, setSubmitted] = useState(false)
   const [image, setImage] = useState("")
-  const [nutrient, setNutrient] = useState("")
-  const [weight, setWeight] = useState("")
-  const [percentage, setPercentage] = useState("")
   const [nutrientEntries, setNutrientEntries] = useState([{ nutrient: '', weight: '', percentage: '' }]);
 
 
@@ -56,8 +48,6 @@ export function AddItem() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-
-
     const newMenuItem = new FormData()
     newMenuItem.append("name", name)
     newMenuItem.append('image', image)
@@ -65,8 +55,7 @@ export function AddItem() {
     newMenuItem.append('price', price)
     newMenuItem.append('ingredient_name', currentIngredients)
 
-
-
+    
     const nutrientArray = [];
     const weightArray = [];
     const percentageArray = [];
@@ -105,8 +94,12 @@ export function AddItem() {
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
               Image
             </label>
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Image..." value={image}
-              onChange={(e) => setImage(e.target.value)} />
+            <input 
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" 
+              type="file" 
+              placeholder="Image"
+              accept=".jpg, .jpeg, .png"
+              onChange={(e) => setImage(e.target.files[0])} />
           </div>
           <div class="w-full md:w-1/2 px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
