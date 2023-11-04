@@ -235,7 +235,7 @@ const MenuPage = () => {
   const [carouselDisabled, setCarouselDisabled] = useState(false);
   const [flippedCardId, setFlippCardId] = useState(null);
   const [cardWidth, setCardWidth] = useState("100%")
-  console.log("menu", menu1);
+  // console.log("menu", menu1);
   const cardContainerRef = useRef(null);
 
   // console.log("========", user);
@@ -305,7 +305,7 @@ const MenuPage = () => {
         menuSubset.push(item);
       }
     });
-    console.log("menuSubset", menuSubset);
+    // console.log("menuSubset", menuSubset);
     return menuSubset.map((item, i) => {
       return (
         <div className="outside-each-card" key={i}>

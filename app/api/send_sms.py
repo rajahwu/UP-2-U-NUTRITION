@@ -24,13 +24,19 @@ client = Client(account_sid, auth_token)
 def send_sms():
     try:
         data = request.get_json()  # Parse JSON data sent from the front-end
-
-        if 'message' in data:
+        print("Received data ===========", data)
+        if 'message' in data and 'user' in data:
+            user = data['user']
             orderMessage = data['message']
+            # message = client.messages.create(
+            #     body=orderMessage,
+            #     from_=twilio_number,
+            #     to='+17147196461'
+            # )
             message = client.messages.create(
                 body=orderMessage,
                 from_=twilio_number,
-                to='+14692339320'
+                to='+12679078198'
             )
 
             return jsonify({"message": "SMS sent successfully"})
@@ -38,4 +44,5 @@ def send_sms():
             return jsonify({"error": "Invalid request format"})
 
     except Exception as e:
+        print("Error:", str(e))
         return jsonify({"error": str(e)})

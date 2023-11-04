@@ -45,7 +45,7 @@ export const removeFromCart = (menu_item) => async (dispatch) => {
 
 }
 
-export const placeOrderThunk = (order) => async (dispatch) => {
+export const placeOrderThunk = (order, user) => async (dispatch) => {
     console.log("this is order =====", order)
     const res = await fetch("/api/twilio", {
         method: "POST",
@@ -53,7 +53,8 @@ export const placeOrderThunk = (order) => async (dispatch) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            "message": order
+            "message": order,
+            "user": user
         }),
     })
     if (res.ok) {
