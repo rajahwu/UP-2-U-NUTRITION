@@ -14,19 +14,19 @@ import EditItem from "./utility/forms/EditItem";
 import DeleteItem from "./utility/forms/DeleteItem";
 import { AddItem } from "./utility/forms/AddItem";
 
-const AddToCartButton = ({ item, price }) => {
+const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal()
   const dispatch = useDispatch();
-  const handleAddToCart = (item, amount) => {
+  const handleAddToCart = (item, quantity) => {
     item.price = price.toFixed(2);
-    dispatch(addToCart(item, amount));
+    const itemWithAddons = { ...item, addons: checkedAddons };
+    dispatch(addToCart(itemWithAddons, quantity));
     closeModal()
   };
   return (
     <button
       onClick={() => handleAddToCart(item, 1)}
-      className="green-btn w-full p-1"
-
+      className="w-full p-1 green-btn"
     >
       Add to cart
     </button>
@@ -36,7 +36,7 @@ const AddToCartButton = ({ item, price }) => {
 const CancelOrderButton = () => {
   const { closeModal } = useModal()
 
-  return <button onClick={() => closeModal()} className="red-btn w-full p-1">Cancel</button>
+  return <button onClick={() => closeModal()} className="w-full p-1 red-btn">Cancel</button>
 }
 
 const OrderDetails = ({ item }) => {
@@ -65,27 +65,25 @@ const OrderDetails = ({ item }) => {
 
   const handleCheckboxChange = (event, addon) => {
     const { checked } = event.target;
-    const addonPrice = 1.0;
+    const addonPrice = parseFloat(addon.price);
     const updatedPrice = checked ? price + addonPrice : price - addonPrice;
     setPrice(updatedPrice);
     if (checked) {
       setCheckedAddons([...checkedAddons, addon]);
-      item.addons = checkedAddons;
     } else {
       const updatedAddons = checkedAddons.filter((a) => a !== addon);
       setCheckedAddons(updatedAddons);
-      item.addons = checkedAddons;
     }
   };
 
   const handleQuantityChange = (newQuantity) => {
     setQuantity(newQuantity);
-    setPrice(item.price * newQuantity);
+    setPrice(parseFloat(item.price) * newQuantity);
   };
 
 
   useEffect(() => {
-    import("../../../../team_15_csv_parser/data/addons.json")
+    import("../../../../team_15_csv_parser/data/add-ons.json")
       .then((module) => {
         setAddons(module.default);
       })
@@ -98,30 +96,30 @@ const OrderDetails = ({ item }) => {
     <div className="flex flex-col p-3">
       <div className="flex justify-between border-b-2">
         <div className='p-3'>
-          <h1 className="font-bold text-3xl">{item.name}</h1>
+          <h1 className="text-3xl font-bold">{item.name}</h1>
           <div className="flex">
-            <h4 className="">${price?.toFixed(2)}</h4>
+            <h4 className="">${parseFloat(price)?.toFixed(2)}</h4>
             <h4>{item.nutritions.calories? (` | ${item.nutritions.calories}`): (null)}</h4>
           </div>
         </div>
-        <div className="flex flex-col p-3 w-50 justify-center">
+        <div className="flex flex-col justify-center p-3 w-50">
           <h4>Quantity:</h4>
           <div className="flex items-center border-4">
             <button onClick={() => {
               setQuantity(quantity - 1)
-              setPrice(price * quantity)
-              }} className="px-2 rounded-l-lg text-center">-</button>
+              setPrice(parseFloat(price) * quantity)
+              }} className="px-2 text-center rounded-l-lg">-</button>
             <input className="w-4 " type="text" value={quantity} onChange={(e) => {
               handleQuantityChange(quantity - 1)
               }}/>
             <button onClick={() => {
             handleQuantityChange(quantity + 1)
-              }} className="px-2rounded-r-lg text-center">+</button>
+              }} className="text-center px-2rounded-r-lg">+</button>
           </div>
         </div>
       </div>
       <div>
-      <div className="description-container p-3" onClick={toggle}>
+      <div className="p-3 description-container" onClick={toggle}>
             <div className='flex justify-between'>
             <h2 className="text-2xl">Ingredients</h2>
             <button className="show-more-button">
@@ -144,7 +142,7 @@ const OrderDetails = ({ item }) => {
                 })}
               </div>
       </div>
-      <div className="description-container p-3" onClick={toggle1}>
+      <div className="p-3 description-container" onClick={toggle1}>
             <div className='flex justify-between'>
             <h2 className="text-2xl">Nutrition</h2>
             <button className="show-more-button" >
@@ -161,7 +159,7 @@ const OrderDetails = ({ item }) => {
             </div>   
               <div className="">
                 {item.nutritions.map((nutrient, i) => {
-                  {console.log('nutrient', nutrient)}
+                  // {console.log('nutrient', nutrient)}
                   return (
                     <div className={`ingredients-description ${isOpen1 ? "expanded" : ""} flex justify-between`} key={i}>
                       <p>{nutrient.nutrient}</p>
@@ -188,7 +186,8 @@ const OrderDetails = ({ item }) => {
             </div>   
               <div>
               {addons
-              ? addons["ADD-ONS"].map((addon, i) => {
+              ? addons["add-ons"].map((addon, i) => {
+                console.log(i, 'addon', addon)
                   return (
                     <div className={`ingredients-description ${isOpen2 ? "expanded" : ""}`} key={i}>
                       <form className="">
@@ -196,16 +195,20 @@ const OrderDetails = ({ item }) => {
                           <input
                             className="mr-2"
                             type="checkbox"
-                            name={addon.addon_name}
-                            value={addon["ADD-ONS"]}
+                            name={addon.name}
+                            value={addon.name}
                             onChange={(e) => handleCheckboxChange(e, addon)}
                           />
-                          <label className="" htmlFor={addon.addon_name}>
-                            {addon["ADD-ONS"]}
+                          <label className="" htmlFor={addon.name}>
+                            {addon.name}
                           </label>
-                          <span className="mx-3">$1.00</span>
+                          <span className="mx-3">{() => {
+                            if (addon.price === null)  addon.price = "1.00"
+                            if (addon.price.includes("/")) addon.price = parseFloat(addon.price.split("/")[0]).toFixed(2)
+                            else addon.price =  parseFloat(addon.price).toFixed(2)
+                          }}{addon.price} </span>
                         </div>
-                        <p>{addon["NUTRITIONAL FACTS"]}</p>
+                        <p>{addon["nutritional-facts"]}</p>
                       </form>
                     </div>
                   );
@@ -216,7 +219,7 @@ const OrderDetails = ({ item }) => {
       </div>
       <div className="flex gap-3 p-3">
         <CancelOrderButton />
-        <AddToCartButton item={item} price={price} />
+        <AddToCartButton item={item} price={parseFloat(price)} />
       </div>
     </div>
   );
@@ -301,7 +304,7 @@ const MenuPage = () => {
         menuSubset.push(item);
       }
     });
-    console.log("menuSubset", menuSubset);
+    // console.log("menuSubset", menuSubset);
     return menuSubset.map((item, i) => {
       return (
         <div className="outside-each-card" key={i}>
@@ -331,7 +334,7 @@ const MenuPage = () => {
             </div>
           ) : (
             <OpenModalButton
-              className="green-btn add-to-cart-btn mb-3"
+              className="mb-3 green-btn add-to-cart-btn"
               modalComponent={<OrderDetails item={item} />}
               buttonText="Add to Cart"
               // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
