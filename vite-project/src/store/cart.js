@@ -88,9 +88,14 @@ const cartReducer = (state = initialState, action) => {
 
     case REMOVE_FROM_CART:
       newState = { ...state };
-      delete newState[action.menu_item.id];
+      itemIdentifier = JSON.stringify({
+        id: action.menu_item.id,
+        name: action.menu_item.name,
+        addons: action.menu_item.addons,
+      });
+      delete newState[itemIdentifier];
       return newState;
-
+      
     default:
       return state;
   }

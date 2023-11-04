@@ -15,14 +15,15 @@ import DeleteItem from "./utility/forms/DeleteItem";
 import { AddItem } from "./utility/forms/AddItem";
 
 const AddToCartButton = ({ item, price, checkedAddons }) => {
-  const { closeModal } = useModal()
+  const { closeModal } = useModal();
   const dispatch = useDispatch();
+
   const handleAddToCart = (item, quantity) => {
     item.price = parseFloat(price.toFixed(2));
     const itemWithAddons = { ...item, addons: checkedAddons };
-    console.log("itemsWithAddons add to cart button", itemWithAddons)
+    console.log("itemsWithAddons add to cart button", itemWithAddons);
     dispatch(addToCart(itemWithAddons, quantity));
-    closeModal()
+    closeModal();
   };
   return (
     <button
@@ -35,10 +36,14 @@ const AddToCartButton = ({ item, price, checkedAddons }) => {
 };
 
 const CancelOrderButton = () => {
-  const { closeModal } = useModal()
+  const { closeModal } = useModal();
 
-  return <button onClick={() => closeModal()} className="w-full p-1 red-btn">Cancel</button>
-}
+  return (
+    <button onClick={() => closeModal()} className="w-full p-1 red-btn">
+      Cancel
+    </button>
+  );
+};
 
 const OrderDetails = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,25 +54,24 @@ const OrderDetails = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
   const [checkedAddons, setCheckedAddons] = useState([]);
 
-
   const toggle = () => {
     setIsOpen(!isOpen);
   };
 
   const toggle1 = () => {
-    setIsOpen1(!isOpen1)
+    setIsOpen1(!isOpen1);
   };
 
   const toggle2 = () => {
-    setIsOpen2(!isOpen2)
+    setIsOpen2(!isOpen2);
   };
-
-
 
   const handleCheckboxChange = (event, addon) => {
     const { checked } = event.target;
     const addonPrice = parseFloat(addon.price);
-    const updatedPrice = checked ? parseFloat(price) + addonPrice : parseFloat(price) - parseFloat(addonPrice);
+    const updatedPrice = checked
+      ? parseFloat(price) + addonPrice
+      : parseFloat(price) - parseFloat(addonPrice);
     setPrice(updatedPrice);
     if (checked) {
       setCheckedAddons([...checkedAddons, addon]);
@@ -83,7 +87,6 @@ const OrderDetails = ({ item }) => {
     setPrice(parseFloat(item.price) * newQuantity);
   };
 
-
   useEffect(() => {
     import("../../../../team_15_csv_parser/data/add-ons.json")
       .then((module) => {
@@ -97,33 +100,52 @@ const OrderDetails = ({ item }) => {
   return (
     <div className="flex flex-col p-3">
       <div className="flex justify-between border-b-2">
-        <div className='p-3'>
+        <div className="p-3">
           <h1 className="text-3xl font-bold">{item.name}</h1>
           <div className="flex">
             <h4 className="">${parseFloat(price)?.toFixed(2)}</h4>
-            <h4>{item.nutritions.calories? (` | ${item.nutritions.calories}`): (null)}</h4>
+            <h4>
+              {item.nutritions.calories
+                ? ` | ${item.nutritions.calories}`
+                : null}
+            </h4>
           </div>
         </div>
         <div className="flex flex-col justify-center p-3 w-50">
           <h4>Quantity:</h4>
           <div className="flex items-center border-4">
-            <button onClick={() => {
-              if (quantity > 1) {
-                handleQuantityChange(quantity - 1)
-              }
-              }} className="px-2 text-center rounded-l-lg">-</button>
-            <input className="w-4 " type="text" value={quantity} onChange={(e) => {
-              handleQuantityChange(quantity - 1)
-              }}/>
-            <button onClick={() => {
-            handleQuantityChange(quantity + 1)
-              }} className="text-center px-2rounded-r-lg">+</button>
+            <button
+              onClick={() => {
+                if (quantity > 1) {
+                  handleQuantityChange(quantity - 1);
+                }
+              }}
+              className="px-2 text-center rounded-l-lg"
+            >
+              -
+            </button>
+            <input
+              className="w-4 "
+              type="text"
+              value={quantity}
+              onChange={(e) => {
+                handleQuantityChange(quantity - 1);
+              }}
+            />
+            <button
+              onClick={() => {
+                handleQuantityChange(quantity + 1);
+              }}
+              className="text-center px-2rounded-r-lg"
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
       <div>
-      <div className="p-3 description-container" onClick={toggle}>
-            <div className='flex justify-between'>
+        <div className="p-3 description-container" onClick={toggle}>
+          <div className="flex justify-between">
             <h2 className="text-2xl">Ingredients</h2>
             <button className="show-more-button">
               {isOpen ? (
@@ -136,19 +158,26 @@ const OrderDetails = ({ item }) => {
                 </>
               )}
             </button>
-            </div>   
-              <div className="gap-3 break-normal">
-                {item.ingredients.map((ingredients, i) => {
-                  return (
-                    <p className={`ingredients-description ${isOpen ? "expanded" : ""}`} key={i}>{ingredients.ingredient_name}</p>
-                  )
-                })}
-              </div>
-      </div>
-      <div className="p-3 description-container" onClick={toggle1}>
-            <div className='flex justify-between'>
+          </div>
+          <div className="gap-3 break-normal">
+            {item.ingredients.map((ingredients, i) => {
+              return (
+                <p
+                  className={`ingredients-description ${
+                    isOpen ? "expanded" : ""
+                  }`}
+                  key={i}
+                >
+                  {ingredients.ingredient_name}
+                </p>
+              );
+            })}
+          </div>
+        </div>
+        <div className="p-3 description-container" onClick={toggle1}>
+          <div className="flex justify-between">
             <h2 className="text-2xl">Nutrition</h2>
-            <button className="show-more-button" >
+            <button className="show-more-button">
               {isOpen1 ? (
                 <>
                   <i className="fa-solid fa-angle-up"></i>
@@ -159,23 +188,28 @@ const OrderDetails = ({ item }) => {
                 </>
               )}
             </button>
-            </div>   
-              <div className="">
-                {item.nutritions.map((nutrient, i) => {
-                  // {console.log('nutrient', nutrient)}
-                  return (
-                    <div className={`ingredients-description ${isOpen1 ? "expanded" : ""} flex justify-between`} key={i}>
-                      <p>{nutrient.nutrient}</p>
-                      <p>{nutrient.weight}</p>
-                    </div>
-                  )
-                })}
-              </div>
-      </div>
-      <div className="p-3 " onClick={toggle2}>
-            <div className='flex justify-between'>
+          </div>
+          <div className="">
+            {item.nutritions.map((nutrient, i) => {
+              // {console.log('nutrient', nutrient)}
+              return (
+                <div
+                  className={`ingredients-description ${
+                    isOpen1 ? "expanded" : ""
+                  } flex justify-between`}
+                  key={i}
+                >
+                  <p>{nutrient.nutrient}</p>
+                  <p>{nutrient.weight}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="p-3 " onClick={toggle2}>
+          <div className="flex justify-between">
             <h2 className="text-2xl">Add-ons</h2>
-            <button className="show-more-button" >
+            <button className="show-more-button">
               {isOpen2 ? (
                 <>
                   <i className="fa-solid fa-angle-up"></i>
@@ -186,13 +220,18 @@ const OrderDetails = ({ item }) => {
                 </>
               )}
             </button>
-            </div>   
-              <div>
-              {addons
+          </div>
+          <div>
+            {addons
               ? addons["add-ons"].map((addon, i) => {
-                // console.log(i, 'addon', addon)
+                  // console.log(i, 'addon', addon)
                   return (
-                    <div className={`ingredients-description ${isOpen2 ? "expanded" : ""}`} key={i}>
+                    <div
+                      className={`ingredients-description ${
+                        isOpen2 ? "expanded" : ""
+                      }`}
+                      key={i}
+                    >
                       <form className="">
                         <div>
                           <input
@@ -205,11 +244,20 @@ const OrderDetails = ({ item }) => {
                           <label className="" htmlFor={addon.name}>
                             {addon.name}
                           </label>
-                          <span className="mx-3">{() => {
-                            if (addon.price === null)  addon.price = "1.00"
-                            if (addon.price.includes("/")) addon.price = parseFloat(addon.price.split("/")[0]).toFixed(2)
-                            else addon.price =  parseFloat(addon.price).toFixed(2)
-                          }}{addon.price} </span>
+                          <span className="mx-3">
+                            {() => {
+                              if (addon.price === null) addon.price = "1.00";
+                              if (addon.price.includes("/"))
+                                addon.price = parseFloat(
+                                  addon.price.split("/")[0]
+                                ).toFixed(2);
+                              else
+                                addon.price = parseFloat(addon.price).toFixed(
+                                  2
+                                );
+                            }}
+                            {addon.price ?? "1.00"}{" "}
+                          </span>
                         </div>
                         <p>{addon["nutritional-facts"]}</p>
                       </form>
@@ -217,12 +265,16 @@ const OrderDetails = ({ item }) => {
                   );
                 })
               : null}
-              </div>
-      </div>
+          </div>
+        </div>
       </div>
       <div className="flex gap-3 p-3">
         <CancelOrderButton />
-        <AddToCartButton item={item} price={parseFloat(price)} checkedAddons={checkedAddons}/>
+        <AddToCartButton
+          item={item}
+          price={parseFloat(price)}
+          checkedAddons={checkedAddons}
+        />
       </div>
     </div>
   );
@@ -236,16 +288,15 @@ const MenuPage = () => {
   const navigate = useNavigate();
   const [carouselDisabled, setCarouselDisabled] = useState(false);
   const [flippedCardId, setFlippCardId] = useState(null);
-  const [cardWidth, setCardWidth] = useState("100%")
+  const [cardWidth, setCardWidth] = useState("100%");
   // console.log("menu", menu1);
   const cardContainerRef = useRef(null);
 
   // console.log("========", user);
 
-
   const handleViewAllClick = () => {
     setCarouselDisabled(!carouselDisabled);
-    setCardWidth(carouselDisabled ? "100%" : "50%")
+    setCardWidth(carouselDisabled ? "100%" : "50%");
   };
 
   const flipCard = async (e) => {
@@ -311,7 +362,13 @@ const MenuPage = () => {
     return menuSubset.map((item, i) => {
       return (
         <div className="outside-each-card" key={i}>
-          <div className="each-card" id={i} key={i} ref={cardContainerRef} onClick={flipCard}>
+          <div
+            className="each-card"
+            id={i}
+            key={i}
+            ref={cardContainerRef}
+            onClick={flipCard}
+          >
             {flippedCardId == i ? (
               <BackCardItem item={item} i={i} />
             ) : (
@@ -367,12 +424,21 @@ const MenuPage = () => {
       ) : null}
       <MenuNav setCategory={setCategory} />
       <div className="">
-        <button onClick={handleViewAllClick} className="blue-btn add-to-cart-btn handle-view">
+        <button
+          onClick={handleViewAllClick}
+          className="blue-btn add-to-cart-btn handle-view"
+        >
           {carouselDisabled ? "Group View" : "View All"}
         </button>
       </div>
-      <div className={`menu-item-container ${carouselDisabled ? "group-view carousel-item2" : ""}`}>
-        {carouselDisabled ? renderCarousel() : (
+      <div
+        className={`menu-item-container ${
+          carouselDisabled ? "group-view carousel-item2" : ""
+        }`}
+      >
+        {carouselDisabled ? (
+          renderCarousel()
+        ) : (
           <Carousel
             responsive={responsive}
             containerClass="w-full h-full"
