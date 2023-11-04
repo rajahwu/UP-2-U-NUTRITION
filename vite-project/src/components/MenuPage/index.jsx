@@ -18,8 +18,9 @@ const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal()
   const dispatch = useDispatch();
   const handleAddToCart = (item, quantity) => {
-    item.price = price.toFixed(2);
+    item.price = parseFloat(price.toFixed(2));
     const itemWithAddons = { ...item, addons: checkedAddons };
+    console.log("itemsWithAddons add to cart button", itemWithAddons)
     dispatch(addToCart(itemWithAddons, quantity));
     closeModal()
   };
@@ -44,7 +45,7 @@ const OrderDetails = ({ item }) => {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [addons, setAddons] = useState();
-  const [price, setPrice] = useState(item.price);
+  const [price, setPrice] = useState(parseFloat(item.price));
   const [quantity, setQuantity] = useState(1);
   const [checkedAddons, setCheckedAddons] = useState([]);
 
@@ -66,7 +67,7 @@ const OrderDetails = ({ item }) => {
   const handleCheckboxChange = (event, addon) => {
     const { checked } = event.target;
     const addonPrice = parseFloat(addon.price);
-    const updatedPrice = checked ? price + addonPrice : price - addonPrice;
+    const updatedPrice = checked ? parseFloat(price) + addonPrice : parseFloat(price) - parseFloat(addonPrice);
     setPrice(updatedPrice);
     if (checked) {
       setCheckedAddons([...checkedAddons, addon]);
@@ -187,7 +188,7 @@ const OrderDetails = ({ item }) => {
               <div>
               {addons
               ? addons["add-ons"].map((addon, i) => {
-                console.log(i, 'addon', addon)
+                // console.log(i, 'addon', addon)
                   return (
                     <div className={`ingredients-description ${isOpen2 ? "expanded" : ""}`} key={i}>
                       <form className="">
@@ -219,7 +220,7 @@ const OrderDetails = ({ item }) => {
       </div>
       <div className="flex gap-3 p-3">
         <CancelOrderButton />
-        <AddToCartButton item={item} price={parseFloat(price)} />
+        <AddToCartButton item={item} price={parseFloat(price)} checkedAddons={checkedAddons}/>
       </div>
     </div>
   );
@@ -234,7 +235,7 @@ const MenuPage = () => {
   const [carouselDisabled, setCarouselDisabled] = useState(false);
   const [flippedCardId, setFlippCardId] = useState(null);
   const [cardWidth, setCardWidth] = useState("100%")
-  console.log("menu", menu1);
+  // console.log("menu", menu1);
   const cardContainerRef = useRef(null);
 
   // console.log("========", user);

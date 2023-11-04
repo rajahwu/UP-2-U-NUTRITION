@@ -108,7 +108,7 @@ const Cart = () => {
               </div>
               <div className="self-start mx-14">
                 {product.addons?.map((addon, i) => (
-                  <p key={i}>w. {addon["ADD-ONS"]}</p>
+                  <p key={i}>w. {addon.name}</p>
                 ))}
               </div>
             </div>
