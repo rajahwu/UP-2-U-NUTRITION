@@ -39,7 +39,7 @@ export const getAllMenuItemThunk = () => async (dispatch) => {
 }
 
 export const createMenuItemThunk = (data) => async (dispatch) => {
-    // console.log("========= this is data", data)
+    console.log("========= this is data", data)
     const res = await fetch("/api/menus", {
         method: 'POST',
         body: data,
@@ -51,10 +51,7 @@ export const createMenuItemThunk = (data) => async (dispatch) => {
         dispatch(actionAddMenuItem(resMenuItem))
         return resMenuItem
     } else {
-        const error = await res.json()
-        if (error.errors) {
-            return error
-        }
+        console.log("There was an error making your post!")
     }
 }
 
@@ -109,7 +106,7 @@ const menuReducer = (state = initialState, action) => {
             delete newState[action.menu_id]
             return newState
         default:
-            return state
+            return state;
     }
 }
 
