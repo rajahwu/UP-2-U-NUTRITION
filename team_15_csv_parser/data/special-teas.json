@@ -1,0 +1,124 @@
+{
+    "special-teas": [
+        {
+            "special-teas": "Beach Bum",
+            "ingredients": "Mandarin Aloe, Peach Tea, Pineapple Liftoff, Orange & Strawberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Captain America",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Pomegranate Liftoff, Strawberry & Blue Blast flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Cotton Candy",
+            "ingredients": "Mandarin Aloe, Raspberry Tea, Pomegranate Liftoff, Watermelon & Rainbow Candy flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Watermelon Splash",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Pomegranate Liftoff, Watermelon & Raspberry Lemonade flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Cosmo & Wanda",
+            "ingredients": "Cranberry Aloe, Lemon Tea, Pomegranate LIftoff, Tropical Punch & Green Apple flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Fruit Rollup",
+            "ingredients": "Mandarin Aloe, Raspberry Tea, Orange Liftoff, Watermelon & Strawberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Sunset Crush",
+            "ingredients": "Mango Aloe, Peach Tea, Tropical Liftoff, Orange & Peach flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Hulk",
+            "ingredients": "Mango Aloe, Lemon Tea, Lemon Liftoff, Green Apple & Grape flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Tropic like it's hot",
+            "ingredients": "Mango Aloe, Peach Tea, Tropical Liftoff, Passion Fruit & Tropical Punch flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "MangoRita",
+            "ingredients": "Mango Aloe, Peach Tea, Lemon Liftoff, Margarita & Mango flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Miami Vice",
+            "ingredients": "Mango Aloe, Raspberry Tea, Pineapple Liftoff, Coconut & Strawberry Flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Passion Fruit",
+            "ingredients": "Mango Aloe, Raspberry Tea, Pineapple Liftoff, Passion Fruit & Peach flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Peach Please!",
+            "ingredients": "Mango Aloe, Peach Tea, Orange Liftoff, Peach & Orange flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Razzmatazz",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Lemon Liftoff, Lemon & Raspberry Lemonade flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Sex on the beach",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Orange Liftoff, Orange & Tropical Punch flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Grape-a-liscious",
+            "ingredients": "Mandarin Aloe, Raspberry Tea, Pomegranate Liftoff, Grape & Strawberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Smurfs Up",
+            "ingredients": "Mango Aloe, Lemon Tea, Lemon Liftoff, Blue Blast & Blue Raspberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Cucumberita",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Pomegranate Liftoff, Rainbow Candy & Cucumber Lime flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Dragon Slayer",
+            "ingredients": "Mandarin Aloe, Original Tea, Blackberry Liftoff, Dragonfruit & Strawberry Kiwi flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "CocoMelon",
+            "ingredients": "Mango Aloe, Raspberry Tea, Tropical Liftoff, Coconut & Watermelon flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        }
+    ]
+}

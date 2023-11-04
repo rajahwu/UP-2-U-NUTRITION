@@ -5,27 +5,28 @@
 ```kotlin
 .
 ├── csv
-│   ├── addons.csv
-│   ├── basic.csv
-│   ├── combos.csv
+│   ├── add-ons.csv
+│   ├── basics.csv
+│   ├── combos_.csv
 │   ├── insaniteas.csv
 │   ├── more.csv
-│   ├── sheet.csv
-│   └── supa.csv
+│   ├── special-teas.csv
+│   ├── supah-shakes.csv
+│   └── vegan-line.csv
 ├── data
-│   ├── addons.json
-│   ├── basic.json
-│   ├── combos.json
+│   ├── add-ons.json
+│   ├── basics.json
+│   ├── combos_.json
 │   ├── insaniteas.json
 │   ├── more.json
-│   ├── sheet.json
-│   └── supa.json
+│   ├── special-teas.json
+│   ├── supah-shakes.json
+│   └── vegan-line.json
 ├── data.json
 ├── data_gen.py
-├── move_files.sh
 ├── parse_sheet.py
-└── readme.md
-
+├── readme.md
+└── sanitize_and_move_cvs.sh
 ```
 
 This directory contains various files and scripts for managing and processing data in CSV and JSON formats.

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import OpenModalButton from "../OpenModalButton"
 import {
   getCartItems,
   updateCartItemAmount,
@@ -17,10 +18,24 @@ function calculateTotalPrice(items) {
   return parseFloat(totalPrice.toFixed(2));
 }
 
+const placeOrder = () => {
+  console.log("Order Placed")
+}
+
+const OrderConfirmation = () => {
+  return (
+    <div className="p-5 text-xl">
+      <div className="text-2xl text-sky-500">Thank you for your order!</div>
+      <div>Order Number: 123456789</div>
+      <div className="text-theme-green">Pick Up</div>
+    </div>
+  );
+};
+
 const Cart = () => {
   const cartItems = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const taxRate = 0.082;
   const convenienceFee = 0.33;
 
@@ -78,7 +93,7 @@ const Cart = () => {
   const tax = subtotal * taxRate;
   const total = subtotal + tax + convenienceFee;
 
-  console.log("productsInCartList", productsInCartList);
+  // console.log("productsInCartList", productsInCartList);
   return (
     <div className="your-cart-container">
       <div className="headers bg-titles-yellow">YOUR CART</div>
@@ -120,7 +135,7 @@ const Cart = () => {
               </div>
               <div className="self-start mx-14">
                 {product.addons?.map((addon, i) => (
-                  <p key={i}>w. {addon["ADD-ONS"]}</p>
+                  <p key={i}>w. {addon.name}</p>
                 ))}
               </div>
             </div>
@@ -161,14 +176,25 @@ const Cart = () => {
         </div>
         <div>Any price may variate for any special modification</div>
         <div className="inline-flex flex-auto w-full">
-          <button className="flex-1" onClick={() => {
-            return navigate('/menu')
-          }}>
+          <button
+            className="flex-1"
+            onClick={() => {
+              return navigate("/menu");
+            }}
+          >
             Continue Shoping
           </button>
-          <button onClick={handlePlaceOrder} className="flex-1 green-btn your-cart-btn" type="submit">
-            Place Order
-          </button>
+
+          <OpenModalButton 
+           modalComponent={<OrderConfirmation />} 
+           buttonText="Place Order"
+           onButtonClick={() => placeOrder()} 
+           onModalClose ={() => navigate("/menu")}
+           className="flex-1 green-btn your-cart-btn"
+          //  id=""
+          //  style=""
+           />
+
         </div>
       </div>
     </div>

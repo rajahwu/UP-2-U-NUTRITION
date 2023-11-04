@@ -1,134 +1,186 @@
 {
-    "INSANITEAS": [
+    "insaniteas": [
         {
-            "NUTRITIONAL FACTS": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Protein",
-            "INSANITEAS": "Emerald"
+            "insaniteas": "Emerald",
+            "nutritional-facts": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals ",
-            "INGREDIENTS": "Tea, Liftoff, Hydration",
-            "INSANITEAS": "Bad & Boujee"
+            "insaniteas": "Bad & Boujee",
+            "nutritional-facts": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals ",
+            "ingredients": "Tea, Liftoff, Hydration",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "45 calories, 2g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen ",
-            "INSANITEAS": "Summer Refresher"
+            "insaniteas": "Summer Refresher",
+            "nutritional-facts": "45 calories, 2g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen ",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "115 calories, 5g carbs, 17g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Triple Berry Blast"
+            "insaniteas": "Triple Berry Blast",
+            "nutritional-facts": "115 calories, 5g carbs, 17g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen, Protein",
+            "price": "13.52",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "25 calories, 7g carbs, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Probiotics, Immunity Booster",
-            "INSANITEAS": "Feel Good"
+            "insaniteas": "Feel Good",
+            "nutritional-facts": "25 calories, 7g carbs, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Probiotics, Immunity Booster",
+            "price": "12.48",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Hydration",
-            "INSANITEAS": "Hydrating HiC"
+            "insaniteas": "Hydrating HiC",
+            "nutritional-facts": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Hydration",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "70 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Tea, Liftoff, Electrolytes",
-            "INSANITEAS": "Monster"
+            "insaniteas": "Monster",
+            "nutritional-facts": "70 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Tea, Liftoff, Electrolytes",
+            "price": null,
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "15 calories, 4g carbs, 17g protein, 120mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Tea, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Pretty In Pink"
+            "insaniteas": "Pretty In Pink",
+            "nutritional-facts": "15 calories, 4g carbs, 17g protein, 120mg caffeine, Vitamins & Minerals",
+            "ingredients": "Tea, Liftoff, Collagen, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 8g carbs, 255mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe Vera, Tea, 2x Liftoff",
-            "INSANITEAS": "Great Scott"
+            "insaniteas": "Great Scott",
+            "nutritional-facts": "40 calories, 8g carbs, 255mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe Vera, Tea, 2x Liftoff",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "90 calories, 5g carbs, 17g protein, 45mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Collagen, Protein",
-            "INSANITEAS": "Pink Starburst"
+            "insaniteas": "Pink Starburst",
+            "nutritional-facts": "90 calories, 5g carbs, 17g protein, 45mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Collagen, Protein",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "75 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals ",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Electrolytes",
-            "INSANITEAS": "Acai Refresher"
+            "insaniteas": "Acai Refresher",
+            "nutritional-facts": "75 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals ",
+            "ingredients": "Aloe, Tea, Liftoff, Electrolytes",
+            "price": "12.48",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Orange Starburst"
+            "insaniteas": "Orange Starburst",
+            "nutritional-facts": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Collagen, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "50 calories, 4g carbs, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, BCAAs",
-            "INSANITEAS": "Cran-Apple"
+            "insaniteas": "Cran-Apple",
+            "nutritional-facts": "50 calories, 4g carbs, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, BCAAs",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals ",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen",
-            "INSANITEAS": "Strawberry Mango DaiquiTea"
+            "insaniteas": "Strawberry Mango DaiquiTea",
+            "nutritional-facts": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals ",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "90 calories, 21g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Hydration, Vitamin C booster",
-            "INSANITEAS": "Leaky TeaKi"
+            "insaniteas": "Leaky TeaKi",
+            "nutritional-facts": "90 calories, 21g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Hydration, Vitamin C booster",
+            "price": "13.52",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 6g carbs, 2g protein, 120mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen",
-            "INSANITEAS": "Firecracker"
+            "insaniteas": "Firecracker",
+            "nutritional-facts": "40 calories, 6g carbs, 2g protein, 120mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "95 calories, 22g carbs, 12g sugar, 255mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, 2x Liftoff, Hydration",
-            "INSANITEAS": "Reborn"
+            "insaniteas": "Reborn",
+            "nutritional-facts": "95 calories, 22g carbs, 12g sugar, 255mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, 2x Liftoff, Hydration",
+            "price": "14.56",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Hydration ",
-            "INSANITEAS": "Goblet of Fire"
+            "insaniteas": "Goblet of Fire",
+            "nutritional-facts": "80 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Hydration ",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "85 calories, 7g carbs, 15g protein, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Protein",
-            "INSANITEAS": "Golden Snitch"
+            "insaniteas": "Golden Snitch",
+            "nutritional-facts": "85 calories, 7g carbs, 15g protein, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Protein",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Tea, Liftoff, Collagen ",
-            "INSANITEAS": "Gryffindor"
+            "insaniteas": "Gryffindor",
+            "nutritional-facts": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Tea, Liftoff, Collagen ",
+            "price": "9.36",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Protein",
-            "INSANITEAS": "Hufflepuff"
+            "insaniteas": "Hufflepuff",
+            "nutritional-facts": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "50 calories, 2g carbs, 2g protein, 105mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Collagen, BCAAs",
-            "INSANITEAS": "Ravenclaw"
+            "insaniteas": "Ravenclaw",
+            "nutritional-facts": "50 calories, 2g carbs, 2g protein, 105mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Collagen, BCAAs",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "75 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Hydration",
-            "INSANITEAS": "Slytherin "
+            "insaniteas": "Slytherin ",
+            "nutritional-facts": "75 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Hydration",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Amoretentia (Love Potion)"
+            "insaniteas": "Amoretentia (Love Potion)",
+            "nutritional-facts": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Collagen, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 9g carbs, 175mg caffeine, creatine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Preworkout",
-            "INSANITEAS": "Polyjuice Potion"
+            "insaniteas": "Polyjuice Potion",
+            "nutritional-facts": "80 calories, 9g carbs, 175mg caffeine, creatine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Preworkout",
+            "price": "13.52",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "135 calories, 17g carbs, 12g sugar, 15g protein, 105mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Hydration, Protein",
-            "INSANITEAS": "Sorcerer's Stone"
+            "insaniteas": "Sorcerer's Stone",
+            "nutritional-facts": "135 calories, 17g carbs, 12g sugar, 15g protein, 105mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Hydration, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         }
     ]
 }

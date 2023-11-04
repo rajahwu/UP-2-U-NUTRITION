@@ -1,0 +1,24 @@
+{
+    "vegan-line": [
+        {
+            "vegan-line": "Protein Shake",
+            "nutritional-facts": "130 calories, 4g fat, 4g carbs, 20g protein, Vitamins & Minerals",
+            "name": "vegan-line"
+        },
+        {
+            "vegan-line": "Greens Booster",
+            "nutritional-facts": "40 calories, 6g carbs, 1g protein, Greens blend",
+            "name": "vegan-line"
+        },
+        {
+            "vegan-line": "Immune Support",
+            "nutritional-facts": "20 calories, 5g carbs, 1g fiber, Vitamins & Minerals",
+            "name": "vegan-line"
+        },
+        {
+            "vegan-line": "Digestive Support",
+            "nutritional-facts": "40 calories, 6g carbs, 6g fiber",
+            "name": "vegan-line"
+        }
+    ]
+}
