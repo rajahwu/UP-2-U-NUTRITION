@@ -24,6 +24,7 @@ const AddToCartButton = ({ item, price, checkedAddons }) => {
     console.log("itemsWithAddons add to cart button", itemWithAddons);
     dispatch(addToCart(itemWithAddons, quantity));
     closeModal();
+
   };
   return (
     <button
@@ -48,7 +49,7 @@ const CancelOrderButton = () => {
 const OrderDetails = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen1, setIsOpen1] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+  const [isAddOnsOpen, setIsAddOnsOpen] = useState(false);
   const [addons, setAddons] = useState();
   const [price, setPrice] = useState(parseFloat(item.price));
   const [quantity, setQuantity] = useState(1);
@@ -62,11 +63,13 @@ const OrderDetails = ({ item }) => {
     setIsOpen1(!isOpen1);
   };
 
-  const toggle2 = () => {
-    setIsOpen2(!isOpen2);
-  };
+
+  const toggleAddOns= () => {
+    setIsAddOnsOpen(!isAddOnsOpen)
+  }
 
   const handleCheckboxChange = (event, addon) => {
+    event.stopPropagation()
     const { checked } = event.target;
     const addonPrice = parseFloat(addon.price);
     const updatedPrice = checked
@@ -82,9 +85,10 @@ const OrderDetails = ({ item }) => {
   };
 
   const handleQuantityChange = (newQuantity) => {
-    if (newQuantity < 1) return;
-    setQuantity(newQuantity);
-    setPrice(parseFloat(item.price) * newQuantity);
+    if (newQuantity >=1){
+      setQuantity(newQuantity);
+      setPrice(item.price * newQuantity)
+    }
   };
 
   useEffect(() => {
@@ -109,45 +113,33 @@ const OrderDetails = ({ item }) => {
                 ? ` | ${item.nutritions.calories}`
                 : null}
             </h4>
+
           </div>
         </div>
         <div className="flex flex-col justify-center p-3 w-50">
           <h4>Quantity:</h4>
           <div className="flex items-center border-4">
-            <button
-              onClick={() => {
-                if (quantity > 1) {
-                  handleQuantityChange(quantity - 1);
-                }
-              }}
-              className="px-2 text-center rounded-l-lg"
-            >
-              -
-            </button>
-            <input
-              className="w-4 "
-              type="text"
-              value={quantity}
-              onChange={(e) => {
-                handleQuantityChange(quantity - 1);
-              }}
-            />
-            <button
-              onClick={() => {
-                handleQuantityChange(quantity + 1);
-              }}
-              className="text-center px-2rounded-r-lg"
-            >
-              +
-            </button>
+            <button 
+              onClick={() => {handleQuantityChange(quantity -1)}} 
+              className="px-2 rounded-l-lg text-center"
+              disabled={quantity ===1 }
+            >-</button>
+            <input 
+              className="w-4 " type="text" value={quantity} onChange={(e) => {
+              handleQuantityChange(quantity - 1)
+            }} />
+            <button onClick={() => {
+              handleQuantityChange(quantity + 1)
+            }} className="px-2rounded-r-lg text-center">+</button>
+
           </div>
         </div>
       </div>
       <div>
-        <div className="p-3 description-container" onClick={toggle}>
-          <div className="flex justify-between">
+        <div className="description-container p-3" >
+          <div className='flex justify-between'>
             <h2 className="text-2xl">Ingredients</h2>
-            <button className="show-more-button">
+            <button className="show-more-button" onClick={toggle}>
               {isOpen ? (
                 <>
                   <i className="fa-solid fa-angle-up"></i>
@@ -162,22 +154,15 @@ const OrderDetails = ({ item }) => {
           <div className="gap-3 break-normal">
             {item.ingredients.map((ingredients, i) => {
               return (
-                <p
-                  className={`ingredients-description ${
-                    isOpen ? "expanded" : ""
-                  }`}
-                  key={i}
-                >
-                  {ingredients.ingredient_name}
-                </p>
-              );
+                <p className={`ingredients-description ${isOpen ? "expanded" : ""}`} key={i}>{ingredients.ingredient_name}</p>
+              )
             })}
           </div>
         </div>
-        <div className="p-3 description-container" onClick={toggle1}>
-          <div className="flex justify-between">
+        <div className="description-container p-3" >
+          <div className='flex justify-between'>
             <h2 className="text-2xl">Nutrition</h2>
-            <button className="show-more-button">
+            <button className="show-more-button" onClick={toggle1}>
               {isOpen1 ? (
                 <>
                   <i className="fa-solid fa-angle-up"></i>
@@ -191,26 +176,22 @@ const OrderDetails = ({ item }) => {
           </div>
           <div className="">
             {item.nutritions.map((nutrient, i) => {
-              // {console.log('nutrient', nutrient)}
+
+              { console.log('nutrient', nutrient) }
               return (
-                <div
-                  className={`ingredients-description ${
-                    isOpen1 ? "expanded" : ""
-                  } flex justify-between`}
-                  key={i}
-                >
+                <div className={`ingredients-description ${isOpen1 ? "expanded" : ""} flex justify-between`} key={i}>
                   <p>{nutrient.nutrient}</p>
                   <p>{nutrient.weight}</p>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
-        <div className="p-3 " onClick={toggle2}>
-          <div className="flex justify-between">
+        <div className="p-3 ">
+          <div className='flex justify-between'>
             <h2 className="text-2xl">Add-ons</h2>
-            <button className="show-more-button">
-              {isOpen2 ? (
+            <button className="show-more-button" onClick={toggleAddOns}>
+              {isAddOnsOpen ? (
                 <>
                   <i className="fa-solid fa-angle-up"></i>
                 </>
@@ -223,47 +204,29 @@ const OrderDetails = ({ item }) => {
           </div>
           <div>
             {addons
-              ? addons["add-ons"].map((addon, i) => {
-                  // console.log(i, 'addon', addon)
-                  return (
-                    <div
-                      className={`ingredients-description ${
-                        isOpen2 ? "expanded" : ""
-                      }`}
-                      key={i}
-                    >
-                      <form className="">
-                        <div>
-                          <input
-                            className="mr-2"
-                            type="checkbox"
-                            name={addon.name}
-                            value={addon.name}
-                            onChange={(e) => handleCheckboxChange(e, addon)}
-                          />
-                          <label className="" htmlFor={addon.name}>
-                            {addon.name}
-                          </label>
-                          <span className="mx-3">
-                            {() => {
-                              if (addon.price === null) addon.price = "1.00";
-                              if (addon.price.includes("/"))
-                                addon.price = parseFloat(
-                                  addon.price.split("/")[0]
-                                ).toFixed(2);
-                              else
-                                addon.price = parseFloat(addon.price).toFixed(
-                                  2
-                                );
-                            }}
-                            {addon.price ?? "1.00"}{" "}
-                          </span>
-                        </div>
-                        <p>{addon["nutritional-facts"]}</p>
-                      </form>
-                    </div>
-                  );
-                })
+
+              ? addons["ADD-ONS"].map((addon, i) => {
+                return (
+                  <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
+                    <form className="p-2">
+                      <div className="flex gap-1 items-center border-4">
+                        <input
+                          className=""
+                          type="checkbox"
+                          name={addon.addon_name}
+                          value={addon["ADD-ONS"]}
+                          onChange={(e) => handleCheckboxChange(e, addon)}
+                        />
+                        <label className="" htmlFor={addon.addon_name}>
+                          {addon["ADD-ONS"]} |
+                        </label>
+                        <span className="">$1.00 |</span>
+                        <p>{addon["NUTRITIONAL FACTS"]}</p>
+                      </div>
+                    </form>
+                  </div>
+                );
+              })
               : null}
           </div>
         </div>
@@ -393,16 +356,18 @@ const MenuPage = () => {
               />
             </div>
           ) : (
-            <OpenModalButton
-              className="mb-3 green-btn add-to-cart-btn"
-              modalComponent={<OrderDetails item={item} />}
-              buttonText="Add to Cart"
+            <div>
+              {user ? (<OpenModalButton
+                className="green-btn add-to-cart-btn mb-3"
+                modalComponent={<OrderDetails item={item} />}
+                buttonText="Add to Cart"
               // onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
               // onModalClose,  // optional: callback function that will be called once the modal is closed
               // className,
               // id,
               // style
-            />
+              />) : (<button onClick={() => navigate('/login')} className="green-btn add-to-cart-btn mb-3">Login to Order</button>)}
+            </div>
           )}
         </div>
       );
