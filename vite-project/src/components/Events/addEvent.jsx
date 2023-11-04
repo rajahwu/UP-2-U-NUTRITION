@@ -14,6 +14,10 @@ export function AddEvent() {
   const navigate = useNavigate();
   const user = useSelector(state => state.session.user)
 
+  //get today's date formatted "YYYY-mm-dd"
+  const todayString = new Date().toISOString().slice(0,10)
+
+
   const event = location.state;
   const tempTitle = event && event.title ? event.title : "";
   const tempDetails = event && event.details ? event.details : "";
@@ -109,6 +113,7 @@ export function AddEvent() {
       className="bg-gray-100 rounded text-center h-10 txt-lg"
       id="start-date"
       type="date"
+      min={todayString}
       value={startDate}
       onChange={(e) => setStartDate(e.target.value)}
       required
@@ -120,6 +125,7 @@ export function AddEvent() {
       className="bg-gray-100 rounded text-center h-10 txt-lg"
       id="end-date"
       type="date"
+      min={startDate || todayString}
       value={endDate}
       onChange={(e) => setEndDate(e.target.value)}
       />
