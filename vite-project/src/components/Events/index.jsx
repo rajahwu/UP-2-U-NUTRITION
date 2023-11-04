@@ -5,7 +5,6 @@ import { getAllEventsThunk } from '../../store/events';
 import OpenModalButton from '../OpenModalButton';
 import { EventsModal } from './events';
 import { RequestEventModal } from './requestEvents';
-import { AddEvent } from './addEvent';
 import './Events.css'
 
 
@@ -17,6 +16,8 @@ const Events = () => {
   const user = useSelector(state => state.session.user)
   const eventArr = useSelector(state => state.eventReducer)
   const event1 = Object.values(eventArr);
+
+
 
   useEffect(() => {
     dispatch(getAllEventsThunk())
@@ -152,7 +153,7 @@ const Events = () => {
         <div className="headers">EVENTS</div>
         <div className='request-event-btn-container'>
           {
-          user ?
+          user && user.admin ?
           <button
           onClick = {() => navigate('/events/add-event')}
           className='green-btn request-event-btn'
