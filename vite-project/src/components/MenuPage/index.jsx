@@ -78,6 +78,7 @@ const OrderDetails = ({ item }) => {
   };
 
   const handleQuantityChange = (newQuantity) => {
+    if (newQuantity < 1) return;
     setQuantity(newQuantity);
     setPrice(parseFloat(item.price) * newQuantity);
   };
@@ -107,8 +108,9 @@ const OrderDetails = ({ item }) => {
           <h4>Quantity:</h4>
           <div className="flex items-center border-4">
             <button onClick={() => {
-              setQuantity(quantity - 1)
-              setPrice(parseFloat(price) * quantity)
+              if (quantity > 1) {
+                handleQuantityChange(quantity - 1)
+              }
               }} className="px-2 text-center rounded-l-lg">-</button>
             <input className="w-4 " type="text" value={quantity} onChange={(e) => {
               handleQuantityChange(quantity - 1)
