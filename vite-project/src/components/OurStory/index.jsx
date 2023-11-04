@@ -1,4 +1,4 @@
-import { athletes } from './utility/athletes'
+
 import './OurStory.css'
 
 const OurStory = () => {
