@@ -1,11 +1,18 @@
-MORE-FOR-YOU,NUTRITIONAL FACTS,
-Cafe con Leche,"170 calories, 9g fat, 9g carbs, 15g protein",
-Protein Donuts,"each: 136 calories, 10g fat, 10g carbs, 3g fiber,7g protein",
-Protein Cake Pops,"each: 42 calories, 1g fat, 5g carbs, 5g protein",
-Protein Churros,"272 calories, 9g fat, 18g carbs, 3g fiber, 30g protein",
-Acai Bowl,"307 calories, 7g fat, 39g carbs, 7g fiber, 25g protein ",
-Monkey Bowl,"365 calories, 6g fat, 58g carbs, 15g fiber, 30g protein ",
-Tropical Fusion Bowl,"305 calories, 4g fat, 48g carbs, 11g fiber, 25g protein",
-Lava Shake,"245 calories, 5g fat, 29g carbs, 25g protein",
-Protein Waffles,"413 calories, 11g fat, 45g carbs, 8g fiber, 35g protein",
-Horchata,"270 calories, 10g fat, 23g carbs, 24g protein",
+MORE,NUTRITIONAL FACTS,INGREDIENTS,PRICE
+Cafe con Leche,"170 calories, 9g fat, 9g carbs, 15g protein","Protein Coffee, Prolessa Duo (fat reducer)",10.4
+Protein Donuts,"each: 136 calories, 10g fat, 10g carbs, 3g fiber,7g protein","Meal Shake, Protein Baked Goods, Eggs, Almond Flour, Coconut Oil, Sweetener",3.12
+Protein Cake Pops,"each: 42 calories, 1g fat, 5g carbs, 5g protein","Meal Shake, Protein, Dry Sugar Free Syrup Flavors",2.08
+Protein Churros,"272 calories, 9g fat, 18g carbs, 3g fiber, 30g protein","Meal Shake, Protein Baked Goods, Egg",9.36
+Acai Bowl,"307 calories, 7g fat, 39g carbs, 7g fiber, 25g protein ","Meal Shake, Protein, Frozen Berries, Acai Powder & flavor, CR7",
+Monkey Bowl,"365 calories, 6g fat, 58g carbs, 15g fiber, 30g protein ","Meal Shake, Protein, PBfit, Fiber, Frozen Bananas",
+Tropical Fusion Bowl,"305 calories, 4g fat, 48g carbs, 11g fiber, 25g protein","Meal Shake, Protein, Aloe, Fiber, Frozen Mangoes",
+Lava Shake,"245 calories, 5g fat, 29g carbs, 25g protein","Meal Shake, Protein, Liftoff",13.52
+Protein Waffles,"413 calories, 11g fat, 45g carbs, 8g fiber, 35g protein","Meal Shake, Protein Baked Goods, Egg, Oatmeal",11
+Horchata / Venezuelan Chicha,"270 calories, 10g fat, 23g carbs, 24g protein","Meal Shake, Protein, Prolessa Duo (fat reducer)",14.56
+CR7,"50 calories, 13g carbs, Vitamins & Minerals, Electrolytes",,
+BCAAs,"25 calories, 5g BCAAs",,
+Pre Workout,"60 calories, 5g carbs, Vitamins & Minerals, 100mg caffeine, Creatine",,5.2
+Post Workout,"190 calories, 1.5g fat, 18g carbs, 24g protein, Vitamins & Minerals",Protein base: whey & casein,6.24
+Post Workout Meal,"210 calories, 2g fat, 15g carbs, 33g protein","Meal Shake, Post Workout Protein",
+Kids Refresher,,"Aloe, Sugar free flavors (caffeine free)",
+Kids Shakes,,"Meal Shake, Protein",

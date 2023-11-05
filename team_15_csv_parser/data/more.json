@@ -1,44 +1,123 @@
 {
-    "MORE-FOR-YOU": [
+    "more": [
         {
-            "NUTRITIONAL FACTS": "170 calories, 9g fat, 9g carbs, 15g protein",
-            "MORE-FOR-YOU": "Cafe con Leche"
+            "more": "Cafe con Leche",
+            "nutritional-facts": "170 calories, 9g fat, 9g carbs, 15g protein",
+            "ingredients": "Protein Coffee, Prolessa Duo (fat reducer)",
+            "price": "10.4",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "each: 136 calories, 10g fat, 10g carbs, 3g fiber,7g protein",
-            "MORE-FOR-YOU": "Protein Donuts"
+            "more": "Protein Donuts",
+            "nutritional-facts": "each: 136 calories, 10g fat, 10g carbs, 3g fiber,7g protein",
+            "ingredients": "Meal Shake, Protein Baked Goods, Eggs, Almond Flour, Coconut Oil, Sweetener",
+            "price": "3.12",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "each: 42 calories, 1g fat, 5g carbs, 5g protein",
-            "MORE-FOR-YOU": "Protein Cake Pops"
+            "more": "Protein Cake Pops",
+            "nutritional-facts": "each: 42 calories, 1g fat, 5g carbs, 5g protein",
+            "ingredients": "Meal Shake, Protein, Dry Sugar Free Syrup Flavors",
+            "price": "2.08",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "272 calories, 9g fat, 18g carbs, 3g fiber, 30g protein",
-            "MORE-FOR-YOU": "Protein Churros"
+            "more": "Protein Churros",
+            "nutritional-facts": "272 calories, 9g fat, 18g carbs, 3g fiber, 30g protein",
+            "ingredients": "Meal Shake, Protein Baked Goods, Egg",
+            "price": "9.36",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "307 calories, 7g fat, 39g carbs, 7g fiber, 25g protein ",
-            "MORE-FOR-YOU": "Acai Bowl"
+            "more": "Acai Bowl",
+            "nutritional-facts": "307 calories, 7g fat, 39g carbs, 7g fiber, 25g protein ",
+            "ingredients": "Meal Shake, Protein, Frozen Berries, Acai Powder & flavor, CR7",
+            "price": null,
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "365 calories, 6g fat, 58g carbs, 15g fiber, 30g protein ",
-            "MORE-FOR-YOU": "Monkey Bowl"
+            "more": "Monkey Bowl",
+            "nutritional-facts": "365 calories, 6g fat, 58g carbs, 15g fiber, 30g protein ",
+            "ingredients": "Meal Shake, Protein, PBfit, Fiber, Frozen Bananas",
+            "price": null,
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "305 calories, 4g fat, 48g carbs, 11g fiber, 25g protein",
-            "MORE-FOR-YOU": "Tropical Fusion Bowl"
+            "more": "Tropical Fusion Bowl",
+            "nutritional-facts": "305 calories, 4g fat, 48g carbs, 11g fiber, 25g protein",
+            "ingredients": "Meal Shake, Protein, Aloe, Fiber, Frozen Mangoes",
+            "price": null,
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "245 calories, 5g fat, 29g carbs, 25g protein",
-            "MORE-FOR-YOU": "Lava Shake"
+            "more": "Lava Shake",
+            "nutritional-facts": "245 calories, 5g fat, 29g carbs, 25g protein",
+            "ingredients": "Meal Shake, Protein, Liftoff",
+            "price": "13.52",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "413 calories, 11g fat, 45g carbs, 8g fiber, 35g protein",
-            "MORE-FOR-YOU": "Protein Waffles"
+            "more": "Protein Waffles",
+            "nutritional-facts": "413 calories, 11g fat, 45g carbs, 8g fiber, 35g protein",
+            "ingredients": "Meal Shake, Protein Baked Goods, Egg, Oatmeal",
+            "price": "11",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "270 calories, 10g fat, 23g carbs, 24g protein",
-            "MORE-FOR-YOU": "Horchata"
+            "more": "Horchata / Venezuelan Chicha",
+            "nutritional-facts": "270 calories, 10g fat, 23g carbs, 24g protein",
+            "ingredients": "Meal Shake, Protein, Prolessa Duo (fat reducer)",
+            "price": "14.56",
+            "name": "more"
+        },
+        {
+            "more": "CR7",
+            "nutritional-facts": "50 calories, 13g carbs, Vitamins & Minerals, Electrolytes",
+            "ingredients": null,
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "BCAAs",
+            "nutritional-facts": "25 calories, 5g BCAAs",
+            "ingredients": null,
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "Pre Workout",
+            "nutritional-facts": "60 calories, 5g carbs, Vitamins & Minerals, 100mg caffeine, Creatine",
+            "ingredients": null,
+            "price": "5.2",
+            "name": "more"
+        },
+        {
+            "more": "Post Workout",
+            "nutritional-facts": "190 calories, 1.5g fat, 18g carbs, 24g protein, Vitamins & Minerals",
+            "ingredients": "Protein base: whey & casein",
+            "price": "6.24",
+            "name": "more"
+        },
+        {
+            "more": "Post Workout Meal",
+            "nutritional-facts": "210 calories, 2g fat, 15g carbs, 33g protein",
+            "ingredients": "Meal Shake, Post Workout Protein",
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "Kids Refresher",
+            "nutritional-facts": null,
+            "ingredients": "Aloe, Sugar free flavors (caffeine free)",
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "Kids Shakes",
+            "nutritional-facts": null,
+            "ingredients": "Meal Shake, Protein",
+            "price": null,
+            "name": "more"
         }
     ]
 }
