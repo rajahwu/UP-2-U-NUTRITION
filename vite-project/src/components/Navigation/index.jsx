@@ -12,9 +12,12 @@ function Navigation({ isLoaded }) {
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
 	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png");
-	const [cartAmount, setCartAmount] = useState(""); // Use state to store the cart item count
+	const [cartAmount, setCartAmount] = useState(0); // Use state to store the cart item count
 	const user = useSelector(state => state.session.user);
 	const navigate = useNavigate();
+
+
+
 	const itemsObj = useSelector(state => state.cartReducer)
 	const itemsInCart = Object.values(itemsObj)
 	console.log("CART ITEM:", itemsInCart);
