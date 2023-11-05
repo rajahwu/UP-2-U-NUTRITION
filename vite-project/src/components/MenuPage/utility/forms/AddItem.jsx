@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createMenuItemThunk } from "../../../../store/menus";
 import { useNavigate } from "react-router-dom";
 import './AddItem.css'
+import LoadingScreen from "../../../LoadingScreen";
 
 export function AddItem() {
   const dispatch = useDispatch()
@@ -14,11 +15,12 @@ export function AddItem() {
   const [price, setPrice] = useState("");
   const [errors, setErrors] = useState([]);
   const [image, setImage] = useState("")
-  const [nutrientEntries, setNutrientEntries] = useState([{ nutrient: '', weight: '', percentage: '' }]);
+  const [nutrientEntries, setNutrientEntries] = useState([{ nutrient: '', weight: '' }]);
+  const [isLoading, setIsLoading] = useState(false)
 
 
   const addNutrientEntry = () => {
-    setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '', percentage: '' }]);
+    setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '' }]);
   };
 
   const removeNutrientEntry = (index) => {
@@ -39,11 +41,7 @@ export function AddItem() {
     setNutrientEntries(updatedEntries);
   };
 
-  const handlePercentageChange = (e, index) => {
-    const updatedEntries = [...nutrientEntries];
-    updatedEntries[index].percentage = e.target.value;
-    setNutrientEntries(updatedEntries);
-  };
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -55,24 +53,24 @@ export function AddItem() {
     newMenuItem.append('price', price)
     newMenuItem.append('ingredient_name', currentIngredients)
 
-    
+
     const nutrientArray = [];
     const weightArray = [];
-    const percentageArray = [];
+    // const percentageArray = [];
 
     nutrientEntries.forEach((entry) => {
       nutrientArray.push(entry.nutrient);
       weightArray.push(entry.weight);
-      percentageArray.push(entry.percentage);
     });
 
     newMenuItem.append(`nutrient`, nutrientArray);
     newMenuItem.append(`weight`, weightArray);
-    newMenuItem.append(`percentage`, percentageArray);
+
 
 
 
     if (!errors.length) {
+      setIsLoading(true)
       const data = await dispatch(createMenuItemThunk(newMenuItem))
       navigate("/menu")
     }
@@ -80,7 +78,11 @@ export function AddItem() {
 
   return (
     <div className="add-item-form">
-      <form class="w-full max-w-lg" onSubmit={handleSubmit}>
+      {isLoading ? (
+        <div className='loading-screen'>
+          <LoadingScreen />
+        </div>
+      ) : (<form class="w-full max-w-lg" onSubmit={handleSubmit}>
         <h1 id="form-title">ADD MENU ITEM FORM</h1>
         <div class="flex-col flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -94,9 +96,9 @@ export function AddItem() {
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
               Image
             </label>
-            <input 
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" 
-              type="file" 
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name"
+              type="file"
               placeholder="Image"
               accept=".jpg, .jpeg, .png"
               onChange={(e) => setImage(e.target.files[0])} />
@@ -165,7 +167,8 @@ export function AddItem() {
           </div>
         </div>
         <button className="blue-btn-add" type="submit">Submit</button>
-      </form >
+      </form >)}
+
     </div >
   )
 }

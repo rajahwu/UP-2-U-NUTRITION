@@ -5,6 +5,7 @@ import { useModal } from '../../../../context/Modal';
 import { editMenuItemThunk, getAllMenuItemThunk } from '../../../../store/menus';
 import './AddItem.css'
 import { update } from 'lodash';
+import LoadingScreen from '../../../LoadingScreen';
 
 const EditItem = ({ menu_item }) => {
     // console.log('MENU ITEM:', menu_item)
@@ -23,9 +24,9 @@ const EditItem = ({ menu_item }) => {
         menu_item?.ingredients.map(ingredient => ingredient.ingredient_name).join(',') || ''
     );
     const [nutrientEntries, setNutrientEntries] = useState(
-        menu_item?.nutritions || [{ nutrient: '', weight: '', percentage: '' }]
+        menu_item?.nutritions || [{ nutrient: '', weight: '' }]
     );
-
+    const [isLoading, setIsLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false)
     const [errors, setErrors] = useState('');
 
@@ -38,11 +39,6 @@ const EditItem = ({ menu_item }) => {
         if (!image) error.image = "Image is required"
 
         if (!ingredients) error.ingredients = "Ingredient is required"
-        // nutrientEntries.forEach((entry, index) => {
-        //     if (!entry.nutrient) error[`nutrient${index}`] = `Nutrient #${index + 1} is required`;
-        //     if (!entry.weight) error[`weight${index}`] = `Weight #${index + 1} is required`;
-        //     // if (!entry.percentage) error[`percentage${index}`] = `Percentage #${index + 1} is required`;
-        // });
 
 
         setErrors(error);
@@ -85,7 +81,7 @@ const EditItem = ({ menu_item }) => {
 
 
         const updatedMenuItem = new FormData()
-        console.log("===============image", image)
+        // console.log("===============image", image)
         updatedMenuItem.append("name", name)
         updatedMenuItem.append('image', image)
         updatedMenuItem.append('category', category)
@@ -99,23 +95,24 @@ const EditItem = ({ menu_item }) => {
         // console.log("========", nutrientEntries)
         const nutrientArray = [];
         const weightArray = [];
-        // const percentageArray = [];
+
 
         nutrientEntries.forEach((entry) => {
             nutrientArray.push(entry.nutrient);
             weightArray.push(entry.weight);
-            // percentageArray.push(entry.percentage);
+
         });
 
 
         updatedMenuItem.append(`nutrient`, nutrientArray);
         updatedMenuItem.append(`weight`, weightArray);
-        // updatedMenuItem.append(`percentage`, percentageArray);
 
-        console.log("===========hit", errors)
+
+
         if (!Object.keys(errors).length) {
+            setIsLoading(true)
             const result = await dispatch(editMenuItemThunk(menu_item.id, updatedMenuItem));
-            // console.log("===updated menu item======", updatedMenuItem)
+
 
 
             if (!result.errors) {
@@ -129,7 +126,11 @@ const EditItem = ({ menu_item }) => {
     return (
 
         <div className="edit-item-form">
-            <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+            {isLoading ? (
+                <div className='loading-screen'>
+                    <LoadingScreen />
+                </div>
+            ) : (<form className="w-full max-w-lg" onSubmit={handleSubmit}>
                 <h1 id="form-title">EDIT FORM</h1>
                 <div className="flex-col flex-wrap -mx-3 mb-6">
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -214,15 +215,6 @@ const EditItem = ({ menu_item }) => {
                                         onChange={(e) => handleWeightChange(e, index)}
                                     />
 
-                                    {/* <input
-                                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                                        placeholder="Percentage..."
-                                        type="text"
-                                        value={entry.percentage}
-                                        onChange={(e) => handlePercentageChange(e, index)}
-
-                                    /> */}
-
                                 </div>
                             )}
                             <button className="red-btn-add" type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>
@@ -231,124 +223,10 @@ const EditItem = ({ menu_item }) => {
                     </div>
                 </div>
                 <button className="blue-btn-add" type="submit">Submit</button>
-            </form >
+            </form >)}
+
         </div >
     );
 };
 
 export default EditItem
-
-{/* <div>
-    <form onSubmit={handleSubmit}>
-        <div className="txt_field">
-            <label>
-                <div>Name <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                <input
-                    id="routine-description"
-                    placeholder="Name..."
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                ></input>
-                {errors.name && <span className="error">{errors.name}</span>}
-            </label>
-        </div>
-        <div className="txt_field">
-            <label>
-                <div>Image <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                <input
-                    id="routine-description"
-                    placeholder="Image..."
-                    type="text"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                ></input>
-                {errors.image && <span className="error">{errors.image}</span>}
-            </label>
-        </div>
-        <div className="txt_field">
-            <label>
-                <div>Category <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                <input
-                    id="routine-description"
-                    placeholder="Category..."
-                    type="text"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                ></input>
-                {errors.category && <span className="error">{errors.category}</span>}
-            </label>
-        </div>
-        <div className="txt_field">
-            <label>
-                <div>Price <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                <input
-                    id="routine-description"
-                    placeholder="Price..."
-                    type="text"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                ></input>
-                {errors.price && <span className="error">{errors.price}</span>}
-            </label>
-        </div>
-        <div className="txt_field">
-            <label>
-                <div>Ingredients <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-                {ingredients.map((ingredient, index) => (
-                    <input
-                        key={index}
-                        id={`ingredient-${index}`}
-                        placeholder="Ingredient..."
-                        type="text"
-                        value={ingredient}
-                        onChange={(e) => {
-                            const updatedIngredients = [...ingredients];
-                            updatedIngredients[index] = e.target.value;
-                            setIngredients(updatedIngredients);
-                        }}
-                    />
-                ))}
-            </label>
-        </div>
-        <div className="txt_field">
-            <label>
-                <div>Nutrient Fields</div>
-                {nutrientEntries.map((entry, index) => (
-                    <div key={index}>
-                        <select
-                            value={entry.nutrient}
-                            onChange={(e) => handleNutrientChange(e, index)}
-                        >
-                            <option value="">Select Nutrient</option>
-                            <option value="Fat">Fat</option>
-                            <option value="Carb">Carb</option>
-                            <option value="Protein">Protein</option>
-                        </select>
-                        {entry.nutrient && (
-                            <div>
-                                <input
-                                    id="routine-description"
-                                    placeholder="Weight..."
-                                    type="text"
-                                    value={entry.weight}
-                                    onChange={(e) => handleWeightChange(e, index)}
-                                />
-                                <input
-                                    id="routine-description"
-                                    placeholder="Percentage..."
-                                    type="text" // Change to type "number" for integer input
-                                    value={entry.percentage}
-                                    onChange={(e) => handlePercentageChange(e, index)}
-                                />
-                            </div>
-                        )}
-                        <button type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>
-                    </div>
-                ))}
-                <button type="button" onClick={addNutrientEntry}>Add Nutrient Field</button>
-            </label>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-</div> */}
