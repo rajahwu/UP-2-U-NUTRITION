@@ -4,7 +4,7 @@ from datetime import date
 from ..models.db import db
 from ..models.menus import MenuItem,Ingredient,Nutrition
 from ..forms.menu_form import MenuForm,IngredientForm,NutritionForm
-from .aws_helpers import (upload_file_to_s3, get_unique_filename)
+from .aws_helpers import (upload_file_to_s3, get_unique_filename, remove_file_from_s3)
 
 
 menu_item_routes = Blueprint('menu_items', __name__)
@@ -150,12 +150,18 @@ def update_menu_item(id):
         menu_item = MenuItem.query.get(id)
 
 
-
         menu_item.name = menu_item_form.data['name']
         menu_item.category = menu_item_form.data['category']
         menu_item.price = menu_item_form.data['price']
-        menu_item.image = menu_item_form.data['image']
         menu_item.created_at = date.today()
+        uploaded_image = request.files['image']
+
+        if uploaded_image:
+            remove_file_from_s3(uploaded_image)
+            unique_filename = get_unique_filename(uploaded_image)
+            new_image = upload_file_to_s3(unique_filename)
+
+            menu_item.image = new_image
 
         db.session.commit()
 
