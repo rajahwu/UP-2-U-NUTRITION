@@ -92,24 +92,24 @@ const EditItem = ({ menu_item }) => {
         // console.log(typeof price)
         updatedMenuItem.append('price', price)
         updatedMenuItem.append('ingredient_name', ingredients)
-        console.log('AFTER:', updatedMenuItem)
-
-
-
+        
+        
+        
         // console.log("========", nutrientEntries)
-        // const nutrientArray = [];
-        // const weightArray = [];
-        // // const percentageArray = [];
-
-        // nutrientEntries.forEach((entry) => {
-        //     nutrientArray.push(entry.nutrient);
-        //     weightArray.push(entry.weight);
-        //     // percentageArray.push(entry.percentage);
-        // });
-
-
-        // updatedMenuItem.append(`nutrient`, nutrientArray);
-        // updatedMenuItem.append(`weight`, weightArray);
+        const nutrientArray = [];
+        const weightArray = [];
+        // const percentageArray = [];
+        
+        nutrientEntries.forEach((entry) => {
+            nutrientArray.push(entry.nutrient);
+            weightArray.push(entry.weight);
+            // percentageArray.push(entry.percentage);
+        });
+        
+        
+        updatedMenuItem.append(`nutrient`, nutrientArray);
+        updatedMenuItem.append(`weight`, weightArray);
+        console.log('AFTER:', updatedMenuItem)
         // updatedMenuItem.append(`percentage`, percentageArray);
 
         if (!Object.keys(errors).length) {
