@@ -15,12 +15,12 @@ export function AddItem() {
   const [price, setPrice] = useState("");
   const [errors, setErrors] = useState([]);
   const [image, setImage] = useState("")
-  const [nutrientEntries, setNutrientEntries] = useState([{ nutrient: '', weight: '' }]);
+  const [nutrientEntries, setNutrientEntries] = useState([{ nutrient: "", weight: "" }]);
   const [isLoading, setIsLoading] = useState(false)
 
 
   const addNutrientEntry = () => {
-    setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '' }]);
+    setNutrientEntries([...nutrientEntries, { nutrient: "", weight: "" }]);
   };
 
   const removeNutrientEntry = (index) => {
@@ -63,10 +63,11 @@ export function AddItem() {
       weightArray.push(entry.weight);
     });
 
-    newMenuItem.append(`nutrient`, nutrientArray);
-    newMenuItem.append(`weight`, weightArray);
-
-
+    if (nutrientArray.length > 0) {
+      // Append nutrient data only if there are selected nutrients
+      newMenuItem.append(`nutrient`, nutrientArray);
+      newMenuItem.append(`weight`, weightArray);
+    }
 
 
     if (!errors.length) {
@@ -136,9 +137,13 @@ export function AddItem() {
             {nutrientEntries.map((entry, index) => (<div key={index} class="relative">
               <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" value={entry.nutrient} onChange={(e) => handleNutrientChange(e, index)}>
                 <option value="">Select Nutrient</option>
+                <option value="Calories">Calories</option>
                 <option value="Fat">Fat</option>
                 <option value="Carb">Carb</option>
+                <option value="Sugar">Sugar</option>
                 <option value="Protein">Protein</option>
+                <option value="Caffeine">Caffeine</option>
+                <option value="Vitamins & Minerals">Vitamins & Minerals</option>
               </select>
               <div class={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 ${entry.nutrient ? 'hide-svg' : ''}`}>
                 <svg class="fill-current w-4 w-6 mb-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
@@ -151,13 +156,6 @@ export function AddItem() {
                     type="text"
                     value={entry.weight}
                     onChange={(e) => handleWeightChange(e, index)}
-                  />
-                  <input
-                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    placeholder="Percentage..."
-                    type="text"
-                    value={entry.percentage}
-                    onChange={(e) => handlePercentageChange(e, index)}
                   />
                 </div>
               )}

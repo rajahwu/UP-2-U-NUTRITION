@@ -47,7 +47,7 @@ const EditItem = ({ menu_item }) => {
 
 
     const addNutrientEntry = () => {
-        setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '', percentage: '' }]);
+        setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '' }]);
     };
 
     const removeNutrientEntry = (index) => {
@@ -68,13 +68,7 @@ const EditItem = ({ menu_item }) => {
         setNutrientEntries(updatedEntries);
     };
 
-    // const handlePercentageChange = (e, index) => {
-    //     const updatedEntries = [...nutrientEntries];
-    //     updatedEntries[index].percentage = e.target.value;
-    //     setNutrientEntries(updatedEntries);
-    // };
 
-    // console.log("________---------", menu_item)
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -95,17 +89,18 @@ const EditItem = ({ menu_item }) => {
         // console.log("========", nutrientEntries)
         const nutrientArray = [];
         const weightArray = [];
-
+        // const percentageArray = [];
 
         nutrientEntries.forEach((entry) => {
             nutrientArray.push(entry.nutrient);
             weightArray.push(entry.weight);
-
         });
 
-
-        updatedMenuItem.append(`nutrient`, nutrientArray);
-        updatedMenuItem.append(`weight`, weightArray);
+        if (nutrientArray.length > 0) {
+            // Append nutrient data only if there are selected nutrients
+            updatedMenuItem.append(`nutrient`, nutrientArray);
+            updatedMenuItem.append(`weight`, weightArray);
+        }
 
 
 
@@ -195,11 +190,10 @@ const EditItem = ({ menu_item }) => {
                                 <option value="Calories">Calories</option>
                                 <option value="Fat">Fat</option>
                                 <option value="Carb">Carb</option>
-                                <option value="Fiber">Fiber</option>
-                                <option value="Protein">Protein</option>
-                                <option value="Vitamins & Minerals">Vitamins & Minerals</option>
-                                <option value="Caffeine">Caffeine</option>
                                 <option value="Sugar">Sugar</option>
+                                <option value="Protein">Protein</option>
+                                <option value="Caffeine">Caffeine</option>
+                                <option value="Vitamins & Minerals">Vitamins & Minerals</option>
 
                             </select>
                             <div className={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 ${entry.nutrient ? 'hide-svg' : ''}`}>
