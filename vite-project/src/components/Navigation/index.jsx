@@ -4,17 +4,19 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../store/session";
 import { randomElement } from '../util';
-import { totalSum } from '../util';
+import { getCartItems } from '../../store/cart';
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch();
 	const [menuImgSrc, setMenuImgSrc] = useState("/images/icons/menu.png");
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
-	// const [yourstoryImgSrc, setYourstoryImgSrc] = useState("/images/icons/your_story.png")
-	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png")
+	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png");
+	const [cartItemCount, setCartItemCount] = useState(0); // Use state to store the cart item count
 	const user = useSelector(state => state.session.user);
 	const navigate = useNavigate();
+
+	const cartItems = Object.values(useSelector(state => state.cartReducer));
 
 	const handleLogout = (e) => {
 		e.preventDefault();
@@ -28,6 +30,15 @@ function Navigation({ isLoaded }) {
 		"/images/icons/menu_ro_y.png"
 	]
 
+	useEffect(() => {
+		dispatch(getCartItems())
+	}, [dispatch])
+
+	useEffect(() => {
+		// Calculate the total quantity of items in the cart
+		const totalQuantity = cartItems.reduce((total, cartItemObj) => total + (cartItemObj.quantity || 0), 0);
+		setCartItemCount(totalQuantity); // Update the cart item count state
+	}, [cartItems]);
 
 	return (
 		<div className="nav-bar">
@@ -50,7 +61,6 @@ function Navigation({ isLoaded }) {
 							src={menuImgSrc}
 							alt="Menu"
 							onMouseEnter={() => setMenuImgSrc(randomElement(menuColorRandom))}
-							// onMouseEnter={() => setMenuImgSrc(console.log(randomIcon(menuColorRandom)))}
 							onMouseLeave={() => setMenuImgSrc("/images/icons/menu.png")}
 						/>
 					</NavLink>
@@ -60,31 +70,24 @@ function Navigation({ isLoaded }) {
 							onMouseLeave={() => setEventsImgSrc("/images/icons/events.png")}
 							alt="Events" />
 					</NavLink>
-					{/* <NavLink exact="true" to="/your-story">
-						<img id="sub-icon" src={yourstoryImgSrc}
-							onMouseEnter={() => setYourstoryImgSrc("/images/icons/your_story_ro.png")}
-							onMouseLeave={() => setYourstoryImgSrc("/images/icons/your_story.png")}
-							alt="Your Story" />
-					</NavLink> */}
-					<NavLink exact="true" to="/cart">
+					<NavLink className="cart-navbar" exact="true" to="/cart">
 						<img id="sub-icon"
 							src={cartImgSrc}
 							alt="Cart" />
+						{cartItemCount > 0 && <span className="cart-count">{cartItemCount}</span>}
 					</NavLink>
 					{user ? (
-					<div onClick={handleLogout} className="cursor-pointer flex flex-col justify-center items-center">
-						<i className="fa-solid fa-arrow-right-from-bracket"></i>
-						<div className="p-1">Log Out</div>
-					</div>
-				) : (
-					<div onClick={() => navigate('/login')} className="cursor-pointer flex flex-col justify-center items-center">
-						<i className="fa-solid fa-arrow-right-to-bracket"></i>
-						<div className="p-1">Log In</div>
-					</div>
-				)}
-
+						<div onClick={handleLogout} className="cursor-pointer flex flex-col justify-center items-center">
+							<i className="fa-solid fa-arrow-right-from-bracket"></i>
+							<div className="p-1">Log Out</div>
+						</div>
+					) : (
+						<div onClick={() => navigate('/login')} className="cursor-pointer flex flex-col justify-center items-center">
+							<i className="fa-solid fa-arrow-right-to-bracket"></i>
+							<div className="p-1">Log In</div>
+						</div>
+					)}
 				</div>
-
 			</div>
 			<div className="all-line">
 				<div className="orange-line"></div>

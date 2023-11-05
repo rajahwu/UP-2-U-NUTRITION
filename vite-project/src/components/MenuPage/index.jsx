@@ -45,6 +45,8 @@ const OrderDetails = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
   const [checkedAddons, setCheckedAddons] = useState([]);
 
+  console.log('ADDONS:', addons)
+
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -193,9 +195,7 @@ const OrderDetails = ({ item }) => {
             </button>
           </div>
           <div>
-            {addons
-
-              ? addons["ADD-ONS"].map((addon, i) => {
+            {addons? addons["add-ons"].map((addon, i) => {
                 return (
                   <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
                     <form className="p-2">
