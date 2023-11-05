@@ -13,6 +13,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditItem from "./utility/forms/EditItem";
 import DeleteItem from "./utility/forms/DeleteItem";
 
+
 const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
