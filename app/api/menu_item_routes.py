@@ -53,7 +53,7 @@ def create_menu_item():
         print("====================upload:", upload)
 
         if 'url' not in upload:
-            return {'error': 'Uh oh , fix the upload'}
+            return {'error': 'Uh oh, fix the upload'}
 
         new_menu_item = MenuItem(
             name=form.data['name'],
@@ -66,7 +66,7 @@ def create_menu_item():
         db.session.add(new_menu_item)
         db.session.commit()
 
-        ingredient_list = form.data['ingredient_name'].split(",")
+        ingredient_list = form.data['ingredient_name'].split()
         for ingredient in ingredient_list:
             ingredient = Ingredient(
                 ingredient_name=ingredient,
@@ -82,14 +82,16 @@ def create_menu_item():
             nutrient = nutrient_list[i]
             weight = weight_list[i]
 
-            new_nutrition = Nutrition(
-                nutrient=nutrient,
-                weight=weight,
-                menu_id=new_menu_item.id
-            )
-
-            db.session.add(new_nutrition)
-            db.session.commit()
+            if nutrient.strip() != "" and weight.strip() != "":
+                new_nutrition = Nutrition(
+                    nutrient=nutrient,
+                    weight=weight,
+                    menu_id=new_menu_item.id
+                )
+                db.session.add(new_nutrition)
+                db.session.commit()
+            else:
+                new_nutrition = None  # Assign None when the condition is not met
 
         return {"resMenuItem": new_menu_item.to_dict()}
 
@@ -195,8 +197,18 @@ def update_menu_item(id):
         db.session.commit()
 
         # Handle nutrition updates
-        nutrients = menu_item_form.data['nutrient'].split(",")
-        weights = menu_item_form.data['weight'].split(",")
+        nutrients = menu_item_form.data['nutrient']
+        weights = menu_item_form.data['weight']
+
+        if nutrients is not None:
+            nutrients = nutrients.split(",")
+        else:
+            nutrients = []
+
+        if weights is not None:
+            weights = weights.split(",")
+        else:
+            weights = []
 
         existing_nutrients = Nutrition.query.filter_by(menu_id=id).all()
 
@@ -208,22 +220,24 @@ def update_menu_item(id):
             if (
                 nutrients[i] != existing_nutrients[i].nutrient or
                 weights[i] != existing_nutrients[i].weight
-
             ):
                 # If different, replace with the incoming data
-                if i < len(existing_nutrients):
-                    existing_nutrient = existing_nutrients[i]
-                    existing_nutrient.nutrient = nutrients[i]
-                    existing_nutrient.weight = weights[i]
+                existing_nutrients[i].nutrient = nutrients[i]
+                existing_nutrients[i].weight = weights[i]
 
-        # Add any additional values beyond the incoming data length
+            # Check if the incoming data is empty and different, then delete
+            elif nutrients[i].strip() == "" and weights[i].strip() == "":
+                db.session.delete(existing_nutrients[i])
+
+        # Add any additional values beyond the incoming data length and not empty
         for i in range(min_length, len(nutrients)):
-            new_nutrition = Nutrition(
-                nutrient=nutrients[i],
-                weight=weights[i],
-                menu_id=id
-            )
-            db.session.add(new_nutrition)
+            if nutrients[i].strip() != "" and weights[i].strip() != "":
+                new_nutrition = Nutrition(
+                    nutrient=nutrients[i],
+                    weight=weights[i],
+                    menu_id=id
+                )
+                db.session.add(new_nutrition)
 
         # Delete any extra existing data beyond the incoming data length
         for i in range(min_length, len(existing_nutrients)):

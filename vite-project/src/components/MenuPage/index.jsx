@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditItem from "./utility/forms/EditItem";
 import DeleteItem from "./utility/forms/DeleteItem";
-import { AddItem } from "./utility/forms/AddItem";
 
 const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal();
@@ -21,28 +20,19 @@ const AddToCartButton = ({ item, price, checkedAddons }) => {
   const handleAddToCart = (item, quantity) => {
     item.price = parseFloat(price.toFixed(2));
     const itemWithAddons = { ...item, addons: checkedAddons };
-    console.log("itemsWithAddons add to cart button", itemWithAddons);
     dispatch(addToCart(itemWithAddons, quantity));
     closeModal();
 
   };
   return (
-    <button
-      onClick={() => handleAddToCart(item, 1)}
-      className="w-full p-1 green-btn"
-    >
-      Add to cart
-    </button>
+    <button onClick={() => handleAddToCart(item, 1)} className="w-full p-1 green-btn">Add to cart</button>
   );
 };
 
 const CancelOrderButton = () => {
   const { closeModal } = useModal();
-
   return (
-    <button onClick={() => closeModal()} className="w-full p-1 red-btn">
-      Cancel
-    </button>
+    <button onClick={() => closeModal()} className="w-full p-1 red-btn">Cancel</button>
   );
 };
 
@@ -54,6 +44,8 @@ const OrderDetails = ({ item }) => {
   const [price, setPrice] = useState(parseFloat(item.price));
   const [quantity, setQuantity] = useState(1);
   const [checkedAddons, setCheckedAddons] = useState([]);
+
+  console.log('ADDONS:', addons)
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -203,9 +195,7 @@ const OrderDetails = ({ item }) => {
             </button>
           </div>
           <div>
-            {addons
-
-              ? addons["ADD-ONS"].map((addon, i) => {
+            {addons? addons["add-ons"].map((addon, i) => {
                 return (
                   <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
                     <form className="p-2">
