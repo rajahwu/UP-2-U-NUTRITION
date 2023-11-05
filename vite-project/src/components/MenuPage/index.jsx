@@ -64,7 +64,7 @@ const OrderDetails = ({ item }) => {
   };
 
 
-  const toggleAddOns= () => {
+  const toggleAddOns = () => {
     setIsAddOnsOpen(!isAddOnsOpen)
   }
 
@@ -85,7 +85,7 @@ const OrderDetails = ({ item }) => {
   };
 
   const handleQuantityChange = (newQuantity) => {
-    if (newQuantity >=1){
+    if (newQuantity >= 1) {
       setQuantity(newQuantity);
       setPrice(item.price * newQuantity)
     }
@@ -119,15 +119,15 @@ const OrderDetails = ({ item }) => {
         <div className="flex flex-col justify-center p-3 w-50">
           <h4>Quantity:</h4>
           <div className="flex items-center border-4">
-            <button 
-              onClick={() => {handleQuantityChange(quantity -1)}} 
+            <button
+              onClick={() => { handleQuantityChange(quantity - 1) }}
               className="px-2 rounded-l-lg text-center"
-              disabled={quantity ===1 }
+              disabled={quantity === 1}
             >-</button>
-            <input 
+            <input
               className="w-4 " type="text" value={quantity} onChange={(e) => {
-              handleQuantityChange(quantity - 1)
-            }} />
+                handleQuantityChange(quantity - 1)
+              }} />
             <button onClick={() => {
               handleQuantityChange(quantity + 1)
             }} className="px-2rounded-r-lg text-center">+</button>
@@ -397,9 +397,8 @@ const MenuPage = () => {
         </button>
       </div>
       <div
-        className={`menu-item-container ${
-          carouselDisabled ? "group-view carousel-item2" : ""
-        }`}
+        className={`menu-item-container ${carouselDisabled ? "group-view carousel-item2" : ""
+          }`}
       >
         {carouselDisabled ? (
           renderCarousel()

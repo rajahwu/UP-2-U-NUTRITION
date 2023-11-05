@@ -13,7 +13,7 @@ export const MenuNav = ({ setCategory }) => {
   ];
 
   const handleMenuItemClick = (menuItem) => {
-    console.log("menuItem", menuItem);
+    // console.log("menuItem", menuItem);
     setCategory(menuItem)
   }
 
@@ -39,7 +39,7 @@ export const MenuNav = ({ setCategory }) => {
               className='selector-lines'
               src={menuSelectionLines[i]} alt=""
             />
-            <div>{console.log('cat', cat)}</div>
+            {/* <div>{console.log('cat', cat)}</div> */}
           </div>
         ))}
       </div>
