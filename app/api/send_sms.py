@@ -36,7 +36,7 @@ def send_sms():
             message = client.messages.create(
                 body=orderMessage,
                 from_=twilio_number,
-                to='+12679078198'
+                to='+14692339320'
             )
 
             return jsonify({"message": "SMS sent successfully"})

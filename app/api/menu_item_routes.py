@@ -156,15 +156,19 @@ def update_menu_item(id):
         menu_item.price = menu_item_form.data['price']
         menu_item.created_at = date.today()
         uploaded_image = menu_item_form.data['image']
-        uploaded_image.filename = get_unique_filename(uploaded_image.filename)
-        print("-======================== uploadimage", uploaded_image.filename)
-        upload = upload_file_to_s3(uploaded_image)
-        if 'url' not in upload:
-            print("upload here =======", upload)
-            return upload["errors"]
 
-        remove_file_from_s3(menu_item.image)
-        menu_item.image = upload['url']
+        if uploaded_image:
+            uploaded_image.filename = get_unique_filename(
+                uploaded_image.filename)
+            upload = upload_file_to_s3(uploaded_image)
+
+            if 'url' not in upload:
+                print("upload here =======", upload)
+                return upload["errors"]
+
+            # Remove the old image from S3
+            remove_file_from_s3(menu_item.image)
+            menu_item.image = upload['url']
         db.session.commit()
 
         ingredients = menu_item_form.data['ingredient_name'].split(",")
