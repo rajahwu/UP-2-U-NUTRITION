@@ -7,7 +7,7 @@ import './AddItem.css'
 import { update } from 'lodash';
 
 const EditItem = ({ menu_item }) => {
-    console.log('MENU ITEM:', menu_item)
+    // console.log('MENU ITEM:', menu_item)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { closeModal } = useModal()
@@ -38,11 +38,11 @@ const EditItem = ({ menu_item }) => {
         if (!image) error.image = "Image is required"
 
         if (!ingredients) error.ingredients = "Ingredient is required"
-        nutrientEntries.forEach((entry, index) => {
-            if (!entry.nutrient) error[`nutrient${index}`] = `Nutrient #${index + 1} is required`;
-            if (!entry.weight) error[`weight${index}`] = `Weight #${index + 1} is required`;
-            // if (!entry.percentage) error[`percentage${index}`] = `Percentage #${index + 1} is required`;
-        });
+        // nutrientEntries.forEach((entry, index) => {
+        //     if (!entry.nutrient) error[`nutrient${index}`] = `Nutrient #${index + 1} is required`;
+        //     if (!entry.weight) error[`weight${index}`] = `Weight #${index + 1} is required`;
+        //     // if (!entry.percentage) error[`percentage${index}`] = `Percentage #${index + 1} is required`;
+        // });
 
 
         setErrors(error);
@@ -85,41 +85,43 @@ const EditItem = ({ menu_item }) => {
 
 
         const updatedMenuItem = new FormData()
-        console.log('items:', name, image, category)
+        console.log("===============image", image)
         updatedMenuItem.append("name", name)
         updatedMenuItem.append('image', image)
         updatedMenuItem.append('category', category)
         // console.log(typeof price)
         updatedMenuItem.append('price', price)
         updatedMenuItem.append('ingredient_name', ingredients)
-        console.log('AFTER:', updatedMenuItem)
+        // console.log('AFTER:', updatedMenuItem)
 
 
 
         // console.log("========", nutrientEntries)
-        // const nutrientArray = [];
-        // const weightArray = [];
-        // // const percentageArray = [];
+        const nutrientArray = [];
+        const weightArray = [];
+        // const percentageArray = [];
 
-        // nutrientEntries.forEach((entry) => {
-        //     nutrientArray.push(entry.nutrient);
-        //     weightArray.push(entry.weight);
-        //     // percentageArray.push(entry.percentage);
-        // });
+        nutrientEntries.forEach((entry) => {
+            nutrientArray.push(entry.nutrient);
+            weightArray.push(entry.weight);
+            // percentageArray.push(entry.percentage);
+        });
 
 
-        // updatedMenuItem.append(`nutrient`, nutrientArray);
-        // updatedMenuItem.append(`weight`, weightArray);
+        updatedMenuItem.append(`nutrient`, nutrientArray);
+        updatedMenuItem.append(`weight`, weightArray);
         // updatedMenuItem.append(`percentage`, percentageArray);
 
+        console.log("===========hit", errors)
         if (!Object.keys(errors).length) {
             const result = await dispatch(editMenuItemThunk(menu_item.id, updatedMenuItem));
-            console.log("===updated menu item======", updatedMenuItem)
+            // console.log("===updated menu item======", updatedMenuItem)
 
 
             if (!result.errors) {
                 closeModal();
                 navigate('/menu');
+            } else {
             }
         }
     }
@@ -141,11 +143,13 @@ const EditItem = ({ menu_item }) => {
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Image
                         </label>
-                        <input 
-                            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
-                            id="grid-last-name" 
+                        <input
+                            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="grid-last-name"
                             type="file"
-                            placeholder="Image..." 
+                            accept='image/*'
+                            filename={image && image.name}
+                            placeholder="Image..."
                             onChange={(e) => setImage(e.target.files[0])} />
                     </div>
                     <div className="w-full md:w-1/2 px-3">
