@@ -43,6 +43,7 @@ export function AddItem() {
   };
 
 
+
   useEffect(() => {
     const error = {};
 
@@ -68,6 +69,7 @@ export function AddItem() {
 
   if (!user) return null
   if (user.admin !== true) return navigate("/login")
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -95,6 +97,7 @@ export function AddItem() {
       newMenuItem.append(`nutrient`, nutrientArray);
       newMenuItem.append(`weight`, weightArray);
     }
+
 
 
     if (!Object.values(errors).length) {
