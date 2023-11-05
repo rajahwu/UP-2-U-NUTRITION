@@ -9,8 +9,11 @@ const OurStory = () => {
                 <div className="about-us-container">
                     <div className="flex flex-col">
                         <h1 id='ourstory-title'>ABOUT US</h1>
-                        <div className="ourstory-body">Ex cillum deserunt irure deserunt qui magna nostrud id cillum proident fugiat cupidatat duis. Excepteur pariatur reprehenderit do commodo do eu proident voluptate consectetur. Lorem incididunt occaecat quis minim. Cupidatat adipisicing minim ut aliqua esse. Lorem magna eu cupidatat quis duis fugiat dolore do id ut.
-                                Laborum eu culpa velit enim minim eiusmod dolore officia fugiat. Est laborum laborum labore laboris nostrud et mollit veniam. Magna adipisicing voluptate occaecat et dolore qui consequat. Occaecat voluptate do incididunt laboris. Ipsum labore minim ullamco sint laboris commodo voluptate tempor sunt aliqua. Ipsum commodo id anim eu officia cupidatat commodo tempor consequat magna. Cillum exercitation ullamco tempor enim do enim ut est non. Id cillum do occaecat id ad qui esse culpa et in nulla quis voluptate veniam. Enim aliquip nisi velit commodo est veniam sit elit consequat.</div>
+                        <div className="ourstory-body">{`Nico and Rosie's journey into the world of health and nutrition began as a shared passion for wellness and a love for culinary experimentation. Before they became the owners of their small, cozy health shop, they both led entirely different lives.
+
+Rosie, had a background in marketing and worked in the corporate world. She too had her fair share of health struggles, battling the stress and hectic pace of her career. However, her interest in holistic well-being, combined with Nico's own transformation, ignited a shared mission. They wanted to help others achieve the same level of health and vitality they had found.
+
+As they sat down to enjoy a nourishing meal together, the idea of opening a health shop sprouted. They wanted a place where people could find convenient, nutritious alternatives to traditional meals. Their shop would offer a menu filled with carefully crafted teas and protein bowls designed to replace a meal and leave customers feeling full and satisfied.`}</div>
                     </div>
                     <img id="owner-img" src="https://i.imgur.com/mfTz11d.png"></img>
                 </div>   
