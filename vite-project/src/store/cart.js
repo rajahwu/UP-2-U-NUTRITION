@@ -10,8 +10,8 @@ const SEND_MESSAGE = 'twilio/SEND_MESSAGE'
 //action creators
 
 const actionGetCartItems = (menu_items) => ({
-  type: GET_CART_ITEMS,
-  menu_items,
+    type: GET_CART_ITEMS,
+    menu_items,
 });
 
 const actionAddToCart = (menu_item, amount = 1) => ({
@@ -30,19 +30,19 @@ const actionUpdateCart = (menu_item, amount) => ({ type: UPDATE_CART, menu_item,
 const actionRemoveFromCart = (menu_item) => ({ type: REMOVE_FROM_CART, menu_item })
 
 export const getCartItems = (menu_items) => async (dispatch) => {
-  dispatch(actionGetCartItems(menu_items));
+    dispatch(actionGetCartItems(menu_items));
 };
 
 export const addToCart = (menu_item) => async (dispatch) => {
-  dispatch(actionAddToCart(menu_item));
+    dispatch(actionAddToCart(menu_item));
 };
 
 export const updateCartItemAmount = (menu_item) => async (dispatch) => {
-  dispatch(actionUpdateCart(menu_item));
+    dispatch(actionUpdateCart(menu_item));
 };
 
 export const removeFromCart = (menu_item) => async (dispatch) => {
-  dispatch(actionRemoveFromCart(menu_item));
+    dispatch(actionRemoveFromCart(menu_item));
 };
 
 export const placeOrderThunk = (order, user) => async (dispatch) => {

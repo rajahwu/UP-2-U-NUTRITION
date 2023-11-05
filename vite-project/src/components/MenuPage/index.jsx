@@ -196,28 +196,28 @@ const OrderDetails = ({ item }) => {
             </button>
           </div>
           <div>
-            {addons? addons["add-ons"].map((addon, i) => {
-                return (
-                  <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
-                    <form className="p-2">
-                      <div className="flex gap-1 items-center border-4">
-                        <input
-                          className=""
-                          type="checkbox"
-                          name={addon.addon_name}
-                          value={addon["ADD-ONS"]}
-                          onChange={(e) => handleCheckboxChange(e, addon)}
-                        />
-                        <label className="" htmlFor={addon.addon_name}>
-                          {addon["ADD-ONS"]} |
-                        </label>
-                        <span className="">$1.00 |</span>
-                        <p>{addon["NUTRITIONAL FACTS"]}</p>
-                      </div>
-                    </form>
-                  </div>
-                );
-              })
+            {addons ? addons["add-ons"].map((addon, i) => {
+              return (
+                <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
+                  <form className="p-2">
+                    <div className="flex gap-1 items-center border-4">
+                      <input
+                        className=""
+                        type="checkbox"
+                        name={addon.addon_name}
+                        value={addon["ADD-ONS"]}
+                        onChange={(e) => handleCheckboxChange(e, addon)}
+                      />
+                      <label className="" htmlFor={addon.addon_name}>
+                        {addon["ADD-ONS"]} |
+                      </label>
+                      <span className="">$1.00 |</span>
+                      <p>{addon["NUTRITIONAL FACTS"]}</p>
+                    </div>
+                  </form>
+                </div>
+              );
+            })
               : null}
           </div>
         </div>

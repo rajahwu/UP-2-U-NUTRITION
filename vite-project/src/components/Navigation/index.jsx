@@ -12,11 +12,11 @@ function Navigation({ isLoaded }) {
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
 	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png");
-	const [cartAmount, setCartAmount] = useState(0); // Use state to store the cart item count
+	const [cartAmount, setCartAmount] = useState(""); // Use state to store the cart item count
 	const user = useSelector(state => state.session.user);
 	const navigate = useNavigate();
-
-	const itemsInCart = Object.values(useSelector(state => state.cartReducer))
+	const itemsObj = useSelector(state => state.cartReducer)
+	const itemsInCart = Object.values(itemsObj)
 	console.log("CART ITEM:", itemsInCart);
 
 	const handleLogout = (e) => {
@@ -34,8 +34,8 @@ function Navigation({ isLoaded }) {
 	useEffect(() => {
 		dispatch(getCartItems());
 		setCartAmount(itemsInCart.length);
-	}, [dispatch, itemsInCart]);
-	
+	}, [dispatch, cartAmount]);
+
 	return (
 		<div className="nav-bar">
 			<div className="logo">
