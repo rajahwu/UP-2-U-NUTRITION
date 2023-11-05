@@ -33,7 +33,7 @@ function SignupFormPage() {
     if (!password || password.length < 6)
       errors.password = "Password must be at least 6 characters";
     if (password !== confirmPassword) errors.confirmPassword = "Password must match"
-    if (!phone || phone.replace(/-/g, '').length !== 10) errors.phone = "Must be a valid US Number"
+    if (!phone || phone.length !== 10) errors.phone = "Must be a valid US Number"
 
     setErrors(errors)
   }, [email, password, firstName, lastName, phone])
@@ -52,15 +52,16 @@ function SignupFormPage() {
     if (!password || password.length < 6)
       errors.password = "Password must be at least 6 characters";
     if (password !== confirmPassword) errors.confirmPassword = "Password must match"
-    if (!phone || phone.replace(/-/g, '').length !== 10) errors.phone = "Must be a valid US Number"
+    if (!phone || phone.length !== 10) errors.phone = "Must be a valid US Number"
 
 
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
+    } if (!Object.keys(formErrors).length) {
+      const data = await dispatch(signUp(email, firstName, lastName, phone, password));
     }
 
-    const data = await dispatch(signUp(email, firstName, lastName, phone, password));
 
   };
 
