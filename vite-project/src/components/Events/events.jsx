@@ -3,10 +3,11 @@ import { useSelector } from "react-redux"
 import { useModal } from "../../context/Modal";
 
 export const EventsModal = ({ event }) => {
-    console.log("End date:", event);
-    const user = useSelector(state => state.session.user)
     const navigate = useNavigate();
     const { closeModal } = useModal();
+
+    const user = useSelector(state => state.session.user)
+
     const displayDate = (eventDates) => {
         console.log("eventDates", eventDates);
         if (eventDates) {

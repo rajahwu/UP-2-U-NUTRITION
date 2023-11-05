@@ -19,14 +19,6 @@ export const RequestEventModal = () => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const phoneRegex = /^[0-9]{10}$/;
 
-    // const onChange = (e) => {
-    //     e.preventDefault();
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.value,
-    //     });
-    // };
-
     if (state.succeeded) {
         window.alert('Message sent!')
     }
@@ -89,7 +81,6 @@ export const RequestEventModal = () => {
       required
       />
       </div>
-          {/* <div className="form-start-and-end flex flex-col space-y-10 "> */}
             <div className="flex flex-col space-y-3">
               <label
                 htmlFor="item-start"
@@ -120,7 +111,7 @@ export const RequestEventModal = () => {
                 required
               />
             </div>
-          {/* </div> */}
+
           {isValid ? null : <div style={{ color: "red" }}>Invalid Input</div>}
 
           <div className="flex flex-col space-y-3 place-content-center">
