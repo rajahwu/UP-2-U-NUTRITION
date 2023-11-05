@@ -37,3 +37,5 @@ class User(db.Model, UserMixin):
             'phone_number': self.phone_number,
             'admin': self.admin,
         }
+
+    # cart_user = db.relationship("User", back_populates="user_cart")
