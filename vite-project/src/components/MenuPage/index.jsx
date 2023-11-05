@@ -14,6 +14,7 @@ import EditItem from "./utility/forms/EditItem";
 import DeleteItem from "./utility/forms/DeleteItem";
 import { AddItem } from "./utility/forms/AddItem";
 
+
 const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
