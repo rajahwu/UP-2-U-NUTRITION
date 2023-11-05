@@ -22,7 +22,9 @@ export const BackCardItem = ({ item, i }) => {
         <div>
           {item.nutritions && item.nutritions.length > 0 ? (
             < div >
-              {console.log("========item.nutritions", item.nutritions)}
+
+              {/* {console.log("========item.nutritions", item.nutritions)} */}
+
               <h3 className="menu-items-sub-cat">Nutrition:</h3>
               {item.nutritions.map((nutrition, k) => {
                 return <p key={k} >{nutrition.nutrient}: {nutrition.weight}</p>

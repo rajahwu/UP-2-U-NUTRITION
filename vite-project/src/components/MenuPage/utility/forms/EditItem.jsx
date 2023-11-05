@@ -31,20 +31,27 @@ const EditItem = ({ menu_item }) => {
     const [errors, setErrors] = useState('');
 
     useEffect(() => {
-        const error = {}
 
-        if (!name) error.name = "Name is required"
-        if (!category) error.category = "Category is required"
-        if (!price) error.price = "Price is required"
-        if (!image) error.image = "Image is required"
+        const error = {};
 
-        if (!ingredients) error.ingredients = "Ingredient is required"
+        const integerRegex = /^\d+$/;
 
+        if (!name) error.name = 'Description is required';
+        if (name.trim().length < 5)
+            error.name = 'Minimum of 2 characters is required';
+        if (ingredients.trim().length < 2)
+            error.ingredients = 'Mininum of 2 characters only';
+        if (!category) error.category = 'Exercise is required';
+        if (category.trim().length < 2)
+            error.category = 'Minimum of 2 characters is required';
+        if (category.trim().length > 200)
+            error.category = 'Maximum of 200 characters only';
+        if (!price) error.price = 'Reps is required';
+        if (!integerRegex.test(price))
+            error.price = 'Please enter a valid integer for Price';
 
         setErrors(error);
-
-    }, [name, category, price, image, nutrientEntries, ingredients])
-
+    }, [name, ingredients, category, price]);
 
     const addNutrientEntry = () => {
         setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '' }]);
@@ -139,6 +146,7 @@ const EditItem = ({ menu_item }) => {
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Image
                         </label>
+                        {typeof image === 'object' ? null : <img id="edit-image-preview" src={image} alt="Preview" />}
                         <input
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-last-name"
