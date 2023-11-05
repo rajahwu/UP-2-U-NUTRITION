@@ -12,11 +12,12 @@ function Navigation({ isLoaded }) {
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
 	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png");
-	const [cartItemCount, setCartItemCount] = useState(0); // Use state to store the cart item count
+	const [cartAmount, setCartAmount] = useState(0); // Use state to store the cart item count
 	const user = useSelector(state => state.session.user);
 	const navigate = useNavigate();
 
-	const cartItems = Object.values(useSelector(state => state.cartReducer));
+	const itemsInCart = Object.values(useSelector(state => state.cartReducer))
+	console.log("CART ITEM:", itemsInCart);
 
 	const handleLogout = (e) => {
 		e.preventDefault();
@@ -31,15 +32,10 @@ function Navigation({ isLoaded }) {
 	]
 
 	useEffect(() => {
-		dispatch(getCartItems())
-	}, [dispatch])
-
-	useEffect(() => {
-		// Calculate the total quantity of items in the cart
-		const totalQuantity = cartItems.reduce((total, cartItemObj) => total + (cartItemObj.quantity || 0), 0);
-		setCartItemCount(totalQuantity); // Update the cart item count state
-	}, [cartItems]);
-
+		dispatch(getCartItems());
+		setCartAmount(itemsInCart.length);
+	}, [dispatch, itemsInCart]);
+	
 	return (
 		<div className="nav-bar">
 			<div className="logo">
@@ -74,7 +70,7 @@ function Navigation({ isLoaded }) {
 						<img id="sub-icon"
 							src={cartImgSrc}
 							alt="Cart" />
-						{cartItemCount > 0 && <span className="cart-count">{cartItemCount}</span>}
+						<span className="cart-icon">{cartAmount}</span>
 					</NavLink>
 					{user ? (
 						<div onClick={handleLogout} className="cursor-pointer flex flex-col justify-center items-center">
