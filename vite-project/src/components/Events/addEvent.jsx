@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   createEventThunk,
   deleteEventThunk,
@@ -13,47 +13,71 @@ export function AddEvent() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.session.user);
 
-  //get today's date formatted "YYYY-mm-dd"
+  // Get today's date formatted "YYYY-MM-DD"
   const todayString = new Date().toISOString().slice(0, 10);
+  const parseDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toISOString().slice(0, 10); // "YYYY-MM-DD" format
+  };
 
-  //useLocation collects state passed from useNavigate
+  const parseTime = (timeString) => {
+    const date = new Date(timeString);
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`; // "HH:MM" format
+  };
+
+  // Extract the event object from the location state
   const event = location.state;
 
-  //set controled inputs for the form
-  const [title, setTitle] = useState("");
-  const [details, setDetails] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
-  const [color, setColor] = useState('');
-  const [errors, setErrors] = useState({})
+  // Define state variables with initial values based on the event or empty string
+  const [title, setTitle] = useState(event ? event.title : "");
+  const [details, setDetails] = useState(event ? event.details : "");
+  const [startDate, setStartDate] = useState(
+    event ? parseDate(event.start_date) : todayString
+  );
+  const [endDate, setEndDate] = useState(event ? parseDate(event.end_date) : "");
+  const [startTime, setStartTime] = useState(
+    event ? parseTime(event.start_date) : ""
+  );
+  const [endTime, setEndTime] = useState(event ? parseTime(event.end_date) : "");
+  const [color, setColor] = useState(event ? event.color : "");
+  const [errors, setErrors] = useState({});
 
+
+  console.log("========== start", event)
+
+  // Handle the case where event is initially null
+  useEffect(() => {
+    if (!event) {
+      setEndDate(todayString);
+    }
+  }, [event]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let err = {}
+    let err = {};
 
     // Compare the Date objects
     if (endTime <= startTime) {
-      err.endTime = 'End time cannot be before or equal to start time';
+      err.endTime = "End time cannot be before or equal to start time";
     }
 
-    setErrors(err)
+    setErrors(err);
 
-    //build the correct data shape
+    // Build the correct data shape
     const eventToSend = {
       title,
       details,
       startDate,
       endDate,
-      startTime: `${startDate} ${startTime}:00`,
-      endTime: `${endDate} ${endTime}:00`,
+      startTime,
+      endTime,
       color,
     };
 
-    //check if we should edit an existing event or create a new one
+    // Check if we should edit an existing event or create a new one
     if (event) {
       eventToSend.id = event.id;
       dispatch(editEventThunk(eventToSend));
@@ -81,7 +105,7 @@ export function AddEvent() {
         <div className="w-full max-w-lg m-auto">
           <form
             onSubmit={handleSubmit}
-            className="mt-20 bg-white shadow-md rounded px-8 pt-6 pb-8 flex flex-col m-auto space-y-6 mb-4 "
+            className="mt-20 bg-white shadow-md rounded px-8 pt-6 pb-8 flex flex-col m-auto space-y-6 mb-4"
           >
             <div className="flex flex-col space-y-3">
               <label htmlFor="event-title">Event Title:</label>
@@ -91,7 +115,7 @@ export function AddEvent() {
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Title must be between 3 and 100 charaters"
+                placeholder="Title must be between 3 and 100 characters"
                 minLength="3"
                 maxLength="100"
                 required
@@ -128,7 +152,6 @@ export function AddEvent() {
                   id="startTime"
                   type="time"
                   value={startTime}
-                  required
                   onChange={(e) => setStartTime(e.target.value)}
                 />
               </div>
@@ -165,21 +188,26 @@ export function AddEvent() {
             <div className="flex flex-col space-y-3">
               <label htmlFor="event-details">Event Details:</label>
               <textarea
-                className="bg-gray-100 rounded  h-100 txt-lg resize-none p-2"
+                className="bg-gray-100 rounded h-100 txt-lg resize-none p-2"
                 id="event-details"
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
                 placeholder="Enter event details here"
-                required
               />
             </div>
-            <button class="green-btn">Submit Event</button>
-            {event && <button className="red-btn" onClick={handleDelete}>Delete Event</button>}
+            <button className="green-btn">Submit Event</button>
+            {event && (
+              <button className="red-btn" onClick={handleDelete}>
+                Delete Event
+              </button>
+            )}
           </form>
         </div>
       ) : (
         <div>
-          <div onClick={navigate("events")} disabled={Object.keys(errors).length > 0}>Click here to return to events</div>
+          <div onClick={() => navigate("/events")} disabled={Object.keys(errors).length > 0}>
+            Click here to return to events
+          </div>
         </div>
       )}
     </>
