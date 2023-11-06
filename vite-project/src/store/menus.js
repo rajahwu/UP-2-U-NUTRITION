@@ -39,13 +39,12 @@ export const getAllMenuItemThunk = () => async (dispatch) => {
 }
 
 export const createMenuItemThunk = (data) => async (dispatch) => {
-    console.log("========= this is data", data)
     const res = await fetch("/api/menus", {
         method: 'POST',
         body: data,
         // credentials: "include"
     })
-    // console.log("-====================== this is res", res)
+
     if (res.ok) {
         const { resMenuItem } = await res.json()
         dispatch(actionAddMenuItem(resMenuItem))
@@ -60,7 +59,6 @@ export const createMenuItemThunk = (data) => async (dispatch) => {
 
 
 export const editMenuItemThunk = (menu_id, info) => async (dispatch) => {
-    console.log('INFO:', info)
     const res = await fetch(`/api/menus/${menu_id}/update`, {
         method: 'PUT',
         body: info

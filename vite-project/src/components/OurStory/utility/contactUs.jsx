@@ -37,7 +37,7 @@ export const ContactUsModal = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        console.log(emailOrPhone)
+
         if (phoneRegex.test(emailOrPhone)) {
 
             let number = emailOrPhone.replace(/[^\w\s]/gi, "").replace(/ /g, "");
@@ -46,7 +46,6 @@ export const ContactUsModal = () => {
 
             url += `&text=${encodeURI(description)}&app_absent=0`;
 
-            console.log(url)
 
             window.open(url)
         }

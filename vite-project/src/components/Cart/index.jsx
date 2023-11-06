@@ -27,11 +27,10 @@ const Cart = () => {
   const [note, setNote] = useState("")
   const user = useSelector(state => state.session.user)
   const taxRate = 0.082;
-  const convenienceFee = 0.33;
+  const convenienceFee = 0;
   const cartItems = useSelector((state) => state.cartReducer);
   const cartItemArr = Object.values(cartItems)
 
-  // console.log("========= this is cartItemArr", cartItemArr)
 
   const handleAmountChange = (product, newAmount) => {
     product.amount = newAmount;
@@ -94,15 +93,10 @@ const Cart = () => {
     }
 
     orderMessage += `Total: $${total.toFixed(2)}\n`;
-    console.log("this is order message=====", orderMessage);
 
     // Dispatch the placeOrderThunk action with the order information
     await dispatch(placeOrderThunk(orderMessage, user));
 
-    // Send a message with the order details
-    // You may want to replace this part with your actual SMS sending logic
-    // Example: sendSMS(orderMessage);
-    // console.log(orderMessage);
   };
 
 
@@ -119,7 +113,6 @@ const Cart = () => {
     );
   };
 
-  // console.log("productsInCartList", productsInCartList);
   return (
     <div className="your-cart-container">
       <div className="headers bg-titles-yellow">YOUR CART</div>
@@ -141,7 +134,6 @@ const Cart = () => {
                   type="number"
                   className="product-incart-amount"
                   onChange={(e) => {
-                    console.log("input changed: ", e.target.value);
                     handleAmountChange(product, parseFloat(e.target.value));
                   }}
                   value={product.amount}
@@ -155,12 +147,12 @@ const Cart = () => {
                   onClick={() => {
                     handleRemoveProduct(product);
                   }}
+                  className="remove-product-btn"
                 >
-                  X
+                  <i className="fa-regular fa-trash-can"></i>
                 </button>
               </div>
               <div className="self-start mx-14">
-                {console.log("======= this is product", product)}
                 {product.addons?.map((addon, i) => (
                   <p key={i}>w. {addon.name}</p>
                 ))}
@@ -168,29 +160,29 @@ const Cart = () => {
             </div>
           );
         })}
-        <div className="flex flex-col self-end p-4 py-10 mx-10 my-10 text-lg border-2">
-          <div className="flex total-incart">
+        <div className="flex flex-col self-end p-5 py-5 mx-10 my-10 text-lg border-2 ">
+          <div className="flex total-incart justify-between gap-5">
             <p className="">Subtotal:</p>
             <p className=" total-incart-value">{`$${subtotal.toFixed(2)}`}</p>
           </div>
-          <div className="flex total-incart">
+          <div className="flex total-incart justify-between">
             <p className="">Tax:</p>
             <p className="total-incart-value">{`$${tax.toFixed(2)}`}</p>
           </div>
-          <div className="flex total-incart">
+          {/* <div className="flex total-incart justify-between">
             <p className="">Convenience Fee:</p>
             <div className="total-incart-value">{`$${convenienceFee.toFixed(
               2
             )}`}</div>
-          </div>
-          <div className="flex flex-col text-xl text-center text-green-700">
-            <div className="total-incart">Total</div>
-            <div className="total-incart-value">{`$${total.toFixed(2)}`}</div>
+          </div> */}
+          <div className="flex  text-xl text-green-700 font-bold justify-between">
+            <div className="flex total-incart">Total:</div>
+            <div className="flex total-incart-value">{`$${total.toFixed(2)}`}</div>
           </div>
         </div>
-        <div className="flex flex-col self-start w-11/12 mx-5">
+        <div className="flex flex-col item-center w-11/12">
           <label
-            className="block mb-2 text-xl font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-xl font-medium text-gray-900"
             htmlFor="instructions"
           >
             Special Instructions
@@ -198,15 +190,15 @@ const Cart = () => {
           <textarea
             rows="4"
             name="instructions"
-            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+            className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
             value={note}
             onChange={(e) => setNote(e.target.value)}
           ></textarea>
         </div>
         <div>Any price may variate for any special modification</div>
-        <div className="inline-flex flex-auto w-full">
+        <div className="w-full flex p-3 gap-1">
           <button
-            className="flex-1"
+            className="flex-1 green-btn"
             onClick={() => navigate("/menu")}
           >
             Continue Shopping

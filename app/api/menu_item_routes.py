@@ -50,7 +50,7 @@ def create_menu_item():
         image = form.data['image']
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
-        print("====================upload:", upload)
+
 
         if 'url' not in upload:
             return {'error': 'Uh oh, fix the upload'}
@@ -96,7 +96,7 @@ def create_menu_item():
         return {"resMenuItem": new_menu_item.to_dict()}
 
     if form.errors:
-        print("======== hitting form error", form.errors)
+
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
@@ -163,7 +163,7 @@ def update_menu_item(id):
             upload = upload_file_to_s3(uploaded_image)
 
             if 'url' not in upload:
-                print("upload here =======", upload)
+
                 return upload["errors"]
 
             # Remove the old image from S3
@@ -252,7 +252,7 @@ def update_menu_item(id):
         return {"resMenuItem": menu_item.to_dict()}
 
     if menu_item_form.errors:
-        print("============ error", menu_item_form.errors)
+     
         return {"errors": validation_errors_to_error_messages(menu_item_form.errors)}, 400
 
 
