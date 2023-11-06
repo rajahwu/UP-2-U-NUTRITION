@@ -107,11 +107,19 @@ const eventReducer = (state = initialState, action) => {
             newState = { ...action.events }
             return newState
         }
-        // case ADD_EVENT:{
-        //     newState = {...state}
-        //     newState
-        //     return newState
-        // }
+        case ADD_EVENT:
+            newState = { ...state, [action.event.id]: action.event };
+            return newState;
+
+        case EDIT_EVENT:
+            newState = { ...state, [action.event.id]: action.event };
+            return newState;
+
+        case DELETE_EVENT:
+            newState = { ...state };
+            delete newState[action.eventId];
+            return newState;
+
         default:
             return state
     }
