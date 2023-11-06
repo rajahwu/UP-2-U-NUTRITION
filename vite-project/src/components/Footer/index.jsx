@@ -63,11 +63,13 @@ const Footer = () => {
                                             <h2 className="text-right">Monday</h2>
                                             <h2 className="text-right">Tuesday</h2>
                                             <h2 className="text-right">Wednesday</h2>
+                                            <h2 className="text-right">Thursday</h2>
                                             <h2 className="text-right">Friday </h2>
                                             <h2 className="text-right">Saturday</h2>
                                             <h2 className="text-right">Sunday</h2>
                                         </div>
                                         <div className="flex flex-col gap-2">
+                                            <h2 className="text-left bolded-hours">7:30AM - 8PM</h2>
                                             <h2 className="text-left bolded-hours">7:30AM - 8PM</h2>
                                             <h2 className="text-left bolded-hours">7:30AM - 8PM</h2>
                                             <h2 className="text-left bolded-hours">7:30AM - 8PM</h2>
