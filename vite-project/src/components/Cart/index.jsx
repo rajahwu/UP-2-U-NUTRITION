@@ -156,6 +156,7 @@ const Cart = () => {
                     handleRemoveProduct(product);
                   }}
                 >
+                  X
                 </button>
               </div>
               <div className="self-start mx-14">
