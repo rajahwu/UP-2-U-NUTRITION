@@ -11,6 +11,9 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    first_name = db.Column(db.String(), nullable=False)
+    last_name = db.Column(db.String(), nullable=False)
+    phone_number = db.Column(db.String(12), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
     admin = db.Column(db.Boolean, default=False)
 
@@ -29,5 +32,10 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'email': self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'phone_number': self.phone_number,
             'admin': self.admin,
         }
+
+    # cart_user = db.relationship("User", back_populates="user_cart")

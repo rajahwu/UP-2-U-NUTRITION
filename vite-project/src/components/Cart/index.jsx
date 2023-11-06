@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import OpenModalButton from "../OpenModalButton"
 import {
   getCartItems,
   updateCartItemAmount,
@@ -17,38 +18,20 @@ function calculateTotalPrice(items) {
   return parseFloat(totalPrice.toFixed(2));
 }
 
+
+
+
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [note, setNote] = useState("")
+  const user = useSelector(state => state.session.user)
   const taxRate = 0.082;
   const convenienceFee = 0.33;
-
+  const cartItems = useSelector((state) => state.cartReducer);
   const cartItemArr = Object.values(cartItems)
-  // console.log("this is cart Items", cartItemArr)
 
-  const handlePlaceOrder = async () => {
-    // Create an array to store the order information for each item in the cart
-    const orderInfo = cartItemArr.map((item) => {
-      const addons = item.addons.map((addon) => addon['ADD-ONS']).join(', '); // Join addons with commas
-      // console.log("this is item addon", addons)
-      return `NEW ORDER: ${item.name} - ${addons}`;
-    });
-
-    // Join the order information with line breaks to separate each item
-    const orderMessage = orderInfo.join('\n');
-    console.log("this is order message=====", orderMessage)
-
-    // Dispatch the placeOrderThunk action with the order information
-    await dispatch(placeOrderThunk(orderMessage));
-
-    // Send a message with the order details
-    // You may want to replace this part with your actual SMS sending logic
-    // Example: sendSMS(orderMessage);
-
-    console.log("Order placed with the following items:", orderMessage);
-    // console.log(orderMessage);
-  };
+  // console.log("========= this is cartItemArr", cartItemArr)
 
   const handleAmountChange = (product, newAmount) => {
     product.amount = newAmount;
@@ -78,7 +61,65 @@ const Cart = () => {
   const tax = subtotal * taxRate;
   const total = subtotal + tax + convenienceFee;
 
-  console.log("productsInCartList", productsInCartList);
+  function generateOrderNumber() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const length = 6; // You can adjust the length of the order number
+    let orderNumber = '';
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      orderNumber += characters[randomIndex];
+    }
+
+    return orderNumber;
+  }
+
+  const orderNumber = generateOrderNumber()
+
+  const handlePlaceOrder = async () => {
+    let orderMessage = `Order Number: ${orderNumber}\n\n`;
+    orderMessage += `${user.first_name} ${user.last_name}\nphone: ${user.phone_number}\n`;
+
+    cartItemArr.forEach((item) => {
+      orderMessage += `${item.amount} - ${item.name}`;
+      if (item.addons && item.addons.length > 0) {
+        const addons = item.addons.map((addon) => addon['name']).join('\n');
+        orderMessage += `\nAddOn: ${addons}`;
+      }
+      orderMessage += '\n\n';
+    });
+
+    if (note) {
+      orderMessage += `Note: ${note}\n\n`
+    }
+
+    orderMessage += `Total: $${total.toFixed(2)}\n`;
+    console.log("this is order message=====", orderMessage);
+
+    // Dispatch the placeOrderThunk action with the order information
+    await dispatch(placeOrderThunk(orderMessage, user));
+
+    // Send a message with the order details
+    // You may want to replace this part with your actual SMS sending logic
+    // Example: sendSMS(orderMessage);
+    // console.log(orderMessage);
+  };
+
+
+
+  const OrderConfirmation = ({ orderNumber }) => {
+
+    return (
+      <div className="p-5 text-xl">
+        <div className="text-2xl text-sky-500">Thank you for your order!</div>
+        <div>Order Number: {orderNumber}</div>
+        <div>Pick Up: ASAP</div>
+        <div className="text-theme-green">Pick Up</div>
+      </div>
+    );
+  };
+
+  // console.log("productsInCartList", productsInCartList);
   return (
     <div className="your-cart-container">
       <div className="headers bg-titles-yellow">YOUR CART</div>
@@ -106,7 +147,7 @@ const Cart = () => {
                   value={product.amount}
                 />
                 <div className="product-incart-name">{product.name}</div>
-                <div className="product-incart-price">{product.price}</div>
+                <div className="product-incart-price">${product.price}</div>
                 <div className="product-incart-price">{`$${parseFloat(
                   product.price * product.amount
                 ).toFixed(2)}`}</div>
@@ -119,8 +160,9 @@ const Cart = () => {
                 </button>
               </div>
               <div className="self-start mx-14">
+                {console.log("======= this is product", product)}
                 {product.addons?.map((addon, i) => (
-                  <p key={i}>w. {addon["ADD-ONS"]}</p>
+                  <p key={i}>w. {addon.name}</p>
                 ))}
               </div>
             </div>
@@ -157,18 +199,35 @@ const Cart = () => {
             rows="4"
             name="instructions"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
           ></textarea>
         </div>
         <div>Any price may variate for any special modification</div>
         <div className="inline-flex flex-auto w-full">
-          <button className="flex-1" onClick={() => {
-            return navigate('/menu')
-          }}>
-            Continue Shoping
+          <button
+            className="flex-1"
+            onClick={() => navigate("/menu")}
+          >
+            Continue Shopping
           </button>
-          <button onClick={handlePlaceOrder} className="flex-1 green-btn your-cart-btn" type="submit">
-            Place Order
-          </button>
+          {productsInCartList.length ? (
+            <OpenModalButton
+              modalComponent={<OrderConfirmation orderNumber={orderNumber} />}
+              buttonText="Place Order"
+              onButtonClick={handlePlaceOrder}
+              onModalClose={() => navigate("/menu")}
+              className="flex-1 green-btn your-cart-btn"
+            />
+          ) : (
+            <button
+              disabled
+              className="flex-1 your-cart-btn"
+              style={{ background: "gray", cursor: "not-allowed" }}
+            >
+              Place Order
+            </button>
+          )}
         </div>
       </div>
     </div>

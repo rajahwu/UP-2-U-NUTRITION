@@ -1,390 +1,736 @@
 {
-    "ADD-ONS": [
+    "supah-shakes": [
         {
-            "NUTRITIONAL FACTS": "15 - 30 calories, 6g soluble & insoluble fiber",
-            "ADD-ONS": "Active fiber"
+            "supah-shakes": "Oreo Explosion ",
+            "ingredients": "Cookies and cream, Vanilla Protein, Unflavored Fiber, Sugar Free Chocolate Syrup, Crumbled Oreos",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "0 calories",
-            "ADD-ONS": "Probiotic"
+            "supah-shakes": "Fruity Pebbles ",
+            "ingredients": "Wild Berry, Orange Cream,Vanilla Protein, Unflavored Fiber,Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "70 calories, 15g protein",
-            "ADD-ONS": "Protein Juice"
+            "supah-shakes": "Churro **",
+            "ingredients": "Dulce de leche, Vanilla Protein, Unflavored Fiber, Chai Tea, Caramel Sugar Free Syrup, Cinnamon Toast Crunch Cereal",
+            "nutritional-facts": "aprox 270 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals; ** 85mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "75mg caffeine, vitamins C & Bs: B1, B2, B3, B5, B6, B7 & B12, panax ginseng",
-            "ADD-ONS": "Liftoff"
+            "supah-shakes": "Caramel Pie",
+            "ingredients": "Dulce de Leche, Vanilla Protein, Apple Fiber, Caramel Sugar Free Syrup, Cinnamon ",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "60 calories, CLA",
-            "ADD-ONS": "Prolessa Duo (fat reducer)"
+            "supah-shakes": "Banana Split",
+            "ingredients": "Wild Berry, Banana Caramel, Vanilla Protein, Unflavored fiber, Chocolate Sugar Free Syrup, Granola (contains almonds)",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "20 calories, 2g protein, vitamins A, C & E",
-            "ADD-ONS": "Collagen"
+            "supah-shakes": "Cookie Dough ",
+            "ingredients": "Dulce de Leche, Cookies and cream, Vanilla protein, Unflavored fiber, Caramel Sugar Free Syrup, Twix Powder",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories",
-            "ADD-ONS": "Niteworks (Nitric Oxide)"
+            "supah-shakes": "Strawberry Cheesecake",
+            "ingredients": "Strawberry Cheesecake, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Graham Crackers Crumbs",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "60 calories, electrolytes: potassium, sodium & magnesium, vitamins C & E",
-            "ADD-ONS": "H3O (hydration)"
+            "supah-shakes": "Caramel Frappe **",
+            "ingredients": "Dulce de Leche, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint of Caramel Macchiato Iced Protein Coffee ",
+            "nutritional-facts": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "15 calories, 1000mg vitamin C, Zinc, echinacea",
-            "ADD-ONS": "Best Defense "
+            "supah-shakes": "Minty Goodness",
+            "ingredients": "Mint Chocolate, Vanilla Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "10 calories, Epicor, Vitamins C & D, Zinc",
-            "ADD-ONS": "Immunity Essentials"
+            "supah-shakes": "Toasted Pralines Latte **",
+            "ingredients": "Pralines & Cream, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint House Blend Iced Protein Coffee",
+            "nutritional-facts": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "100 calories, 15g protein, 2g sugar, 80mg caffeine",
-            "ADD-ONS": "Protein Coffee"
+            "supah-shakes": "Captain Crunch",
+            "ingredients": "Pina Colada, Pralines & Cream, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Captain Crunch Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "ADD-ONS": "New Mom Supplement"
+            "supah-shakes": "Mocha **",
+            "ingredients": "Cafe Latte, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Hint Mocha Iced Protein Coffee",
+            "nutritional-facts": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "ADD-ONS": "Kids Supplement"
+            "supah-shakes": "Mango Pina",
+            "ingredients": "Pina Colada, Mango Pineapple, Vanilla Protein, Tropical Fiber, Honey, Hint Peach Mango Protein Juice",
+            "nutritional-facts": "aprox 285 calories, 6g fat, 25g carbs, 10g fiber, 35g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "140 calories, 10g protein, 4g fat, 15g carbs",
-            "ADD-ONS": "Protein Bars"
+            "supah-shakes": "Banana Nut",
+            "ingredients": "Banana Caramel, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Sliced Almonds",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         },
         {
-            "NUTRITIONAL FACTS": "65 calories, 4g protein, 7g carbs",
-            "ADD-ONS": "Protein Bites"
+            "supah-shakes": "Key West",
+            "ingredients": "Strawberry Cheesecake, Mango Pineapple, Vanilla Protein, Tropical Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Pumpkin Banana",
+            "ingredients": "Banana Caramel, Pumpkin Spice, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Granola (contains almonds)",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Thin Mint",
+            "ingredients": "Mint Chocolate, Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Brownie",
+            "ingredients": "Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Chocolate chips",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Vanilla Bean",
+            "ingredients": "French Vanilla, Cookies and Cream, Vanilla Protein, Unflavored Fiber, Cinnamon, Whipped Cream (contains dairy)",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
+        },
+        {
+            "supah-shakes": "Rainbow",
+            "ingredients": "Pina Colada, Orange Cream, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "nutritional-facts": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "price": "12.48",
+            "name": "supah-shakes"
         }
     ],
-    "BASICS": [
+    "special-teas": [
         {
-            "NUTRITIONAL FACTS": "200 calories, 4g fat, 18g carbs, 3g fiber, 24g protein",
-            "BASICS": "Shake Flavor + Protein"
+            "special-teas": "Beach Bum",
+            "ingredients": "Mandarin Aloe, Peach Tea, Pineapple Liftoff, Orange & Strawberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
         },
         {
-            "NUTRITIONAL FACTS": "0 to 5 calories",
-            "BASICS": "Aloe"
+            "special-teas": "Captain America",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Pomegranate Liftoff, Strawberry & Blue Blast flavors",
+            "price": "7.28",
+            "name": "special-teas"
         },
         {
-            "NUTRITIONAL FACTS": "5 calories, 0-25-40-85mg caffeine",
-            "BASICS": "Tea"
+            "special-teas": "Cotton Candy",
+            "ingredients": "Mandarin Aloe, Raspberry Tea, Pomegranate Liftoff, Watermelon & Rainbow Candy flavors",
+            "price": "7.28",
+            "name": "special-teas"
         },
         {
-            "NUTRITIONAL FACTS": "25 calories, 7g carbs, 0 sugar, 180mg caffeine",
-            "BASICS": "SpecialTeas"
+            "special-teas": "Watermelon Splash",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Pomegranate Liftoff, Watermelon & Raspberry Lemonade flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Cosmo & Wanda",
+            "ingredients": "Cranberry Aloe, Lemon Tea, Pomegranate LIftoff, Tropical Punch & Green Apple flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Fruit Rollup",
+            "ingredients": "Mandarin Aloe, Raspberry Tea, Orange Liftoff, Watermelon & Strawberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Sunset Crush",
+            "ingredients": "Mango Aloe, Peach Tea, Tropical Liftoff, Orange & Peach flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Hulk",
+            "ingredients": "Mango Aloe, Lemon Tea, Lemon Liftoff, Green Apple & Grape flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Tropic like it's hot",
+            "ingredients": "Mango Aloe, Peach Tea, Tropical Liftoff, Passion Fruit & Tropical Punch flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "MangoRita",
+            "ingredients": "Mango Aloe, Peach Tea, Lemon Liftoff, Margarita & Mango flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Miami Vice",
+            "ingredients": "Mango Aloe, Raspberry Tea, Pineapple Liftoff, Coconut & Strawberry Flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Passion Fruit",
+            "ingredients": "Mango Aloe, Raspberry Tea, Pineapple Liftoff, Passion Fruit & Peach flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Peach Please!",
+            "ingredients": "Mango Aloe, Peach Tea, Orange Liftoff, Peach & Orange flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Razzmatazz",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Lemon Liftoff, Lemon & Raspberry Lemonade flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Sex on the beach",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Orange Liftoff, Orange & Tropical Punch flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Grape-a-liscious",
+            "ingredients": "Mandarin Aloe, Raspberry Tea, Pomegranate Liftoff, Grape & Strawberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Smurfs Up",
+            "ingredients": "Mango Aloe, Lemon Tea, Lemon Liftoff, Blue Blast & Blue Raspberry flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Cucumberita",
+            "ingredients": "Cranberry Aloe, Raspberry Tea, Pomegranate Liftoff, Rainbow Candy & Cucumber Lime flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "Dragon Slayer",
+            "ingredients": "Mandarin Aloe, Original Tea, Blackberry Liftoff, Dragonfruit & Strawberry Kiwi flavors",
+            "price": "7.28",
+            "name": "special-teas"
+        },
+        {
+            "special-teas": "CocoMelon",
+            "ingredients": "Mango Aloe, Raspberry Tea, Tropical Liftoff, Coconut & Watermelon flavors",
+            "price": "7.28",
+            "name": "special-teas"
         }
     ],
-    "INSANITEAS": [
+    "insaniteas": [
         {
-            "NUTRITIONAL FACTS": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Protein",
-            "INSANITEAS": "Emerald"
+            "insaniteas": "Emerald",
+            "nutritional-facts": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals ",
-            "INGREDIENTS": "Tea, Liftoff, Hydration",
-            "INSANITEAS": "Bad & Boujee"
+            "insaniteas": "Bad & Boujee",
+            "nutritional-facts": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals ",
+            "ingredients": "Tea, Liftoff, Hydration",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "45 calories, 2g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen ",
-            "INSANITEAS": "Summer Refresher"
+            "insaniteas": "Summer Refresher",
+            "nutritional-facts": "45 calories, 2g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen ",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "115 calories, 5g carbs, 17g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Triple Berry Blast"
+            "insaniteas": "Triple Berry Blast",
+            "nutritional-facts": "115 calories, 5g carbs, 17g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen, Protein",
+            "price": "13.52",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "25 calories, 7g carbs, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Probiotics, Immunity Booster",
-            "INSANITEAS": "Feel Good"
+            "insaniteas": "Feel Good",
+            "nutritional-facts": "25 calories, 7g carbs, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Probiotics, Immunity Booster",
+            "price": "12.48",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Hydration",
-            "INSANITEAS": "Hydrating HiC"
+            "insaniteas": "Hydrating HiC",
+            "nutritional-facts": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Hydration",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "70 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Tea, Liftoff, Electrolytes",
-            "INSANITEAS": "Monster"
+            "insaniteas": "Monster",
+            "nutritional-facts": "70 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Tea, Liftoff, Electrolytes",
+            "price": null,
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "15 calories, 4g carbs, 17g protein, 120mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Tea, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Pretty In Pink"
+            "insaniteas": "Pretty In Pink",
+            "nutritional-facts": "15 calories, 4g carbs, 17g protein, 120mg caffeine, Vitamins & Minerals",
+            "ingredients": "Tea, Liftoff, Collagen, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 8g carbs, 255mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe Vera, Tea, 2x Liftoff",
-            "INSANITEAS": "Great Scott"
+            "insaniteas": "Great Scott",
+            "nutritional-facts": "40 calories, 8g carbs, 255mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe Vera, Tea, 2x Liftoff",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "90 calories, 5g carbs, 17g protein, 45mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Collagen, Protein",
-            "INSANITEAS": "Pink Starburst"
+            "insaniteas": "Pink Starburst",
+            "nutritional-facts": "90 calories, 5g carbs, 17g protein, 45mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Collagen, Protein",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "75 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals ",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Electrolytes",
-            "INSANITEAS": "Acai Refresher"
+            "insaniteas": "Acai Refresher",
+            "nutritional-facts": "75 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals ",
+            "ingredients": "Aloe, Tea, Liftoff, Electrolytes",
+            "price": "12.48",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Orange Starburst"
+            "insaniteas": "Orange Starburst",
+            "nutritional-facts": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Collagen, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "50 calories, 4g carbs, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, BCAAs",
-            "INSANITEAS": "Cran-Apple"
+            "insaniteas": "Cran-Apple",
+            "nutritional-facts": "50 calories, 4g carbs, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, BCAAs",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals ",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen",
-            "INSANITEAS": "Strawberry Mango DaiquiTea"
+            "insaniteas": "Strawberry Mango DaiquiTea",
+            "nutritional-facts": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals ",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "90 calories, 21g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Hydration, Vitamin C booster",
-            "INSANITEAS": "Leaky TeaKi"
+            "insaniteas": "Leaky TeaKi",
+            "nutritional-facts": "90 calories, 21g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Hydration, Vitamin C booster",
+            "price": "13.52",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 6g carbs, 2g protein, 120mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Collagen",
-            "INSANITEAS": "Firecracker"
+            "insaniteas": "Firecracker",
+            "nutritional-facts": "40 calories, 6g carbs, 2g protein, 120mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Collagen",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "95 calories, 22g carbs, 12g sugar, 255mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, 2x Liftoff, Hydration",
-            "INSANITEAS": "Reborn"
+            "insaniteas": "Reborn",
+            "nutritional-facts": "95 calories, 22g carbs, 12g sugar, 255mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, 2x Liftoff, Hydration",
+            "price": "14.56",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Hydration ",
-            "INSANITEAS": "Goblet of Fire"
+            "insaniteas": "Goblet of Fire",
+            "nutritional-facts": "80 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Hydration ",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "85 calories, 7g carbs, 15g protein, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Protein",
-            "INSANITEAS": "Golden Snitch"
+            "insaniteas": "Golden Snitch",
+            "nutritional-facts": "85 calories, 7g carbs, 15g protein, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Protein",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Tea, Liftoff, Collagen ",
-            "INSANITEAS": "Gryffindor"
+            "insaniteas": "Gryffindor",
+            "nutritional-facts": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Tea, Liftoff, Collagen ",
+            "price": "9.36",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Liftoff, Protein",
-            "INSANITEAS": "Hufflepuff"
+            "insaniteas": "Hufflepuff",
+            "nutritional-facts": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Liftoff, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "50 calories, 2g carbs, 2g protein, 105mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Collagen, BCAAs",
-            "INSANITEAS": "Ravenclaw"
+            "insaniteas": "Ravenclaw",
+            "nutritional-facts": "50 calories, 2g carbs, 2g protein, 105mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Collagen, BCAAs",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "75 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Hydration",
-            "INSANITEAS": "Slytherin "
+            "insaniteas": "Slytherin ",
+            "nutritional-facts": "75 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Hydration",
+            "price": "10.4",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Collagen, Protein",
-            "INSANITEAS": "Amoretentia (Love Potion)"
+            "insaniteas": "Amoretentia (Love Potion)",
+            "nutritional-facts": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Collagen, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "80 calories, 9g carbs, 175mg caffeine, creatine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Liftoff, Preworkout",
-            "INSANITEAS": "Polyjuice Potion"
+            "insaniteas": "Polyjuice Potion",
+            "nutritional-facts": "80 calories, 9g carbs, 175mg caffeine, creatine, Vitamins & Minerals",
+            "ingredients": "Aloe, Liftoff, Preworkout",
+            "price": "13.52",
+            "name": "insaniteas"
         },
         {
-            "NUTRITIONAL FACTS": "135 calories, 17g carbs, 12g sugar, 15g protein, 105mg caffeine, Vitamins & Minerals",
-            "INGREDIENTS": "Aloe, Tea, Hydration, Protein",
-            "INSANITEAS": "Sorcerer's Stone"
+            "insaniteas": "Sorcerer's Stone",
+            "nutritional-facts": "135 calories, 17g carbs, 12g sugar, 15g protein, 105mg caffeine, Vitamins & Minerals",
+            "ingredients": "Aloe, Tea, Hydration, Protein",
+            "price": "11.44",
+            "name": "insaniteas"
         }
     ],
-    "MORE-FOR-YOU": [
+    "more": [
         {
-            "NUTRITIONAL FACTS": "170 calories, 9g fat, 9g carbs, 15g protein",
-            "MORE-FOR-YOU": "Cafe con Leche"
+            "more": "Cafe con Leche",
+            "nutritional-facts": "170 calories, 9g fat, 9g carbs, 15g protein",
+            "ingredients": "Protein Coffee, Prolessa Duo (fat reducer)",
+            "price": "10.4",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "each: 136 calories, 10g fat, 10g carbs, 3g fiber,7g protein",
-            "MORE-FOR-YOU": "Protein Donuts"
+            "more": "Protein Donuts",
+            "nutritional-facts": "each: 136 calories, 10g fat, 10g carbs, 3g fiber,7g protein",
+            "ingredients": "Meal Shake, Protein Baked Goods, Eggs, Almond Flour, Coconut Oil, Sweetener",
+            "price": "3.12",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "each: 42 calories, 1g fat, 5g carbs, 5g protein",
-            "MORE-FOR-YOU": "Protein Cake Pops"
+            "more": "Protein Cake Pops",
+            "nutritional-facts": "each: 42 calories, 1g fat, 5g carbs, 5g protein",
+            "ingredients": "Meal Shake, Protein, Dry Sugar Free Syrup Flavors",
+            "price": "2.08",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "272 calories, 9g fat, 18g carbs, 3g fiber, 30g protein",
-            "MORE-FOR-YOU": "Protein Churros"
+            "more": "Protein Churros",
+            "nutritional-facts": "272 calories, 9g fat, 18g carbs, 3g fiber, 30g protein",
+            "ingredients": "Meal Shake, Protein Baked Goods, Egg",
+            "price": "9.36",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "307 calories, 7g fat, 39g carbs, 7g fiber, 25g protein ",
-            "MORE-FOR-YOU": "Acai Bowl"
+            "more": "Acai Bowl",
+            "nutritional-facts": "307 calories, 7g fat, 39g carbs, 7g fiber, 25g protein ",
+            "ingredients": "Meal Shake, Protein, Frozen Berries, Acai Powder & flavor, CR7",
+            "price": null,
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "365 calories, 6g fat, 58g carbs, 15g fiber, 30g protein ",
-            "MORE-FOR-YOU": "Monkey Bowl"
+            "more": "Monkey Bowl",
+            "nutritional-facts": "365 calories, 6g fat, 58g carbs, 15g fiber, 30g protein ",
+            "ingredients": "Meal Shake, Protein, PBfit, Fiber, Frozen Bananas",
+            "price": null,
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "305 calories, 4g fat, 48g carbs, 11g fiber, 25g protein",
-            "MORE-FOR-YOU": "Tropical Fusion Bowl"
+            "more": "Tropical Fusion Bowl",
+            "nutritional-facts": "305 calories, 4g fat, 48g carbs, 11g fiber, 25g protein",
+            "ingredients": "Meal Shake, Protein, Aloe, Fiber, Frozen Mangoes",
+            "price": null,
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "245 calories, 5g fat, 29g carbs, 25g protein",
-            "MORE-FOR-YOU": "Lava Shake"
+            "more": "Lava Shake",
+            "nutritional-facts": "245 calories, 5g fat, 29g carbs, 25g protein",
+            "ingredients": "Meal Shake, Protein, Liftoff",
+            "price": "13.52",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "413 calories, 11g fat, 45g carbs, 8g fiber, 35g protein",
-            "MORE-FOR-YOU": "Protein Waffles"
+            "more": "Protein Waffles",
+            "nutritional-facts": "413 calories, 11g fat, 45g carbs, 8g fiber, 35g protein",
+            "ingredients": "Meal Shake, Protein Baked Goods, Egg, Oatmeal",
+            "price": "11",
+            "name": "more"
         },
         {
-            "NUTRITIONAL FACTS": "270 calories, 10g fat, 23g carbs, 24g protein",
-            "MORE-FOR-YOU": "Horchata"
+            "more": "Horchata / Venezuelan Chicha",
+            "nutritional-facts": "270 calories, 10g fat, 23g carbs, 24g protein",
+            "ingredients": "Meal Shake, Protein, Prolessa Duo (fat reducer)",
+            "price": "14.56",
+            "name": "more"
+        },
+        {
+            "more": "CR7",
+            "nutritional-facts": "50 calories, 13g carbs, Vitamins & Minerals, Electrolytes",
+            "ingredients": null,
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "BCAAs",
+            "nutritional-facts": "25 calories, 5g BCAAs",
+            "ingredients": null,
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "Pre Workout",
+            "nutritional-facts": "60 calories, 5g carbs, Vitamins & Minerals, 100mg caffeine, Creatine",
+            "ingredients": null,
+            "price": "5.2",
+            "name": "more"
+        },
+        {
+            "more": "Post Workout",
+            "nutritional-facts": "190 calories, 1.5g fat, 18g carbs, 24g protein, Vitamins & Minerals",
+            "ingredients": "Protein base: whey & casein",
+            "price": "6.24",
+            "name": "more"
+        },
+        {
+            "more": "Post Workout Meal",
+            "nutritional-facts": "210 calories, 2g fat, 15g carbs, 33g protein",
+            "ingredients": "Meal Shake, Post Workout Protein",
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "Kids Refresher",
+            "nutritional-facts": null,
+            "ingredients": "Aloe, Sugar free flavors (caffeine free)",
+            "price": null,
+            "name": "more"
+        },
+        {
+            "more": "Kids Shakes",
+            "nutritional-facts": null,
+            "ingredients": "Meal Shake, Protein",
+            "price": null,
+            "name": "more"
         }
     ],
-    "COMBOS": [
+    "add-ons": [
         {
-            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Basic Shake",
-            "COMBOS": "Trusty Basic"
+            "nutritional-facts": "15 - 30 calories, 6g soluble & insoluble fiber",
+            "price": "2.03",
+            "name": "Active fiber"
         },
         {
-            "WHAT DOES IT HAVE?": "SpecialTea + Basic Shake",
-            "COMBOS": "VIP"
+            "nutritional-facts": "0 calories",
+            "price": "2.08",
+            "name": "Probiotic"
         },
         {
-            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Supah Shake",
-            "COMBOS": "Supah Basic"
+            "nutritional-facts": "70 calories, 15g protein",
+            "price": "3.12",
+            "name": "Protein Juice"
         },
         {
-            "WHAT DOES IT HAVE?": "SpecialTea + Supah Shake",
-            "COMBOS": "Supah Special"
+            "nutritional-facts": "75mg caffeine, vitamins C & Bs: B1, B2, B3, B5, B6, B7 & B12, panax ginseng",
+            "price": "3.12 / 4.16",
+            "name": "Liftoff"
         },
         {
-            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Protein Waffles",
-            "COMBOS": "Waffle Basic"
+            "nutritional-facts": "60 calories, 5g fat, 4g fat, CLA",
+            "price": "2.08",
+            "name": "Prolessa Duo (fat reducer)"
         },
         {
-            "WHAT DOES IT HAVE?": "SpecialTea + Protein Waffles",
-            "COMBOS": "Waffle Special"
+            "nutritional-facts": "20 calories, 2g protein, vitamins A, C & E",
+            "price": "2.08",
+            "name": "Collagen"
         },
         {
-            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Protein Bowl",
-            "COMBOS": "Protein Bowl Basic"
+            "nutritional-facts": "40 calories",
+            "price": "5.2",
+            "name": "Niteworks (Nitric Oxide)"
         },
         {
-            "WHAT DOES IT HAVE?": "SpecialTea + Protein Bowl",
-            "COMBOS": "Protein Bowl Special"
+            "nutritional-facts": "60 calories, electrolytes: potassium, sodium & magnesium, vitamins C & E",
+            "price": null,
+            "name": "H3O (hydration)"
+        },
+        {
+            "nutritional-facts": "15 calories, 1000mg vitamin C, Zinc, echinacea",
+            "price": null,
+            "name": "Best Defense "
+        },
+        {
+            "nutritional-facts": "10 calories, Epicor, Vitamins C & D, Zinc",
+            "price": "2.08",
+            "name": "Immunity Essentials"
+        },
+        {
+            "nutritional-facts": "100 calories, 15g protein, 2g sugar, 80mg caffeine",
+            "price": null,
+            "name": "Protein Coffee"
+        },
+        {
+            "nutritional-facts": "140 calories, 10g protein, 4g fat, 15g carbs",
+            "price": "3.12",
+            "name": "Protein Bars"
+        },
+        {
+            "nutritional-facts": "65 calories, 4g protein, 7g carbs",
+            "price": "2.08",
+            "name": "Protein Bites"
         }
     ],
-    "SUPAH SHAKE": [
+    "combos_": [
         {
-            "INGREDIENTS": "Cookies and cream, Vanilla Protein, Unflavored Fiber, Sugar Free Chocolate Syrup, Crumbled Oreos",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Oreo Explosion "
+            "combos": "Trusty Basic",
+            "mix": "Basic Aloe + Basic Tea + Basic Shake",
+            "price": "12",
+            "name": "combos_"
         },
         {
-            "INGREDIENTS": "Wild Berry, Orange Cream,Vanilla Protein, Unflavored Fiber,Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Fruity Pebbles "
+            "combos": "VIP",
+            "mix": "SpecialTea + Basic Shake",
+            "price": "14",
+            "name": "combos_"
         },
         {
-            "INGREDIENTS": "Dulce de leche, Vanilla Protein, Unflavored Fiber, Chai Tea, Caramel Sugar Free Syrup, Cinnamon Toast Crunch Cereal",
-            "NUTRITIONAL FACTS": "aprox 270 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals; ** 85mg caffeine",
-            "SUPAH SHAKE": "Churro **"
+            "combos": "Supah Basic",
+            "mix": "Basic Aloe + Basic Tea + Supah Shake",
+            "price": "13",
+            "name": "combos_"
         },
         {
-            "INGREDIENTS": "Dulce de Leche, Vanilla Protein, Apple Fiber, Caramel Sugar Free Syrup, Cinnamon ",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Caramel Pie"
+            "combos": "Supah Special",
+            "mix": "SpecialTea + Supah Shake",
+            "price": "16",
+            "name": "combos_"
         },
         {
-            "INGREDIENTS": "Wild Berry, Banana Caramel, Vanilla Protein, Unflavored fiber, Chocolate Sugar Free Syrup, Granola (contains almonds)",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Banana Split"
+            "combos": "Waffle Basic",
+            "mix": "Basic Aloe + Basic Tea + Protein Waffles",
+            "price": "13",
+            "name": "combos_"
         },
         {
-            "INGREDIENTS": "Dulce de Leche, Cookies and cream, Vanilla protein, Unflavored fiber, Caramel Sugar Free Syrup, Twix Powder",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Cookie Dough "
+            "combos": "Waffle Special",
+            "mix": "SpecialTea + Protein Waffles",
+            "price": "16",
+            "name": "combos_"
         },
         {
-            "INGREDIENTS": "Strawberry Cheesecake, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Graham Crackers Crumbs",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Strawberry Cheesecake"
+            "combos": "Protein Bowl Basic",
+            "mix": "Basic Aloe + Basic Tea + Protein Bowl",
+            "price": "15",
+            "name": "combos_"
         },
         {
-            "INGREDIENTS": "Dulce de Leche, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint of Caramel Macchiato Iced Protein Coffee ",
-            "NUTRITIONAL FACTS": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
-            "SUPAH SHAKE": "Caramel Frappe **"
+            "combos": "Protein Bowl Special",
+            "mix": "SpecialTea + Protein Bowl",
+            "price": "18",
+            "name": "combos_"
+        }
+    ],
+    "basics": [
+        {
+            "basics": "Shake Flavor + Protein",
+            "nutritional-facts": "200 calories, 4g fat, 18g carbs, 3g fiber, 24g protein",
+            "ingredients": "Protein base: Soy isolate (plant based)",
+            "name": "basics"
         },
         {
-            "INGREDIENTS": "Mint Chocolate, Vanilla Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Minty Goodness"
+            "basics": "Aloe",
+            "nutritional-facts": "0 to 5 calories",
+            "ingredients": null,
+            "name": "basics"
         },
         {
-            "INGREDIENTS": "Pralines & Cream, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint House Blend Iced Protein Coffee",
-            "NUTRITIONAL FACTS": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
-            "SUPAH SHAKE": "Toasted Pralines Latte **"
+            "basics": "Tea",
+            "nutritional-facts": "5 calories, 0-25-40-85mg caffeine",
+            "ingredients": null,
+            "name": "basics"
         },
         {
-            "INGREDIENTS": "Pina Colada, Pralines & Cream, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Captain Crunch Cereal",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Captain Crunch"
+            "basics": "SpecialTeas",
+            "nutritional-facts": "25 calories, 7g carbs, 0 sugar, 180mg caffeine",
+            "ingredients": null,
+            "name": "basics"
+        }
+    ],
+    "vegan-line": [
+        {
+            "vegan-line": "Protein Shake",
+            "nutritional-facts": "130 calories, 4g fat, 4g carbs, 20g protein, Vitamins & Minerals",
+            "name": "vegan-line"
         },
         {
-            "INGREDIENTS": "Cafe Latte, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Hint Mocha Iced Protein Coffee",
-            "NUTRITIONAL FACTS": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
-            "SUPAH SHAKE": "Mocha **"
+            "vegan-line": "Greens Booster",
+            "nutritional-facts": "40 calories, 6g carbs, 1g protein, Greens blend",
+            "name": "vegan-line"
         },
         {
-            "INGREDIENTS": "Pina Colada, Mango Pineapple, Vanilla Protein, Tropical Fiber, Honey, Hint Peach Mango Protein Juice",
-            "NUTRITIONAL FACTS": "aprox 285 calories, 6g fat, 25g carbs, 10g fiber, 35g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Mango Pina"
+            "vegan-line": "Immune Support",
+            "nutritional-facts": "20 calories, 5g carbs, 1g fiber, Vitamins & Minerals",
+            "name": "vegan-line"
         },
         {
-            "INGREDIENTS": "Banana Caramel, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Sliced Almonds",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Banana Nut"
-        },
-        {
-            "INGREDIENTS": "Strawberry Cheesecake, Mango Pineapple, Vanilla Protein, Tropical Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Key West"
-        },
-        {
-            "INGREDIENTS": "Banana Caramel, Pumpkin Spice, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Granola (contains almonds)",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Pumpkin Banana"
-        },
-        {
-            "INGREDIENTS": "Mint Chocolate, Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Thin Mint"
-        },
-        {
-            "INGREDIENTS": "Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Chocolate chips",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Brownie"
-        },
-        {
-            "INGREDIENTS": "French Vanilla, Cookies and Cream, Vanilla Protein, Unflavored Fiber, Cinnamon, Whipped Cream (contains dairy)",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Vanilla Bean"
-        },
-        {
-            "INGREDIENTS": "Pina Colada, Orange Cream, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
-            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
-            "SUPAH SHAKE": "Rainbow"
+            "vegan-line": "Digestive Support",
+            "nutritional-facts": "40 calories, 6g carbs, 6g fiber",
+            "name": "vegan-line"
         }
     ]
 }

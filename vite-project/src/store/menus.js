@@ -39,7 +39,7 @@ export const getAllMenuItemThunk = () => async (dispatch) => {
 }
 
 export const createMenuItemThunk = (data) => async (dispatch) => {
-    // console.log("========= this is data", data)
+    console.log("========= this is data", data)
     const res = await fetch("/api/menus", {
         method: 'POST',
         body: data,
@@ -51,15 +51,16 @@ export const createMenuItemThunk = (data) => async (dispatch) => {
         dispatch(actionAddMenuItem(resMenuItem))
         return resMenuItem
     } else {
-        const error = await res.json()
-        if (error.errors) {
-            return error
+        const data = await res.json()
+        if (data.errors) {
+            return data
         }
     }
 }
 
 
 export const editMenuItemThunk = (menu_id, info) => async (dispatch) => {
+    console.log('INFO:', info)
     const res = await fetch(`/api/menus/${menu_id}/update`, {
         method: 'PUT',
         body: info
@@ -109,7 +110,7 @@ const menuReducer = (state = initialState, action) => {
             delete newState[action.menu_id]
             return newState
         default:
-            return state
+            return state;
     }
 }
 

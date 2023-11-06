@@ -13,19 +13,8 @@ export const ContactUsModal = () => {
 
     const [state, handleSubmit] = useForm('mknlylwj')
 
-    // const [numberEmptyError, setNumberEmptyError] = useState(false);
-    // const [messageEmptyError, setMessageEmptyError] = useState(false);
-
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const phoneRegex = /^[0-9]{10}$/;
-
-    // const onChange = (e) => {
-    //     e.preventDefault();
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.value,
-    //     });
-    // };
 
     if (state.succeeded) {
         window.alert('Message sent!')

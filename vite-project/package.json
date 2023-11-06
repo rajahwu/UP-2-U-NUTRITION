@@ -13,6 +13,7 @@
     "@formspree/react": "^2.5.1",
     "@react-google-maps/api": "^2.19.2",
     "google-map-react": "^2.2.1",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-multi-carousel": "^2.8.4",
