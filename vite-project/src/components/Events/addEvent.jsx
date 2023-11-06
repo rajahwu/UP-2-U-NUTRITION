@@ -45,7 +45,7 @@ export function AddEvent() {
   const [errors, setErrors] = useState({});
 
 
-  console.log("========== start", event)
+  // console.log("========== start", event)
 
   // Handle the case where event is initially null
   useEffect(() => {
