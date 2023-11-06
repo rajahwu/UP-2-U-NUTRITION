@@ -7,6 +7,7 @@ const ADD_TO_CART = 'cart/ADD_TO_CART'
 const UPDATE_CART = 'cart/UPDATE_CART'
 const REMOVE_FROM_CART = 'cart/REMOVE_FROM_CART'
 const SEND_MESSAGE = 'twilio/SEND_MESSAGE'
+const CLEAR_CART = 'cart/CLEAR_CART'
 //action creators
 
 const actionGetCartItems = (menu_items) => ({
@@ -24,6 +25,11 @@ const actionSendMessage = (message) => ({
     type: SEND_MESSAGE,
     message
 })
+
+
+const actionClearCart = () => ({
+    type: CLEAR_CART,
+});
 
 const actionUpdateCart = (menu_item, amount) => ({ type: UPDATE_CART, menu_item, amount })
 
@@ -59,6 +65,7 @@ export const placeOrderThunk = (order, user) => async (dispatch) => {
     })
     if (res.ok) {
         const data = await res.json()
+        dispatch(actionClearCart());
         console.log("======== message sent",)
     } else {
         console.log("======= fail to send sms")
@@ -78,13 +85,26 @@ const cartReducer = (state = initialState, action) => {
             return newState
         case ADD_TO_CART:
             newState = { ...state };
-            if (newState[action.menu_item.id]) {
-                // Item already exists in the cart, increment the 'amount'
-                newState[action.menu_item.id].amount = (newState[action.menu_item.id].amount || 0) + (action.menu_item.amount || 1);
+            const menuItemId = action.menu_item.id;
+            const existingCartItem = newState[menuItemId];
+
+            if (existingCartItem) {
+                // Check if the addons are the same
+                const addonsMatch = isEqual(existingCartItem.addons, action.menu_item.addons);
+
+                if (addonsMatch) {
+                    // Addons are the same, increment the 'amount'
+                    existingCartItem.amount += action.menu_item.amount || 1;
+                } else {
+                    // Addons are different, create a new cart item with a unique identifier
+                    const uniqueItemId = `${menuItemId}-${Date.now()}`;
+                    newState[uniqueItemId] = { ...action.menu_item, id: uniqueItemId };
+                    newState[uniqueItemId].amount = action.menu_item.amount || 1 // Set the amount to 1 for new item
+                }
             } else {
                 // Item does not exist in the cart, add it
-                newState[action.menu_item.id] = { ...action.menu_item };
-                newState[action.menu_item.id].amount = action.menu_item.amount || 1;
+                newState[menuItemId] = { ...action.menu_item };
+                newState[menuItemId].amount = action.menu_item.amount || 1;
             }
             return newState;
         case UPDATE_CART:
@@ -99,7 +119,9 @@ const cartReducer = (state = initialState, action) => {
             newState = { ...state };
             delete newState[action.menu_item.id];
             return newState;
-
+        case CLEAR_CART:
+            newState = {}
+            return newState
 
         default:
             return state

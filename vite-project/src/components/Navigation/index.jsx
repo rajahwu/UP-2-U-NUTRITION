@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
 
 	const itemsObj = useSelector(state => state.cartReducer)
 	const itemsInCart = Object.values(itemsObj)
-	console.log("CART ITEM:", itemsInCart);
+	// console.log("CART ITEM:", itemsInCart);
 
 	const handleLogout = (e) => {
 		e.preventDefault();

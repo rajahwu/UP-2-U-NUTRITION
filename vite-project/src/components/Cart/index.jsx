@@ -19,68 +19,19 @@ function calculateTotalPrice(items) {
 }
 
 
-function generateOrderNumber() {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  const length = 6; // You can adjust the length of the order number
-  let orderNumber = '';
-
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    orderNumber += characters[randomIndex];
-  }
-
-  return orderNumber;
-}
-
-const orderNumber = generateOrderNumber()
 
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [note, setNote] = useState("")
   const user = useSelector(state => state.session.user)
   const taxRate = 0.082;
   const convenienceFee = 0.33;
-
+  const cartItems = useSelector((state) => state.cartReducer);
   const cartItemArr = Object.values(cartItems)
-  // console.log("this is cart Items", cartItemArr)
 
-  const handlePlaceOrder = async () => {
-    const orderInfo = cartItemArr.map((item) => {
-      let itemInfo = `${user.first_name} ${user.last_name}\nphone: ${user.phone_number}\nItem: ${item.name}`;
-      if (item.addons && item.addons.length > 0) {
-        const addons = item.addons.map((addon) => addon['ADD-ONS']).join('\n');
-        itemInfo += `\nAddOn: ${addons}`;
-      }
-      return itemInfo;
-    });
-
-    // Join the order information with line breaks to separate each item
-    const orderMessage = `Order Number: ${orderNumber}\n\n${orderInfo.join('\n\n')}`
-    // console.log("this is order message=====", orderMessage);
-
-    // Dispatch the placeOrderThunk action with the order information
-    await dispatch(placeOrderThunk(orderMessage, user));
-
-    // Send a message with the order details
-    // You may want to replace this part with your actual SMS sending logic
-    // Example: sendSMS(orderMessage);
-    // console.log(orderMessage);
-  };
-
-
-
-  const OrderConfirmation = ({ orderNumber }) => {
-
-    return (
-      <div className="p-5 text-xl">
-        <div className="text-2xl text-sky-500">Thank you for your order!</div>
-        <div>Order Number: {orderNumber}</div>
-        <div className="text-theme-green">Pick Up</div>
-      </div>
-    );
-  };
+  // console.log("========= this is cartItemArr", cartItemArr)
 
   const handleAmountChange = (product, newAmount) => {
     product.amount = newAmount;
@@ -110,7 +61,65 @@ const Cart = () => {
   const tax = subtotal * taxRate;
   const total = subtotal + tax + convenienceFee;
 
-  console.log("productsInCartList", productsInCartList);
+  function generateOrderNumber() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const length = 6; // You can adjust the length of the order number
+    let orderNumber = '';
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      orderNumber += characters[randomIndex];
+    }
+
+    return orderNumber;
+  }
+
+  const orderNumber = generateOrderNumber()
+
+  const handlePlaceOrder = async () => {
+    let orderMessage = `Order Number: ${orderNumber}\n\n`;
+    orderMessage += `${user.first_name} ${user.last_name}\nphone: ${user.phone_number}\n`;
+
+    cartItemArr.forEach((item) => {
+      orderMessage += `${item.amount} - ${item.name}`;
+      if (item.addons && item.addons.length > 0) {
+        const addons = item.addons.map((addon) => addon['name']).join('\n');
+        orderMessage += `\nAddOn: ${addons}`;
+      }
+      orderMessage += '\n\n';
+    });
+
+    if (note) {
+      orderMessage += `Note: ${note}\n\n`
+    }
+
+    orderMessage += `Total: $${total.toFixed(2)}\n`;
+    console.log("this is order message=====", orderMessage);
+
+    // Dispatch the placeOrderThunk action with the order information
+    await dispatch(placeOrderThunk(orderMessage, user));
+
+    // Send a message with the order details
+    // You may want to replace this part with your actual SMS sending logic
+    // Example: sendSMS(orderMessage);
+    // console.log(orderMessage);
+  };
+
+
+
+  const OrderConfirmation = ({ orderNumber }) => {
+
+    return (
+      <div className="p-5 text-xl">
+        <div className="text-2xl text-sky-500">Thank you for your order!</div>
+        <div>Order Number: {orderNumber}</div>
+        <div>Pick Up: ASAP</div>
+        <div className="text-theme-green">Pick Up</div>
+      </div>
+    );
+  };
+
+  // console.log("productsInCartList", productsInCartList);
   return (
     <div className="your-cart-container">
       <div className="headers bg-titles-yellow">YOUR CART</div>
@@ -138,7 +147,7 @@ const Cart = () => {
                   value={product.amount}
                 />
                 <div className="product-incart-name">{product.name}</div>
-                <div className="product-incart-price">{product.price}</div>
+                <div className="product-incart-price">${product.price}</div>
                 <div className="product-incart-price">{`$${parseFloat(
                   product.price * product.amount
                 ).toFixed(2)}`}</div>
@@ -147,10 +156,10 @@ const Cart = () => {
                     handleRemoveProduct(product);
                   }}
                 >
-                  X
                 </button>
               </div>
               <div className="self-start mx-14">
+                {console.log("======= this is product", product)}
                 {product.addons?.map((addon, i) => (
                   <p key={i}>w. {addon.name}</p>
                 ))}
@@ -189,6 +198,8 @@ const Cart = () => {
             rows="4"
             name="instructions"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
           ></textarea>
         </div>
         <div>Any price may variate for any special modification</div>

@@ -19,6 +19,7 @@ const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
+  console.log("========= price", typeof price)
 
   const handleAddToCart = (item, quantity) => {
     item.price = parseFloat(price.toFixed(2));
@@ -209,14 +210,14 @@ const OrderDetails = ({ item }) => {
                         className=""
                         type="checkbox"
                         name={addon.addon_name}
-                        value={addon["ADD-ONS"]}
+                        value={addon["add-ons"]}
                         onChange={(e) => handleCheckboxChange(e, addon)}
                       />
                       <label className="" htmlFor={addon.addon_name}>
-                        {addon["ADD-ONS"]} |
+                        {addon["name"]} |
                       </label>
-                      <span className="">$1.00 |</span>
-                      <p>{addon["NUTRITIONAL FACTS"]}</p>
+                      <span className="">${addon.price} |</span>
+                      <p>{addon["nutritional-facts"]}</p>
                     </div>
                   </form>
                 </div>

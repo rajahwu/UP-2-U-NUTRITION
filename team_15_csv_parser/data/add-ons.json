@@ -17,17 +17,17 @@
         },
         {
             "nutritional-facts": "75mg caffeine, vitamins C & Bs: B1, B2, B3, B5, B6, B7 & B12, panax ginseng",
-            "price": "3.12 / 4.16",
+            "price": "3.12",
             "name": "Liftoff"
         },
         {
             "nutritional-facts": "60 calories, 5g fat, 4g fat, CLA",
-            "price": null,
+            "price": "3.12",
             "name": "Prolessa Duo (fat reducer)"
         },
         {
             "nutritional-facts": "20 calories, 2g protein, vitamins A, C & E",
-            "price": null,
+            "price": "2.08",
             "name": "Collagen"
         },
         {
@@ -37,12 +37,12 @@
         },
         {
             "nutritional-facts": "60 calories, electrolytes: potassium, sodium & magnesium, vitamins C & E",
-            "price": null,
+            "price": "2.08",
             "name": "H3O (hydration)"
         },
         {
             "nutritional-facts": "15 calories, 1000mg vitamin C, Zinc, echinacea",
-            "price": null,
+            "price": "2.08",
             "name": "Best Defense "
         },
         {
@@ -52,18 +52,8 @@
         },
         {
             "nutritional-facts": "100 calories, 15g protein, 2g sugar, 80mg caffeine",
-            "price": null,
+            "price": "2.08",
             "name": "Protein Coffee"
-        },
-        {
-            "nutritional-facts": null,
-            "price": null,
-            "name": "New Mom Supplement"
-        },
-        {
-            "nutritional-facts": null,
-            "price": null,
-            "name": "Kids Supplement"
         },
         {
             "nutritional-facts": "140 calories, 10g protein, 4g fat, 15g carbs",
