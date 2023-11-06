@@ -14,15 +14,20 @@ import EditItem from "./utility/forms/EditItem";
 import DeleteItem from "./utility/forms/DeleteItem";
 
 
+
 const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
+
+  console.log("========= price", typeof price)
 
   const handleAddToCart = (item, quantity) => {
     item.price = parseFloat(price.toFixed(2));
     const itemWithAddons = { ...item, addons: checkedAddons };
     dispatch(addToCart(itemWithAddons, quantity));
     closeModal();
+
+
 
   };
   return (
@@ -196,28 +201,28 @@ const OrderDetails = ({ item }) => {
             </button>
           </div>
           <div>
-            {addons? addons["add-ons"].map((addon, i) => {
-                return (
-                  <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
-                    <form className="p-2">
-                      <div className="flex gap-1 items-center border-4">
-                        <input
-                          className=""
-                          type="checkbox"
-                          name={addon.addon_name}
-                          value={addon["ADD-ONS"]}
-                          onChange={(e) => handleCheckboxChange(e, addon)}
-                        />
-                        <label className="" htmlFor={addon.addon_name}>
-                          {addon["ADD-ONS"]} |
-                        </label>
-                        <span className="">$1.00 |</span>
-                        <p>{addon["NUTRITIONAL FACTS"]}</p>
-                      </div>
-                    </form>
-                  </div>
-                );
-              })
+            {addons ? addons["add-ons"].map((addon, i) => {
+              return (
+                <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
+                  <form className="p-2">
+                    <div className="flex gap-1 items-center border-4">
+                      <input
+                        className=""
+                        type="checkbox"
+                        name={addon.addon_name}
+                        value={addon["add-ons"]}
+                        onChange={(e) => handleCheckboxChange(e, addon)}
+                      />
+                      <label className="" htmlFor={addon.addon_name}>
+                        {addon["name"]} |
+                      </label>
+                      <span className="">${addon.price} |</span>
+                      <p>{addon["nutritional-facts"]}</p>
+                    </div>
+                  </form>
+                </div>
+              );
+            })
               : null}
           </div>
         </div>

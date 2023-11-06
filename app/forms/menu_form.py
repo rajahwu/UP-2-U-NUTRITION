@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField,TextAreaField,IntegerField,DateField,FloatField
-from wtforms.validators import DataRequired,Length,URL,ValidationError
-from flask_wtf.file import FileAllowed,FileField,FileRequired
+from wtforms import StringField, SubmitField, TextAreaField, IntegerField, DateField, FloatField
+from wtforms.validators import DataRequired, Length, URL, ValidationError, Optional
+from flask_wtf.file import FileAllowed, FileField, FileRequired
 from ..api.aws_helpers import ALLOWED_EXTENSIONS
+
 
 def text_length(form, field):
     # Checking if post length is correct
@@ -13,7 +14,8 @@ def text_length(form, field):
 
 class MenuForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    image = FileField('Image File', validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
+    image = FileField('Image File', validators=[
+                      FileAllowed(list(ALLOWED_EXTENSIONS)), Optional()])
     category = StringField('Category')
     price = FloatField('Price')
     ingredient_name = StringField('Ingredient_name')
@@ -22,9 +24,11 @@ class MenuForm(FlaskForm):
     created_at = DateField('Date')
     submit = SubmitField('Submit')
 
+
 class IngredientForm(FlaskForm):
     ingredient_name = StringField('Ingredient_name')
     submit = SubmitField('Submit')
+
 
 class NutritionForm(FlaskForm):
     nutrient = StringField('Nutrient')
