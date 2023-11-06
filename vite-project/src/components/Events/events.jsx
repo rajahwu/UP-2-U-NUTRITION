@@ -3,10 +3,11 @@ import { useSelector } from "react-redux"
 import { useModal } from "../../context/Modal";
 
 export const EventsModal = ({ event }) => {
-    console.log("End date:", event);
-    const user = useSelector(state => state.session.user)
     const navigate = useNavigate();
     const { closeModal } = useModal();
+
+    const user = useSelector(state => state.session.user)
+
     const displayDate = (eventDates) => {
         console.log("eventDates", eventDates);
         if (eventDates) {
@@ -55,7 +56,7 @@ export const EventsModal = ({ event }) => {
             <div className="divider"></div>
             <div className="event-details">{event.details}</div>
             <div>For more information, contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
-            {user ? (<button onClick={handleClick} className="text-2xl hover:underline hover:text-blue-900">[Edit Event]</button>
+            {user && user.admin ? (<button onClick={handleClick} className="text-2xl hover:underline hover:text-blue-900">[Edit Event]</button>
             ):(null)}
         </div>
     )

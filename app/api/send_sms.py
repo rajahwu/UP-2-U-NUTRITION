@@ -28,15 +28,15 @@ def send_sms():
         if 'message' in data and 'user' in data:
             user = data['user']
             orderMessage = data['message']
-            # message = client.messages.create(
-            #     body=orderMessage,
-            #     from_=twilio_number,
-            #     to='+17147196461'
-            # )
             message = client.messages.create(
                 body=orderMessage,
                 from_=twilio_number,
-                to='+14692339320'
+                to='+17147196461'
+            )
+            message = client.messages.create(
+                body=orderMessage,
+                from_=twilio_number,
+                to=user['phone_number']
             )
 
             return jsonify({"message": "SMS sent successfully"})

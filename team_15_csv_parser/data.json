@@ -591,12 +591,12 @@
         },
         {
             "nutritional-facts": "60 calories, 5g fat, 4g fat, CLA",
-            "price": null,
+            "price": "2.08",
             "name": "Prolessa Duo (fat reducer)"
         },
         {
             "nutritional-facts": "20 calories, 2g protein, vitamins A, C & E",
-            "price": null,
+            "price": "2.08",
             "name": "Collagen"
         },
         {
@@ -623,16 +623,6 @@
             "nutritional-facts": "100 calories, 15g protein, 2g sugar, 80mg caffeine",
             "price": null,
             "name": "Protein Coffee"
-        },
-        {
-            "nutritional-facts": null,
-            "price": null,
-            "name": "New Mom Supplement"
-        },
-        {
-            "nutritional-facts": null,
-            "price": null,
-            "name": "Kids Supplement"
         },
         {
             "nutritional-facts": "140 calories, 10g protein, 4g fat, 15g carbs",

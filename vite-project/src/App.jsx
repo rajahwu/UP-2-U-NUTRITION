@@ -28,21 +28,21 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/menu/add-item" element={<AddItem />} />
-        <Route path="/menu/:id/edit/" element={<EditItem />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/our-story" element={<OurStory />} />
-        <Route path="/events/add-event" element={<AddEvent />} />
-        <Route path="/events/edit/:id" element={<AddEvent />} />
-        <Route path="/events" element={<Events />} />
-        {/* <Route path="/your-story" element={} /> */}
-        <Route path="/cart" element={<Cart />} />
-        <Route path='/login' element={<LoginFormPage />} />
-        <Route path='/signup' element={<SignupFormPage />} />
-      </Routes>
+        <Navigation isLoaded={isLoaded} />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/menu/add-item" element={<AddItem />} />
+          <Route path="/menu/:id/edit/" element={<EditItem />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/our-story" element={<OurStory />} />
+          <Route path="/events/add-event" element={<AddEvent />} />
+          <Route path="/events/edit/:id" element={<AddEvent />} />
+          <Route path="/events" element={<Events />} />
+          {/* <Route path="/your-story" element={} /> */}
+          <Route path="/cart" element={<Cart />} />
+          <Route path='/login' element={<LoginFormPage />} />
+          <Route path='/signup' element={<SignupFormPage />} />
+        </Routes>
     </>
   );
 }
