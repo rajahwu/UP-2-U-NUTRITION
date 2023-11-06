@@ -32,10 +32,12 @@ const LandingPage = () => {
                                     <h1 className="font-bold text-3xl mt-1">YOUR HOME AWAY FROM HOME</h1>
                                     {user ? (
                                         <button onClick={() => navigate("/menu")} className="landing-page-button">START ORDER</button>
-                                        ): (
-                                            <button onClick={() => navigate("/login")} className="landing-page-button">START HERE</button>
-                                            )}
-                                    <h4 className="text-align p-1">{displaySpecials(dailySpecials)}</h4>
+                                    ) : (
+                                        <button onClick={() => navigate("/login")} className="landing-page-button">START HERE</button>
+                                    )}
+                                    <h4 className="text-align text-center mt-3">{displaySpecials(dailySpecials)}
+                                        <br />
+                                        **Specials not applied online**</h4>
                                 </div>
                             </div>
                         </div>
