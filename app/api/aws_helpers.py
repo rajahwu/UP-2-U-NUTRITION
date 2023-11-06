@@ -23,7 +23,7 @@ def get_unique_filename(filename):
 
 def upload_file_to_s3(file, acl="public-read"):
     try:
-        # print("=========== s3.uploadedfileobj", s3.uploaded_fileobj)
+
         s3.upload_fileobj(
             file,
             BUCKET_NAME,
@@ -39,29 +39,11 @@ def upload_file_to_s3(file, acl="public-read"):
         return {"errors": str(e)}
 
     return {"url": f"{S3_LOCATION}{file.filename}"}
-# def upload_file_to_s3(file, acl="public-read"):
-#     try:
-#         s3.upload_fileobj(
-#             file,
-#             BUCKET_NAME,
-#             file.filename,
-#             ExtraArgs={
-#                 "ACL": acl,
-#                 "ContentType": file.content_type
-#             }
-#         )
-#         s3_url = f"{S3_LOCATION}{file.filename}"
-#         print("==========s3_url", s3_url)
-#         return {"url": s3_url}
-#     except Exception as e:
-#         return {"errors": str(e)}
-
 
 def remove_file_from_s3(image_url):
     # AWS needs the image file name, not the URL,
     # so we split that out of the URL
     key = image_url.rsplit("/", 1)[1]
-    print(key)
     try:
         s3.delete_object(
             Bucket=BUCKET_NAME,

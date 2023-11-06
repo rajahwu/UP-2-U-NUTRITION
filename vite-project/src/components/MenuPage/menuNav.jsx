@@ -13,7 +13,6 @@ export const MenuNav = ({ setCategory }) => {
   ];
 
   const handleMenuItemClick = (menuItem) => {
-    // console.log("menuItem", menuItem);
     setCategory(menuItem)
   }
 
@@ -24,6 +23,7 @@ export const MenuNav = ({ setCategory }) => {
     "/images/selected_cat/circle_4.png",
     "/images/selected_cat/circle_5.png",
     "/images/selected_cat/circle_6.png",
+    "/images/selected_cat/circle_6.png"
   ];
 
   return (
@@ -39,7 +39,6 @@ export const MenuNav = ({ setCategory }) => {
               className='selector-lines'
               src={menuSelectionLines[i]} alt=""
             />
-            {/* <div>{console.log('cat', cat)}</div> */}
           </div>
         ))}
       </div>

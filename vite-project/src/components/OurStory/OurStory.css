@@ -3,12 +3,15 @@
     background-attachment: fixed;
     background-position: center;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-us-container {
     display: flex;
     padding: 5rem 8rem;
     height: 100vh;
+    flex-direction: column;
 }
 
 .ourstory-page-bg-img {
@@ -22,26 +25,32 @@
 #ourstory-title {
     color: white;
     padding: 8px 20px 2px 20px;
-    margin-top: 5%;
-    margin-bottom: 2%;
+    /* margin-top: 2%; */
+    /* margin-bottom: 2%; */
     font-size: 3rem;
     font-weight: bold;
     background-color: rgba(0, 145, 209, 1);
 }
 
 #owner-img {
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
-    height: 100%;
+    /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25); */
+    object-fit: cover;
+    width: 100%;
+    border-radius: 5px;
+    /* background-color: transparent; */
 }
 
 
 .ourstory-body {
     margin-top: 4%;
-    text-align: center;
-    width: 90%;
+    text-align: left;
+    /* width: 90%; */
     background-color: white;
     padding: 2rem;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+    border-radius: 5px;
+    font-style: italic;
     /* height: 97%; */
 }
 
