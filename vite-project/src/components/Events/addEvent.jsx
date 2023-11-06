@@ -6,7 +6,6 @@ import {
 } from "../../store/events";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { dateFormater } from "./util/dateFormatter";
 
 export function AddEvent() {
   const dispatch = useDispatch();
@@ -68,13 +67,6 @@ export function AddEvent() {
       } else {
         navigate("/events");
       }
-    }
-  };
-
-  const handleCancel = (e) => {
-    e.preventDefault();
-    if (window.confirm("Are you sure you want to discard your changes?")) {
-      navigate("/events");
     }
   };
 
@@ -185,7 +177,6 @@ export function AddEvent() {
               />
             </div>
             <button>Submit Event</button>
-            <button onClick={handleCancel}>Cancel</button>
             {event && <button onClick={handleDelete}>Delete Event</button>}
           </form>
         </div>

@@ -44,9 +44,9 @@ export const RequestEventModal = () => {
       <div className="request-event-form-btn w-full flex flex-col p-8">
         <form 
           action="https://formspree.io/f/mdorjldk"
-          className="pt-8 flex flex-col space-y-10 w-5/6 "
+          className="pt-8 flex flex-col space-y-10 w-5/6"
           onSubmit={handleSubmit}>
-          <div className="flex flex-col space-y-3" >
+          <div className="flex flex-col" >
       <label htmlFor="event-title">Event Title:</label>
       <input
         className="bg-gray-100 rounded text-center txt-lg h-10"
@@ -140,9 +140,7 @@ export const RequestEventModal = () => {
         required
       />
       </div>
-          <div className="request-event-btn-container">
-            <button className="green-btn request-event-btn" type="submit" disabled={state.submitting}>Submit</button>
-          </div>
+      <button className="green-btn request-event-btn" type="submit" disabled={state.submitting}>Submit</button>
         </form>
       </div>
     </div>
