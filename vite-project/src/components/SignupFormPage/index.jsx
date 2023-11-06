@@ -36,33 +36,32 @@ function SignupFormPage() {
     if (!phone || phone.length !== 10) errors.phone = "Must be a valid US Number"
 
     setErrors(errors)
-  }, [email, password, firstName, lastName, phone])
+  }, [email, password, firstName, lastName, phone, confirmPassword])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
-    let formErrors = {}
+    let formErrors = {};
 
-    if (!emailValidation(email)) errors.email = "Not a valid email address";
+    if (!emailValidation(email)) formErrors.email = "Not a valid email address";
     if (!firstName || firstName.trim().length > 50 || firstName.trim().length < 2)
-      errors.firstName = "First name must be between 2 characters and 50 characters";
+      formErrors.firstName = "First name must be between 2 characters and 50 characters";
     if (!lastName || lastName.trim().length > 50 || lastName.trim().length < 2)
-      errors.lastName = "Last name must be between 2 characters and 50 characters";
+      formErrors.lastName = "Last name must be between 2 characters and 50 characters";
     if (!password || password.length < 6)
-      errors.password = "Password must be at least 6 characters";
-    if (password !== confirmPassword) errors.confirmPassword = "Password must match"
-    if (!phone || phone.length !== 10) errors.phone = "Must be a valid US Number"
+      formErrors.password = "Password must be at least 6 characters";
+    if (password !== confirmPassword) formErrors.confirmPassword = "Password must match";
+    if (!phone || phone.length !== 10) formErrors.phone = "Must be a valid US Number";
 
+    setErrors(formErrors);
 
     if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-      return;
-    } if (!Object.keys(formErrors).length) {
-      const data = await dispatch(signUp(email, firstName, lastName, phone, password));
+      return; // Don't dispatch the signUp action if there are errors
     }
 
-
+    // If there are no errors, dispatch the signUp action
+    const data = await dispatch(signUp(email, firstName, lastName, phone, password));
   };
 
   return (
@@ -146,9 +145,10 @@ function SignupFormPage() {
                     id="phone_signup"
                     name="phone"
                     type="text"
+                    value={phone}
                     onChange={(e) => {
                       const input = e.target.value;
-                      const formattedInput = "+1" + input
+                      const formattedInput = input
                       setPhone(formattedInput);
                     }}
                     required
@@ -162,8 +162,8 @@ function SignupFormPage() {
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                     Password
                   </label>
-                  {errors.password && submitted && (
-                    <p className="text-red-600 text-xs italic" >{errors.password}</p>
+                  {errors.confirmPassword && submitted && (
+                    <p className="text-red-600 text-xs italic" >{errors.confirmPassword}</p>
                   )}
                 </div>
                 <div className="mt-2">
