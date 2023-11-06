@@ -21,11 +21,6 @@ def validation_errors_to_error_messages(validation_errors):
 def all_events():
     events = Event.query.all()
     event_list = [one_event.to_dict() for one_event in events]
-    # print(event_list)
-    # res = {}
-    # for one_event in event_list:
-    #     one_event_id = one_event['id']
-    #     res[one_event_id] = one_event
 
     return event_list
 
@@ -36,8 +31,6 @@ def create_event():
     # no_time_date_format = "%Y-%m-%d"
 
     response = request.json
-    # print("!!!!!!!!!!!!!!!!", datetime.strptime(response["start_date"],no_time_date_format ))
-    print(response, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     form = EventForm()
     form['csrf_token'].data = request.cookies["csrf_token"]
 
@@ -55,7 +48,7 @@ def create_event():
             created_at = date.today()
         )
 
-        print(new_event.to_dict(), "===================================================")
+
         db.session.add(new_event)
 
         db.session.commit()
@@ -78,8 +71,7 @@ def edit_event(id):
     temp_end_date = datetime.strptime(response["end_date"], "%Y-%m-%d")
     temp_start_time = datetime.strptime(response["start_time"], "%Y-%m-%d %H:%M:%S")
     temp_end_time = datetime.strptime(response["end_time"],"%Y-%m-%d %H:%M:%S")
-    # print(response["start_time"])
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", temp_start_time, temp_start_date)
+   
 
     event.title = response['title']
     event.details = response['details']

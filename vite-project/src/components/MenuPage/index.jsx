@@ -19,8 +19,6 @@ const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
-  console.log("========= price", typeof price)
-
   const handleAddToCart = (item, quantity) => {
     item.price = parseFloat(price.toFixed(2));
     const itemWithAddons = { ...item, addons: checkedAddons };
@@ -51,7 +49,6 @@ const OrderDetails = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
   const [checkedAddons, setCheckedAddons] = useState([]);
 
-  console.log('ADDONS:', addons)
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -174,8 +171,6 @@ const OrderDetails = ({ item }) => {
           </div>
           <div className="">
             {item.nutritions.map((nutrient, i) => {
-
-              { console.log('nutrient', nutrient) }
               return (
                 <div className={`ingredients-description ${isOpen1 ? "expanded" : ""} flex justify-between`} key={i}>
                   <p>{nutrient.nutrient}</p>
@@ -205,7 +200,7 @@ const OrderDetails = ({ item }) => {
               return (
                 <div className={`ingredients-description ${isAddOnsOpen ? "expanded" : ""}`} key={i}>
                   <form className="p-2">
-                    <div className="flex gap-1 items-center border-4">
+                    <div className="flex gap-1 items-center">
                       <input
                         className=""
                         type="checkbox"
@@ -248,26 +243,35 @@ const MenuPage = () => {
   const [carouselDisabled, setCarouselDisabled] = useState(false);
   const [flippedCardId, setFlippCardId] = useState(null);
   const [cardWidth, setCardWidth] = useState("100%");
-  // console.log("menu", menu1);
+
   const cardContainerRef = useRef(null);
 
-  // console.log("========", user);
+
 
   const handleViewAllClick = () => {
     setCarouselDisabled(!carouselDisabled);
     setCardWidth(carouselDisabled ? "100%" : "50%");
   };
 
-  const flipCard = async (e) => {
+  const flipCard = (e) => {
     e.stopPropagation();
     e.preventDefault();
-    if (flippedCardId == e.target.id) {
-      setFlippCardId(null);
-    } else {
-      setFlippCardId(e.target.id);
+
+    // Check if the click occurred on the card element or its children
+    let target = e.target;
+    while (target && target !== cardContainerRef.current) {
+      if (target.classList.contains("each-card")) {
+        // Click occurred on the card, so flip it
+        if (flippedCardId == target.id) {
+          setFlippCardId(null);
+        } else {
+          setFlippCardId(target.id);
+        }
+        return;
+      }
+      target = target.parentElement;
     }
   };
-
   useEffect(() => {
     dispatch(getAllMenuItemThunk());
   }, [dispatch]);
@@ -317,7 +321,6 @@ const MenuPage = () => {
         menuSubset.push(item);
       }
     });
-    // console.log("menuSubset", menuSubset);
     return menuSubset.map((item, i) => {
       return (
         <div className="outside-each-card" key={i}>
@@ -372,7 +375,7 @@ const MenuPage = () => {
 
   return (
     <div className="menu">
-      <h1 className="py-10 text-6xl font-bold">OUR MENU</h1>
+      <h1 className="text-6xl font-bold our-menu">OUR MENU</h1>
       {user?.admin ? (
         <div>
           <button

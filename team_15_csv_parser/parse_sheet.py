@@ -8,6 +8,8 @@ if not os.path.exists(data_folder):
     os.makedirs(data_folder)
 
 # Function to convert CSV to JSON with transformation
+
+
 def csv_to_json_with_transformation(csv_filename, json_filename):
     data = []
 
@@ -23,12 +25,16 @@ def csv_to_json_with_transformation(csv_filename, json_filename):
     output_data = {base_filename: []}
 
     for entry in data:
-        filtered_entry = {k.lower().replace(" ", "-"): v if v else None for k, v in entry.items()}  # Transform keys and set missing values to None
-        filtered_entry['name'] = filtered_entry.pop('add-ons', base_filename)  # Set "name" and remove "add-ons," use the filename if "add-ons" is missing
+        # Transform keys and set missing values to None
+        filtered_entry = {k.lower().replace(
+            " ", "-"): v if v else None for k, v in entry.items()}
+        # Set "name" and remove "add-ons," use the filename if "add-ons" is missing
+        filtered_entry['name'] = filtered_entry.pop('add-ons', base_filename)
         output_data[base_filename].append(filtered_entry)
 
     with open(os.path.join(data_folder, json_filename), 'w') as json_file:
         json.dump(output_data, json_file, indent=4)
+
 
 # Convert each CSV file to JSON with transformation
 for filename in os.listdir('csv'):

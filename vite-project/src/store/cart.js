@@ -52,7 +52,6 @@ export const removeFromCart = (menu_item) => async (dispatch) => {
 };
 
 export const placeOrderThunk = (order, user) => async (dispatch) => {
-    console.log("this is order =====", order)
     const res = await fetch("/api/twilio", {
         method: "POST",
         headers: {
@@ -66,12 +65,9 @@ export const placeOrderThunk = (order, user) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(actionClearCart());
-        console.log("======== message sent",)
-    } else {
-        console.log("======= fail to send sms")
+
     }
 }
-
 //Reducer
 
 const initialState = {};

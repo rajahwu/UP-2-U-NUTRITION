@@ -8,7 +8,7 @@ import { update } from 'lodash';
 import LoadingScreen from '../../../LoadingScreen';
 
 const EditItem = ({ menu_item }) => {
-    // console.log('MENU ITEM:', menu_item)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { closeModal } = useModal()
@@ -82,21 +82,20 @@ const EditItem = ({ menu_item }) => {
 
 
         const updatedMenuItem = new FormData()
-        // console.log("===============image", image)
+
         updatedMenuItem.append("name", name)
         updatedMenuItem.append('image', image)
         updatedMenuItem.append('category', category)
-        // console.log(typeof price)
         updatedMenuItem.append('price', price)
         updatedMenuItem.append('ingredient_name', ingredients)
-        // console.log('AFTER:', updatedMenuItem)
 
 
 
-        // console.log("========", nutrientEntries)
+
+
         const nutrientArray = [];
         const weightArray = [];
-        // const percentageArray = [];
+   
 
         nutrientEntries.forEach((entry) => {
             nutrientArray.push(entry.nutrient);

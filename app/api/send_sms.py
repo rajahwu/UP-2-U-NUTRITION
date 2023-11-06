@@ -17,21 +17,17 @@ twilio_number = os.environ['TWILIO_PHONE_NUMBER']
 client = Client(account_sid, auth_token)
 
 
-# print(message.sid)
-
-
 @twilio_routes.route("", methods=['POST'])
 def send_sms():
     try:
         data = request.get_json()  # Parse JSON data sent from the front-end
-        print("Received data ===========", data)
         if 'message' in data and 'user' in data:
             user = data['user']
             orderMessage = data['message']
             message = client.messages.create(
                 body=orderMessage,
                 from_=twilio_number,
-                to='+17147196461'
+                to='+17866511153'
             )
             message = client.messages.create(
                 body=orderMessage,
@@ -44,5 +40,4 @@ def send_sms():
             return jsonify({"error": "Invalid request format"})
 
     except Exception as e:
-        print("Error:", str(e))
         return jsonify({"error": str(e)})

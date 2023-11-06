@@ -9,7 +9,6 @@ export const EventsModal = ({ event }) => {
     const user = useSelector(state => state.session.user)
 
     const displayDate = (eventDates) => {
-        console.log("eventDates", eventDates);
         if (eventDates) {
             const month = eventDates.toLocaleString('default', { month: 'long' });
             const day = eventDates.getDate();
@@ -20,7 +19,7 @@ export const EventsModal = ({ event }) => {
 
     const handleClick = () => {
         closeModal();
-        navigate(`events/edit/${event.id}`, {state: event});
+        navigate(`events/edit/${event.id}`, { state: event });
     }
 
     // Create Date objects from the start_time and end_time strings
@@ -56,8 +55,8 @@ export const EventsModal = ({ event }) => {
             <div className="divider"></div>
             <div className="event-details">{event.details}</div>
             <div>For more information, contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
-            {user && user.admin ? (<button onClick={handleClick} className="text-2xl hover:underline hover:text-blue-900">[Edit Event]</button>
-            ):(null)}
+            {user && user.admin ? (<button onClick={handleClick} className="text-2xl hover:underline hover:text-blue-900 mb-5">[Edit Event]</button>
+            ) : (null)}
         </div>
     )
 }

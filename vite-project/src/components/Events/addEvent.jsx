@@ -29,17 +29,16 @@ export function AddEvent() {
   const [color, setColor] = useState('');
   const [errors, setErrors] = useState({})
 
-  console.log('starttime:', startTime, 'endTime', endTime)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     let err = {}
 
-  // Compare the Date objects
-  if (endTime <= startTime) {
-    err.endTime = 'End time cannot be before or equal to start time';
-  } 
+    // Compare the Date objects
+    if (endTime <= startTime) {
+      err.endTime = 'End time cannot be before or equal to start time';
+    }
 
     setErrors(err)
 
@@ -57,13 +56,11 @@ export function AddEvent() {
     //check if we should edit an existing event or create a new one
     if (event) {
       eventToSend.id = event.id;
-      console.log(eventToSend);
       dispatch(editEventThunk(eventToSend));
       navigate("/events");
     } else {
       const data = dispatch(createEventThunk(eventToSend));
       if (data.errors) {
-        console.log(data.errors);
       } else {
         navigate("/events");
       }
@@ -84,7 +81,7 @@ export function AddEvent() {
         <div className="w-full max-w-lg m-auto">
           <form
             onSubmit={handleSubmit}
-            className="bg-white shadow-md rounded px-8 pt-6 pb-8 flex flex-col m-auto space-y-6 mb-4 "
+            className="mt-20 bg-white shadow-md rounded px-8 pt-6 pb-8 flex flex-col m-auto space-y-6 mb-4 "
           >
             <div className="flex flex-col space-y-3">
               <label htmlFor="event-title">Event Title:</label>
@@ -176,8 +173,8 @@ export function AddEvent() {
                 required
               />
             </div>
-            <button>Submit Event</button>
-            {event && <button onClick={handleDelete}>Delete Event</button>}
+            <button class="green-btn">Submit Event</button>
+            {event && <button className="red-btn" onClick={handleDelete}>Delete Event</button>}
           </form>
         </div>
       ) : (

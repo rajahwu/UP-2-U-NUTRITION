@@ -42,7 +42,7 @@ export const getAllEventsThunk = () => async (dispatch) => {
 export const createEventThunk = (data) => async (dispatch) => {
     const res = await fetch("/api/events/", {
         method: 'POST',
-        headers:{'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             title: data.title,
             details: data.details,
@@ -53,7 +53,6 @@ export const createEventThunk = (data) => async (dispatch) => {
             color: data.color
         })
     })
-    console.log(data)
     if (res.ok) {
         const { event } = await res.json()
         dispatch(actionAddEvent(event))
@@ -67,10 +66,9 @@ export const createEventThunk = (data) => async (dispatch) => {
 }
 
 export const editEventThunk = (data) => async (dispatch) => {
-    console.log("The event id is", data.id)
     const res = await fetch(`/api/events/update/${data.id}`, {
         method: 'PUT',
-        headers:{'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             title: data.title,
             details: data.details,
@@ -81,21 +79,19 @@ export const editEventThunk = (data) => async (dispatch) => {
             color: data.color
         })
     })
-    console.log("inside fetch", data)
+
     if (res.ok) {
         const { event } = await res.json()
         dispatch(actionEditEvent(event))
         return event
-    } else {
-        console.log("error")
+
     }
 }
-
 export const deleteEventThunk = (event_id) => async (dispatch) => {
     const res = await fetch(`/api/events/${event_id}/delete`, {
         method: 'DELETE'
     })
-    if (res.ok){
+    if (res.ok) {
         dispatch(actionDeleteEvent)
     }
 }
@@ -107,7 +103,7 @@ const initialState = {}
 const eventReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case GET_ALL_EVENTS:{
+        case GET_ALL_EVENTS: {
             newState = { ...action.events }
             return newState
         }
