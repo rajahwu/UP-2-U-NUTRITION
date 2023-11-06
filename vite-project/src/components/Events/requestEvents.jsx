@@ -1,6 +1,6 @@
-
 import { useState } from "react";
-import { useForm, ValidationError } from "@formspree/react";
+import OpenModalButton from "../OpenModalButton"
+import { useForm, ValidationError} from "@formspree/react";
 
 export const RequestEventModal = () => {
     const [name, setName] = useState('');
@@ -8,19 +8,18 @@ export const RequestEventModal = () => {
     const [emailOrPhone, setEmailOrPhone] = useState('');
     const [description, setDescription] = useState('');
     const [isValid, setIsValid] = useState(true);
-    const [state, handleSubmit] = useForm('mknlylwj');
+    const [state, handleSubmit] = useForm('mdorjldk');
     const [startTime, setStartTime] = useState("");
     const [endTime, setEndTime] = useState("");
 
+
     const todayString = new Date().toISOString().slice(0,16);
-
-
 
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const phoneRegex = /^[0-9]{10}$/;
 
     if (state.succeeded) {
-        window.alert('Message sent!')
+        window.alert("Your request was sent!")
     }
 
     const handleEmailOrPhone = (e) => {
@@ -37,48 +36,29 @@ export const RequestEventModal = () => {
         }
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        const messageDetails = `RequesterName: ${name}, RequestedEventTitle: ${eventTitle}, RequestedEventStartTime: ${startTime}, RequestedEventEndTime: ${endTime}, RequestedEventDescription${description}`
-
-        console.log(emailOrPhone)
-        if (phoneRegex.test(emailOrPhone)) {
-
-            let number = emailOrPhone.replace(/[^\w\s]/gi, "").replace(/ /g, "");
-
-            let url = `https://web.whatsapp.com/send?phone=1${number}`;
-
-            url += `&text=${encodeURI(messageDetails)}&app_absent=0`;
-
-            console.log(url)
-
-            window.open(url)
-        }
-    };
-
   return (
     <div className=" w-full m-auto px-8">
       <div className="event-bar event-green-bar h -mx-10"></div>
       <div className="headers form-titles p-3">REQUEST EVENT</div>
       <div className="divider"></div>
       <div className="request-event-form-btn w-full flex flex-col p-8">
-        <form
+        <form 
+          action="https://formspree.io/f/mdorjldk"
           className="pt-8 flex flex-col space-y-10 w-5/6 "
-          onSubmit={handleSubmit}
-        >
+          onSubmit={handleSubmit}>
           <div className="flex flex-col space-y-3" >
       <label htmlFor="event-title">Event Title:</label>
       <input
-      className="bg-gray-100 rounded text-center txt-lg h-10"
-      id="event-title"
-      type="text"
-      value={eventTitle}
-      onChange={(e) => setEventTitle(e.target.value)}
-      placeholder="Title must be between 3 and 100 charaters"
-      minLength="3"
-      maxLength="100"
-      required
+        className="bg-gray-100 rounded text-center txt-lg h-10"
+        id="event-title"
+        type="text"
+        name="event-title"
+        value={eventTitle}
+        onChange={(e) => setEventTitle(e.target.value)}
+        placeholder="Title must be between 3 and 100 charaters"
+        minLength="3"
+        maxLength="100"
+        required
       />
       </div>
             <div className="flex flex-col space-y-3">
@@ -93,6 +73,7 @@ export const RequestEventModal = () => {
                 type="datetime-local"
                 min={todayString}
                 value={startTime}
+                name='requested-start-time'
                 onChange={(e) => setStartTime(e.target.value)}
                 required
               />
@@ -107,6 +88,7 @@ export const RequestEventModal = () => {
                 type="datetime-local"
                 min={startTime || todayString}
                 value={endTime}
+                name='requested-end-time'
                 onChange={(e) => setEndTime(e.target.value)}
                 required
               />
@@ -124,6 +106,7 @@ export const RequestEventModal = () => {
               type="text"
               value={description}
               maxLength="300"
+              name='description'
               onChange={(e) => setDescription(e.target.value)}
               required
             />
@@ -137,6 +120,7 @@ export const RequestEventModal = () => {
               id="item-email-phone"
               type="text"
               value={emailOrPhone}
+              name='emai or phonenumber'
               onChange={handleEmailOrPhone}
               required
             />
@@ -144,21 +128,20 @@ export const RequestEventModal = () => {
           <div className="flex flex-col space-y-3">
       <label htmlFor="event-title">Name:</label>
       <input
-      className="bg-gray-100 rounded text-center h-10 txt-lg"
-      id="event-title"
-      type="text"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      placeholder="Please Enter Your Name"
-      minLength="3"
-      maxLength="50"
-      required
+        className="bg-gray-100 rounded text-center h-10 txt-lg"
+        id="event-title"
+        type="text"
+        value={name}
+        name="requested-event-by"
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Please Enter Your Name"
+        minLength="3"
+        maxLength="50"
+        required
       />
       </div>
           <div className="request-event-btn-container">
-            <button className="green-btn request-event-btn" type="submit">
-              Submit
-            </button>
+            <button className="green-btn request-event-btn" type="submit" disabled={state.submitting}>Submit</button>
           </div>
         </form>
       </div>

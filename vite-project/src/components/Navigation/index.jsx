@@ -34,7 +34,7 @@ function Navigation({ isLoaded }) {
 	useEffect(() => {
 		dispatch(getCartItems());
 		setCartAmount(itemsInCart.length);
-	}, [dispatch, itemsInCart]);
+	}, [dispatch]);
 	
 	return (
 		<div className="nav-bar">

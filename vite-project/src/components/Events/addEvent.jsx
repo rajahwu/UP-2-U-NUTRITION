@@ -20,30 +20,29 @@ export function AddEvent() {
   //useLocation collects state passed from useNavigate
   const event = location.state;
 
-  //set variables to pass when creating state based on whether data is being passed to the form or not (is it new event or edit event)
-  const tempTitle = event && event.title ? event.title : "";
-  const tempDetails = event && event.details ? event.details : "";
-  const tempStartDate =
-    event && event.start_date ? dateFormater(event.start_date) : "";
-  const tempEndDate =
-    event && event.end_date ? dateFormater(event.end_date) : "";
-  const tempStartTime =
-    event && event.start_time ? event.start_time.slice(-12, -7) : "";
-  const tempEndTime =
-    event && event.end_time ? event.end_time.slice(-12, -7) : "";
-  const tempColor = event && event.color ? event.color : "";
-
   //set controled inputs for the form
-  const [title, setTitle] = useState(tempTitle);
-  const [details, setDetails] = useState(tempDetails);
-  const [startDate, setStartDate] = useState(tempStartDate);
-  const [endDate, setEndDate] = useState(tempEndDate);
-  const [startTime, setStartTime] = useState(tempStartTime);
-  const [endTime, setEndTime] = useState(tempEndTime);
-  const [color, setColor] = useState(tempColor);
+  const [title, setTitle] = useState("");
+  const [details, setDetails] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
+  const [color, setColor] = useState('');
+  const [errors, setErrors] = useState({})
+
+  console.log('starttime:', startTime, 'endTime', endTime)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let err = {}
+
+  // Compare the Date objects
+  if (endTime <= startTime) {
+    err.endTime = 'End time cannot be before or equal to start time';
+  } 
+
+    setErrors(err)
 
     //build the correct data shape
     const eventToSend = {
@@ -132,7 +131,7 @@ export function AddEvent() {
                 onChange={(e) => setEndDate(e.target.value)}
               />
             </div>
-
+            <p>{errors.endTime}</p>
             <div className="flex place-content-between">
               <div>
                 <label htmlFor="startTime">Start Time:</label>
@@ -149,6 +148,7 @@ export function AddEvent() {
                 <input
                   id="endTime"
                   type="time"
+                  min={startTime}
                   value={endTime}
                   onChange={(e) => setEndTime(e.target.value)}
                 />
@@ -191,7 +191,7 @@ export function AddEvent() {
         </div>
       ) : (
         <div>
-          <div onClick={navigate("events")}>Click here to return to events</div>
+          <div onClick={navigate("events")} disabled={Object.keys(errors).length > 0}>Click here to return to events</div>
         </div>
       )}
     </>
