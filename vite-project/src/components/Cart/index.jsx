@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton"
-import {
-  getCartItems,
-  updateCartItemAmount,
-  removeFromCart,
-  placeOrderThunk,
-} from "../../store/cart";
+import { getCartItems, updateCartItemAmount, removeFromCart, placeOrderThunk} from "../../store/cart";
 import "./Cart.css";
+
 
 function calculateTotalPrice(items) {
   const totalPrice = items.reduce(
@@ -17,9 +13,6 @@ function calculateTotalPrice(items) {
   );
   return parseFloat(totalPrice.toFixed(2));
 }
-
-
-
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -30,6 +23,20 @@ const Cart = () => {
   const convenienceFee = 0;
   const cartItems = useSelector((state) => state.cartReducer);
   const cartItemArr = Object.values(cartItems)
+  const currentTime = new Date()
+  const hours = currentTime.getHours()
+  const minutes = currentTime.getMinutes()
+
+  const storeOpenHours = {
+    weekday: 7,
+    minutes: 30,
+    weekend: 9
+  }
+
+  const storeClosingHours = {
+    weekday: 20,
+    weekend: 13
+  }
 
 
   const handleAmountChange = (product, newAmount) => {
@@ -78,6 +85,7 @@ const Cart = () => {
   const handlePlaceOrder = async () => {
     let orderMessage = `Order Number: ${orderNumber}\n\n`;
     orderMessage += `${user.first_name} ${user.last_name}\nphone: ${user.phone_number}\n`;
+    
 
     cartItemArr.forEach((item) => {
       orderMessage += `${item.amount} - ${item.name}`;
@@ -204,13 +212,27 @@ const Cart = () => {
             Continue Shopping
           </button>
           {productsInCartList.length ? (
-            <OpenModalButton
-              modalComponent={<OrderConfirmation orderNumber={orderNumber} />}
-              buttonText="Place Order"
-              onButtonClick={handlePlaceOrder}
-              onModalClose={() => navigate("/menu")}
-              className="flex-1 green-btn your-cart-btn"
-            />
+            // Check if the store is open, and if it is, enable the button
+            ((currentTime.getDay() >= 1 && currentTime.getDay() <= 6 && 
+              hours >= storeOpenHours.weekday && hours < storeClosingHours.weekday) ||
+            (currentTime.getDay() === 0 || currentTime.getDay() === 6 && 
+              hours >= storeOpenHours.weekend && hours < storeClosingHours.weekend)) ? (
+                <OpenModalButton
+                  modalComponent={<OrderConfirmation orderNumber={orderNumber} />}
+                  buttonText="Place Order"
+                  onButtonClick={handlePlaceOrder}
+                  onModalClose={() => navigate("/menu")}
+                  className="flex-1 green-btn your-cart-btn"
+                />
+              ) : (
+                <button
+                  disabled
+                  className="flex-1 your-cart-btn"
+                  style={{ background: "gray", cursor: "not-allowed" }}
+                >
+                  Store is currently closed
+                </button>
+              )
           ) : (
             <button
               disabled
@@ -220,6 +242,7 @@ const Cart = () => {
               Place Order
             </button>
           )}
+
         </div>
       </div>
     </div>
