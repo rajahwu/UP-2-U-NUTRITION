@@ -28,7 +28,7 @@ def send_sms():
             message = client.messages.create(
                 body=orderMessage,
                 from_=twilio_number,
-                to='+17866511153'
+                to='+1714196461'
             )
             message = client.messages.create(
                 body=orderMessage,
