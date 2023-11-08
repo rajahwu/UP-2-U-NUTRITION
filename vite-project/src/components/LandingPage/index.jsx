@@ -23,7 +23,7 @@ const LandingPage = () => {
 
     return (
         <>
-            <div className="landing-page" style={{ backgroundImage: 'url(https://i.imgur.com/VyZicmD.jpg)', height: '100vh' }}>
+            <div className="landing-page w-full" style={{ backgroundImage: 'url(https://i.imgur.com/VyZicmD.jpg)', height: '100vh', width: '100%'}}>
                 <div className="landing-page-content">
                     <div className="orange-line-order">
                         <div className="red-line-order">
