@@ -8,7 +8,6 @@ const OurStory = () => {
             <div className="ourstory-page">
                 <div className="ourstory-page-content">
                     <div className="about-us-container">
-                        <div className="flex flex-col">
                             <h1 id='ourstory-title'>ABOUT US</h1>
                             <img id="owner-img" src="https://i.imgur.com/fNCScRE.png"></img>
                             <div className="ourstory-body">Hello Gainesville fam! We are Rosie & Nico, owners of Up2U Nutrition and we want to share our story with you, so you can know us and maybe we can inspire and motivate you, but beyond that and more importantly, so you can understand our mission.
@@ -32,8 +31,6 @@ const OurStory = () => {
                                 For a healthier and happier community, from your home away from home!
                             </div>
                         </div>
-
-                    </div>
                 </div>
                 <div>
                     <img className="ourstory-page-bg-img" src='/images/BG_Our_Story.png' alt='' />

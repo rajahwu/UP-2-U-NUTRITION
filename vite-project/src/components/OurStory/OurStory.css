@@ -9,8 +9,6 @@
 
 .about-us-container {
     display: flex;
-    padding: 5rem 8rem;
-    height: 100vh;
     flex-direction: column;
 }
 
@@ -24,9 +22,6 @@
 
 #ourstory-title {
     color: white;
-    padding: 8px 20px 2px 20px;
-    /* margin-top: 2%; */
-    /* margin-bottom: 2%; */
     font-size: 3rem;
     font-weight: bold;
     background-color: rgba(0, 145, 209, 1);
@@ -58,6 +53,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 3rem 10rem;
 }
 
 
@@ -153,4 +149,15 @@
 .mess-email-btn {
     width: 180px;
     height: 40px;
+}
+
+
+@media screen and (max-width: 700px){
+    .ourstory-title{
+        font-size: 10px;
+    }
+
+    .ourstory-page-content {
+        padding: 1rem;
+    }
 }
