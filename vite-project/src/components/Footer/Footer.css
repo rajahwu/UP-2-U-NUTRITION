@@ -42,3 +42,49 @@ body {
     box-shadow: 2.5px 2.5px 5px rgba(0, 0, 0, 0.5);
 
 }
+
+.information-container{
+    width: 33.33%;
+}
+
+.business-hours-days{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.business-hours-containter{
+    width: 33.33%;
+}
+
+.footer-contact-us{
+    width: 33.33%;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 700px){
+    .footer-children{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .information-container{
+        width: 100%;
+    }
+
+    .business-hours-days{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .business-hours-containter{
+        width: 100%;
+    }
+
+    .footer-contact-us{
+        width: 100%;
+    }
+}

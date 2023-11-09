@@ -11,8 +11,8 @@ const Footer = () => {
                 <div className="green-line-border">
                     <div className="blue-line-border">
                         <div className="footer-container p-5 flex flex-col items-center gap-3">
-                            <div className="flex w-full">
-                                <div className="information-container w-1/3 p-1 flex flex-col items-center">
+                            <div className="footer-children flex w-full">
+                                <div className="information-container p-1 flex flex-col items-center">
                                     <img className="w-20 h-20" src="../images/logo.png" />
                                     <h1 className="text-center text-3xl">Address</h1>
                                     <h2>1517 NW 23rd Ave, Gainesville, FL 32605</h2>
@@ -56,10 +56,10 @@ const Footer = () => {
                                         </a>
                                     </div>
                                 </div>
-                                <div className="business-hours-containter w-1/3 p-1 flex flex-col items-center">
+                                <div className="business-hours-containter p-1 flex flex-col items-center">
                                     <h1 className="text-center text-3xl">Business Hours </h1>
                                     <div className="flex gap-6">
-                                        <div className="flex flex-col gap-2">
+                                        <div className="business-hours-days">
                                             <h2 className="text-right">Monday</h2>
                                             <h2 className="text-right">Tuesday</h2>
                                             <h2 className="text-right">Wednesday</h2>
@@ -79,7 +79,7 @@ const Footer = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="w-1/3 p-1 flex flex-col items-center">
+                                <div className="footer-contact-us flex flex-col items-center">
                                     <h1 className="text-center text-3xl">Contact Us</h1>
                                     <ContactUsModal />
                                 </div>
